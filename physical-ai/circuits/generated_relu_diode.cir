@@ -1,0 +1,15 @@
+* Generated diode-rectifier sweep (see circuits/relu.cir)
+Vin in 0 DC 0
+D1 in out Dsi
+Rload out 0 10000
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+
+.control
+foreach vin_val -1 -0.5 0 0.2 0.5 1 2
+  alter Vin DC $vin_val
+  op
+  print v(in) v(out)
+end
+.endc
+
+.end

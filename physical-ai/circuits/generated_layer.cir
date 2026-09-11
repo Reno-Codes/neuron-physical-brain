@@ -1,0 +1,57 @@
+* Physical AI - Experiment 3: linear layer compiled to a circuit
+*
+* Python weight matrix W -> conductances G = G_SCALE * W
+* Shared voltages X drive every neuron.
+* Each neuron j has its own summing node sum{j} and 0 V ammeter Vam{j}.
+* Ohm: I_ji = V_i * G_ji
+* KCL: I_j = sum_i I_ji
+* Normalize: Y_j = I_j / G_SCALE = (W @ X)_j
+*
+* G_SCALE = 0.0001 S per unit weight
+* n_in = 3, n_out = 2
+
+V_1 in1 0 DC 1
+V_2 in2 0 DC 2
+V_3 in3 0 DC 3
+
+* Neuron 1: row 1 of W
+* weight 0.1
+* conductance 1e-05 S
+* resistance 100000 Ohm
+R_1_1 in1 sum1 100000
+* weight 0.2
+* conductance 2e-05 S
+* resistance 50000 Ohm
+R_1_2 in2 sum1 50000
+* weight 0.3
+* conductance 3e-05 S
+* resistance 33333.3333333333 Ohm
+R_1_3 in3 sum1 33333.3333333333
+* 0 V ammeter / virtual ground for neuron 1
+Vam1 sum1 0 DC 0
+
+* Neuron 2: row 2 of W
+* weight 0.4
+* conductance 4e-05 S
+* resistance 25000 Ohm
+R_2_1 in1 sum2 25000
+* weight 0.5
+* conductance 5e-05 S
+* resistance 20000 Ohm
+R_2_2 in2 sum2 20000
+* weight 0.6
+* conductance 6e-05 S
+* resistance 16666.6666666667 Ohm
+R_2_3 in3 sum2 16666.6666666667
+* 0 V ammeter / virtual ground for neuron 2
+Vam2 sum2 0 DC 0
+
+.control
+op
+print i(Vam1)
+print v(sum1)
+print i(Vam2)
+print v(sum2)
+.endc
+
+.end

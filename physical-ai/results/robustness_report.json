@@ -1,0 +1,205 @@
+{
+  "experiment": 7,
+  "seed": 7,
+  "n_trials": 100,
+  "model": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\xor_model.npz",
+  "class_threshold": 0.5,
+  "n_compiled_resistors": 17,
+  "note": "Resistor draws model manufacturing tolerance of compiled weight/bias conductances. Input noise models analog voltage error. The XOR model was not retrained.",
+  "nominal": {
+    "n_evaluations": 4,
+    "accuracy": 1.0,
+    "n_failures": 0,
+    "failure_rate": 0.0,
+    "mae": 8.450415585983177e-06,
+    "rmse": 1.1762074398681799e-05,
+    "max_abs_error": 1.6726623424112574e-05,
+    "min_margin": 0.49834992858311317,
+    "max_margin": 0.518002719914398,
+    "smallest_margin_input": [
+      0.0,
+      0.0
+    ],
+    "smallest_margin_index": 0,
+    "physical_outputs": [
+      0.001650071416886806,
+      1.002507775620289,
+      1.018002719914398,
+      0.001650071416886806
+    ],
+    "software_outputs": [
+      0.0016503406125618503,
+      1.0025243122678587,
+      1.018019446537822,
+      0.0016503406125618503
+    ]
+  },
+  "conditions": [
+    {
+      "n_evaluations": 400,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "failure_rate": 0.0,
+      "mae": 8.450415585983177e-06,
+      "rmse": 1.17620743986818e-05,
+      "max_abs_error": 1.6726623424112574e-05,
+      "min_margin": 0.49834992858311317,
+      "max_margin": 0.518002719914398,
+      "smallest_margin_input": [
+        0.0,
+        0.0
+      ],
+      "smallest_margin_index": 0,
+      "name": "resistor_0pct",
+      "resistor_tolerance": 0.0,
+      "input_noise_sigma": 0.0,
+      "n_trials": 100
+    },
+    {
+      "n_evaluations": 400,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "failure_rate": 0.0,
+      "mae": 0.0037951520604141338,
+      "rmse": 0.006490550677203749,
+      "max_abs_error": 0.024075350947039942,
+      "min_margin": 0.4847248531836854,
+      "max_margin": 0.542094797484862,
+      "smallest_margin_input": [
+        0.0,
+        1.0
+      ],
+      "smallest_margin_index": 77,
+      "name": "resistor_1pct",
+      "resistor_tolerance": 0.01,
+      "input_noise_sigma": 0.0,
+      "n_trials": 100
+    },
+    {
+      "n_evaluations": 400,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "failure_rate": 0.0,
+      "mae": 0.018972002607869833,
+      "rmse": 0.03297379216524952,
+      "max_abs_error": 0.13155961844501785,
+      "min_margin": 0.4129703511200714,
+      "max_margin": 0.6495790649828399,
+      "smallest_margin_input": [
+        0.0,
+        1.0
+      ],
+      "smallest_margin_index": 21,
+      "name": "resistor_5pct",
+      "resistor_tolerance": 0.05,
+      "input_noise_sigma": 0.0,
+      "n_trials": 100
+    },
+    {
+      "n_evaluations": 400,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "failure_rate": 0.0,
+      "mae": 0.039549632455461614,
+      "rmse": 0.06854544571455269,
+      "max_abs_error": 0.22749211217865684,
+      "min_margin": 0.3279843123363767,
+      "max_margin": 0.7455115587164789,
+      "smallest_margin_input": [
+        1.0,
+        0.0
+      ],
+      "smallest_margin_index": 26,
+      "name": "resistor_10pct",
+      "resistor_tolerance": 0.1,
+      "input_noise_sigma": 0.0,
+      "n_trials": 100
+    },
+    {
+      "n_evaluations": 400,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "failure_rate": 0.0,
+      "mae": 0.0007400708990244878,
+      "rmse": 0.0012911529263893798,
+      "max_abs_error": 0.004400349809055015,
+      "min_margin": 0.49834992858311317,
+      "max_margin": 0.5223697477265059,
+      "smallest_margin_input": [
+        0.0,
+        0.0
+      ],
+      "smallest_margin_index": 0,
+      "name": "noise_1mV",
+      "resistor_tolerance": 0.0,
+      "input_noise_sigma": 0.001,
+      "n_trials": 100
+    },
+    {
+      "n_evaluations": 400,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "failure_rate": 0.0,
+      "mae": 0.008138429393845271,
+      "rmse": 0.014297506601798769,
+      "max_abs_error": 0.06545039862919189,
+      "min_margin": 0.4638483275446541,
+      "max_margin": 0.583469845167014,
+      "smallest_margin_input": [
+        1.0,
+        0.0
+      ],
+      "smallest_margin_index": 242,
+      "name": "noise_10mV",
+      "resistor_tolerance": 0.0,
+      "input_noise_sigma": 0.01,
+      "n_trials": 100
+    },
+    {
+      "n_evaluations": 400,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "failure_rate": 0.0,
+      "mae": 0.022218602002422844,
+      "rmse": 0.03847586001325415,
+      "max_abs_error": 0.13492393990017226,
+      "min_margin": 0.3942912928428842,
+      "max_margin": 0.640835148773808,
+      "smallest_margin_input": [
+        1.0,
+        0.0
+      ],
+      "smallest_margin_index": 366,
+      "name": "res5_noise10mV",
+      "resistor_tolerance": 0.05,
+      "input_noise_sigma": 0.01,
+      "n_trials": 100
+    }
+  ],
+  "worst_case": {
+    "condition": "resistor_10pct",
+    "master_seed": 7,
+    "trial_index": 5,
+    "tolerance": 0.1,
+    "input_noise_sigma": 0.0,
+    "input_vector": [
+      1.0,
+      0.0
+    ],
+    "software_output": 1.018019446537822,
+    "physical_output": 1.245511558716479,
+    "output_error": 0.22749211217865684,
+    "expected_class": 1,
+    "physical_class": 1,
+    "trial_outputs": [
+      0.001525407125327424,
+      0.9202784183395976,
+      1.245511558716479,
+      0.001525407125327424
+    ]
+  },
+  "plots": {
+    "accuracy": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\robustness_accuracy.png",
+    "error": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\robustness_error.png"
+  }
+}

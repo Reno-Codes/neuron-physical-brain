@@ -1,0 +1,39 @@
+* Physical AI - Experiment 5: signed-weight differential current sum
+*
+* w = w+ - w-  with separate G+ / G- paths and KCL subtraction.
+* No negative resistors. Python does not compute I+ - I-.
+* G_SCALE = 0.0001 S per unit weight
+
+V1 in1 0 DC 1
+V2 in2 0 DC 2
+V3 in3 0 DC 3
+
+* Positive conductance path -> sump
+* w1 = 0.5  w+ = 0.5  G+ = 5e-05 S  R = 20000 Ohm
+Rp1 in1 sump 20000
+* w3 = 0.3  w+ = 0.3  G+ = 3e-05 S  R = 33333.3333333333 Ohm
+Rp3 in3 sump 33333.3333333333
+Vamp sump 0 DC 0
+
+* Negative conductance path -> sumn
+* w2 = -0.2  w- = 0.2  G- = 2e-05 S  R = 50000 Ohm
+Rn2 in2 sumn 50000
+Vamn sumn 0 DC 0
+
+* Current copiers + KCL subtractor: I(Vdiff) = I+ - I-
+Fplus 0 diff Vamp 1
+Fminus diff 0 Vamn 1
+Vdiff diff 0 DC 0
+
+Hlin y 0 Vdiff 10000
+
+.control
+set numdgt=15
+op
+print i(Vamp)
+print i(Vamn)
+print i(Vdiff)
+print v(y)
+.endc
+
+.end

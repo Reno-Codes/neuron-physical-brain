@@ -1,0 +1,132 @@
+* Physical AI - Experiment 14 architecture D: ratiometric fabric (physical R_IV, weight ~ R_IV/R_w)
+* Frozen Experiment 9 weights. No Python output correction.
+* Behavioral variation study. Not transistor-level or PCB power.
+* divider Ra=999000 Rb=1000 beta=0.001 Ileak=0 rail=15 linear=False k1=1 k2=1 physical_iv=True
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+Rdiv1a in1 tap1 999000
+Rdiv1b tap1 0 1000
+Ediv1 inf1 0 tap1 0 1
+Vin2 in2 0 DC 0
+Rdiv2a in2 tap2 999000
+Rdiv2b tap2 0 1000
+Ediv2 inf2 0 tap2 0 1
+Vref vref 0 DC 1
+Rdivrefa vref tapref 999000
+Rdivrefb tapref 0 1000
+Edivref vreff 0 tapref 0 1
+
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=48749.9920441162 G_phys=2.05128238604645e-05 G_eff=2.05128238604645e-05
+Rh1p1n1 in1 h1p 48749.9920441162
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=107746.969487669 G_phys=9.28100349137382e-06 G_eff=9.28100349137382e-06
+Rh1p2n1 in2 h1p 107746.969487669
+* h1 bias=-0.0265987962576462 b-  bank=f alpha=0.001 R=1253.18954325804 G_phys=0.000797963887729386 G_eff=7.97963887729385e-07
+Rh1bnf1 vreff h1n 1253.18954325804
+Vh1p h1p 0 DC 0
+Vh1n h1n 0 DC 0
+Fh1p 0 h1d Vh1p 1
+Fh1n h1d 0 Vh1n 1
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+Rh1iv h1d 0 33333.3333333333
+Eh1sc h1raw 0 h1d 0 1
+Eh1lin h1lin 0 h1raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h1lin))) no high-gain op-amp loop
+Bh1relu h1y 0 V = max(0, min(15, v(h1lin)))
+Eh1 h1buf 0 h1y 0 1
+
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=37672.3718890781 G_phys=2.65446519519499e-05 G_eff=2.65446519519499e-05
+Rh2n1n1 in1 h2n 37672.3718890781
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=42590.1684417639 G_phys=2.34795972072137e-05 G_eff=2.34795972072137e-05
+Rh2p2n1 in2 h2p 42590.1684417639
+* h2 bias=+5.94215208512688e-05 b+  bank=f alpha=0.001 R=560963.988396833 G_phys=1.78264562553806e-06 G_eff=1.78264562553806e-09
+Rh2bpf1 vreff h2p 560963.988396833
+Vh2p h2p 0 DC 0
+Vh2n h2n 0 DC 0
+Fh2p 0 h2d Vh2p 1
+Fh2n h2d 0 Vh2n 1
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+Rh2iv h2d 0 33333.3333333333
+Eh2sc h2raw 0 h2d 0 1
+Eh2lin h2lin 0 h2raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h2lin))) no high-gain op-amp loop
+Bh2relu h2y 0 V = max(0, min(15, v(h2lin)))
+Eh2 h2buf 0 h2y 0 1
+
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=41293.0004526854 G_phys=2.42171794017687e-05 G_eff=2.42171794017687e-05
+Rh3p1n1 in1 h3p 41293.0004526854
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=19393.1144355429 G_phys=5.15646934030999e-05 G_eff=5.15646934030999e-05
+Rh3p2n1 in2 h3p 19393.1144355429
+* h3 bias=+0.0173783581286745 b+  bank=f alpha=0.001 R=1918.09451080035 G_phys=0.000521350743860236 G_eff=5.21350743860236e-07
+Rh3bpf1 vreff h3p 1918.09451080035
+Vh3p h3p 0 DC 0
+Vh3n h3n 0 DC 0
+Fh3p 0 h3d Vh3p 1
+Fh3n h3d 0 Vh3n 1
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+Rh3iv h3d 0 33333.3333333333
+Eh3sc h3raw 0 h3d 0 1
+Eh3lin h3lin 0 h3raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h3lin))) no high-gain op-amp loop
+Bh3relu h3y 0 V = max(0, min(15, v(h3lin)))
+Eh3 h3buf 0 h3y 0 1
+
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=15411.6749813161 G_phys=6.48858739372794e-05 G_eff=6.48858739372794e-05
+Rh4n1n1 in1 h4n 15411.6749813161
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=45852.5506319697 G_phys=2.18090375828029e-05 G_eff=2.18090375828029e-05
+Rh4p2n1 in2 h4p 45852.5506319697
+* h4 bias=-0.0184151286231249 b-  bank=f alpha=0.001 R=1810.10591973139 G_phys=0.000552453858693748 G_eff=5.52453858693748e-07
+Rh4bnf1 vreff h4n 1810.10591973139
+Vh4p h4p 0 DC 0
+Vh4n h4n 0 DC 0
+Fh4p 0 h4d Vh4p 1
+Fh4n h4d 0 Vh4n 1
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+Rh4iv h4d 0 33333.3333333333
+Eh4sc h4raw 0 h4d 0 1
+Eh4lin h4lin 0 h4raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h4lin))) no high-gain op-amp loop
+Bh4relu h4y 0 V = max(0, min(15, v(h4lin)))
+Eh4 h4buf 0 h4y 0 1
+
+Rdivh1a h1buf htap1 999000
+Rdivh1b htap1 0 1000
+Edivh1 h1f 0 htap1 0 1
+Rdivh2a h2buf htap2 999000
+Rdivh2b htap2 0 1000
+Edivh2 h2f 0 htap2 0 1
+Rdivh3a h3buf htap3 999000
+Rdivh3b htap3 0 1000
+Edivh3 h3f 0 htap3 0 1
+Rdivh4a h4buf htap4 999000
+Rdivh4b htap4 0 1000
+Edivh4 h4f 0 htap4 0 1
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=55381.137413171 G_phys=1.80566894561861e-05 G_eff=1.80566894561861e-05
+Ro1p1n1 h1buf o1p 55381.137413171
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=95974.0918925228 G_phys=1.04194786351285e-05 G_eff=1.04194786351285e-05
+Ro1p2n1 h2buf o1p 95974.0918925228
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=38011.716249768 G_phys=2.63076782281859e-05 G_eff=2.63076782281859e-05
+Ro1p3n1 h3buf o1p 38011.716249768
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=35860.5019249499 G_phys=2.78858338930346e-05 G_eff=2.78858338930346e-05
+Ro1p4n1 h4buf o1p 35860.5019249499
+* o1 bias=+0.0103504514823374 b+  bank=f alpha=0.001 R=3220.47143452777 G_phys=0.000310513544470123 G_eff=3.10513544470123e-07
+Ro1bpf1 vreff o1p 3220.47143452777
+Vo1p o1p 0 DC 0
+Vo1n o1n 0 DC 0
+Fo1p 0 o1d Vo1p 1
+Fo1n o1d 0 Vo1n 1
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+Ro1iv o1d 0 33333.3333333333
+Eo1sc o1raw 0 o1d 0 1
+Eo1lin o1lin 0 o1raw 0 1
+.control
+set numdgt=15
+alter Vin1 DC 0.494125531810799
+alter Vin2 DC -0.229451673774848
+op
+print i(Vin1)
+print i(Vin2)
+print i(Vref)
+.endc
+
+.end

@@ -1,0 +1,128 @@
+* Physical AI - Experiment 5: signed 2-3-2 physical network
+*
+* Hidden:  I_diff/G_SCALE ≈ W1 @ X + b1, then precision ReLU.
+* Output:  I_diff/G_SCALE ≈ W2 @ H + b2  (linear).
+* Subtraction is KCL at each neuron's diff node, not Python.
+* G_SCALE = 0.0001
+
+Vin1 in1 0 DC 2
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+
+* --- neuron h1 ---
+* h1 input 1 w=+0.5 w+  G = 5e-05 S  R = 20000 Ohm
+Rh1p1 in1 h1p 20000
+* h1 input 2 w=-0.3 w-  G = 3e-05 S  R = 33333.3333333333 Ohm
+Rh1n2 in2 h1n 33333.3333333333
+* h1 bias=+0.1 b+  G = 1e-05 S  R = 100000 Ohm
+Rh1bp vref h1p 100000
+Vh1p h1p 0 DC 0
+Vh1n h1n 0 DC 0
+Fh1p 0 h1d Vh1p 1
+Fh1n h1d 0 Vh1n 1
+Vh1d h1d 0 DC 0
+Hh1 h1lin 0 Vh1d 10000
+Bh1 h1amp 0 V = max(-15, min(15, 100000 * v(h1lin, h1y)))
+Dh1 h1amp h1y Dsi
+RLh1 h1y 0 10000
+Eh1 h1buf 0 h1y 0 1
+
+* --- neuron h2 ---
+* h2 input 1 w=-0.2 w-  G = 2e-05 S  R = 50000 Ohm
+Rh2n1 in1 h2n 50000
+* h2 input 2 w=+0.8 w+  G = 8e-05 S  R = 12500 Ohm
+Rh2p2 in2 h2p 12500
+* h2 bias=-0.2 b-  G = 2e-05 S  R = 50000 Ohm
+Rh2bn vref h2n 50000
+Vh2p h2p 0 DC 0
+Vh2n h2n 0 DC 0
+Fh2p 0 h2d Vh2p 1
+Fh2n h2d 0 Vh2n 1
+Vh2d h2d 0 DC 0
+Hh2 h2lin 0 Vh2d 10000
+Bh2 h2amp 0 V = max(-15, min(15, 100000 * v(h2lin, h2y)))
+Dh2 h2amp h2y Dsi
+RLh2 h2y 0 10000
+Eh2 h2buf 0 h2y 0 1
+
+* --- neuron h3 ---
+* h3 input 1 w=+0.7 w+  G = 7e-05 S  R = 14285.7142857143 Ohm
+Rh3p1 in1 h3p 14285.7142857143
+* h3 input 2 w=-0.4 w-  G = 4e-05 S  R = 25000 Ohm
+Rh3n2 in2 h3n 25000
+* h3 bias=+0.05 b+  G = 5e-06 S  R = 200000 Ohm
+Rh3bp vref h3p 200000
+Vh3p h3p 0 DC 0
+Vh3n h3n 0 DC 0
+Fh3p 0 h3d Vh3p 1
+Fh3n h3d 0 Vh3n 1
+Vh3d h3d 0 DC 0
+Hh3 h3lin 0 Vh3d 10000
+Bh3 h3amp 0 V = max(-15, min(15, 100000 * v(h3lin, h3y)))
+Dh3 h3amp h3y Dsi
+RLh3 h3y 0 10000
+Eh3 h3buf 0 h3y 0 1
+
+* --- neuron o1 ---
+* o1 input 1 w=+0.6 w+  G = 6e-05 S  R = 16666.6666666667 Ohm
+Ro1p1 h1buf o1p 16666.6666666667
+* o1 input 2 w=-0.5 w-  G = 5e-05 S  R = 20000 Ohm
+Ro1n2 h2buf o1n 20000
+* o1 input 3 w=+0.2 w+  G = 2e-05 S  R = 50000 Ohm
+Ro1p3 h3buf o1p 50000
+* o1 bias=+0.1 b+  G = 1e-05 S  R = 100000 Ohm
+Ro1bp vref o1p 100000
+Vo1p o1p 0 DC 0
+Vo1n o1n 0 DC 0
+Fo1p 0 o1d Vo1p 1
+Fo1n o1d 0 Vo1n 1
+Vo1d o1d 0 DC 0
+Ho1 o1lin 0 Vo1d 10000
+
+* --- neuron o2 ---
+* o2 input 1 w=-0.3 w-  G = 3e-05 S  R = 33333.3333333333 Ohm
+Ro2n1 h1buf o2n 33333.3333333333
+* o2 input 2 w=+0.4 w+  G = 4e-05 S  R = 25000 Ohm
+Ro2p2 h2buf o2p 25000
+* o2 input 3 w=+0.7 w+  G = 7e-05 S  R = 14285.7142857143 Ohm
+Ro2p3 h3buf o2p 14285.7142857143
+* o2 bias=-0.1 b-  G = 1e-05 S  R = 100000 Ohm
+Ro2bn vref o2n 100000
+Vo2p o2p 0 DC 0
+Vo2n o2n 0 DC 0
+Fo2p 0 o2d Vo2p 1
+Fo2n o2d 0 Vo2n 1
+Vo2d o2d 0 DC 0
+Ho2 o2lin 0 Vo2d 10000
+
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+
+.control
+set numdgt=15
+op
+print i(Vh1p)
+print i(Vh1n)
+print i(Vh1d)
+print v(h1lin)
+print v(h1y)
+print i(Vh2p)
+print i(Vh2n)
+print i(Vh2d)
+print v(h2lin)
+print v(h2y)
+print i(Vh3p)
+print i(Vh3n)
+print i(Vh3d)
+print v(h3lin)
+print v(h3y)
+print i(Vo1p)
+print i(Vo1n)
+print i(Vo1d)
+print v(o1lin)
+print i(Vo2p)
+print i(Vo2n)
+print i(Vo2d)
+print v(o2lin)
+.endc
+
+.end

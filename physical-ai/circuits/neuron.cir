@@ -1,0 +1,36 @@
+* Physical AI - Experiment 1: physical weighted sum
+*
+* A passive resistor network that computes a weighted combination of
+* two voltages by physical electrical laws, not by a programmed algorithm.
+*
+* V1 and V2 are the electrical inputs (analogues of neural activations).
+* Resistor conductances G = 1/R represent computational weights: a smaller
+* resistor injects more current into the output node for a given voltage.
+* The output voltage is not a free choice of formula; it is the unique
+* voltage at node "out" that satisfies Kirchhoff's Current Law (currents
+* into the node sum to zero) together with Ohm's law.
+*
+* Nodal result for this topology (KCL at "out"):
+*
+*     Vout = (V1/R1 + V2/R2) / (1/R1 + 1/R2 + 1/R3)
+*
+* With V1=1 V, V2=2 V, R1=10k, R2=20k, R3=10k:
+*     Vout = (1/10k + 2/20k) / (1/10k + 1/20k + 1/10k) = 0.8 V
+*
+* Do not confuse this with a naive G*V sum such as 0.1*V1 + 0.05*V2.
+* That expression omits the load and the other conductances at the node
+* and is not the circuit's actual output.
+
+V1 in1 0 DC 1
+V2 in2 0 DC 2
+
+R1 in1 out 10k
+R2 in2 out 20k
+R3 out 0 10k
+
+.control
+op
+print v(out)
+.endc
+
+.end

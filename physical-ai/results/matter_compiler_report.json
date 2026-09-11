@@ -1,0 +1,3258 @@
+{
+  "experiment": 8,
+  "model": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\xor_model.npz",
+  "class_threshold": 0.5,
+  "cost_function": {
+    "rejected": "1e9",
+    "wrong_class": "1e6 + 1e5 * n_wrong + 100 * max_error",
+    "correct": "100*max_error + 10*mae + 50*total_G + 0.01*n_R"
+  },
+  "baseline": {
+    "config": {
+      "g_scale": 0.0001,
+      "quant_name": "exact",
+      "quant_step": 0.0,
+      "range_name": "unconstrained",
+      "r_min": null,
+      "r_max": null
+    },
+    "label": "G=0.0001 quant=exact range=unconstrained",
+    "rejected": false,
+    "reject_reason": null,
+    "physical_outputs": [
+      0.001650071416886806,
+      1.002507775620289,
+      1.018002719914398,
+      0.001650071416886806
+    ],
+    "software_outputs": [
+      0.0016503406125618503,
+      1.0025243122678587,
+      1.018019446537822,
+      0.0016503406125618503
+    ],
+    "n_resistors": 17,
+    "total_conductance": 0.0012848977036595435,
+    "r_min_used": 5125.484183040153,
+    "r_max_used": 6059355.21666454,
+    "accuracy": 1.0,
+    "n_failures": 0,
+    "mae": 8.450415585983177e-06,
+    "max_abs_error": 1.6726623424112574e-05,
+    "score": 0.23600205168124827,
+    "min_margin": 0.49834992858311317
+  },
+  "candidates": [
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=1e-05 quant=exact range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001650071416886807,
+        1.002507775620289,
+        1.018002719914398,
+        0.001650071416886807
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.00012848977036595437,
+      "r_min_used": 51254.84183040153,
+      "r_max_used": 60593552.166645385,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 8.450415585982743e-06,
+      "max_abs_error": 1.6726623424112574e-05,
+      "score": 0.17818165501656882,
+      "min_margin": 0.49834992858311317
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=1e-05 quant=exact range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.05936e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=exact range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.05936e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=exact range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.05936e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=1e-05 quant=1% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001648674654081082,
+        0.9998879694765456,
+        1.012247184956268,
+        0.001648674654081082
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0001282835894575848,
+      "r_min_used": 51321.27332779392,
+      "r_max_used": 60644885.795300186,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.002102984072457176,
+      "max_abs_error": 0.005772261581554083,
+      "score": 0.7746701783528595,
+      "min_margin": 0.4983513253459189
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=1e-05 quant=1% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.06449e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=1% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.06449e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=1% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.06449e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=1e-05 quant=2% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001647301393859832,
+        1.003703381704957,
+        1.029164030484421,
+        0.001647301393859832
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.000128419172965491,
+      "r_min_used": 51629.0490065038,
+      "r_max_used": 60695353.41154219,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.0030824329552753167,
+      "max_abs_error": 0.011144583946598896,
+      "score": 1.3217036828609174,
+      "min_margin": 0.4983526986061402
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=1e-05 quant=2% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.06954e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=2% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.06954e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=2% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.06954e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=1e-05 quant=5% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001672845820949621,
+        1.04946646193562,
+        1.043208250057527,
+        0.001672845820949621
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0001290485967667061,
+      "r_min_used": 50585.30740465996,
+      "r_max_used": 59768555.339569,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.018043990901060465,
+      "max_abs_error": 0.046942149667761335,
+      "score": 5.051107305625073,
+      "min_margin": 0.4983271541790504
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=1e-05 quant=5% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=5.97686e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=5% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=5.97686e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=5% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=5.97686e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=1e-05 quant=10% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001652360102199849,
+        1.007886551807313,
+        1.002928496199705,
+        0.001652360102199849
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.00012681318542347004,
+      "r_min_used": 52331.852427227124,
+      "r_max_used": 60509673.52610925,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.005114307214211874,
+      "max_abs_error": 0.015090950338117137,
+      "score": 1.7365787652250058,
+      "min_margin": 0.4983476398978002
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=1e-05 quant=10% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.05097e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=10% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.05097e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 1e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=1e-05 quant=10% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.05097e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=3e-05 quant=exact range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001650071416886807,
+        1.002507775620288,
+        1.018002719914393,
+        0.001650071416886807
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0003854693110978631,
+      "r_min_used": 17084.94727680051,
+      "r_max_used": 20197850.72221513,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 8.450415587426033e-06,
+      "max_abs_error": 1.6726623428997556e-05,
+      "score": 0.1910306320536672,
+      "min_margin": 0.49834992858311317
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=3e-05 quant=exact range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.01979e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=exact range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.01979e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=exact range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.01979e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=3e-05 quant=1% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001641967445927074,
+        1.003301241727856,
+        1.027045632603584,
+        0.001641967445927074
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.00038608848244780483,
+      "r_min_used": 17006.891193969393,
+      "r_max_used": 20297524.133508515,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.002454965464757185,
+      "max_abs_error": 0.009026186065761888,
+      "score": 1.1164726853461509,
+      "min_margin": 0.4983580325540729
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=3e-05 quant=1% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.02975e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=1% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.02975e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=1% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.02975e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=3e-05 quant=2% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001664420174795172,
+        1.004589774552151,
+        1.004297159202272,
+        0.001664420174795172
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.00038533536424696397,
+      "r_min_used": 17032.739599099354,
+      "r_max_used": 20023768.971686352,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.003953977186077266,
+      "max_abs_error": 0.013722287335550032,
+      "score": 1.601035273628124,
+      "min_margin": 0.4983355798252048
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=3e-05 quant=2% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.00238e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=2% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.00238e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=2% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.00238e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=3e-05 quant=5% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001631172772324015,
+        0.9900745090694602,
+        0.991917133304064,
+        0.001631172772324015
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.00038337274580881747,
+      "r_min_used": 17292.580815160134,
+      "r_max_used": 20431872.937865276,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.009647613028158072,
+      "max_abs_error": 0.026102313233758112,
+      "score": 2.8958760909478327,
+      "min_margin": 0.49007450906946015
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=3e-05 quant=5% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.04319e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=5% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.04319e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=5% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.04319e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=3e-05 quant=10% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001728604611101871,
+        1.102966425850583,
+        1.097540256636646,
+        0.001728604611101871
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.000396688941490307,
+      "r_min_used": 16674.540931185085,
+      "r_max_used": 19280246.7550109,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.045029862919657035,
+      "max_abs_error": 0.10044211358272426,
+      "score": 10.684344434543512,
+      "min_margin": 0.49827139538889814
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=3e-05 quant=10% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=1.92802e+07 > r_max=1e+07",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=10% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=1.92802e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 3e-05,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=3e-05 quant=10% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=1.92802e+07 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0001 quant=exact range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001650071416886806,
+        1.002507775620289,
+        1.018002719914398,
+        0.001650071416886806
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0012848977036595435,
+      "r_min_used": 5125.484183040153,
+      "r_max_used": 6059355.21666454,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 8.450415585983177e-06,
+      "max_abs_error": 1.6726623424112574e-05,
+      "score": 0.23600205168124827,
+      "min_margin": 0.49834992858311317
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0001 quant=exact range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001650071416886806,
+        1.002507775620289,
+        1.018002719914398,
+        0.001650071416886806
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0012848977036595435,
+      "r_min_used": 5125.484183040153,
+      "r_max_used": 6059355.21666454,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 8.450415585983177e-06,
+      "max_abs_error": 1.6726623424112574e-05,
+      "score": 0.23600205168124827,
+      "min_margin": 0.49834992858311317
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=exact range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.05936e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=exact range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=8346.15 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0001 quant=1% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001641995735475857,
+        1.003335785704589,
+        1.027080994775332,
+        0.001641995735475857
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.001286983781292737,
+      "r_min_used": 5101.979455901971,
+      "r_max_used": 6089152.32970716,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.002472427857103102,
+      "max_abs_error": 0.009061548237510042,
+      "score": 1.165228291386672,
+      "min_margin": 0.49835800426452415
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0001 quant=1% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001641995735475857,
+        1.003335785704589,
+        1.027080994775332,
+        0.001641995735475857
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.001286983781292737,
+      "r_min_used": 5101.979455901971,
+      "r_max_used": 6089152.32970716,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.002472427857103102,
+      "max_abs_error": 0.009061548237510042,
+      "score": 1.165228291386672,
+      "min_margin": 0.49835800426452415
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=1% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.08915e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=1% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=8307.8 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0001 quant=2% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001638298873707236,
+        1.015842159894634,
+        1.012298947560052,
+        0.001638298873707236
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.001284655036694533,
+      "r_min_used": 5089.487234333972,
+      "r_max_used": 6102889.690243365,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.004765607520563656,
+      "max_abs_error": 0.013317847626775237,
+      "score": 1.6136735897178869,
+      "min_margin": 0.49836170112629274
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0001 quant=2% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001638298873707236,
+        1.015842159894634,
+        1.012298947560052,
+        0.001638298873707236
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.001284655036694533,
+      "r_min_used": 5089.487234333972,
+      "r_max_used": 6102889.690243365,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.004765607520563656,
+      "max_abs_error": 0.013317847626775237,
+      "score": 1.6136735897178869,
+      "min_margin": 0.49836170112629274
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=2% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.10289e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=2% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=8349.84 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0001 quant=5% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001657117647407707,
+        1.029838739190801,
+        1.023697664578208,
+        0.001657117647407707
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0012944444590989644,
+      "r_min_used": 5106.547044524329,
+      "r_max_used": 6033588.709528108,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.008251549758255036,
+      "max_abs_error": 0.027314426922942392,
+      "score": 3.0486804128317377,
+      "min_margin": 0.4983428823525923
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0001 quant=5% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001657117647407707,
+        1.029838739190801,
+        1.023697664578208,
+        0.001657117647407707
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0012944444590989644,
+      "r_min_used": 5106.547044524329,
+      "r_max_used": 6033588.709528108,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.008251549758255036,
+      "max_abs_error": 0.027314426922942392,
+      "score": 3.0486804128317377,
+      "min_margin": 0.4983428823525923
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=5% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.03359e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=5% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=8318.03 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0001 quant=10% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001627530529083868,
+        0.9625950793297298,
+        0.9730378521032398,
+        0.001627530529083868
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0012646526553375037,
+      "r_min_used": 5313.022611848312,
+      "r_max_used": 6143280.789206571,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.021239111884916784,
+      "max_abs_error": 0.04498159443458227,
+      "score": 4.943783195074271,
+      "min_margin": 0.46259507932972976
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0001 quant=10% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001627530529083868,
+        0.9625950793297298,
+        0.9730378521032398,
+        0.001627530529083868
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0012646526553375037,
+      "r_min_used": 5313.022611848312,
+      "r_max_used": 6143280.789206571,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.021239111884916784,
+      "max_abs_error": 0.04498159443458227,
+      "score": 4.943783195074271,
+      "min_margin": 0.46259507932972976
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=10% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=6.14328e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0001 quant=10% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=8556.68 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0003 quant=exact range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001650071416886808,
+        1.002507775620288,
+        1.018002719914393,
+        0.001650071416886808
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0038546931109786297,
+      "r_min_used": 1708.494727680051,
+      "r_max_used": 2019785.0722215136,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 8.450415587425491e-06,
+      "max_abs_error": 1.6726623428997556e-05,
+      "score": 0.36449182204770547,
+      "min_margin": 0.49834992858311317
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0003 quant=exact range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001650071416886808,
+        1.002507775620288,
+        1.018002719914393,
+        0.001650071416886808
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0038546931109786297,
+      "r_min_used": 1708.494727680051,
+      "r_max_used": 2019785.0722215136,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 8.450415587425491e-06,
+      "max_abs_error": 1.6726623428997556e-05,
+      "score": 0.36449182204770547,
+      "min_margin": 0.49834992858311317
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=exact range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.01979e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=exact range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=2782.05 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0003 quant=1% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001651670987761099,
+        1.003522713287684,
+        1.015926893357999,
+        0.001651670987761099
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0038541855811539205,
+      "r_min_used": 1707.605674852476,
+      "r_max_used": 2017828.9512304743,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.0007734037375117353,
+      "max_abs_error": 0.0020925531798230423,
+      "score": 0.5796986344151176,
+      "min_margin": 0.4983483290122389
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0003 quant=1% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001651670987761099,
+        1.003522713287684,
+        1.015926893357999,
+        0.001651670987761099
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0038541855811539205,
+      "r_min_used": 1707.605674852476,
+      "r_max_used": 2017828.9512304743,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.0007734037375117353,
+      "max_abs_error": 0.0020925531798230423,
+      "score": 0.5796986344151176,
+      "min_margin": 0.4983483290122389
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=1% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.01783e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=1% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=2780.58 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0003 quant=2% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.0016553209078682,
+        0.9936479499377442,
+        1.039196853367364,
+        0.0016553209078682
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0038625737530634317,
+      "r_min_used": 1712.6340824003805,
+      "r_max_used": 2013380.7012956743,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.007515932437567249,
+      "max_abs_error": 0.021177406829541834,
+      "score": 2.556028694983027,
+      "min_margin": 0.4936479499377442
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0003 quant=2% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.0016553209078682,
+        0.9936479499377442,
+        1.039196853367364,
+        0.0016553209078682
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.0038625737530634317,
+      "r_min_used": 1712.6340824003805,
+      "r_max_used": 2013380.7012956743,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.007515932437567249,
+      "max_abs_error": 0.021177406829541834,
+      "score": 2.556028694983027,
+      "min_margin": 0.4936479499377442
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=2% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.01338e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=2% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=2754.66 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0003 quant=5% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.00161583503292307,
+        0.9715580592372175,
+        0.9733661943926353,
+        0.00161583503292307
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.003817065544942067,
+      "r_min_used": 1745.6724488684108,
+      "r_max_used": 2062581.5225418797,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.018922129083776374,
+      "max_abs_error": 0.044653252145186784,
+      "score": 5.015399782603545,
+      "min_margin": 0.4715580592372175
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0003 quant=5% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.00161583503292307,
+        0.9715580592372175,
+        0.9733661943926353,
+        0.00161583503292307
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.003817065544942067,
+      "r_min_used": 1745.6724488684108,
+      "r_max_used": 2062581.5225418797,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.018922129083776374,
+      "max_abs_error": 0.044653252145186784,
+      "score": 5.015399782603545,
+      "min_margin": 0.4715580592372175
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=5% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=2.06258e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=5% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=2843.52 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.0003 quant=10% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001702629332152187,
+        1.070093008389072,
+        1.064828689138562,
+        0.001702629332152187
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.003907280029128619,
+      "r_min_used": 1692.892739326842,
+      "r_max_used": 1957438.5812892138,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.028620629040283535,
+      "max_abs_error": 0.06756869612121341,
+      "score": 7.408439903980607,
+      "min_margin": 0.4982973706678478
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.0003 quant=10% range=1k-10M",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001702629332152187,
+        1.070093008389072,
+        1.064828689138562,
+        0.001702629332152187
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.003907280029128619,
+      "r_min_used": 1692.892739326842,
+      "r_max_used": 1957438.5812892138,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.028620629040283535,
+      "max_abs_error": 0.06756869612121341,
+      "score": 7.408439903980607,
+      "min_margin": 0.4982973706678478
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=10% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Ro1bp R=1.95744e+06 > r_max=1e+06",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.0003,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.0003 quant=10% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=2726.42 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.001 quant=exact range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001650071416886806,
+        1.002507775620289,
+        1.018002719914396,
+        0.001650071416886806
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.01284897703659543,
+      "r_min_used": 512.5484183040153,
+      "r_max_used": 605935.521666454,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 8.450415586482777e-06,
+      "max_abs_error": 1.6726623426110976e-05,
+      "score": 0.8142060183282475,
+      "min_margin": 0.49834992858311317
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.001 quant=exact range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=834.615 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=exact range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=834.615 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "exact",
+        "quant_step": 0.0,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=exact range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=834.615 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.001 quant=1% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001651699444492745,
+        1.003557264729368,
+        1.015961872228047,
+        0.001651699444492745
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.01284750661710815,
+      "r_min_used": 512.2728764777581,
+      "r_max_used": 605338.2559625393,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.0007733111087865493,
+      "max_abs_error": 0.0020575743097750454,
+      "score": 1.0258658729207775,
+      "min_margin": 0.4983483005555073
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.001 quant=1% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=834.159 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=1% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=834.159 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "1%",
+        "quant_step": 0.01,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=1% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=834.159 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.001 quant=2% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001661937272460567,
+        1.001597282529294,
+        1.001305539547512,
+        0.001661937272460567
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.012851136618913244,
+      "r_min_used": 511.745585538272,
+      "r_max_used": 601610.5229273012,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.0044160325121680565,
+      "max_abs_error": 0.016713906990310168,
+      "score": 2.5281078550983596,
+      "min_margin": 0.49833806272753944
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.001 quant=2% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=839.573 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=2% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=839.573 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "2%",
+        "quant_step": 0.02,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=2% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=839.573 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.001 quant=5% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001641535951180375,
+        1.00268600374589,
+        1.004552118536611,
+        0.001641535951180375
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.01285140914375809,
+      "r_min_used": 515.5019126272612,
+      "r_max_used": 609086.0404592068,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.0034116572005013206,
+      "max_abs_error": 0.013467328001210976,
+      "score": 2.1934198293140152,
+      "min_margin": 0.4983584640488196
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.001 quant=5% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=839.698 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=5% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=839.698 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "5%",
+        "quant_step": 0.05,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=5% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=839.698 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "unconstrained",
+        "r_min": null,
+        "r_max": null
+      },
+      "label": "G=0.001 quant=10% range=unconstrained",
+      "rejected": false,
+      "reject_reason": null,
+      "physical_outputs": [
+        0.001603076631622656,
+        0.9339071232637387,
+        0.9178228856516011,
+        0.001603076631622656
+      ],
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 17,
+      "total_conductance": 0.012757397598526945,
+      "r_min_used": 490.37072529785183,
+      "r_max_used": 623700.2557739824,
+      "accuracy": 1.0,
+      "n_failures": 0,
+      "mae": 0.04222706946305482,
+      "max_abs_error": 0.10019656088622098,
+      "score": 11.249796663178993,
+      "min_margin": 0.4178228856516011
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-10M",
+        "r_min": 1000.0,
+        "r_max": 10000000.0
+      },
+      "label": "G=0.001 quant=10% range=1k-10M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=868.722 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "1k-1M",
+        "r_min": 1000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=10% range=1k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=868.722 < r_min=1000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    },
+    {
+      "config": {
+        "g_scale": 0.001,
+        "quant_name": "10%",
+        "quant_step": 0.1,
+        "range_name": "10k-1M",
+        "r_min": 10000.0,
+        "r_max": 1000000.0
+      },
+      "label": "G=0.001 quant=10% range=10k-1M",
+      "rejected": true,
+      "reject_reason": "Rh1p1 R=868.722 < r_min=10000",
+      "physical_outputs": null,
+      "software_outputs": [
+        0.0016503406125618503,
+        1.0025243122678587,
+        1.018019446537822,
+        0.0016503406125618503
+      ],
+      "n_resistors": 0,
+      "total_conductance": null,
+      "r_min_used": null,
+      "r_max_used": null,
+      "accuracy": 0.0,
+      "n_failures": 4,
+      "mae": null,
+      "max_abs_error": null,
+      "score": 1000000000.0
+    }
+  ],
+  "best": {
+    "config": {
+      "g_scale": 1e-05,
+      "quant_name": "exact",
+      "quant_step": 0.0,
+      "range_name": "unconstrained",
+      "r_min": null,
+      "r_max": null
+    },
+    "label": "G=1e-05 quant=exact range=unconstrained",
+    "rejected": false,
+    "reject_reason": null,
+    "physical_outputs": [
+      0.001650071416886807,
+      1.002507775620289,
+      1.018002719914398,
+      0.001650071416886807
+    ],
+    "software_outputs": [
+      0.0016503406125618503,
+      1.0025243122678587,
+      1.018019446537822,
+      0.0016503406125618503
+    ],
+    "n_resistors": 17,
+    "total_conductance": 0.00012848977036595437,
+    "r_min_used": 51254.84183040153,
+    "r_max_used": 60593552.166645385,
+    "accuracy": 1.0,
+    "n_failures": 0,
+    "mae": 8.450415585982743e-06,
+    "max_abs_error": 1.6726623424112574e-05,
+    "score": 0.17818165501656882,
+    "min_margin": 0.49834992858311317
+  },
+  "improved": true,
+  "chosen": {
+    "config": {
+      "g_scale": 1e-05,
+      "quant_name": "exact",
+      "quant_step": 0.0,
+      "range_name": "unconstrained",
+      "r_min": null,
+      "r_max": null
+    },
+    "label": "G=1e-05 quant=exact range=unconstrained",
+    "rejected": false,
+    "reject_reason": null,
+    "physical_outputs": [
+      0.001650071416886807,
+      1.002507775620289,
+      1.018002719914398,
+      0.001650071416886807
+    ],
+    "software_outputs": [
+      0.0016503406125618503,
+      1.0025243122678587,
+      1.018019446537822,
+      0.0016503406125618503
+    ],
+    "n_resistors": 17,
+    "total_conductance": 0.00012848977036595437,
+    "r_min_used": 51254.84183040153,
+    "r_max_used": 60593552.166645385,
+    "accuracy": 1.0,
+    "n_failures": 0,
+    "mae": 8.450415585982743e-06,
+    "max_abs_error": 1.6726623424112574e-05,
+    "score": 0.17818165501656882,
+    "min_margin": 0.49834992858311317
+  },
+  "optimized_circuit": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\generated_xor_optimized.cir",
+  "baseline_circuit": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\generated_xor.cir",
+  "optimized_robustness": {
+    "resistor_1pct": {
+      "accuracy": 1.0,
+      "failure_rate": 0.0,
+      "max_abs_error": 0.024075350947039942,
+      "mae": 0.0037951520604141403
+    },
+    "resistor_5pct": {
+      "accuracy": 1.0,
+      "failure_rate": 0.0,
+      "max_abs_error": 0.13155961844501696,
+      "mae": 0.01897200260786982
+    },
+    "resistor_10pct": {
+      "accuracy": 1.0,
+      "failure_rate": 0.0,
+      "max_abs_error": 0.22749211217865684,
+      "mae": 0.039549632455461614
+    },
+    "res5_noise10mV": {
+      "accuracy": 1.0,
+      "failure_rate": 0.0,
+      "max_abs_error": 0.13492393990017426,
+      "mae": 0.02221860200242286
+    },
+    "min_accuracy": 1.0
+  },
+  "plot": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\matter_compiler_search.png"
+}

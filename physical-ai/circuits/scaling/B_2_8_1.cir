@@ -1,0 +1,589 @@
+* Physical AI - Experiment 9: scaling network B 2->8->1
+* Frozen random weights (seed 9). Weights were not edited.
+* Matter Compiler v1 mapping: G=1e-05 quant=exact range=unconstrained
+* Hidden: precision ReLU. Output: linear.
+* Signed weights: G+/G- paths, I_diff = I+ - I- by KCL in SPICE.
+* Bias: 1 V reference through G_SCALE*|b| onto the + or - path.
+* G_SCALE = 1e-05
+* shape: 2 -> 8 -> 1
+
+Vin1 in1 0 DC 0
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+
+* --- neuron h1 ---
+* h1 input 1 w=+0.292748916092307 w+  G = 2.92748916092307e-06 S  R = 341589.650731513 Ohm
+Rh1p1 in1 h1p 341589.650731513
+* h1 input 2 w=-0.041977234626618 w-  G = 4.1977234626618e-07 S  R = 2382243.63490084 Ohm
+Rh1n2 in2 h1n 2382243.63490084
+* h1 bias=-0.00679246096604694 b-  G = 6.79246096604694e-08 S  R = 14722204.5882728 Ohm
+Rh1bn vref h1n 14722204.5882728
+Vh1p h1p 0 DC 0
+Vh1n h1n 0 DC 0
+Fh1p 0 h1d Vh1p 1
+Fh1n h1d 0 Vh1n 1
+Vh1d h1d 0 DC 0
+Hh1 h1lin 0 Vh1d 100000
+Bh1 h1amp 0 V = max(-15, min(15, 100000 * v(h1lin, h1y)))
+Dh1 h1amp h1y Dsi
+RLh1 h1y 0 10000
+Eh1 h1buf 0 h1y 0 1
+
+* --- neuron h2 ---
+* h2 input 1 w=-2.10725190523443 w-  G = 2.10725190523443e-05 S  R = 47455.1712358637 Ohm
+Rh2n1 in1 h2n 47455.1712358637
+* h2 input 2 w=+2.98806410989366 w+  G = 2.98806410989366e-05 S  R = 33466.484092123 Ohm
+Rh2p2 in2 h2p 33466.484092123
+* h2 bias=+0.00609246230036745 b+  G = 6.09246230036745e-08 S  R = 16413724.873434 Ohm
+Rh2bp vref h2p 16413724.873434
+Vh2p h2p 0 DC 0
+Vh2n h2n 0 DC 0
+Fh2p 0 h2d Vh2p 1
+Fh2n h2d 0 Vh2n 1
+Vh2d h2d 0 DC 0
+Hh2 h2lin 0 Vh2d 100000
+Bh2 h2amp 0 V = max(-15, min(15, 100000 * v(h2lin, h2y)))
+Dh2 h2amp h2y Dsi
+RLh2 h2y 0 10000
+Eh2 h2buf 0 h2y 0 1
+
+* --- neuron h3 ---
+* h3 input 1 w=-1.10574276215027 w-  G = 1.10574276215027e-05 S  R = 90436.9473832556 Ohm
+Rh3n1 in1 h3n 90436.9473832556
+* h3 input 2 w=+0.396877834521849 w+  G = 3.96877834521849e-06 S  R = 251966.70436503 Ohm
+Rh3p2 in2 h3p 251966.70436503
+* h3 bias=-0.10177952277345 b-  G = 1.0177952277345e-06 S  R = 982515.905705203 Ohm
+Rh3bn vref h3n 982515.905705203
+Vh3p h3p 0 DC 0
+Vh3n h3n 0 DC 0
+Fh3p 0 h3d Vh3p 1
+Fh3n h3d 0 Vh3n 1
+Vh3d h3d 0 DC 0
+Hh3 h3lin 0 Vh3d 100000
+Bh3 h3amp 0 V = max(-15, min(15, 100000 * v(h3lin, h3y)))
+Dh3 h3amp h3y Dsi
+RLh3 h3y 0 10000
+Eh3 h3buf 0 h3y 0 1
+
+* --- neuron h4 ---
+* h4 input 1 w=-0.410280691963229 w-  G = 4.10280691963229e-06 S  R = 243735.574105355 Ohm
+Rh4n1 in1 h4n 243735.574105355
+* h4 input 2 w=-0.133137631694355 w-  G = 1.33137631694355e-06 S  R = 751102.439838877 Ohm
+Rh4n2 in2 h4n 751102.439838877
+* h4 bias=-0.0244329104281818 b-  G = 2.44329104281818e-07 S  R = 4092840.28171513 Ohm
+Rh4bn vref h4n 4092840.28171513
+Vh4p h4p 0 DC 0
+Vh4n h4n 0 DC 0
+Fh4p 0 h4d Vh4p 1
+Fh4n h4d 0 Vh4n 1
+Vh4d h4d 0 DC 0
+Hh4 h4lin 0 Vh4d 100000
+Bh4 h4amp 0 V = max(-15, min(15, 100000 * v(h4lin, h4y)))
+Dh4 h4amp h4y Dsi
+RLh4 h4y 0 10000
+Eh4 h4buf 0 h4y 0 1
+
+* --- neuron h5 ---
+* h5 input 1 w=+0.115363817171868 w+  G = 1.15363817171868e-06 S  R = 866822.912517022 Ohm
+Rh5p1 in1 h5p 866822.912517022
+* h5 input 2 w=-0.967433918651676 w-  G = 9.67433918651676e-06 S  R = 103366.233157683 Ohm
+Rh5n2 in2 h5n 103366.233157683
+* h5 bias=-0.12239359294103 b-  G = 1.2239359294103e-06 S  R = 817036.232020581 Ohm
+Rh5bn vref h5n 817036.232020581
+Vh5p h5p 0 DC 0
+Vh5n h5n 0 DC 0
+Fh5p 0 h5d Vh5p 1
+Fh5n h5d 0 Vh5n 1
+Vh5d h5d 0 DC 0
+Hh5 h5lin 0 Vh5d 100000
+Bh5 h5amp 0 V = max(-15, min(15, 100000 * v(h5lin, h5y)))
+Dh5 h5amp h5y Dsi
+RLh5 h5y 0 10000
+Eh5 h5buf 0 h5y 0 1
+
+* --- neuron h6 ---
+* h6 input 1 w=-0.627797054726746 w-  G = 6.27797054726746e-06 S  R = 159287.144224539 Ohm
+Rh6n1 in1 h6n 159287.144224539
+* h6 input 2 w=-0.51556683392098 w-  G = 5.15566833920981e-06 S  R = 193961.274117425 Ohm
+Rh6n2 in2 h6n 193961.274117425
+* h6 bias=-0.0292465811381066 b-  G = 2.92465811381066e-07 S  R = 3419203.06950701 Ohm
+Rh6bn vref h6n 3419203.06950701
+Vh6p h6p 0 DC 0
+Vh6n h6n 0 DC 0
+Fh6p 0 h6d Vh6p 1
+Fh6n h6d 0 Vh6n 1
+Vh6d h6d 0 DC 0
+Hh6 h6lin 0 Vh6d 100000
+Bh6 h6amp 0 V = max(-15, min(15, 100000 * v(h6lin, h6y)))
+Dh6 h6amp h6y Dsi
+RLh6 h6y 0 10000
+Eh6 h6buf 0 h6y 0 1
+
+* --- neuron h7 ---
+* h7 input 1 w=+0.42062523002109 w+  G = 4.2062523002109e-06 S  R = 237741.32615627 Ohm
+Rh7p1 in1 h7p 237741.32615627
+* h7 input 2 w=+0.28262435440769 w+  G = 2.8262435440769e-06 S  R = 353826.549058644 Ohm
+Rh7p2 in2 h7p 353826.549058644
+* h7 bias=-0.0640007803467931 b-  G = 6.40007803467931e-07 S  R = 1562480.94879691 Ohm
+Rh7bn vref h7n 1562480.94879691
+Vh7p h7p 0 DC 0
+Vh7n h7n 0 DC 0
+Fh7p 0 h7d Vh7p 1
+Fh7n h7d 0 Vh7n 1
+Vh7d h7d 0 DC 0
+Hh7 h7lin 0 Vh7d 100000
+Bh7 h7amp 0 V = max(-15, min(15, 100000 * v(h7lin, h7y)))
+Dh7 h7amp h7y Dsi
+RLh7 h7y 0 10000
+Eh7 h7buf 0 h7y 0 1
+
+* --- neuron h8 ---
+* h8 input 1 w=-0.198540835102464 w-  G = 1.98540835102464e-06 S  R = 503674.722373316 Ohm
+Rh8n1 in1 h8n 503674.722373316
+* h8 input 2 w=-1.41959582136112 w-  G = 1.41959582136112e-05 S  R = 70442.5854847325 Ohm
+Rh8n2 in2 h8n 70442.5854847325
+* h8 bias=-0.0218704502742312 b-  G = 2.18704502742312e-07 S  R = 4572379.5690583 Ohm
+Rh8bn vref h8n 4572379.5690583
+Vh8p h8p 0 DC 0
+Vh8n h8n 0 DC 0
+Fh8p 0 h8d Vh8p 1
+Fh8n h8d 0 Vh8n 1
+Vh8d h8d 0 DC 0
+Hh8 h8lin 0 Vh8d 100000
+Bh8 h8amp 0 V = max(-15, min(15, 100000 * v(h8lin, h8y)))
+Dh8 h8amp h8y Dsi
+RLh8 h8y 0 10000
+Eh8 h8buf 0 h8y 0 1
+
+* --- neuron o1 ---
+* o1 input 1 w=-0.976521021338332 w-  G = 9.76521021338332e-06 S  R = 102404.349537657 Ohm
+Ro1n1 h1buf o1n 102404.349537657
+* o1 input 2 w=-0.717826906000627 w-  G = 7.17826906000627e-06 S  R = 139309.3504354 Ohm
+Ro1n2 h2buf o1n 139309.3504354
+* o1 input 3 w=-0.715495597491312 w-  G = 7.15495597491312e-06 S  R = 139763.263883974 Ohm
+Ro1n3 h3buf o1n 139763.263883974
+* o1 input 4 w=-0.808589368758057 w-  G = 8.08589368758057e-06 S  R = 123672.167683325 Ohm
+Ro1n4 h4buf o1n 123672.167683325
+* o1 input 5 w=-0.273484334194977 w-  G = 2.73484334194977e-06 S  R = 365651.657139185 Ohm
+Ro1n5 h5buf o1n 365651.657139185
+* o1 input 6 w=+0.0283752521267606 w+  G = 2.83752521267606e-07 S  R = 3524197.76054396 Ohm
+Ro1p6 h6buf o1p 3524197.76054396
+* o1 input 7 w=-0.165624420188492 w-  G = 1.65624420188492e-06 S  R = 603775.69857267 Ohm
+Ro1n7 h7buf o1n 603775.69857267
+* o1 input 8 w=+0.00349060159289994 w+  G = 3.49060159289994e-08 S  R = 28648356.8343649 Ohm
+Ro1p8 h8buf o1p 28648356.8343649
+* o1 bias=+0.0142797532639638 b+  G = 1.42797532639638e-07 S  R = 7002922.1199752 Ohm
+Ro1bp vref o1p 7002922.1199752
+Vo1p o1p 0 DC 0
+Vo1n o1n 0 DC 0
+Fo1p 0 o1d Vo1p 1
+Fo1n o1d 0 Vo1n 1
+Vo1d o1d 0 DC 0
+Ho1 o1lin 0 Vo1d 100000
+
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+.control
+set numdgt=15
+alter Vin1 DC -0.714734280318554
+alter Vin2 DC -0.787680193959743
+op
+print v(o1lin)
+alter Vin1 DC -0.762198151396835
+alter Vin2 DC -0.532656177228675
+op
+print v(o1lin)
+alter Vin1 DC 0.0916298712232397
+alter Vin2 DC -0.785942772866845
+op
+print v(o1lin)
+alter Vin1 DC -0.96642835672012
+alter Vin2 DC 0.449175669459932
+op
+print v(o1lin)
+alter Vin1 DC 0.508091956174846
+alter Vin2 DC 0.253979133475024
+op
+print v(o1lin)
+alter Vin1 DC 0.145630331478262
+alter Vin2 DC -0.319386149744077
+op
+print v(o1lin)
+alter Vin1 DC 0.300833256098269
+alter Vin2 DC 0.406538982389561
+op
+print v(o1lin)
+alter Vin1 DC 0.693925853708525
+alter Vin2 DC -0.653044137936109
+op
+print v(o1lin)
+alter Vin1 DC 0.896101806750134
+alter Vin2 DC -0.145246996436843
+op
+print v(o1lin)
+alter Vin1 DC -0.549165620563925
+alter Vin2 DC 0.575765188084401
+op
+print v(o1lin)
+alter Vin1 DC 0.837333715370094
+alter Vin2 DC -0.653880929257511
+op
+print v(o1lin)
+alter Vin1 DC -0.676834971005406
+alter Vin2 DC 0.407731855916482
+op
+print v(o1lin)
+alter Vin1 DC 0.0532849995879208
+alter Vin2 DC -0.68627771156379
+op
+print v(o1lin)
+alter Vin1 DC 0.899042384184458
+alter Vin2 DC -0.590015447837775
+op
+print v(o1lin)
+alter Vin1 DC -0.677775298226074
+alter Vin2 DC 0.24697373141698
+op
+print v(o1lin)
+alter Vin1 DC -0.089516562436756
+alter Vin2 DC 0.0573773538924174
+op
+print v(o1lin)
+alter Vin1 DC -0.10175089604143
+alter Vin2 DC -0.772328352535724
+op
+print v(o1lin)
+alter Vin1 DC 0.949620560416
+alter Vin2 DC 0.24759491430368
+op
+print v(o1lin)
+alter Vin1 DC 0.833218886423343
+alter Vin2 DC 0.453125860878492
+op
+print v(o1lin)
+alter Vin1 DC -0.441073910055719
+alter Vin2 DC -0.586472220618527
+op
+print v(o1lin)
+alter Vin1 DC 0.927618884206998
+alter Vin2 DC 0.978543199655753
+op
+print v(o1lin)
+alter Vin1 DC -0.343565661238159
+alter Vin2 DC -0.549127926650385
+op
+print v(o1lin)
+alter Vin1 DC 0.415770412670637
+alter Vin2 DC -0.035844207905587
+op
+print v(o1lin)
+alter Vin1 DC -0.450233597641134
+alter Vin2 DC -0.0954660876506106
+op
+print v(o1lin)
+alter Vin1 DC -0.42975026189309
+alter Vin2 DC -0.979182176615711
+op
+print v(o1lin)
+alter Vin1 DC -0.601472695358027
+alter Vin2 DC 0.611724126120581
+op
+print v(o1lin)
+alter Vin1 DC -0.276941821966194
+alter Vin2 DC -0.0154635613197791
+op
+print v(o1lin)
+alter Vin1 DC 0.249075647248746
+alter Vin2 DC -0.087786461785859
+op
+print v(o1lin)
+alter Vin1 DC 0.0943112991833799
+alter Vin2 DC -0.157266123162698
+op
+print v(o1lin)
+alter Vin1 DC 0.803151285522609
+alter Vin2 DC -0.820273728907358
+op
+print v(o1lin)
+alter Vin1 DC 0.671783883375403
+alter Vin2 DC -0.053243494737756
+op
+print v(o1lin)
+alter Vin1 DC 0.422392760483427
+alter Vin2 DC -0.762394383558494
+op
+print v(o1lin)
+alter Vin1 DC 0.224489291028205
+alter Vin2 DC 0.161806078897587
+op
+print v(o1lin)
+alter Vin1 DC 0.514462307114403
+alter Vin2 DC 0.510306578123219
+op
+print v(o1lin)
+alter Vin1 DC 0.618039854991315
+alter Vin2 DC -0.79100513389191
+op
+print v(o1lin)
+alter Vin1 DC 0.308394799067639
+alter Vin2 DC 0.282442735674044
+op
+print v(o1lin)
+alter Vin1 DC 0.821195379280778
+alter Vin2 DC -0.432760902633551
+op
+print v(o1lin)
+alter Vin1 DC 0.161256624490663
+alter Vin2 DC -0.963708526790087
+op
+print v(o1lin)
+alter Vin1 DC -0.71501034349999
+alter Vin2 DC -0.737490543594404
+op
+print v(o1lin)
+alter Vin1 DC -0.130683927189021
+alter Vin2 DC -0.0631658757429845
+op
+print v(o1lin)
+alter Vin1 DC 0.0664166691858514
+alter Vin2 DC -0.697335525992133
+op
+print v(o1lin)
+alter Vin1 DC 0.468768365678006
+alter Vin2 DC -0.634863825188318
+op
+print v(o1lin)
+alter Vin1 DC -0.514125233361381
+alter Vin2 DC -0.212491689710239
+op
+print v(o1lin)
+alter Vin1 DC 0.942779588875444
+alter Vin2 DC 0.526992213722504
+op
+print v(o1lin)
+alter Vin1 DC 0.900987951432049
+alter Vin2 DC 0.589440381101753
+op
+print v(o1lin)
+alter Vin1 DC 0.216468714834272
+alter Vin2 DC 0.652479191606858
+op
+print v(o1lin)
+alter Vin1 DC -0.889943321273337
+alter Vin2 DC 0.0876099925956384
+op
+print v(o1lin)
+alter Vin1 DC -0.398525002836039
+alter Vin2 DC 0.509067626411441
+op
+print v(o1lin)
+alter Vin1 DC -0.56049513692869
+alter Vin2 DC -0.548012888219619
+op
+print v(o1lin)
+alter Vin1 DC -0.0474594509362993
+alter Vin2 DC -0.901847943052124
+op
+print v(o1lin)
+alter Vin1 DC 0.290552263128143
+alter Vin2 DC -0.87992408317087
+op
+print v(o1lin)
+alter Vin1 DC -0.754415037857641
+alter Vin2 DC -0.147221582001441
+op
+print v(o1lin)
+alter Vin1 DC 0.789518318764001
+alter Vin2 DC -0.0152532015960356
+op
+print v(o1lin)
+alter Vin1 DC -0.249124861815382
+alter Vin2 DC 0.537257735542634
+op
+print v(o1lin)
+alter Vin1 DC 0.559160094222538
+alter Vin2 DC -0.109710010113123
+op
+print v(o1lin)
+alter Vin1 DC 0.126988967712139
+alter Vin2 DC -0.24671757514239
+op
+print v(o1lin)
+alter Vin1 DC -0.862963147176591
+alter Vin2 DC 0.485386493455354
+op
+print v(o1lin)
+alter Vin1 DC -0.207064089730874
+alter Vin2 DC 0.677204001388902
+op
+print v(o1lin)
+alter Vin1 DC -0.615377038552666
+alter Vin2 DC -0.750713689739084
+op
+print v(o1lin)
+alter Vin1 DC 0.0279821810796625
+alter Vin2 DC 0.23670948302167
+op
+print v(o1lin)
+alter Vin1 DC -0.621533601972397
+alter Vin2 DC -0.0102933110514578
+op
+print v(o1lin)
+alter Vin1 DC 0.438025604549225
+alter Vin2 DC 0.718253051505363
+op
+print v(o1lin)
+alter Vin1 DC -0.534420346612999
+alter Vin2 DC -0.99909444985092
+op
+print v(o1lin)
+alter Vin1 DC 0.327747681275319
+alter Vin2 DC -0.21985908000927
+op
+print v(o1lin)
+alter Vin1 DC -0.982918114930807
+alter Vin2 DC -0.972393312076227
+op
+print v(o1lin)
+alter Vin1 DC 0.288959723669532
+alter Vin2 DC -0.453363050523605
+op
+print v(o1lin)
+alter Vin1 DC -0.0879357724881911
+alter Vin2 DC -0.647681004778438
+op
+print v(o1lin)
+alter Vin1 DC 0.540321739211547
+alter Vin2 DC -0.634911537534587
+op
+print v(o1lin)
+alter Vin1 DC -0.224206742169718
+alter Vin2 DC -0.731438188002864
+op
+print v(o1lin)
+alter Vin1 DC -0.822093265743612
+alter Vin2 DC 0.907392050937092
+op
+print v(o1lin)
+alter Vin1 DC 0.396193470857164
+alter Vin2 DC 0.471566132302345
+op
+print v(o1lin)
+alter Vin1 DC -0.297149051812282
+alter Vin2 DC -0.171467421482362
+op
+print v(o1lin)
+alter Vin1 DC -0.831058759035676
+alter Vin2 DC -0.342958148636512
+op
+print v(o1lin)
+alter Vin1 DC -0.138534884280287
+alter Vin2 DC 0.677101031656895
+op
+print v(o1lin)
+alter Vin1 DC -0.400779399363126
+alter Vin2 DC -0.76035598233914
+op
+print v(o1lin)
+alter Vin1 DC -0.890090756696902
+alter Vin2 DC -0.448162699702139
+op
+print v(o1lin)
+alter Vin1 DC 0.0987505902830026
+alter Vin2 DC 0.110106279149134
+op
+print v(o1lin)
+alter Vin1 DC -0.261964923939612
+alter Vin2 DC -0.974474017135847
+op
+print v(o1lin)
+alter Vin1 DC 0.756014594535694
+alter Vin2 DC -0.822540640076305
+op
+print v(o1lin)
+alter Vin1 DC -0.886838250636873
+alter Vin2 DC 0.838850079354131
+op
+print v(o1lin)
+alter Vin1 DC 0.515071936449204
+alter Vin2 DC -0.580898002255892
+op
+print v(o1lin)
+alter Vin1 DC 0.298874517698154
+alter Vin2 DC -0.485264828546333
+op
+print v(o1lin)
+alter Vin1 DC 0.446301755156452
+alter Vin2 DC 0.295519448610216
+op
+print v(o1lin)
+alter Vin1 DC -0.741613440172806
+alter Vin2 DC 0.919716321022333
+op
+print v(o1lin)
+alter Vin1 DC -0.054000695315203
+alter Vin2 DC 0.885901361181522
+op
+print v(o1lin)
+alter Vin1 DC -0.495705050624727
+alter Vin2 DC -0.383028430725612
+op
+print v(o1lin)
+alter Vin1 DC -0.911642699087583
+alter Vin2 DC -0.741283490821265
+op
+print v(o1lin)
+alter Vin1 DC 0.253677642493278
+alter Vin2 DC 0.733644583250872
+op
+print v(o1lin)
+alter Vin1 DC 0.715847316053492
+alter Vin2 DC -0.988117129237368
+op
+print v(o1lin)
+alter Vin1 DC -0.888865076381415
+alter Vin2 DC -0.991303048965883
+op
+print v(o1lin)
+alter Vin1 DC -0.919131845431069
+alter Vin2 DC 0.783579570436896
+op
+print v(o1lin)
+alter Vin1 DC -0.628812462284356
+alter Vin2 DC -0.556065304030534
+op
+print v(o1lin)
+alter Vin1 DC 0.242091237979427
+alter Vin2 DC 0.819223971361124
+op
+print v(o1lin)
+alter Vin1 DC 0.343765353379751
+alter Vin2 DC -0.980470738320654
+op
+print v(o1lin)
+alter Vin1 DC 0.910991640096
+alter Vin2 DC -0.13258047965762
+op
+print v(o1lin)
+alter Vin1 DC -0.649904854887532
+alter Vin2 DC -0.223480924996246
+op
+print v(o1lin)
+alter Vin1 DC -0.466974369755276
+alter Vin2 DC -0.298839253548656
+op
+print v(o1lin)
+alter Vin1 DC -0.695278532294046
+alter Vin2 DC 0.510924386483261
+op
+print v(o1lin)
+alter Vin1 DC 0.862776558169283
+alter Vin2 DC 0.624579180370556
+op
+print v(o1lin)
+alter Vin1 DC 0.634135551798042
+alter Vin2 DC 0.743731678234586
+op
+print v(o1lin)
+.endc
+
+.end

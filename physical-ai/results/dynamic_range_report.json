@@ -1,0 +1,390 @@
+{
+  "experiment": 11,
+  "r_min": 1000.0,
+  "r_max": 1000000.0,
+  "match_tolerance": 0.001,
+  "encoding": "Multi-range conductance banks: I_inj = alpha * V / R, optional parallel branches on one bank, KCL sum in SPICE.",
+  "fairness": "Frozen Experiment 9 weights. No clipping, no Python output correction.",
+  "networks": [
+    {
+      "id": "A",
+      "label": "A 2->4->1",
+      "n_weights": 12,
+      "n_test": 100,
+      "model_path": "models/scaling/A.npz",
+      "limits": {
+        "parameter_spans": {
+          "W1": {
+            "min_abs": 0.30936678304579385,
+            "max_abs": 2.1628624645759795,
+            "ratio": 6.991256279300751
+          },
+          "b1": {
+            "min_abs": 5.942152085126883e-05,
+            "max_abs": 0.026598796257646187,
+            "ratio": 447.62900505731875
+          },
+          "W2": {
+            "min_abs": 0.34731595450428293,
+            "max_abs": 0.9295277964344861,
+            "ratio": 2.676317584549729
+          },
+          "b2": {
+            "min_abs": 0.010350451482337441,
+            "max_abs": 0.010350451482337441,
+            "ratio": 1.0
+          }
+        },
+        "allowed_resistor_ratio": 1000.0,
+        "parallel_only_note": "G = G1+G2+... can increase conductance (large weights) but cannot create a conductance below 1/R_MAX (small weights).",
+        "bank_note": "Fine banks use CCCS gain alpha<1 so G_eff=alpha/R can be smaller than 1/R_MAX while every physical R stays in range. Currents still add at the SPICE difference node."
+      },
+      "methods": {
+        "baseline": {
+          "n_resistors": 17,
+          "n_weight_resistors": 12,
+          "n_bias_resistors": 5,
+          "n_banks_used": 1,
+          "banks_used": [
+            ""
+          ],
+          "r_min": 46235.02494394834,
+          "r_max": 1682891965.1904986,
+          "total_conductance": 0.0001090495352429556,
+          "resistors_per_weight": 1.4166666666666667,
+          "weight_resistors_per_weight": 1.0,
+          "i_rel_A": 0.0001090495352429556,
+          "constraints_satisfied": false,
+          "failed": false,
+          "failure_reason": null,
+          "matched_software": true,
+          "spice_runtime_s": 0.061595300008775666,
+          "mae": 1.7718438320240508e-05,
+          "rms": 2.1809651007569925e-05,
+          "max_abs_error": 4.67386104894274e-05,
+          "accuracy": 1.0,
+          "n_class_failures": 0,
+          "current_cost": {
+            "label": "relative physical current cost",
+            "note": "I_rel = SigmaG * V_rep with V_rep=1 V. This is a relative conductance-derived metric, not measured board power. SPICE source current is the sum of |I| through Vin* and Vref at one representative operating point.",
+            "v_rep_V": 1.0,
+            "total_conductance_S": 0.0001090495352429556,
+            "i_rel_A": 0.0001090495352429556,
+            "spice_source_current_A": 3.1272386202988794e-05
+          },
+          "mapping": "unified G_SCALE=1e-05",
+          "robustness": {
+            "tolerance": 0.05,
+            "n_trials": 100,
+            "n_inputs": 8,
+            "n_spice_failures": 0,
+            "failed": false,
+            "spice_runtime_s": 6.218212700012373,
+            "mae_mean": 0.03082208314687388,
+            "max_abs_error_worst": 0.2043177434271759,
+            "accuracy_mean": 0.99,
+            "accuracy_min": 0.875
+          }
+        },
+        "single_scale": {
+          "n_resistors": 17,
+          "n_weight_resistors": 12,
+          "n_bias_resistors": 5,
+          "n_banks_used": 1,
+          "banks_used": [
+            ""
+          ],
+          "r_min": 2233.9928550250006,
+          "r_max": 999999.999,
+          "total_conductance": 0.0010860354032138665,
+          "resistors_per_weight": 1.4166666666666667,
+          "weight_resistors_per_weight": 1.0,
+          "i_rel_A": 0.0010860354032138665,
+          "constraints_satisfied": true,
+          "failed": false,
+          "failure_reason": null,
+          "matched_software": true,
+          "spice_runtime_s": 0.062155399995390326,
+          "mae": 1.7718438317099842e-05,
+          "rms": 2.1809651003715637e-05,
+          "max_abs_error": 4.673861047432837e-05,
+          "accuracy": 1.0,
+          "n_class_failures": 0,
+          "current_cost": {
+            "label": "relative physical current cost",
+            "note": "I_rel = SigmaG * V_rep with V_rep=1 V. This is a relative conductance-derived metric, not measured board power. SPICE source current is the sum of |I| through Vin* and Vref at one representative operating point.",
+            "v_rep_V": 1.0,
+            "total_conductance_S": 0.0010860354032138665,
+            "i_rel_A": 0.0010860354032138665,
+            "spice_source_current_A": 0.0010618679069023273
+          },
+          "mapping": "1k-1M per_layer Gw1=3.23e-06 Gb1=0.0168 Gw2=2.88e-06 Gb2=9.66e-05",
+          "robustness": {
+            "tolerance": 0.05,
+            "n_trials": 100,
+            "n_inputs": 8,
+            "n_spice_failures": 0,
+            "failed": false,
+            "spice_runtime_s": 6.667516899993643,
+            "mae_mean": 0.02945480791114817,
+            "max_abs_error_worst": 0.214452542104838,
+            "accuracy_mean": 0.9975,
+            "accuracy_min": 0.875
+          }
+        },
+        "multi_range_search": {
+          "n_candidates": 75,
+          "n_encode_failures": 45,
+          "n_parallel_only_failures": 25,
+          "n_spice_ok": 30
+        },
+        "multi_range": {
+          "n_resistors": 17,
+          "n_weight_resistors": 12,
+          "n_bias_resistors": 5,
+          "n_banks_used": 3,
+          "banks_used": [
+            "f",
+            "m",
+            "n"
+          ],
+          "r_min": 10774.696948766858,
+          "r_max": 959740.9189252284,
+          "total_conductance": 0.00014798385464252252,
+          "resistors_per_weight": 1.4166666666666667,
+          "weight_resistors_per_weight": 1.0,
+          "i_rel_A": 0.00014798385464252252,
+          "constraints_satisfied": true,
+          "failed": false,
+          "failure_reason": null,
+          "matched_software": true,
+          "spice_runtime_s": 0.06209250001120381,
+          "mae": 1.7718438321001703e-05,
+          "rms": 2.1809651008622516e-05,
+          "max_abs_error": 4.673861048454242e-05,
+          "accuracy": 1.0,
+          "n_class_failures": 0,
+          "current_cost": {
+            "label": "relative physical current cost",
+            "note": "I_rel = SigmaG * V_rep with V_rep=1 V. This is a relative conductance-derived metric, not measured board power. SPICE source current is the sum of |I| through Vin* and Vref at one representative operating point.",
+            "v_rep_V": 1.0,
+            "total_conductance_S": 0.00014798385464252252,
+            "i_rel_A": 0.00014798385464252252,
+            "spice_source_current_A": 5.3851239041450354e-05
+          },
+          "mapping": "Gw1=3e-06 Gw2=3e-06 banks=f:0.0001+m:0.01+n:1",
+          "config": {
+            "g_weight_1": 3e-06,
+            "g_weight_2": 3e-06,
+            "banks": [
+              [
+                "f",
+                0.0001
+              ],
+              [
+                "m",
+                0.01
+              ],
+              [
+                "n",
+                1.0
+              ]
+            ],
+            "r_min": 1000.0,
+            "r_max": 1000000.0,
+            "label": "Gw1=3e-06 Gw2=3e-06 banks=f:0.0001+m:0.01+n:1"
+          },
+          "circuit_path": "circuits/dynamic_range/A_multirange.cir",
+          "robustness": {
+            "tolerance": 0.05,
+            "n_trials": 100,
+            "n_inputs": 8,
+            "n_spice_failures": 0,
+            "failed": false,
+            "spice_runtime_s": 6.378107500000624,
+            "mae_mean": 0.03002565894071909,
+            "max_abs_error_worst": 0.20133252138566293,
+            "accuracy_mean": 1.0,
+            "accuracy_min": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "F",
+      "label": "F 16->32->16",
+      "n_weights": 1024,
+      "n_test": 100,
+      "model_path": "models/scaling/F.npz",
+      "limits": {
+        "parameter_spans": {
+          "W1": {
+            "min_abs": 0.0009292520101709443,
+            "max_abs": 1.3199306830022774,
+            "ratio": 1420.4227363032169
+          },
+          "b1": {
+            "min_abs": 0.0014076983006322105,
+            "max_abs": 0.10321964359082088,
+            "ratio": 73.3251177077247
+          },
+          "W2": {
+            "min_abs": 0.0004966021441983263,
+            "max_abs": 0.7358548675655586,
+            "ratio": 1481.7794811447345
+          },
+          "b2": {
+            "min_abs": 0.0014426898470363382,
+            "max_abs": 0.08096523571248748,
+            "ratio": 56.12102689903254
+          }
+        },
+        "allowed_resistor_ratio": 1000.0,
+        "parallel_only_note": "G = G1+G2+... can increase conductance (large weights) but cannot create a conductance below 1/R_MAX (small weights).",
+        "bank_note": "Fine banks use CCCS gain alpha<1 so G_eff=alpha/R can be smaller than 1/R_MAX while every physical R stays in range. Currents still add at the SPICE difference node."
+      },
+      "methods": {
+        "baseline": {
+          "n_resistors": 1072,
+          "n_weight_resistors": 1024,
+          "n_bias_resistors": 48,
+          "n_banks_used": 1,
+          "banks_used": [
+            ""
+          ],
+          "r_min": 75761.55421475829,
+          "r_max": 201368441.85687473,
+          "total_conductance": 0.002433176867630503,
+          "resistors_per_weight": 1.046875,
+          "weight_resistors_per_weight": 1.0,
+          "i_rel_A": 0.002433176867630503,
+          "constraints_satisfied": false,
+          "failed": false,
+          "failure_reason": null,
+          "matched_software": true,
+          "spice_runtime_s": 1.410568699997384,
+          "mae": 9.955112512579054e-06,
+          "rms": 1.2489060586428298e-05,
+          "max_abs_error": 4.4741844575479917e-05,
+          "accuracy": 1.0,
+          "n_class_failures": 0,
+          "current_cost": {
+            "label": "relative physical current cost",
+            "note": "I_rel = SigmaG * V_rep with V_rep=1 V. This is a relative conductance-derived metric, not measured board power. SPICE source current is the sum of |I| through Vin* and Vref at one representative operating point.",
+            "v_rep_V": 1.0,
+            "total_conductance_S": 0.002433176867630503,
+            "i_rel_A": 0.002433176867630503,
+            "spice_source_current_A": 0.0008347943699705866
+          },
+          "mapping": "unified G_SCALE=1e-05",
+          "robustness": {
+            "tolerance": 0.05,
+            "n_trials": 100,
+            "n_inputs": 8,
+            "n_spice_failures": 0,
+            "failed": false,
+            "spice_runtime_s": 9.959214500006055,
+            "mae_mean": 0.02807206353010456,
+            "max_abs_error_worst": 0.1847828824922635,
+            "accuracy_mean": 0.9825,
+            "accuracy_min": 0.875
+          }
+        },
+        "single_scale": {
+          "failed": true,
+          "constraints_satisfied": false,
+          "found_valid_mapping": false,
+          "failure_reason": "Experiment 10: no single-scale mapping. W1 ratio 1420 and W2 ratio 1482 exceed R_MAX/R_MIN=1000.",
+          "mapping": "none"
+        },
+        "multi_range_search": {
+          "n_candidates": 75,
+          "n_encode_failures": 34,
+          "n_parallel_only_failures": 25,
+          "n_spice_ok": 41
+        },
+        "multi_range": {
+          "n_resistors": 1072,
+          "n_weight_resistors": 1024,
+          "n_bias_resistors": 48,
+          "n_banks_used": 2,
+          "banks_used": [
+            "m",
+            "n"
+          ],
+          "r_min": 10031.16538273774,
+          "r_max": 993299.1935926969,
+          "total_conductance": 0.013204659814390897,
+          "resistors_per_weight": 1.046875,
+          "weight_resistors_per_weight": 1.0,
+          "i_rel_A": 0.013204659814390897,
+          "constraints_satisfied": true,
+          "failed": false,
+          "failure_reason": null,
+          "matched_software": true,
+          "spice_runtime_s": 1.7283448999805842,
+          "mae": 9.955112514006608e-06,
+          "rms": 1.2489060588168172e-05,
+          "max_abs_error": 4.474184458524988e-05,
+          "accuracy": 1.0,
+          "n_class_failures": 0,
+          "current_cost": {
+            "label": "relative physical current cost",
+            "note": "I_rel = SigmaG * V_rep with V_rep=1 V. This is a relative conductance-derived metric, not measured board power. SPICE source current is the sum of |I| through Vin* and Vref at one representative operating point.",
+            "v_rep_V": 1.0,
+            "total_conductance_S": 0.013204659814390897,
+            "i_rel_A": 0.013204659814390897,
+            "spice_source_current_A": 0.004918398127824668
+          },
+          "mapping": "Gw1=3e-05 Gw2=3e-05 banks=f:0.0001+m:0.01+n:1",
+          "config": {
+            "g_weight_1": 3e-05,
+            "g_weight_2": 3e-05,
+            "banks": [
+              [
+                "f",
+                0.0001
+              ],
+              [
+                "m",
+                0.01
+              ],
+              [
+                "n",
+                1.0
+              ]
+            ],
+            "r_min": 1000.0,
+            "r_max": 1000000.0,
+            "label": "Gw1=3e-05 Gw2=3e-05 banks=f:0.0001+m:0.01+n:1"
+          },
+          "circuit_path": "circuits/dynamic_range/F_multirange.cir",
+          "robustness": {
+            "tolerance": 0.05,
+            "n_trials": 100,
+            "n_inputs": 8,
+            "n_spice_failures": 0,
+            "failed": false,
+            "spice_runtime_s": 9.645471499999985,
+            "mae_mean": 0.02792715033819777,
+            "max_abs_error_worst": 0.2114964260151453,
+            "accuracy_mean": 0.99125,
+            "accuracy_min": 0.875
+          }
+        }
+      }
+    }
+  ],
+  "plots": {
+    "components": "results/dynamic_range_components.png",
+    "accuracy": "results/dynamic_range_accuracy.png",
+    "error": "results/dynamic_range_error.png"
+  },
+  "summary": {
+    "verdict": "DYNAMIC-RANGE COMPILATION PASSED",
+    "detail": "Frozen Network F compiled into 1 kOhm-1 MOhm with multi-range banks. Inference is physical SPICE vs unchanged NumPy weights.",
+    "network_a_ok": true,
+    "network_f_ok": true,
+    "largest_weight_ratio_represented": 1481.7794811447345
+  }
+}

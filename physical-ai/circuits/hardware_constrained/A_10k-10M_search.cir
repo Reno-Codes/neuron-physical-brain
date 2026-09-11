@@ -1,0 +1,164 @@
+* Physical AI - Experiment 10: hardware-constrained A
+* Frozen Experiment 9 weights. Mapping: 10k-10M shared Gw1=4.62e-05 Gb1=0.00376 Gw2=4.62e-05 Gb2=0.00376
+* Weights were not edited. Resistors are not clipped.
+* Hidden: precision ReLU. Output: linear.
+* Signed weights: G+/G- paths, I_diff = I+ - I- by KCL in SPICE.
+* Bias: separate ammeter path + CCCS gain k=G_WEIGHT/G_BIAS so V_b = b. Vref remains 1 V.
+* G_WEIGHT_1=4.62350248977133e-05 G_BIAS_1=0.00375956862601456 k1=0.0122979600845127
+* G_WEIGHT_2=4.62350248977133e-05 G_BIAS_2=0.00375956862601456 k2=0.0122979600845127
+* R_IV_1=21628.6246673884 R_IV_2=21628.6246673884
+* Layer voltages stay in neural units (no inter-layer Python rescale).
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+
+* --- neuron h1 ---
+* separate bias path: I_b_injected = k * Vref * G_B * |b|, k=G_W/G_B=0.0122979600845127
+* so V_b = I_b_injected / G_W = |b|  (math bias unchanged)
+* h1 input 1 w=+0.683760795348816 w+  G = 3.16136973970327e-05 S  R = 31631.8584138108 Ohm
+Rh1p1 in1 h1p 31631.8584138108
+* h1 input 2 w=+0.309366783045794 w+  G = 1.43035809166478e-05 S  R = 69912.5628629201 Ohm
+Rh1p2 in2 h1p 69912.5628629201
+* h1 bias=-0.0265987962576462 b-  G = 9.99999999e-05 S  R = 10000.00001 Ohm
+Rh1bn vref h1biasn 10000.00001
+Vh1bbn h1biasn 0 DC 0
+Fh1bbn h1d 0 Vh1bbn 0.0122979600845127
+Vh1p h1p 0 DC 0
+Vh1n h1n 0 DC 0
+Fh1p 0 h1d Vh1p 1
+Fh1n h1d 0 Vh1n 1
+Vh1d h1d 0 DC 0
+Hh1 h1lin 0 Vh1d 21628.6246673884
+Bh1 h1amp 0 V = max(-15, min(15, 100000 * v(h1lin, h1y)))
+Dh1 h1amp h1y Dsi
+RLh1 h1y 0 10000
+Eh1 h1buf 0 h1y 0 1
+
+* --- neuron h2 ---
+* separate bias path: I_b_injected = k * Vref * G_B * |b|, k=G_W/G_B=0.0122979600845127
+* so V_b = I_b_injected / G_W = |b|  (math bias unchanged)
+* h2 input 1 w=-0.884821731731664 w-  G = 4.09097547966513e-05 S  R = 24444.0477575743 Ohm
+Rh2n1 in1 h2n 24444.0477575743
+* h2 input 2 w=+0.782653240240456 w+  G = 3.61859920487935e-05 S  R = 27635.0030324329 Ohm
+Rh2p2 in2 h2p 27635.0030324329
+* h2 bias=+5.94215208512688e-05 b+  G = 2.233992855025e-07 S  R = 4476290.05504948 Ohm
+Rh2bp vref h2biasp 4476290.05504948
+Vh2bbp h2biasp 0 DC 0
+Fh2bbp 0 h2d Vh2bbp 0.0122979600845127
+Vh2p h2p 0 DC 0
+Vh2n h2n 0 DC 0
+Fh2p 0 h2d Vh2p 1
+Fh2n h2d 0 Vh2n 1
+Vh2d h2d 0 DC 0
+Hh2 h2lin 0 Vh2d 21628.6246673884
+Bh2 h2amp 0 V = max(-15, min(15, 100000 * v(h2lin, h2y)))
+Dh2 h2amp h2y Dsi
+RLh2 h2y 0 10000
+Eh2 h2buf 0 h2y 0 1
+
+* --- neuron h3 ---
+* separate bias path: I_b_injected = k * Vref * G_B * |b|, k=G_W/G_B=0.0122979600845127
+* so V_b = I_b_injected / G_W = |b|  (math bias unchanged)
+* h3 input 1 w=+0.80723931339229 w+  G = 3.73227297531055e-05 S  R = 26793.324245443 Ohm
+Rh3p1 in1 h3p 26793.324245443
+* h3 input 2 w=+1.71882311343666 w+  G = 7.94698294445093e-05 S  R = 12583.3917977421 Ohm
+Rh3p2 in2 h3p 12583.3917977421
+* h3 bias=+0.0173783581286745 b+  G = 6.53351299922098e-05 S  R = 15305.7015440122 Ohm
+Rh3bp vref h3biasp 15305.7015440122
+Vh3bbp h3biasp 0 DC 0
+Fh3bbp 0 h3d Vh3bbp 0.0122979600845127
+Vh3p h3p 0 DC 0
+Vh3n h3n 0 DC 0
+Fh3p 0 h3d Vh3p 1
+Fh3n h3d 0 Vh3n 1
+Vh3d h3d 0 DC 0
+Hh3 h3lin 0 Vh3d 21628.6246673884
+Bh3 h3amp 0 V = max(-15, min(15, 100000 * v(h3lin, h3y)))
+Dh3 h3amp h3y Dsi
+RLh3 h3y 0 10000
+Eh3 h3buf 0 h3y 0 1
+
+* --- neuron h4 ---
+* separate bias path: I_b_injected = k * Vref * G_B * |b|, k=G_W/G_B=0.0122979600845127
+* so V_b = I_b_injected / G_W = |b|  (math bias unchanged)
+* h4 input 1 w=-2.16286246457598 w-  G = 9.99999999e-05 S  R = 10000.00001 Ohm
+Rh4n1 in1 h4n 10000.00001
+* h4 input 2 w=+0.726967919426763 w+  G = 3.36113798545352e-05 S  R = 29751.8282298389 Ohm
+Rh4p2 in2 h4p 29751.8282298389
+* h4 bias=-0.0184151286231249 b-  G = 6.92329398155231e-05 S  R = 14443.9915835523 Ohm
+Rh4bn vref h4biasn 14443.9915835523
+Vh4bbn h4biasn 0 DC 0
+Fh4bbn h4d 0 Vh4bbn 0.0122979600845127
+Vh4p h4p 0 DC 0
+Vh4n h4n 0 DC 0
+Fh4p 0 h4d Vh4p 1
+Fh4n h4d 0 Vh4n 1
+Vh4d h4d 0 DC 0
+Hh4 h4lin 0 Vh4d 21628.6246673884
+Bh4 h4amp 0 V = max(-15, min(15, 100000 * v(h4lin, h4y)))
+Dh4 h4amp h4y Dsi
+RLh4 h4y 0 10000
+Eh4 h4buf 0 h4y 0 1
+
+* --- neuron o1 ---
+* separate bias path: I_b_injected = k * Vref * G_B * |b|, k=G_W/G_B=0.0122979600845127
+* so V_b = I_b_injected / G_W = |b|  (math bias unchanged)
+* o1 input 1 w=+0.601889648539537 w+  G = 2.78283828859014e-05 S  R = 35934.5350428762 Ohm
+Ro1p1 h1buf o1p 35934.5350428762
+* o1 input 2 w=+0.347315954504283 w+  G = 1.60581618038786e-05 S  R = 62273.6283401047 Ohm
+Ro1p2 h2buf o1p 62273.6283401047
+* o1 input 3 w=+0.876922607606196 w+  G = 4.05445385960402e-05 S  R = 24664.234311885 Ohm
+Ro1p3 h3buf o1p 24664.234311885
+* o1 input 4 w=+0.929527796434486 w+  G = 4.29767408112651e-05 S  R = 23268.400095567 Ohm
+Ro1p4 h4buf o1p 23268.400095567
+* o1 bias=+0.0103504514823374 b+  G = 3.89132326580817e-05 S  R = 25698.1990878703 Ohm
+Ro1bp vref o1biasp 25698.1990878703
+Vo1bbp o1biasp 0 DC 0
+Fo1bbp 0 o1d Vo1bbp 0.0122979600845127
+Vo1p o1p 0 DC 0
+Vo1n o1n 0 DC 0
+Fo1p 0 o1d Vo1p 1
+Fo1n o1d 0 Vo1n 1
+Vo1d o1d 0 DC 0
+Ho1 o1lin 0 Vo1d 21628.6246673884
+
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+.control
+set numdgt=15
+alter Vin1 DC 0.494125531810799
+alter Vin2 DC -0.229451673774848
+op
+print v(o1lin)
+alter Vin1 DC 0.756925898000261
+alter Vin2 DC -0.494115472466579
+op
+print v(o1lin)
+alter Vin1 DC 0.0208787503964407
+alter Vin2 DC -0.496416458868835
+op
+print v(o1lin)
+alter Vin1 DC 0.718610447200065
+alter Vin2 DC 0.919157890410241
+op
+print v(o1lin)
+alter Vin1 DC 0.853272914872112
+alter Vin2 DC 0.475051693668985
+op
+print v(o1lin)
+alter Vin1 DC -0.990532770398839
+alter Vin2 DC 0.373831316331627
+op
+print v(o1lin)
+alter Vin1 DC -0.493372271299048
+alter Vin2 DC -0.61799069167069
+op
+print v(o1lin)
+alter Vin1 DC 0.476619483972029
+alter Vin2 DC 0.37665129561251
+op
+print v(o1lin)
+.endc
+
+.end

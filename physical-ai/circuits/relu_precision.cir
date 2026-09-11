@@ -1,0 +1,26 @@
+* Physical AI - Experiment 4: precision rectifier approximating ReLU
+*
+* Topology: superdiode / non-inverting precision rectifier.
+* A silicon diode still provides the rectifying nonlinearity.
+* An ideal op-amp macromodel (limited VCVS) around the diode cancels Vf:
+*
+*     Vout ≈ max(0, Vin)
+*
+* This is closer to mathematical ReLU than circuits/relu.cir, but it is
+* still a circuit approximation: finite gain, supply rails, and leakage.
+*
+* Op-amp: V(amp) = sat(gain * (Vin - Vout)), rails +/- 15 V.
+
+Vin in 0 DC 1
+Bop amp 0 V = max(-15, min(15, 1e5 * v(in, out)))
+D1 amp out Dsi
+Rload out 0 10k
+
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+
+.control
+op
+print v(in) v(out) v(amp)
+.endc
+
+.end

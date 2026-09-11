@@ -1,0 +1,42 @@
+* Physical AI - Experiment 2: neural weights compiled to a circuit
+*
+* Compiler pipeline:
+*     numerical weights -> conductances G = G_SCALE * w
+*     voltages x represent neural inputs
+*     Ohm's law: I_i = x_i * G_i = G_SCALE * w_i * x_i
+*     KCL at the summing node: I_total = I1 + I2
+*     Normalize: I_total / G_SCALE = w1*x1 + w2*x2
+*
+* Vsense (0 V) holds node `sum` at ground so the current-sum is exact,
+* not a loaded weighted average as in Experiment 1.
+* Vam1 and Vam2 are 0 V ammeters in series with each weight resistor.
+*
+* G_SCALE = 0.0001 S per unit weight
+
+V1 in1 0 DC 1
+V2 in2 0 DC 2
+
+* weight 0.2
+* conductance 2e-05 S
+* resistance 50000 Ohm
+R1 in1 n1 50000
+Vam1 n1 sum DC 0
+
+* weight 0.4
+* conductance 4e-05 S
+* resistance 25000 Ohm
+R2 in2 n2 25000
+Vam2 n2 sum DC 0
+
+* 0 V ammeter / virtual ground: V(sum) = 0, i(Vsense) = I1 + I2
+Vsense sum 0 DC 0
+
+.control
+op
+print i(Vam1)
+print i(Vam2)
+print i(Vsense)
+print v(sum)
+.endc
+
+.end

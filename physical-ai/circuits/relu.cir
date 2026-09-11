@@ -1,0 +1,25 @@
+* Physical AI - Experiment 4: silicon diode rectifier
+*
+* This is a series diode into a resistive load, not an ideal ReLU.
+* Ohm + the diode Shockley equation yield a thresholded response:
+*
+*     Vout ≈ 0                 when Vin is below ~Vf
+*     Vout ≈ Vin - Vd(Id)      when the diode is forward biased
+*
+* Vd is typically ~0.5-0.7 V for this silicon-like model at these currents.
+* Negative Vin reverse-biases the diode, so Vout is only leakage (~0).
+*
+* Do not read this schematic as y = max(0, x).
+
+Vin in 0 DC 1
+D1 in out Dsi
+Rload out 0 10k
+
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+
+.control
+op
+print v(in) v(out)
+.endc
+
+.end

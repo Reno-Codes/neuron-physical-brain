@@ -1,0 +1,144 @@
+* Physical AI - Experiment 11: A multi-range encoding
+* Frozen Experiment 9 weights. Gw1=0.0001 Gw2=0.0001 banks=f:0.0001+m:0.01+n:1
+* Weights were not edited. Resistors were not clipped.
+* Frozen weights. Multi-range banks + optional parallel branches.
+* Currents sum in SPICE. Resistors are not clipped.
+* Gw1=0.0001 Gw2=0.0001 banks=f:0.0001+m:0.01+n:1
+* R window [1000, 1e+06]
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+
+* --- neuron h1 (multi-range banks) ---
+* I_inj = alpha * V / R,  V_lin = I_sum / G_WEIGHT, G_WEIGHT=0.0001
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=14624.9976132349 G_phys=6.83760795348816e-05 G_eff=6.83760795348816e-05
+Rh1p1n1 in1 h1pn 14624.9976132349
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=32324.0908463006 G_phys=3.09366783045794e-05 G_eff=3.09366783045794e-05
+Rh1p2n1 in2 h1pn 32324.0908463006
+* h1 bias=-0.0265987962576462 b-  bank=n alpha=1 R=375956.862977413 G_phys=2.65987962576462e-06 G_eff=2.65987962576462e-06
+Rh1bnn1 vref h1nn 375956.862977413
+Vh1nn h1nn 0 DC 0
+Fh1nn h1d 0 Vh1nn 1
+Vh1pn h1pn 0 DC 0
+Fh1pn 0 h1d Vh1pn 1
+Vh1d h1d 0 DC 0
+Hh1 h1lin 0 Vh1d 10000
+Bh1 h1amp 0 V = max(-15, min(15, 100000 * v(h1lin, h1y)))
+Dh1 h1amp h1y Dsi
+RLh1 h1y 0 10000
+Eh1 h1buf 0 h1y 0 1
+
+* --- neuron h2 (multi-range banks) ---
+* I_inj = alpha * V / R,  V_lin = I_sum / G_WEIGHT, G_WEIGHT=0.0001
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=11301.7115667234 G_phys=8.84821731731664e-05 G_eff=8.84821731731664e-05
+Rh2n1n1 in1 h2nn 11301.7115667234
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=12777.0505325292 G_phys=7.82653240240456e-05 G_eff=7.82653240240456e-05
+Rh2p2n1 in2 h2pn 12777.0505325292
+* h2 bias=+5.94215208512688e-05 b+  bank=f alpha=0.0001 R=16828.919651905 G_phys=5.94215208512688e-05 G_eff=5.94215208512688e-09
+Rh2bpf1 vref h2pf 16828.919651905
+Vh2nn h2nn 0 DC 0
+Fh2nn h2d 0 Vh2nn 1
+Vh2pf h2pf 0 DC 0
+Fh2pf 0 h2d Vh2pf 0.0001
+Vh2pn h2pn 0 DC 0
+Fh2pn 0 h2d Vh2pn 1
+Vh2d h2d 0 DC 0
+Hh2 h2lin 0 Vh2d 10000
+Bh2 h2amp 0 V = max(-15, min(15, 100000 * v(h2lin, h2y)))
+Dh2 h2amp h2y Dsi
+RLh2 h2y 0 10000
+Eh2 h2buf 0 h2y 0 1
+
+* --- neuron h3 (multi-range banks) ---
+* I_inj = alpha * V / R,  V_lin = I_sum / G_WEIGHT, G_WEIGHT=0.0001
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=12387.9001358056 G_phys=8.0723931339229e-05 G_eff=8.0723931339229e-05
+Rh3p1n1 in1 h3pn 12387.9001358056
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=5817.93433066287 G_phys=0.000171882311343666 G_eff=0.000171882311343666
+Rh3p2n1 in2 h3pn 5817.93433066287
+* h3 bias=+0.0173783581286745 b+  bank=n alpha=1 R=575428.353240106 G_phys=1.73783581286745e-06 G_eff=1.73783581286745e-06
+Rh3bpn1 vref h3pn 575428.353240106
+Vh3pn h3pn 0 DC 0
+Fh3pn 0 h3d Vh3pn 1
+Vh3d h3d 0 DC 0
+Hh3 h3lin 0 Vh3d 10000
+Bh3 h3amp 0 V = max(-15, min(15, 100000 * v(h3lin, h3y)))
+Dh3 h3amp h3y Dsi
+RLh3 h3y 0 10000
+Eh3 h3buf 0 h3y 0 1
+
+* --- neuron h4 (multi-range banks) ---
+* I_inj = alpha * V / R,  V_lin = I_sum / G_WEIGHT, G_WEIGHT=0.0001
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=4623.50249439483 G_phys=0.000216286246457598 G_eff=0.000216286246457598
+Rh4n1n1 in1 h4nn 4623.50249439483
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=13755.7651895909 G_phys=7.26967919426763e-05 G_eff=7.26967919426763e-05
+Rh4p2n1 in2 h4pn 13755.7651895909
+* h4 bias=-0.0184151286231249 b-  bank=n alpha=1 R=543031.775919416 G_phys=1.84151286231249e-06 G_eff=1.84151286231249e-06
+Rh4bnn1 vref h4nn 543031.775919416
+Vh4nn h4nn 0 DC 0
+Fh4nn h4d 0 Vh4nn 1
+Vh4pn h4pn 0 DC 0
+Fh4pn 0 h4d Vh4pn 1
+Vh4d h4d 0 DC 0
+Hh4 h4lin 0 Vh4d 10000
+Bh4 h4amp 0 V = max(-15, min(15, 100000 * v(h4lin, h4y)))
+Dh4 h4amp h4y Dsi
+RLh4 h4y 0 10000
+Eh4 h4buf 0 h4y 0 1
+
+* --- neuron o1 (multi-range banks) ---
+* I_inj = alpha * V / R,  V_lin = I_sum / G_WEIGHT, G_WEIGHT=0.0001
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=16614.3412239513 G_phys=6.01889648539537e-05 G_eff=6.01889648539537e-05
+Ro1p1n1 h1buf o1pn 16614.3412239513
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=28792.2275677569 G_phys=3.47315954504283e-05 G_eff=3.47315954504283e-05
+Ro1p2n1 h2buf o1pn 28792.2275677569
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=11403.5148749304 G_phys=8.76922607606196e-05 G_eff=8.76922607606196e-05
+Ro1p3n1 h3buf o1pn 11403.5148749304
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=10758.150577485 G_phys=9.29527796434486e-05 G_eff=9.29527796434486e-05
+Ro1p4n1 h4buf o1pn 10758.150577485
+* o1 bias=+0.0103504514823374 b+  bank=n alpha=1 R=966141.430358331 G_phys=1.03504514823374e-06 G_eff=1.03504514823374e-06
+Ro1bpn1 vref o1pn 966141.430358331
+Vo1pn o1pn 0 DC 0
+Fo1pn 0 o1d Vo1pn 1
+Vo1d o1d 0 DC 0
+Ho1 o1lin 0 Vo1d 10000
+
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+.control
+set numdgt=15
+alter Vin1 DC 0.494125531810799
+alter Vin2 DC -0.229451673774848
+op
+print v(o1lin)
+alter Vin1 DC 0.756925898000261
+alter Vin2 DC -0.494115472466579
+op
+print v(o1lin)
+alter Vin1 DC 0.0208787503964407
+alter Vin2 DC -0.496416458868835
+op
+print v(o1lin)
+alter Vin1 DC 0.718610447200065
+alter Vin2 DC 0.919157890410241
+op
+print v(o1lin)
+alter Vin1 DC 0.853272914872112
+alter Vin2 DC 0.475051693668985
+op
+print v(o1lin)
+alter Vin1 DC -0.990532770398839
+alter Vin2 DC 0.373831316331627
+op
+print v(o1lin)
+alter Vin1 DC -0.493372271299048
+alter Vin2 DC -0.61799069167069
+op
+print v(o1lin)
+alter Vin1 DC 0.476619483972029
+alter Vin2 DC 0.37665129561251
+op
+print v(o1lin)
+.endc
+
+.end

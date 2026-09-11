@@ -1,0 +1,221 @@
+* Physical AI - Experiment 9: scaling network B 2->8->1
+* Frozen random weights (seed 9). Weights were not edited.
+* Matter Compiler v1 mapping: G=1e-05 quant=exact range=unconstrained
+* Hidden: precision ReLU. Output: linear.
+* Signed weights: G+/G- paths, I_diff = I+ - I- by KCL in SPICE.
+* Bias: 1 V reference through G_SCALE*|b| onto the + or - path.
+* G_SCALE = 1e-05
+* shape: 2 -> 8 -> 1
+
+Vin1 in1 0 DC 0
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+
+* --- neuron h1 ---
+* h1 input 1 w=+0.292748916092307 w+  G = 2.92748916092307e-06 S  R = 341589.650731513 Ohm
+Rh1p1 in1 h1p 333678.401414101
+* h1 input 2 w=-0.041977234626618 w-  G = 4.1977234626618e-07 S  R = 2382243.63490084 Ohm
+Rh1n2 in2 h1n 2295744.23690423
+* h1 bias=-0.00679246096604694 b-  G = 6.79246096604694e-08 S  R = 14722204.5882728 Ohm
+Rh1bn vref h1n 15312590.8806344
+Vh1p h1p 0 DC 0
+Vh1n h1n 0 DC 0
+Fh1p 0 h1d Vh1p 1
+Fh1n h1d 0 Vh1n 1
+Vh1d h1d 0 DC 0
+Hh1 h1lin 0 Vh1d 100000
+Bh1 h1amp 0 V = max(-15, min(15, 100000 * v(h1lin, h1y)))
+Dh1 h1amp h1y Dsi
+RLh1 h1y 0 10000
+Eh1 h1buf 0 h1y 0 1
+
+* --- neuron h2 ---
+* h2 input 1 w=-2.10725190523443 w-  G = 2.10725190523443e-05 S  R = 47455.1712358637 Ohm
+Rh2n1 in1 h2n 49041.1265769166
+* h2 input 2 w=+2.98806410989366 w+  G = 2.98806410989366e-05 S  R = 33466.484092123 Ohm
+Rh2p2 in2 h2p 33249.8503031425
+* h2 bias=+0.00609246230036745 b+  G = 6.09246230036745e-08 S  R = 16413724.873434 Ohm
+Rh2bp vref h2p 17076069.2717117
+Vh2p h2p 0 DC 0
+Vh2n h2n 0 DC 0
+Fh2p 0 h2d Vh2p 1
+Fh2n h2d 0 Vh2n 1
+Vh2d h2d 0 DC 0
+Hh2 h2lin 0 Vh2d 100000
+Bh2 h2amp 0 V = max(-15, min(15, 100000 * v(h2lin, h2y)))
+Dh2 h2amp h2y Dsi
+RLh2 h2y 0 10000
+Eh2 h2buf 0 h2y 0 1
+
+* --- neuron h3 ---
+* h3 input 1 w=-1.10574276215027 w-  G = 1.10574276215027e-05 S  R = 90436.9473832556 Ohm
+Rh3n1 in1 h3n 90793.3695615516
+* h3 input 2 w=+0.396877834521849 w+  G = 3.96877834521849e-06 S  R = 251966.70436503 Ohm
+Rh3p2 in2 h3p 250713.488670975
+* h3 bias=-0.10177952277345 b-  G = 1.0177952277345e-06 S  R = 982515.905705203 Ohm
+Rh3bn vref h3n 950503.399968245
+Vh3p h3p 0 DC 0
+Vh3n h3n 0 DC 0
+Fh3p 0 h3d Vh3p 1
+Fh3n h3d 0 Vh3n 1
+Vh3d h3d 0 DC 0
+Hh3 h3lin 0 Vh3d 100000
+Bh3 h3amp 0 V = max(-15, min(15, 100000 * v(h3lin, h3y)))
+Dh3 h3amp h3y Dsi
+RLh3 h3y 0 10000
+Eh3 h3buf 0 h3y 0 1
+
+* --- neuron h4 ---
+* h4 input 1 w=-0.410280691963229 w-  G = 4.10280691963229e-06 S  R = 243735.574105355 Ohm
+Rh4n1 in1 h4n 241492.643790499
+* h4 input 2 w=-0.133137631694355 w-  G = 1.33137631694355e-06 S  R = 751102.439838877 Ohm
+Rh4n2 in2 h4n 771937.635762944
+* h4 bias=-0.0244329104281818 b-  G = 2.44329104281818e-07 S  R = 4092840.28171513 Ohm
+Rh4bn vref h4n 3909557.36011634
+Vh4p h4p 0 DC 0
+Vh4n h4n 0 DC 0
+Fh4p 0 h4d Vh4p 1
+Fh4n h4d 0 Vh4n 1
+Vh4d h4d 0 DC 0
+Hh4 h4lin 0 Vh4d 100000
+Bh4 h4amp 0 V = max(-15, min(15, 100000 * v(h4lin, h4y)))
+Dh4 h4amp h4y Dsi
+RLh4 h4y 0 10000
+Eh4 h4buf 0 h4y 0 1
+
+* --- neuron h5 ---
+* h5 input 1 w=+0.115363817171868 w+  G = 1.15363817171868e-06 S  R = 866822.912517022 Ohm
+Rh5p1 in1 h5p 855887.990329133
+* h5 input 2 w=-0.967433918651676 w-  G = 9.67433918651676e-06 S  R = 103366.233157683 Ohm
+Rh5n2 in2 h5n 102571.976694235
+* h5 bias=-0.12239359294103 b-  G = 1.2239359294103e-06 S  R = 817036.232020581 Ohm
+Rh5bn vref h5n 819682.441070952
+Vh5p h5p 0 DC 0
+Vh5n h5n 0 DC 0
+Fh5p 0 h5d Vh5p 1
+Fh5n h5d 0 Vh5n 1
+Vh5d h5d 0 DC 0
+Hh5 h5lin 0 Vh5d 100000
+Bh5 h5amp 0 V = max(-15, min(15, 100000 * v(h5lin, h5y)))
+Dh5 h5amp h5y Dsi
+RLh5 h5y 0 10000
+Eh5 h5buf 0 h5y 0 1
+
+* --- neuron h6 ---
+* h6 input 1 w=-0.627797054726746 w-  G = 6.27797054726746e-06 S  R = 159287.144224539 Ohm
+Rh6n1 in1 h6n 159941.696420699
+* h6 input 2 w=-0.51556683392098 w-  G = 5.15566833920981e-06 S  R = 193961.274117425 Ohm
+Rh6n2 in2 h6n 190474.526736171
+* h6 bias=-0.0292465811381066 b-  G = 2.92465811381066e-07 S  R = 3419203.06950701 Ohm
+Rh6bn vref h6n 3535892.42227304
+Vh6p h6p 0 DC 0
+Vh6n h6n 0 DC 0
+Fh6p 0 h6d Vh6p 1
+Fh6n h6d 0 Vh6n 1
+Vh6d h6d 0 DC 0
+Hh6 h6lin 0 Vh6d 100000
+Bh6 h6amp 0 V = max(-15, min(15, 100000 * v(h6lin, h6y)))
+Dh6 h6amp h6y Dsi
+RLh6 h6y 0 10000
+Eh6 h6buf 0 h6y 0 1
+
+* --- neuron h7 ---
+* h7 input 1 w=+0.42062523002109 w+  G = 4.2062523002109e-06 S  R = 237741.32615627 Ohm
+Rh7p1 in1 h7p 229950.687104303
+* h7 input 2 w=+0.28262435440769 w+  G = 2.8262435440769e-06 S  R = 353826.549058644 Ohm
+Rh7p2 in2 h7p 368224.853249659
+* h7 bias=-0.0640007803467931 b-  G = 6.40007803467931e-07 S  R = 1562480.94879691 Ohm
+Rh7bn vref h7n 1539957.80603436
+Vh7p h7p 0 DC 0
+Vh7n h7n 0 DC 0
+Fh7p 0 h7d Vh7p 1
+Fh7n h7d 0 Vh7n 1
+Vh7d h7d 0 DC 0
+Hh7 h7lin 0 Vh7d 100000
+Bh7 h7amp 0 V = max(-15, min(15, 100000 * v(h7lin, h7y)))
+Dh7 h7amp h7y Dsi
+RLh7 h7y 0 10000
+Eh7 h7buf 0 h7y 0 1
+
+* --- neuron h8 ---
+* h8 input 1 w=-0.198540835102464 w-  G = 1.98540835102464e-06 S  R = 503674.722373316 Ohm
+Rh8n1 in1 h8n 521801.095834313
+* h8 input 2 w=-1.41959582136112 w-  G = 1.41959582136112e-05 S  R = 70442.5854847325 Ohm
+Rh8n2 in2 h8n 68000.1005258542
+* h8 bias=-0.0218704502742312 b-  G = 2.18704502742312e-07 S  R = 4572379.5690583 Ohm
+Rh8bn vref h8n 4698993.39297432
+Vh8p h8p 0 DC 0
+Vh8n h8n 0 DC 0
+Fh8p 0 h8d Vh8p 1
+Fh8n h8d 0 Vh8n 1
+Vh8d h8d 0 DC 0
+Hh8 h8lin 0 Vh8d 100000
+Bh8 h8amp 0 V = max(-15, min(15, 100000 * v(h8lin, h8y)))
+Dh8 h8amp h8y Dsi
+RLh8 h8y 0 10000
+Eh8 h8buf 0 h8y 0 1
+
+* --- neuron o1 ---
+* o1 input 1 w=-0.976521021338332 w-  G = 9.76521021338332e-06 S  R = 102404.349537657 Ohm
+Ro1n1 h1buf o1n 105486.26819231
+* o1 input 2 w=-0.717826906000627 w-  G = 7.17826906000627e-06 S  R = 139309.3504354 Ohm
+Ro1n2 h2buf o1n 143312.324913202
+* o1 input 3 w=-0.715495597491312 w-  G = 7.15495597491312e-06 S  R = 139763.263883974 Ohm
+Ro1n3 h3buf o1n 133124.180533525
+* o1 input 4 w=-0.808589368758057 w-  G = 8.08589368758057e-06 S  R = 123672.167683325 Ohm
+Ro1n4 h4buf o1n 128419.749060073
+* o1 input 5 w=-0.273484334194977 w-  G = 2.73484334194977e-06 S  R = 365651.657139185 Ohm
+Ro1n5 h5buf o1n 349200.748913936
+* o1 input 6 w=+0.0283752521267606 w+  G = 2.83752521267606e-07 S  R = 3524197.76054396 Ohm
+Ro1p6 h6buf o1p 3453321.4671001
+* o1 input 7 w=-0.165624420188492 w-  G = 1.65624420188492e-06 S  R = 603775.69857267 Ohm
+Ro1n7 h7buf o1n 592376.41932789
+* o1 input 8 w=+0.00349060159289994 w+  G = 3.49060159289994e-08 S  R = 28648356.8343649 Ohm
+Ro1p8 h8buf o1p 29730421.3150891
+* o1 bias=+0.0142797532639638 b+  G = 1.42797532639638e-07 S  R = 7002922.1199752 Ohm
+Ro1bp vref o1p 6957066.06099875
+Vo1p o1p 0 DC 0
+Vo1n o1n 0 DC 0
+Fo1p 0 o1d Vo1p 1
+Fo1n o1d 0 Vo1n 1
+Vo1d o1d 0 DC 0
+Ho1 o1lin 0 Vo1d 100000
+
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+.control
+set numdgt=15
+alter Vin1 DC -0.714734280318554
+alter Vin2 DC -0.787680193959743
+op
+print v(o1lin)
+alter Vin1 DC -0.762198151396835
+alter Vin2 DC -0.532656177228675
+op
+print v(o1lin)
+alter Vin1 DC 0.0916298712232397
+alter Vin2 DC -0.785942772866845
+op
+print v(o1lin)
+alter Vin1 DC -0.96642835672012
+alter Vin2 DC 0.449175669459932
+op
+print v(o1lin)
+alter Vin1 DC 0.508091956174846
+alter Vin2 DC 0.253979133475024
+op
+print v(o1lin)
+alter Vin1 DC 0.145630331478262
+alter Vin2 DC -0.319386149744077
+op
+print v(o1lin)
+alter Vin1 DC 0.300833256098269
+alter Vin2 DC 0.406538982389561
+op
+print v(o1lin)
+alter Vin1 DC 0.693925853708525
+alter Vin2 DC -0.653044137936109
+op
+print v(o1lin)
+.endc
+
+.end
