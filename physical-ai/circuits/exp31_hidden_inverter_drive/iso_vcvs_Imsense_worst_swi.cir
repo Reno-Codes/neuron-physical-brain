@@ -1,0 +1,17 @@
+* Experiment 31 isolated invert kind=vcvs
+* Vin=2.60818 R1=10000 R2=10000 Rload=7150.31
+Vin in 0 DC 2.60817586522917
+Rinvbia in mid 10000
+Rinvbib out mid 10000.0020000002
+Rload out 0 7150.30804745433
+Eamp nout 0 0 mid 100000
+Vsense nout out 0
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+print i(Vsense)
+.endc
+.end

@@ -1,0 +1,2 @@
+* ngspice local init for Experiment 23 manufacturer macromodels
+set ngbehavior=ps

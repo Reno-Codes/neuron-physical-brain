@@ -1,0 +1,16 @@
+* Experiment 30 isolated invert bench mode=vcvs
+* Vin=1 R1=10000 R2=10000 Rload=5000 A=100000
+* Frozen-map invert identity: Vout should equal -Vin.
+Vin in 0 DC 1
+Rinvbia in mid 10000
+Rinvbib out mid 10000
+Rload out 0 5000
+Einvbamp out 0 0 mid 100000
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+.endc
+.end

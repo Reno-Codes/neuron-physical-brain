@@ -1,0 +1,28 @@
+* Experiment 32 isolated AZ invert Vin=2.60818
+Vin in 0 PWL(0 0 0.0002 0 0.000201 2.60817586522917 0.0004 2.60817586522917)
+R1 in mid 10000
+R2 raw mid 10000
+Rload raw 0 4914.01304862554
+.include "C:/ngspice/examples/optran/models/opa1656.lib"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Xinv 0 mid vdd vss raw OPA1656
+Ccl raw 0 1p
+* AZ hold: sample raw while Vin=0
+Saz raw hold 0 azc SWAZ
+.model SWAZ sw vt=0.5 vh=0.1 ron=1 roff=1e12
+Vaz azc 0 PWL(0 1 0.0002 1 0.000201 0 0.0004 0)
+Chold hold 0 10n
+Rhold hold 0 1e9
+Bcorr out 0 V = v(raw)-v(hold)
+.control
+set numdgt=15
+tran 1e-06 0.0004
+meas tran vout_end find v(out) at=0.0004
+meas tran vraw_end find v(raw) at=0.0004
+meas tran vhold find v(hold) at=0.0004
+print vout_end
+print vraw_end
+print vhold
+.endc
+.end

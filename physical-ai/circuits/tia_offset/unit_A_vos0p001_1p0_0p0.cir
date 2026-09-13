@@ -1,0 +1,28 @@
+* Experiment 19 unit cell A vos=0.001
+Vin1 in1 0 DC 1
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+Ria in1 m1 10000
+Rib in1n m1 10000.200002
+Einv1 in1n 0 0 m1 1e5
+Ria2 in2 m2 10000
+Rib2 in2n m2 10000.200002
+Einv2 in2n 0 0 m2 1e5
+Riar vref mr 10000
+Ribr vrefn mr 10000.200002
+Einvr vrefn 0 0 mr 1e5
+Rw1p in1 sum 48749.9920441162
+Rw2p in2 sum 107746.969487669
+Rbn vrefn sum 1253189.54325804
+Bstia raw 0 V = -(100000) * (v(sum) - (0.001))
+Rsf raw sum 33333.3333333333
+Rra raw midr 10000
+Rrb lin midr 10000.200002
+Esgn lin 0 0 midr 1e5
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

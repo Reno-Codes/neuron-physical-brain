@@ -1,0 +1,307 @@
+* Physical AI - Experiment 14 architecture D: ratiometric fabric (physical R_IV, weight ~ R_IV/R_w)
+* Frozen Experiment 9 weights. No Python output correction.
+* Behavioral variation study. Not transistor-level or PCB power.
+* divider Ra=999000 Rb=1001 beta=0.001000999 Ileak=1e-08 rail=15 linear=False k1=1 k2=1 physical_iv=True
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+* tiled Rdiv1a series x4  each=249750
+Rdiv1at1 in1 Rdiv1an1 248599.916492852
+Rdiv1at2 Rdiv1an1 Rdiv1an2 250255.129138204
+Rdiv1at3 Rdiv1an2 Rdiv1an3 249434.527695477
+Rdiv1at4 Rdiv1an3 tap1 249866.498533217
+* tiled Rdiv1b parallel x4  each=4004
+Rdiv1bt1 tap1 0 3985.90433974614
+Rdiv1bt2 tap1 0 4007.54529867747
+Rdiv1bt3 tap1 0 4014.98281084749
+Rdiv1bt4 tap1 0 3995.58330410763
+Ediv1 inf1 0 tap1 0 1
+Vin2 in2 0 DC 0
+* tiled Rdiv2a series x4  each=249750
+Rdiv2at1 in2 Rdiv2an1 249373.971051098
+Rdiv2at2 Rdiv2an1 Rdiv2an2 249463.091853905
+Rdiv2at3 Rdiv2an2 Rdiv2an3 248656.365974696
+Rdiv2at4 Rdiv2an3 tap2 250349.366924863
+* tiled Rdiv2b parallel x4  each=4004
+Rdiv2bt1 tap2 0 4007.66306361612
+Rdiv2bt2 tap2 0 4018.92825381351
+Rdiv2bt3 tap2 0 4014.7229742531
+Rdiv2bt4 tap2 0 4012.92808351709
+Ediv2 inf2 0 tap2 0 1
+Vref vref 0 DC 1
+* tiled Rdivrefa series x4  each=249750
+Rdivrefat1 vref Rdivrefan1 249020.649899231
+Rdivrefat2 Rdivrefan1 Rdivrefan2 249675.199884781
+Rdivrefat3 Rdivrefan2 Rdivrefan3 250672.482111271
+Rdivrefat4 Rdivrefan3 tapref 250063.075919922
+* tiled Rdivrefb parallel x4  each=4004
+Rdivrefbt1 tapref 0 3988.18486213607
+Rdivrefbt2 tapref 0 4018.28179347197
+Rdivrefbt3 tapref 0 4002.33736687986
+Rdivrefbt4 tapref 0 3984.50572836113
+Edivref vreff 0 tapref 0 1
+
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=48749.9920441162 G_phys=2.05128238604645e-05 G_eff=2.05128238604645e-05
+* tiled Rh1p1n1 series x4  each=12187.4980110291
+Rh1p1n1t1 in1 Rh1p1n1n1 12194.9285383194
+Rh1p1n1t2 Rh1p1n1n1 Rh1p1n1n2 12231.2047773331
+Rh1p1n1t3 Rh1p1n1n2 Rh1p1n1n3 12231.1212136454
+Rh1p1n1t4 Rh1p1n1n3 h1p 12129.316094154
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=107746.969487669 G_phys=9.28100349137382e-06 G_eff=9.28100349137382e-06
+* tiled Rh1p2n1 series x4  each=26936.7423719171
+Rh1p2n1t1 in2 Rh1p2n1n1 26973.8808878761
+Rh1p2n1t2 Rh1p2n1n1 Rh1p2n1n2 26815.1286624144
+Rh1p2n1t3 Rh1p2n1n2 Rh1p2n1n3 26879.2243656151
+Rh1p2n1t4 Rh1p2n1n3 h1p 26839.5212997076
+* h1 bias=-0.0265987962576462 b-  bank=f alpha=0.001 R=1253.18954325804 G_phys=0.000797963887729386 G_eff=7.97963887729385e-07
+* tiled Rh1bnf1 parallel x4  each=5012.75817303217
+Rh1bnf1t1 vreff h1n 5019.66143555577
+Rh1bnf1t2 vreff h1n 5005.79392018872
+Rh1bnf1t3 vreff h1n 5011.0581263317
+Rh1bnf1t4 vreff h1n 5037.20368186159
+Vh1p h1p 0 DC 0
+Vh1n h1n 0 DC 0
+Fh1p 0 h1d Vh1p 1.001
+Fh1n h1d 0 Vh1n 1.001
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+* tiled Rh1iv series x4  each=8333.33333333333
+Rh1ivt1 h1d Rh1ivn1 8373.00456389727
+Rh1ivt2 Rh1ivn1 Rh1ivn2 8368.35504884557
+Rh1ivt3 Rh1ivn2 Rh1ivn3 8312.5066316558
+Rh1ivt4 Rh1ivn3 0 8348.23279701513
+Bh1leak 0 h1d I = 1e-08
+Eh1sc h1raw 0 h1d 0 1
+Eh1lin h1lin 0 h1raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h1lin))) no high-gain op-amp loop
+Bh1relu h1y 0 V = max(0, min(15, (0.001) + v(h1lin)))
+Eh1 h1buf 0 h1y 0 1
+
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=37672.3718890781 G_phys=2.65446519519499e-05 G_eff=2.65446519519499e-05
+* tiled Rh2n1n1 series x4  each=9418.09297226953
+Rh2n1n1t1 in1 Rh2n1n1n1 9432.89382712018
+Rh2n1n1t2 Rh2n1n1n1 Rh2n1n1n2 9454.64543560254
+Rh2n1n1t3 Rh2n1n1n2 Rh2n1n1n3 9408.69648427968
+Rh2n1n1t4 Rh2n1n1n3 h2n 9409.7971606586
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=42590.1684417639 G_phys=2.34795972072137e-05 G_eff=2.34795972072137e-05
+* tiled Rh2p2n1 series x4  each=10647.542110441
+Rh2p2n1t1 in2 Rh2p2n1n1 10616.3932595064
+Rh2p2n1t2 Rh2p2n1n1 Rh2p2n1n2 10690.5084870572
+Rh2p2n1t3 Rh2p2n1n2 Rh2p2n1n3 10695.9369262816
+Rh2p2n1t4 Rh2p2n1n3 h2p 10697.0433362386
+* h2 bias=+5.94215208512688e-05 b+  bank=f alpha=0.001 R=560963.988396833 G_phys=1.78264562553806e-06 G_eff=1.78264562553806e-09
+* tiled Rh2bpf1 series x4  each=140240.997099208
+Rh2bpf1t1 vreff Rh2bpf1n1 140413.448824043
+Rh2bpf1t2 Rh2bpf1n1 Rh2bpf1n2 139591.812127496
+Rh2bpf1t3 Rh2bpf1n2 Rh2bpf1n3 140381.127286344
+Rh2bpf1t4 Rh2bpf1n3 h2p 140012.252451053
+Vh2p h2p 0 DC 0
+Vh2n h2n 0 DC 0
+Fh2p 0 h2d Vh2p 1.001
+Fh2n h2d 0 Vh2n 1.001
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+* tiled Rh2iv series x4  each=8333.33333333333
+Rh2ivt1 h2d Rh2ivn1 8297.92385474477
+Rh2ivt2 Rh2ivn1 Rh2ivn2 8341.66421822741
+Rh2ivt3 Rh2ivn2 Rh2ivn3 8369.84039652995
+Rh2ivt4 Rh2ivn3 0 8293.55024026217
+Bh2leak 0 h2d I = 1e-08
+Eh2sc h2raw 0 h2d 0 1
+Eh2lin h2lin 0 h2raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h2lin))) no high-gain op-amp loop
+Bh2relu h2y 0 V = max(0, min(15, (0.001) + v(h2lin)))
+Eh2 h2buf 0 h2y 0 1
+
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=41293.0004526854 G_phys=2.42171794017687e-05 G_eff=2.42171794017687e-05
+* tiled Rh3p1n1 series x4  each=10323.2501131714
+Rh3p1n1t1 in1 Rh3p1n1n1 10346.7824338394
+Rh3p1n1t2 Rh3p1n1n1 Rh3p1n1n2 10339.0460764471
+Rh3p1n1t3 Rh3p1n1n2 Rh3p1n1n3 10319.2185021365
+Rh3p1n1t4 Rh3p1n1n3 h3p 10349.6220779753
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=19393.1144355429 G_phys=5.15646934030999e-05 G_eff=5.15646934030999e-05
+* tiled Rh3p2n1 series x4  each=4848.27860888572
+Rh3p2n1t1 in2 Rh3p2n1n1 4859.28258387034
+Rh3p2n1t2 Rh3p2n1n1 Rh3p2n1n2 4826.69536998391
+Rh3p2n1t3 Rh3p2n1n2 Rh3p2n1n3 4837.2645367771
+Rh3p2n1t4 Rh3p2n1n3 h3p 4834.45309529185
+* h3 bias=+0.0173783581286745 b+  bank=f alpha=0.001 R=1918.09451080035 G_phys=0.000521350743860236 G_eff=5.21350743860236e-07
+* tiled Rh3bpf1 parallel x4  each=7672.37804320142
+Rh3bpf1t1 vreff h3p 7664.62133463839
+Rh3bpf1t2 vreff h3p 7695.67440352511
+Rh3bpf1t3 vreff h3p 7678.23800112586
+Rh3bpf1t4 vreff h3p 7641.45802253905
+Vh3p h3p 0 DC 0
+Vh3n h3n 0 DC 0
+Fh3p 0 h3d Vh3p 1.001
+Fh3n h3d 0 Vh3n 1.001
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+* tiled Rh3iv series x4  each=8333.33333333333
+Rh3ivt1 h3d Rh3ivn1 8324.4754711647
+Rh3ivt2 Rh3ivn1 Rh3ivn2 8332.40718938068
+Rh3ivt3 Rh3ivn2 Rh3ivn3 8343.91368706841
+Rh3ivt4 Rh3ivn3 0 8373.3502546425
+Bh3leak 0 h3d I = 1e-08
+Eh3sc h3raw 0 h3d 0 1
+Eh3lin h3lin 0 h3raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h3lin))) no high-gain op-amp loop
+Bh3relu h3y 0 V = max(0, min(15, (0.001) + v(h3lin)))
+Eh3 h3buf 0 h3y 0 1
+
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=15411.6749813161 G_phys=6.48858739372794e-05 G_eff=6.48858739372794e-05
+* tiled Rh4n1n1 series x4  each=3852.91874532903
+Rh4n1n1t1 in1 Rh4n1n1n1 3861.44274493128
+Rh4n1n1t2 Rh4n1n1n1 Rh4n1n1n2 3844.98028887283
+Rh4n1n1t3 Rh4n1n1n2 Rh4n1n1n3 3837.06807328019
+Rh4n1n1t4 Rh4n1n1n3 h4n 3863.40989452635
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=45852.5506319697 G_phys=2.18090375828029e-05 G_eff=2.18090375828029e-05
+* tiled Rh4p2n1 series x4  each=11463.1376579924
+Rh4p2n1t1 in2 Rh4p2n1n1 11513.401640992
+Rh4p2n1t2 Rh4p2n1n1 Rh4p2n1n2 11510.1870622073
+Rh4p2n1t3 Rh4p2n1n2 Rh4p2n1n3 11437.9480803354
+Rh4p2n1t4 Rh4p2n1n3 h4p 11458.4935293184
+* h4 bias=-0.0184151286231249 b-  bank=f alpha=0.001 R=1810.10591973139 G_phys=0.000552453858693748 G_eff=5.52453858693748e-07
+* tiled Rh4bnf1 parallel x4  each=7240.42367892555
+Rh4bnf1t1 vreff h4n 7260.32617236877
+Rh4bnf1t2 vreff h4n 7267.71818692814
+Rh4bnf1t3 vreff h4n 7258.24891839895
+Rh4bnf1t4 vreff h4n 7261.21546795399
+Vh4p h4p 0 DC 0
+Vh4n h4n 0 DC 0
+Fh4p 0 h4d Vh4p 1.001
+Fh4n h4d 0 Vh4n 1.001
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+* tiled Rh4iv series x4  each=8333.33333333333
+Rh4ivt1 h4d Rh4ivn1 8339.83285107091
+Rh4ivt2 Rh4ivn1 Rh4ivn2 8302.34792227419
+Rh4ivt3 Rh4ivn2 Rh4ivn3 8367.44092581025
+Rh4ivt4 Rh4ivn3 0 8373.41003812751
+Bh4leak 0 h4d I = 1e-08
+Eh4sc h4raw 0 h4d 0 1
+Eh4lin h4lin 0 h4raw 0 1
+* direct bounded ReLU: y=max(0, min(15, v(h4lin))) no high-gain op-amp loop
+Bh4relu h4y 0 V = max(0, min(15, (0.001) + v(h4lin)))
+Eh4 h4buf 0 h4y 0 1
+
+* tiled Rdivh1a series x4  each=249750
+Rdivh1at1 h1buf Rdivh1an1 249267.797149641
+Rdivh1at2 Rdivh1an1 Rdivh1an2 249812.380422073
+Rdivh1at3 Rdivh1an2 Rdivh1an3 250459.151311114
+Rdivh1at4 Rdivh1an3 htap1 250227.552372448
+* tiled Rdivh1b parallel x4  each=4004
+Rdivh1bt1 htap1 0 3995.08195007225
+Rdivh1bt2 htap1 0 3991.16113239037
+Rdivh1bt3 htap1 0 4021.63432182308
+Rdivh1bt4 htap1 0 4004.84488543049
+Edivh1 h1f 0 htap1 0 1
+* tiled Rdivh2a series x4  each=249750
+Rdivh2at1 h2buf Rdivh2an1 249705.193584525
+Rdivh2at2 Rdivh2an1 Rdivh2an2 250641.773699768
+Rdivh2at3 Rdivh2an2 Rdivh2an3 250117.129288313
+Rdivh2at4 Rdivh2an3 htap2 249443.686735022
+* tiled Rdivh2b parallel x4  each=4004
+Rdivh2bt1 htap2 0 4006.60199658796
+Rdivh2bt2 htap2 0 4001.01776612203
+Rdivh2bt3 htap2 0 3986.52038615523
+Rdivh2bt4 htap2 0 4005.66898541793
+Edivh2 h2f 0 htap2 0 1
+* tiled Rdivh3a series x4  each=249750
+Rdivh3at1 h3buf Rdivh3an1 250810.23617709
+Rdivh3at2 Rdivh3an1 Rdivh3an2 249545.744069527
+Rdivh3at3 Rdivh3an2 Rdivh3an3 250641.14260035
+Rdivh3at4 Rdivh3an3 htap3 248521.763438039
+* tiled Rdivh3b parallel x4  each=4004
+Rdivh3bt1 htap3 0 4005.38097301768
+Rdivh3bt2 htap3 0 3998.22658080162
+Rdivh3bt3 htap3 0 3994.35614391937
+Rdivh3bt4 htap3 0 4020.17435385727
+Edivh3 h3f 0 htap3 0 1
+* tiled Rdivh4a series x4  each=249750
+Rdivh4at1 h4buf Rdivh4an1 250557.033125566
+Rdivh4at2 Rdivh4an1 Rdivh4an2 248943.245438128
+Rdivh4at3 Rdivh4an2 Rdivh4an3 249741.135176071
+Rdivh4at4 Rdivh4an3 htap4 250797.896783426
+* tiled Rdivh4b parallel x4  each=4004
+Rdivh4bt1 htap4 0 3992.93221961486
+Rdivh4bt2 htap4 0 4022.26454544388
+Rdivh4bt3 htap4 0 4001.54513648329
+Rdivh4bt4 htap4 0 3987.33484553319
+Edivh4 h4f 0 htap4 0 1
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=55381.137413171 G_phys=1.80566894561861e-05 G_eff=1.80566894561861e-05
+* tiled Ro1p1n1 series x4  each=13845.2843532928
+Ro1p1n1t1 h1buf Ro1p1n1n1 13849.8640776395
+Ro1p1n1t2 Ro1p1n1n1 Ro1p1n1n2 13798.0147182248
+Ro1p1n1t3 Ro1p1n1n2 Ro1p1n1n3 13907.7060189731
+Ro1p1n1t4 Ro1p1n1n3 o1p 13783.7063307909
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=95974.0918925228 G_phys=1.04194786351285e-05 G_eff=1.04194786351285e-05
+* tiled Ro1p2n1 series x4  each=23993.5229731307
+Ro1p2n1t1 h2buf Ro1p2n1n1 24038.2821887729
+Ro1p2n1t2 Ro1p2n1n1 Ro1p2n1n2 24005.1055692883
+Ro1p2n1t3 Ro1p2n1n2 Ro1p2n1n3 24060.5991709251
+Ro1p2n1t4 Ro1p2n1n3 o1p 23995.2753370665
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=38011.716249768 G_phys=2.63076782281859e-05 G_eff=2.63076782281859e-05
+* tiled Ro1p3n1 series x4  each=9502.92906244199
+Ro1p3n1t1 h3buf Ro1p3n1n1 9485.65398956103
+Ro1p3n1t2 Ro1p3n1n1 Ro1p3n1n2 9457.72533666251
+Ro1p3n1t3 Ro1p3n1n2 Ro1p3n1n3 9479.7281404397
+Ro1p3n1t4 Ro1p3n1n3 o1p 9510.21685341502
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=35860.5019249499 G_phys=2.78858338930346e-05 G_eff=2.78858338930346e-05
+* tiled Ro1p4n1 series x4  each=8965.12548123748
+Ro1p4n1t1 h4buf Ro1p4n1n1 8977.52129361988
+Ro1p4n1t2 Ro1p4n1n1 Ro1p4n1n2 8938.72791330664
+Ro1p4n1t3 Ro1p4n1n2 Ro1p4n1n3 8935.98282493778
+Ro1p4n1t4 Ro1p4n1n3 o1p 8957.4806701798
+* o1 bias=+0.0103504514823374 b+  bank=f alpha=0.001 R=3220.47143452777 G_phys=0.000310513544470123 G_eff=3.10513544470123e-07
+* tiled Ro1bpf1 parallel x4  each=12881.8857381111
+Ro1bpf1t1 vreff o1p 12875.118644855
+Ro1bpf1t2 vreff o1p 12884.9959965669
+Ro1bpf1t3 vreff o1p 12884.451768924
+Ro1bpf1t4 vreff o1p 12923.9205873304
+Vo1p o1p 0 DC 0
+Vo1n o1n 0 DC 0
+Fo1p 0 o1d Vo1p 1.001
+Fo1n o1d 0 Vo1n 1.001
+* ratiometric I-to-V: V = I * R_IV,  R_IV=33333.3333333333 (weight ~ R_IV / R_w)
+* tiled Ro1iv series x4  each=8333.33333333333
+Ro1ivt1 o1d Ro1ivn1 8302.78370334384
+Ro1ivt2 Ro1ivn1 Ro1ivn2 8359.48665762165
+Ro1ivt3 Ro1ivn2 Ro1ivn3 8312.17490696468
+Ro1ivt4 Ro1ivn3 0 8327.34292505722
+Bo1leak 0 o1d I = 1e-08
+Eo1sc o1raw 0 o1d 0 1
+Eo1lin o1lin 0 o1raw 0 1
+.control
+set numdgt=15
+alter Vin1 DC 0.494471519600938
+alter Vin2 DC -0.228150022297178
+op
+print v(o1lin)
+alter Vin1 DC 0.755737652933921
+alter Vin2 DC -0.494349008470596
+op
+print v(o1lin)
+alter Vin1 DC 0.0217462406014979
+alter Vin2 DC -0.497049385555292
+op
+print v(o1lin)
+alter Vin1 DC 0.718339404101088
+alter Vin2 DC 0.918252533162598
+op
+print v(o1lin)
+alter Vin1 DC 0.853571584209406
+alter Vin2 DC 0.475381838928464
+op
+print v(o1lin)
+alter Vin1 DC -0.991162039822716
+alter Vin2 DC 0.372646703388107
+op
+print v(o1lin)
+alter Vin1 DC -0.491597515730078
+alter Vin2 DC -0.616855156846038
+op
+print v(o1lin)
+alter Vin1 DC 0.476038895541957
+alter Vin2 DC 0.376509320558142
+op
+print v(o1lin)
+.endc
+
+.end

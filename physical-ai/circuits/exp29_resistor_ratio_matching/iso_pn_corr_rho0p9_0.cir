@@ -1,0 +1,370 @@
+* Experiment 22 isolated TIA neuron n1
+* frozen n=32 L1=6.7601697 b=0.0322130531942455
+* A=100000 vos=0 Ileak=0 Rout=0 fp=0 invertA=1e+07
+* Behavioral TIA. Not transistor-level. Weights were not edited.
+* shape: 32 -> 1 (linear Vlin vs z unless ReLU requested)
+
+Vin1 in1 0 DC 0
+Vin2 in2 0 DC 0
+* passive invert in2 -> in2n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv2ia in2 inv2m 10000
+Rinv2ib in2n inv2m 10000.0020000002
+Einv2amp in2n 0 0 inv2m 10000000
+Vin3 in3 0 DC 0
+* passive invert in3 -> in3n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv3ia in3 inv3m 10000
+Rinv3ib in3n inv3m 10000.0020000002
+Einv3amp in3n 0 0 inv3m 10000000
+Vin4 in4 0 DC 0
+Vin5 in5 0 DC 0
+* passive invert in5 -> in5n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv5ia in5 inv5m 10000
+Rinv5ib in5n inv5m 10000.0020000002
+Einv5amp in5n 0 0 inv5m 10000000
+Vin6 in6 0 DC 0
+* passive invert in6 -> in6n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv6ia in6 inv6m 10000
+Rinv6ib in6n inv6m 10000.0020000002
+Einv6amp in6n 0 0 inv6m 10000000
+Vin7 in7 0 DC 0
+Vin8 in8 0 DC 0
+Vin9 in9 0 DC 0
+* passive invert in9 -> in9n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv9ia in9 inv9m 10000
+Rinv9ib in9n inv9m 10000.0020000002
+Einv9amp in9n 0 0 inv9m 10000000
+Vin10 in10 0 DC 0
+* passive invert in10 -> in10n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv10ia in10 inv10m 10000
+Rinv10ib in10n inv10m 10000.0020000002
+Einv10amp in10n 0 0 inv10m 10000000
+Vin11 in11 0 DC 0
+Vin12 in12 0 DC 0
+Vin13 in13 0 DC 0
+Vin14 in14 0 DC 0
+* passive invert in14 -> in14n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv14ia in14 inv14m 10000
+Rinv14ib in14n inv14m 10000.0020000002
+Einv14amp in14n 0 0 inv14m 10000000
+Vin15 in15 0 DC 0
+Vin16 in16 0 DC 0
+* load-compensated divider in16->tap16: G_load=0.000666445780473128 Ra=599479.450040294 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv16a in16 tap16 599479.450040294
+Rdiv16b tap16 0 1000
+Vin17 in17 0 DC 0
+* passive invert in17 -> in17n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv17ia in17 inv17m 10000
+Rinv17ib in17n inv17m 10000.0020000002
+Einv17amp in17n 0 0 inv17m 10000000
+* load-compensated divider in17n->tap17n: G_load=0.000266255881165782 Ra=788940.067216326 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv17na in17n tap17n 788940.067216326
+Rdiv17nb tap17n 0 1000
+Vin18 in18 0 DC 0
+Vin19 in19 0 DC 0
+* passive invert in19 -> in19n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv19ia in19 inv19m 10000
+Rinv19ib in19n inv19m 10000.0020000002
+Einv19amp in19n 0 0 inv19m 10000000
+Vin20 in20 0 DC 0
+* load-compensated divider in20->tap20: G_load=0.000971610549965604 Ra=506692.358700063 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv20a in20 tap20 506692.358700063
+Rdiv20b tap20 0 1000
+Vin21 in21 0 DC 0
+Vin22 in22 0 DC 0
+* passive invert in22 -> in22n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv22ia in22 inv22m 10000
+Rinv22ib in22n inv22m 10000.0020000002
+Einv22amp in22n 0 0 inv22m 10000000
+Vin23 in23 0 DC 0
+* passive invert in23 -> in23n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv23ia in23 inv23m 10000
+Rinv23ib in23n inv23m 10000.0020000002
+Einv23amp in23n 0 0 inv23m 10000000
+Vin24 in24 0 DC 0
+* load-compensated divider in24->tap24: G_load=0.000881349510863982 Ra=531001.812385847 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv24a in24 tap24 531001.812385847
+Rdiv24b tap24 0 1000
+Vin25 in25 0 DC 0
+* passive invert in25 -> in25n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv25ia in25 inv25m 10000
+Rinv25ib in25n inv25m 10000.0020000002
+Einv25amp in25n 0 0 inv25m 10000000
+Vin26 in26 0 DC 0
+Vin27 in27 0 DC 0
+* passive invert in27 -> in27n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv27ia in27 inv27m 10000
+Rinv27ib in27n inv27m 10000.0020000002
+Einv27amp in27n 0 0 inv27m 10000000
+Vin28 in28 0 DC 0
+* passive invert in28 -> in28n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv28ia in28 inv28m 10000
+Rinv28ib in28n inv28m 10000.0020000002
+Einv28amp in28n 0 0 inv28m 10000000
+Vin29 in29 0 DC 0
+* passive invert in29 -> in29n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv29ia in29 inv29m 10000
+Rinv29ib in29n inv29m 10000.0020000002
+Einv29amp in29n 0 0 inv29m 10000000
+* load-compensated divider in29n->tap29n: G_load=0.000275989040257845 Ra=782922.085128668 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv29na in29n tap29n 782922.085128668
+Rdiv29nb tap29n 0 1000
+Vin30 in30 0 DC 0
+Vin31 in31 0 DC 0
+Vin32 in32 0 DC 0
+* passive invert in32 -> in32n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv32ia in32 inv32m 10000
+Rinv32ib in32n inv32m 10000.0020000002
+Einv32amp in32n 0 0 inv32m 10000000
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvrefia vref invrefm 10000
+Rinvrefib vrefn invrefm 10000.0020000002
+Einvrefamp vrefn 0 0 invrefm 10000000
+* load-compensated divider vrefn->taprefn: G_load=0.000966391595827364 Ra=508037.159088685 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefna vrefn taprefn 508037.159088685
+Rdivrefnb taprefn 0 1000
+
+* n1 input 1 w=-0.195521390350609 w-  bank=n alpha=1 R=170484.330505015 G_phys=5.86564171051827e-06 G_eff=5.86564171051827e-06
+Rn1n1n1 in1 n1p 170183.821238104
+* n1 input 2 w=+0.386445174905558 w+  bank=n alpha=1 R=86256.3061926689 G_phys=1.15933552471668e-05 G_eff=1.15933552471668e-05
+Rn1p2n1 in2n n1p 86258.1605404993
+* n1 input 3 w=+0.296294588630229 w+  bank=n alpha=1 R=112500.648383197 G_phys=8.88883765890688e-06 G_eff=8.88883765890688e-06
+Rn1p3n1 in3n n1p 112588.122558272
+* n1 input 4 w=-0.299308681857295 w-  bank=n alpha=1 R=111367.746256108 G_phys=8.97926045571886e-06 G_eff=8.97926045571886e-06
+Rn1n4n1 in4 n1p 111005.45383644
+* n1 input 5 w=+0.732671792857329 w+  bank=n alpha=1 R=45495.5870531571 G_phys=2.19801537857199e-05 G_eff=2.19801537857199e-05
+Rn1p5n1 in5n n1p 45539.216610472
+* n1 input 6 w=+0.124925987288217 w+  bank=n alpha=1 R=266824.65399637 G_phys=3.7477796186465e-06 G_eff=3.7477796186465e-06
+Rn1p6n1 in6n n1p 266680.529736399
+* n1 input 7 w=-0.0857938493267301 w-  bank=n alpha=1 R=388528.240601368 G_phys=2.5738154798019e-06 G_eff=2.5738154798019e-06
+Rn1n7n1 in7 n1p 389044.586938558
+* n1 input 8 w=-0.0609936542707342 w-  bank=n alpha=1 R=546504.939438057 G_phys=1.82980962812202e-06 G_eff=1.82980962812202e-06
+Rn1n8n1 in8 n1p 548452.177913628
+* n1 input 9 w=+0.256981204903229 w+  bank=n alpha=1 R=129711.172246568 G_phys=7.70943614709688e-06 G_eff=7.70943614709688e-06
+Rn1p9n1 in9n n1p 130187.997761825
+* n1 input 10 w=+0.073638013162671 w+  bank=n alpha=1 R=452664.756987643 G_phys=2.20914039488013e-06 G_eff=2.20914039488013e-06
+Rn1p10n1 in10n n1p 451845.574706309
+* n1 input 11 w=-0.149208279345328 w-  bank=n alpha=1 R=223401.365390634 G_phys=4.47624838035983e-06 G_eff=4.47624838035983e-06
+Rn1n11n1 in11 n1p 223869.720623007
+* n1 input 12 w=-0.475362564845884 w-  bank=n alpha=1 R=70121.9149306388 G_phys=1.42608769453765e-05 G_eff=1.42608769453765e-05
+Rn1n12n1 in12 n1p 69855.4988611725
+* n1 input 13 w=-0.0533811781970356 w-  bank=n alpha=1 R=624439.820535554 G_phys=1.60143534591107e-06 G_eff=1.60143534591107e-06
+Rn1n13n1 in13 n1p 622890.223653562
+* n1 input 14 w=+0.279456004632752 w+  bank=n alpha=1 R=119279.359830319 G_phys=8.38368013898257e-06 G_eff=8.38368013898257e-06
+Rn1p14n1 in14n n1p 118745.07415435
+* n1 input 15 w=-0.0744870090943736 w-  bank=n alpha=1 R=447505.326614748 G_phys=2.23461027283121e-06 G_eff=2.23461027283121e-06
+Rn1n15n1 in15 n1p 445933.902896713
+* n1 input 16 w=-0.0222148593491043 w-  bank=f alpha=0.001 R=1500.49715865869 G_phys=0.000666445780473128 G_eff=6.66445780473128e-07
+Rn1n16f1 tap16 n1p 1504.20280776265
+* n1 input 17 w=+0.0088751960388594 w+  bank=f alpha=0.001 R=3755.78558348297 G_phys=0.000266255881165782 G_eff=2.66255881165782e-07
+Rn1p17f1 tap17n n1p 3752.39638689386
+* n1 input 18 w=-0.194172060066752 w-  bank=n alpha=1 R=171669.051262443 G_phys=5.82516180200256e-06 G_eff=5.82516180200256e-06
+Rn1n18n1 in18 n1p 171301.137467458
+* n1 input 19 w=+0.341327626188232 w+  bank=n alpha=1 R=97657.8828546125 G_phys=1.0239828785647e-05 G_eff=1.0239828785647e-05
+Rn1p19n1 in19n n1p 98031.5798128116
+* n1 input 20 w=-0.0323870183321868 w-  bank=f alpha=0.001 R=1029.21896024637 G_phys=0.000971610549965604 G_eff=9.71610549965604e-07
+Rn1n20f1 tap20 n1p 1029.71335247158
+* n1 input 21 w=-0.0999542141187652 w-  bank=n alpha=1 R=333486.022847689 G_phys=2.99862642356296e-06 G_eff=2.99862642356296e-06
+Rn1n21n1 in21 n1p 332253.886126926
+* n1 input 22 w=+0.693789300406694 w+  bank=n alpha=1 R=48045.3263170729 G_phys=2.08136790122008e-05 G_eff=2.08136790122008e-05
+Rn1p22n1 in22n n1p 47819.2761828333
+* n1 input 23 w=+0.0972685864670828 w+  bank=n alpha=1 R=342693.715864925 G_phys=2.91805759401248e-06 G_eff=2.91805759401248e-06
+Rn1p23n1 in23n n1p 343730.644199599
+* n1 input 24 w=-0.0293783170287994 w-  bank=f alpha=0.001 R=1134.6236512002 G_phys=0.000881349510863982 G_eff=8.81349510863982e-07
+Rn1n24f1 tap24 n1p 1135.49074979183
+* n1 input 25 w=+0.0497492024826392 w+  bank=n alpha=1 R=670027.491294269 G_phys=1.49247607447918e-06 G_eff=1.49247607447918e-06
+Rn1p25n1 in25n n1p 669457.860437499
+* n1 input 26 w=-0.466063512962686 w-  bank=n alpha=1 R=71521.0103477937 G_phys=1.39819053888806e-05 G_eff=1.39819053888806e-05
+Rn1n26n1 in26 n1p 71301.8980510509
+* n1 input 27 w=+0.194887582685885 w+  bank=n alpha=1 R=171038.774630702 G_phys=5.84662748057655e-06 G_eff=5.84662748057655e-06
+Rn1p27n1 in27n n1p 170925.551615458
+* n1 input 28 w=+0.209047565197081 w+  bank=n alpha=1 R=159453.344036359 G_phys=6.27142695591242e-06 G_eff=6.27142695591242e-06
+Rn1p28n1 in28n n1p 159460.101901827
+* n1 input 29 w=+0.00919963467526149 w+  bank=f alpha=0.001 R=3623.33228546229 G_phys=0.000275989040257845 G_eff=2.75989040257845e-07
+Rn1p29f1 tap29n n1p 3615.38134376669
+* n1 input 30 w=-0.379437042796868 w-  bank=n alpha=1 R=87849.4442388387 G_phys=1.13831112839061e-05 G_eff=1.13831112839061e-05
+Rn1n30n1 in30 n1p 87880.8412661734
+* n1 input 31 w=-0.216631724491884 w-  bank=n alpha=1 R=153870.96885979 G_phys=6.49895173475653e-06 G_eff=6.49895173475653e-06
+Rn1n31n1 in31 n1p 154567.642070139
+* n1 input 32 w=+0.139103822260271 w+  bank=n alpha=1 R=239629.169002738 G_phys=4.17311466780814e-06 G_eff=4.17311466780814e-06
+Rn1p32n1 in32n n1p 239336.742621947
+* n1 bias w+  bank=f alpha=0.001 R=1034.77721072674 G_phys=0.000966391595827364 G_eff=9.66391595827364e-07
+Rn1bpf1 taprefn n1p 1032.58035427801
+* feedback TIA n1: Rf=33333.3333333333 A=100000 V(n1lin) = -I(n1p)*Rf*A/(A+1)  (uncompensated)
+En1tia n1lin 0 0 n1p 100000
+Rn1f n1lin n1p 33441.5646448422
+.control
+set numdgt=15
+alter Vin1 DC 0
+alter Vin2 DC 0
+alter Vin3 DC 0
+alter Vin4 DC 0
+alter Vin5 DC 0
+alter Vin6 DC 0
+alter Vin7 DC 0
+alter Vin8 DC 0
+alter Vin9 DC 0
+alter Vin10 DC 0
+alter Vin11 DC 0
+alter Vin12 DC 0
+alter Vin13 DC 0
+alter Vin14 DC 0
+alter Vin15 DC 0
+alter Vin16 DC 0
+alter Vin17 DC 0
+alter Vin18 DC 0
+alter Vin19 DC 0
+alter Vin20 DC 0
+alter Vin21 DC 0
+alter Vin22 DC 0
+alter Vin23 DC 0
+alter Vin24 DC 0
+alter Vin25 DC 0
+alter Vin26 DC 0
+alter Vin27 DC 0
+alter Vin28 DC 0
+alter Vin29 DC 0
+alter Vin30 DC 0
+alter Vin31 DC 0
+alter Vin32 DC 0
+op
+print v(n1lin)
+alter Vin1 DC 1
+alter Vin2 DC 0
+alter Vin3 DC 0
+alter Vin4 DC 0
+alter Vin5 DC 0
+alter Vin6 DC 0
+alter Vin7 DC 0
+alter Vin8 DC 0
+alter Vin9 DC 0
+alter Vin10 DC 0
+alter Vin11 DC 0
+alter Vin12 DC 0
+alter Vin13 DC 0
+alter Vin14 DC 0
+alter Vin15 DC 0
+alter Vin16 DC 0
+alter Vin17 DC 0
+alter Vin18 DC 0
+alter Vin19 DC 0
+alter Vin20 DC 0
+alter Vin21 DC 0
+alter Vin22 DC 0
+alter Vin23 DC 0
+alter Vin24 DC 0
+alter Vin25 DC 0
+alter Vin26 DC 0
+alter Vin27 DC 0
+alter Vin28 DC 0
+alter Vin29 DC 0
+alter Vin30 DC 0
+alter Vin31 DC 0
+alter Vin32 DC 0
+op
+print v(n1lin)
+alter Vin1 DC 0.336281146288125
+alter Vin2 DC 0
+alter Vin3 DC 0
+alter Vin4 DC 0
+alter Vin5 DC 0
+alter Vin6 DC 0.777243957364389
+alter Vin7 DC 0
+alter Vin8 DC 0.0705982519785909
+alter Vin9 DC 0.361068022357012
+alter Vin10 DC 0
+alter Vin11 DC 1.1565823149901
+alter Vin12 DC 0
+alter Vin13 DC 0
+alter Vin14 DC 0
+alter Vin15 DC 0.0416289190497384
+alter Vin16 DC 0.436458566192918
+alter Vin17 DC 0.366244026736095
+alter Vin18 DC 1.52626596704316
+alter Vin19 DC 1.7315038027247
+alter Vin20 DC 0
+alter Vin21 DC 0.518920693033615
+alter Vin22 DC 2.14599413442392
+alter Vin23 DC 1.20942836359533
+alter Vin24 DC 0
+alter Vin25 DC 0
+alter Vin26 DC 0.119125138158868
+alter Vin27 DC 0
+alter Vin28 DC 0.1550269134803
+alter Vin29 DC 1.87754084678094
+alter Vin30 DC 0.223511482191497
+alter Vin31 DC 0
+alter Vin32 DC 0
+op
+print v(n1lin)
+alter Vin1 DC 0.336281146288125
+alter Vin2 DC 0
+alter Vin3 DC 0
+alter Vin4 DC 0
+alter Vin5 DC 0
+alter Vin6 DC 0.777243957364389
+alter Vin7 DC 0
+alter Vin8 DC 0.0705982519785909
+alter Vin9 DC 0.361068022357012
+alter Vin10 DC 0
+alter Vin11 DC 1.1565823149901
+alter Vin12 DC 0
+alter Vin13 DC 0
+alter Vin14 DC 0
+alter Vin15 DC 0.0416289190497384
+alter Vin16 DC 0.436458566192918
+alter Vin17 DC 0.366244026736095
+alter Vin18 DC 1.52626596704316
+alter Vin19 DC 1.7315038027247
+alter Vin20 DC 0
+alter Vin21 DC 0.518920693033615
+alter Vin22 DC 2.14599413442392
+alter Vin23 DC 1.20942836359533
+alter Vin24 DC 0
+alter Vin25 DC 0
+alter Vin26 DC 0.119125138158868
+alter Vin27 DC 0
+alter Vin28 DC 0.1550269134803
+alter Vin29 DC 1.87754084678094
+alter Vin30 DC 0.223511482191497
+alter Vin31 DC 0
+alter Vin32 DC 0
+op
+print v(n1lin)
+alter Vin1 DC 0
+alter Vin2 DC 0
+alter Vin3 DC 0
+alter Vin4 DC 0.119173373006553
+alter Vin5 DC 0.497054869761023
+alter Vin6 DC 0
+alter Vin7 DC 0.548908183770197
+alter Vin8 DC 0.30149266638977
+alter Vin9 DC 0.306029487966532
+alter Vin10 DC 0
+alter Vin11 DC 0.536498907294107
+alter Vin12 DC 1.11519389272358
+alter Vin13 DC 0.27592089519523
+alter Vin14 DC 0
+alter Vin15 DC 0
+alter Vin16 DC 0.0165565543628049
+alter Vin17 DC 0.00164813252705659
+alter Vin18 DC 0
+alter Vin19 DC 0
+alter Vin20 DC 1.0634963563705
+alter Vin21 DC 1.1607314606698
+alter Vin22 DC 0.319853224833038
+alter Vin23 DC 0
+alter Vin24 DC 0.776224206115732
+alter Vin25 DC 1.14964974033376
+alter Vin26 DC 0.84927123300762
+alter Vin27 DC 0
+alter Vin28 DC 0
+alter Vin29 DC 0.0384024414581247
+alter Vin30 DC 0.273175901376051
+alter Vin31 DC 0
+alter Vin32 DC 0.113039635921703
+op
+print v(n1lin)
+.endc
+
+.end

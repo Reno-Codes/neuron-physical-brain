@@ -1,0 +1,319 @@
+* Physical AI - Experiment 19 architecture U: unmatched replica-null TIA (replica Vos = 0)
+* Same replica topology as N, but replica Vos is forced to 0. Cancellation requires matched offsets.
+* Frozen Experiment 9 network A. Weights were not edited.
+* Behavioral circuit analysis. Not transistor-level or PCB power.
+* A_tia=100000 vos=0.0001 vos_replica=None unmatched=True rout=0 Ileak=0
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+* passive invert in1 -> in1n: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinv1ia in1 inv1m 10000
+Rinv1ib in1n inv1m 10000.200002
+Einv1amp in1n 0 0 inv1m 100000
+Vin2 in2 0 DC 0
+* passive invert in2 -> in2n: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinv2ia in2 inv2m 10000
+Rinv2ib in2n inv2m 10000.200002
+Einv2amp in2n 0 0 inv2m 100000
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvrefia vref invrefm 10000
+Rinvrefib vrefn invrefm 10000.200002
+Einvrefamp vrefn 0 0 invrefm 100000
+* load-compensated divider vref->tapref: G_load=0.00135041774642313 Ra=425030.827613635 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefa vref tapref 425030.827613635
+Rdivrefb tapref 0 1000
+* load-compensated divider vrefn->taprefn: G_load=0.000833646933955897 Ra=544815.897488381 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefna vrefn taprefn 544815.897488381
+Rdivrefnb taprefn 0 1000
+
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=48749.9920441162 G_phys=2.05128238604645e-05 G_eff=2.05128238604645e-05
+Rh1p1n1 in1n h1p 48749.9920441162
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=107746.969487669 G_phys=9.28100349137382e-06 G_eff=9.28100349137382e-06
+Rh1p2n1 in2n h1p 107746.969487669
+* h1 bias w-  bank=f alpha=0.001 R=1253.18954325804 G_phys=0.000797963887729386 G_eff=7.97963887729385e-07
+Rh1bnf1 tapref h1p 1253.18954325804
+* replica dummy G_tot for h1: same R as weights/biases, dest=0
+Rh1dmy000 0 h1rp 48749.9920441162
+Rh1dmy001 0 h1rp 107746.969487669
+Rh1dmy002 0 h1rp 1253.18954325804
+* feedback TIA h1: Rf=33333.3333333333 A=100000 V(h1sig) = -I(h1p)*Rf*A/(A+1)  (uncompensated)
+Bh1tia h1sig 0 V = -(100000) * (v(h1p) - (0.0001))
+Rh1f h1sig h1p 33333.3333333333
+* feedback TIA h1r: Rf=33333.3333333333 A=100000 V(h1rep) = -I(h1rp)*Rf*A/(A+1)  (uncompensated)
+Eh1rtia h1rep 0 0 h1rp 100000
+Rh1rf h1rep h1rp 33333.3333333333
+* replica null h1: v(h1lin)=v(h1sig)-v(h1rep) Vos_sig=0.0001 Vos_rep=0
+Eh1null h1lin 0 h1sig h1rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h1lin)))
+Bh1relu h1y 0 V = max(0, min(15, v(h1lin)))
+
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=37672.3718890781 G_phys=2.65446519519499e-05 G_eff=2.65446519519499e-05
+Rh2n1n1 in1 h2p 37672.3718890781
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=42590.1684417639 G_phys=2.34795972072137e-05 G_eff=2.34795972072137e-05
+Rh2p2n1 in2n h2p 42590.1684417639
+* h2 bias w+  bank=f alpha=0.001 R=560963.988396833 G_phys=1.78264562553806e-06 G_eff=1.78264562553806e-09
+Rh2bpf1 taprefn h2p 560963.988396833
+* replica dummy G_tot for h2: same R as weights/biases, dest=0
+Rh2dmy000 0 h2rp 37672.3718890781
+Rh2dmy001 0 h2rp 42590.1684417639
+Rh2dmy002 0 h2rp 560963.988396833
+* feedback TIA h2: Rf=33333.3333333333 A=100000 V(h2sig) = -I(h2p)*Rf*A/(A+1)  (uncompensated)
+Bh2tia h2sig 0 V = -(100000) * (v(h2p) - (0.0001))
+Rh2f h2sig h2p 33333.3333333333
+* feedback TIA h2r: Rf=33333.3333333333 A=100000 V(h2rep) = -I(h2rp)*Rf*A/(A+1)  (uncompensated)
+Eh2rtia h2rep 0 0 h2rp 100000
+Rh2rf h2rep h2rp 33333.3333333333
+* replica null h2: v(h2lin)=v(h2sig)-v(h2rep) Vos_sig=0.0001 Vos_rep=0
+Eh2null h2lin 0 h2sig h2rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h2lin)))
+Bh2relu h2y 0 V = max(0, min(15, v(h2lin)))
+
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=41293.0004526854 G_phys=2.42171794017687e-05 G_eff=2.42171794017687e-05
+Rh3p1n1 in1n h3p 41293.0004526854
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=19393.1144355429 G_phys=5.15646934030999e-05 G_eff=5.15646934030999e-05
+Rh3p2n1 in2n h3p 19393.1144355429
+* h3 bias w+  bank=f alpha=0.001 R=1918.09451080035 G_phys=0.000521350743860236 G_eff=5.21350743860236e-07
+Rh3bpf1 taprefn h3p 1918.09451080035
+* replica dummy G_tot for h3: same R as weights/biases, dest=0
+Rh3dmy000 0 h3rp 41293.0004526854
+Rh3dmy001 0 h3rp 19393.1144355429
+Rh3dmy002 0 h3rp 1918.09451080035
+* feedback TIA h3: Rf=33333.3333333333 A=100000 V(h3sig) = -I(h3p)*Rf*A/(A+1)  (uncompensated)
+Bh3tia h3sig 0 V = -(100000) * (v(h3p) - (0.0001))
+Rh3f h3sig h3p 33333.3333333333
+* feedback TIA h3r: Rf=33333.3333333333 A=100000 V(h3rep) = -I(h3rp)*Rf*A/(A+1)  (uncompensated)
+Eh3rtia h3rep 0 0 h3rp 100000
+Rh3rf h3rep h3rp 33333.3333333333
+* replica null h3: v(h3lin)=v(h3sig)-v(h3rep) Vos_sig=0.0001 Vos_rep=0
+Eh3null h3lin 0 h3sig h3rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h3lin)))
+Bh3relu h3y 0 V = max(0, min(15, v(h3lin)))
+
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=15411.6749813161 G_phys=6.48858739372794e-05 G_eff=6.48858739372794e-05
+Rh4n1n1 in1 h4p 15411.6749813161
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=45852.5506319697 G_phys=2.18090375828029e-05 G_eff=2.18090375828029e-05
+Rh4p2n1 in2n h4p 45852.5506319697
+* h4 bias w-  bank=f alpha=0.001 R=1810.10591973139 G_phys=0.000552453858693748 G_eff=5.52453858693748e-07
+Rh4bnf1 tapref h4p 1810.10591973139
+* replica dummy G_tot for h4: same R as weights/biases, dest=0
+Rh4dmy000 0 h4rp 15411.6749813161
+Rh4dmy001 0 h4rp 45852.5506319697
+Rh4dmy002 0 h4rp 1810.10591973139
+* feedback TIA h4: Rf=33333.3333333333 A=100000 V(h4sig) = -I(h4p)*Rf*A/(A+1)  (uncompensated)
+Bh4tia h4sig 0 V = -(100000) * (v(h4p) - (0.0001))
+Rh4f h4sig h4p 33333.3333333333
+* feedback TIA h4r: Rf=33333.3333333333 A=100000 V(h4rep) = -I(h4rp)*Rf*A/(A+1)  (uncompensated)
+Eh4rtia h4rep 0 0 h4rp 100000
+Rh4rf h4rep h4rp 33333.3333333333
+* replica null h4: v(h4lin)=v(h4sig)-v(h4rep) Vos_sig=0.0001 Vos_rep=0
+Eh4null h4lin 0 h4sig h4rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h4lin)))
+Bh4relu h4y 0 V = max(0, min(15, v(h4lin)))
+
+* passive invert h1y -> h1yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh1ia h1y invh1m 10000
+Rinvh1ib h1yn invh1m 10000.200002
+Einvh1amp h1yn 0 0 invh1m 100000
+* passive invert h2y -> h2yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh2ia h2y invh2m 10000
+Rinvh2ib h2yn invh2m 10000.200002
+Einvh2amp h2yn 0 0 invh2m 100000
+* passive invert h3y -> h3yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh3ia h3y invh3m 10000
+Rinvh3ib h3yn invh3m 10000.200002
+Einvh3amp h3yn 0 0 invh3m 100000
+* passive invert h4y -> h4yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh4ia h4y invh4m 10000
+Rinvh4ib h4yn invh4m 10000.200002
+Einvh4amp h4yn 0 0 invh4m 100000
+
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=55381.137413171 G_phys=1.80566894561861e-05 G_eff=1.80566894561861e-05
+Ro1p1n1 h1yn o1p 55381.137413171
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=95974.0918925228 G_phys=1.04194786351285e-05 G_eff=1.04194786351285e-05
+Ro1p2n1 h2yn o1p 95974.0918925228
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=38011.716249768 G_phys=2.63076782281859e-05 G_eff=2.63076782281859e-05
+Ro1p3n1 h3yn o1p 38011.716249768
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=35860.5019249499 G_phys=2.78858338930346e-05 G_eff=2.78858338930346e-05
+Ro1p4n1 h4yn o1p 35860.5019249499
+* o1 bias w+  bank=f alpha=0.001 R=3220.47143452777 G_phys=0.000310513544470123 G_eff=3.10513544470123e-07
+Ro1bpf1 taprefn o1p 3220.47143452777
+* replica dummy G_tot for o1: same R as weights/biases, dest=0
+Ro1dmy000 0 o1rp 55381.137413171
+Ro1dmy001 0 o1rp 95974.0918925228
+Ro1dmy002 0 o1rp 38011.716249768
+Ro1dmy003 0 o1rp 35860.5019249499
+Ro1dmy004 0 o1rp 3220.47143452777
+* feedback TIA o1: Rf=33333.3333333333 A=100000 V(o1sig) = -I(o1p)*Rf*A/(A+1)  (uncompensated)
+Bo1tia o1sig 0 V = -(100000) * (v(o1p) - (0.0001))
+Ro1f o1sig o1p 33333.3333333333
+* feedback TIA o1r: Rf=33333.3333333333 A=100000 V(o1rep) = -I(o1rp)*Rf*A/(A+1)  (uncompensated)
+Eo1rtia o1rep 0 0 o1rp 100000
+Ro1rf o1rep o1rp 33333.3333333333
+* replica null o1: v(o1lin)=v(o1sig)-v(o1rep) Vos_sig=0.0001 Vos_rep=0
+Eo1null o1lin 0 o1sig o1rep 1
+.control
+set numdgt=15
+alter Vin1 DC -0.696433693524936
+alter Vin2 DC -0.034315265811111
+op
+print v(o1lin)
+alter Vin1 DC 0.111894207045308
+alter Vin2 DC 0.135616366117357
+op
+print v(o1lin)
+alter Vin1 DC -0.16662865206503
+alter Vin2 DC -0.407673239020816
+op
+print v(o1lin)
+alter Vin1 DC -0.142239801344362
+alter Vin2 DC 0.279360934486812
+op
+print v(o1lin)
+alter Vin1 DC 0.456478863280194
+alter Vin2 DC 0.243561157692864
+op
+print v(o1lin)
+alter Vin1 DC 0.97393277613835
+alter Vin2 DC -0.965087192591615
+op
+print v(o1lin)
+alter Vin1 DC 0.956567738670563
+alter Vin2 DC -0.834210530661097
+op
+print v(o1lin)
+alter Vin1 DC -0.950616806473791
+alter Vin2 DC -0.335729689280752
+op
+print v(o1lin)
+alter Vin1 DC -0.935784582373887
+alter Vin2 DC 0.0595306939826332
+op
+print v(o1lin)
+alter Vin1 DC 0.381873010372952
+alter Vin2 DC 0.4596003710577
+op
+print v(o1lin)
+alter Vin1 DC -0.103345995207087
+alter Vin2 DC -0.390016930966025
+op
+print v(o1lin)
+alter Vin1 DC 0.522642371468903
+alter Vin2 DC 0.441972963819863
+op
+print v(o1lin)
+alter Vin1 DC -0.134580288118207
+alter Vin2 DC -0.986566781636703
+op
+print v(o1lin)
+alter Vin1 DC 0.590779913213897
+alter Vin2 DC -0.399798304624259
+op
+print v(o1lin)
+alter Vin1 DC 0.23401645006178
+alter Vin2 DC -0.373868576883113
+op
+print v(o1lin)
+alter Vin1 DC 0.428761415003093
+alter Vin2 DC -0.0937499538659523
+op
+print v(o1lin)
+alter Vin1 DC -0.0430168160961502
+alter Vin2 DC 0.62265139488417
+op
+print v(o1lin)
+alter Vin1 DC -0.25176232558629
+alter Vin2 DC -0.538199225976028
+op
+print v(o1lin)
+alter Vin1 DC 0.884845734456581
+alter Vin2 DC 0.329830592881541
+op
+print v(o1lin)
+alter Vin1 DC -0.48225973482889
+alter Vin2 DC 0.176512395364105
+op
+print v(o1lin)
+alter Vin1 DC 0.793152435013153
+alter Vin2 DC 0.626331702904257
+op
+print v(o1lin)
+alter Vin1 DC 0.0588835095283431
+alter Vin2 DC -0.18962459133365
+op
+print v(o1lin)
+alter Vin1 DC -0.472835223392059
+alter Vin2 DC -0.294209920683756
+op
+print v(o1lin)
+alter Vin1 DC -0.697554961980089
+alter Vin2 DC -0.1070265418508
+op
+print v(o1lin)
+alter Vin1 DC -0.751547950330061
+alter Vin2 DC -0.856877902609744
+op
+print v(o1lin)
+alter Vin1 DC -0.64402226603951
+alter Vin2 DC 0.412344200005971
+op
+print v(o1lin)
+alter Vin1 DC -0.688411871522993
+alter Vin2 DC 0.642173255500932
+op
+print v(o1lin)
+alter Vin1 DC 0.40899234141192
+alter Vin2 DC -0.804309157722594
+op
+print v(o1lin)
+alter Vin1 DC 0.303118602803484
+alter Vin2 DC -0.147875687800219
+op
+print v(o1lin)
+alter Vin1 DC -0.230828354371044
+alter Vin2 DC 0.185884727393794
+op
+print v(o1lin)
+alter Vin1 DC -0.601929446466897
+alter Vin2 DC -0.635179259874873
+op
+print v(o1lin)
+alter Vin1 DC 0.181949834030004
+alter Vin2 DC 0.554347061514023
+op
+print v(o1lin)
+alter Vin1 DC -0.309870713990387
+alter Vin2 DC -0.820487961207898
+op
+print v(o1lin)
+alter Vin1 DC 0.740005368759268
+alter Vin2 DC 0.930400174737387
+op
+print v(o1lin)
+alter Vin1 DC 0.172113573209072
+alter Vin2 DC -0.663602315383618
+op
+print v(o1lin)
+alter Vin1 DC -0.214413882793574
+alter Vin2 DC 0.0570394107695094
+op
+print v(o1lin)
+alter Vin1 DC 0.169551278411226
+alter Vin2 DC -0.470095943884901
+op
+print v(o1lin)
+alter Vin1 DC -0.492610415065769
+alter Vin2 DC 0.747202513887294
+op
+print v(o1lin)
+alter Vin1 DC 0.0427659786863865
+alter Vin2 DC 0.50242964278113
+op
+print v(o1lin)
+alter Vin1 DC -0.651166222033671
+alter Vin2 DC -0.473660053265641
+op
+print v(o1lin)
+.endc
+
+.end

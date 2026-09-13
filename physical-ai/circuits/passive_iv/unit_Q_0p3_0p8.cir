@@ -1,0 +1,29 @@
+* Experiment 18 unit cell Q
+* math y = 0.683761*x1 + 0.309367*x2 + -0.0265988
+Vin1 in1 0 DC 0.3
+Vin2 in2 0 DC 0.8
+Vref vref 0 DC 1
+Ria in1 m1 10000
+Rib in1n m1 10000.200002
+Einv1 in1n 0 0 m1 1e5
+Ria2 in2 m2 10000
+Rib2 in2n m2 10000.200002
+Einv2 in2n 0 0 m2 1e5
+Riar vref mr 10000
+Ribr vrefn mr 10000.200002
+Einvr vrefn 0 0 mr 1e5
+Rw1p in1 sum 48749.9920441162
+Rw2p in2 sum 107746.969487669
+Rbn vrefn sum 1253189.54325804
+* G_tot=3.05917912395677e-05 Rf=33333.3333333333 RfG=1.01972637465226
+Rf sum 0 33333.3333333333
+Vwire lin sum DC 0
+Rnext lin next 33333.3333333333
+Vnext next 0 DC 0
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

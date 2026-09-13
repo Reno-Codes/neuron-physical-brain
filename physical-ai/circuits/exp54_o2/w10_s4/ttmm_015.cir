@@ -1,0 +1,530 @@
+* Experiment 54 w10_s4 tt_mm draw 15 A=1e6 · model AGAUSS
+* PDK sky130A open_pdks 1689ac3f2dc763876eaf967227c7dfe831b031ae
+* Frozen weights were not edited. SPICE is not Python-corrected.
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt_mm
+.temp 27
+
+* Experiment 22 isolated TIA neuron n1
+* frozen n=32 L1=6.7601697 b=0.0322130531942455
+* A=1000000 vos=0 Ileak=0 Rout=0 fp=0 invertA=1e+07
+* Behavioral TIA. Not transistor-level. Weights were not edited.
+* shape: 32 -> 1 (linear Vlin vs z unless ReLU requested)
+
+Vin1 in1 0 DC 0.288635987619693
+Vin2 in2 0 DC 0.653552961415873
+* passive invert in2 -> in2n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv2ia n=4 W=10 L=12.324372 unitR=2500
+XRinv2ias0 in2 Rinv2iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv2ias1 Rinv2iass0 Rinv2iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv2ias2 Rinv2iass1 Rinv2iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv2ias3 Rinv2iass2 inv2m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv2ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv2ibs0 in2n Rinv2ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv2ibs1 Rinv2ibss0 Rinv2ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv2ibs2 Rinv2ibss1 Rinv2ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv2ibs3 Rinv2ibss2 inv2m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv2amp in2n 0 0 inv2m 10000000
+Vin3 in3 0 DC 1.14933536319878
+* passive invert in3 -> in3n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv3ia n=4 W=10 L=12.324372 unitR=2500
+XRinv3ias0 in3 Rinv3iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv3ias1 Rinv3iass0 Rinv3iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv3ias2 Rinv3iass1 Rinv3iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv3ias3 Rinv3iass2 inv3m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv3ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv3ibs0 in3n Rinv3ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv3ibs1 Rinv3ibss0 Rinv3ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv3ibs2 Rinv3ibss1 Rinv3ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv3ibs3 Rinv3ibss2 inv3m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv3amp in3n 0 0 inv3m 10000000
+Vin4 in4 0 DC 0
+Vin5 in5 0 DC 1.37476380462716
+* passive invert in5 -> in5n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv5ia n=4 W=10 L=12.324372 unitR=2500
+XRinv5ias0 in5 Rinv5iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv5ias1 Rinv5iass0 Rinv5iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv5ias2 Rinv5iass1 Rinv5iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv5ias3 Rinv5iass2 inv5m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv5ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv5ibs0 in5n Rinv5ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv5ibs1 Rinv5ibss0 Rinv5ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv5ibs2 Rinv5ibss1 Rinv5ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv5ibs3 Rinv5ibss2 inv5m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv5amp in5n 0 0 inv5m 10000000
+Vin6 in6 0 DC 1.19986134609244
+* passive invert in6 -> in6n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv6ia n=4 W=10 L=12.324372 unitR=2500
+XRinv6ias0 in6 Rinv6iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv6ias1 Rinv6iass0 Rinv6iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv6ias2 Rinv6iass1 Rinv6iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv6ias3 Rinv6iass2 inv6m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv6ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv6ibs0 in6n Rinv6ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv6ibs1 Rinv6ibss0 Rinv6ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv6ibs2 Rinv6ibss1 Rinv6ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv6ibs3 Rinv6ibss2 inv6m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv6amp in6n 0 0 inv6m 10000000
+Vin7 in7 0 DC 0
+Vin8 in8 0 DC 0.317097301363568
+Vin9 in9 0 DC 0
+* passive invert in9 -> in9n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv9ia n=4 W=10 L=12.324372 unitR=2500
+XRinv9ias0 in9 Rinv9iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv9ias1 Rinv9iass0 Rinv9iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv9ias2 Rinv9iass1 Rinv9iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv9ias3 Rinv9iass2 inv9m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv9ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv9ibs0 in9n Rinv9ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv9ibs1 Rinv9ibss0 Rinv9ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv9ibs2 Rinv9ibss1 Rinv9ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv9ibs3 Rinv9ibss2 inv9m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv9amp in9n 0 0 inv9m 10000000
+Vin10 in10 0 DC 0.827257420094178
+* passive invert in10 -> in10n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv10ia n=4 W=10 L=12.324372 unitR=2500
+XRinv10ias0 in10 Rinv10iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv10ias1 Rinv10iass0 Rinv10iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv10ias2 Rinv10iass1 Rinv10iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv10ias3 Rinv10iass2 inv10m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv10ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv10ibs0 in10n Rinv10ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv10ibs1 Rinv10ibss0 Rinv10ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv10ibs2 Rinv10ibss1 Rinv10ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv10ibs3 Rinv10ibss2 inv10m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv10amp in10n 0 0 inv10m 10000000
+Vin11 in11 0 DC 0
+Vin12 in12 0 DC 0
+Vin13 in13 0 DC 0
+Vin14 in14 0 DC 1.25893915448753
+* passive invert in14 -> in14n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv14ia n=4 W=10 L=12.324372 unitR=2500
+XRinv14ias0 in14 Rinv14iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv14ias1 Rinv14iass0 Rinv14iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv14ias2 Rinv14iass1 Rinv14iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv14ias3 Rinv14iass2 inv14m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv14ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv14ibs0 in14n Rinv14ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv14ibs1 Rinv14ibss0 Rinv14ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv14ibs2 Rinv14ibss1 Rinv14ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv14ibs3 Rinv14ibss2 inv14m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv14amp in14n 0 0 inv14m 10000000
+Vin15 in15 0 DC 0.398142284790337
+Vin16 in16 0 DC 0
+* load-compensated divider in16->tap16: G_load=0.000666445780473128 Ra=599479.450040294 Rb=1000 target beta=0.001 (no tap buffer)
+* series-split Rdiv16a n=4 W=10 L=745.04733 unitR=149869.86
+XRdiv16as0 in16 Rdiv16ass0 0 sky130_fd_pr__res_xhigh_po w=10 l=745.04733
+XRdiv16as1 Rdiv16ass0 Rdiv16ass1 0 sky130_fd_pr__res_xhigh_po w=10 l=745.04733
+XRdiv16as2 Rdiv16ass1 Rdiv16ass2 0 sky130_fd_pr__res_xhigh_po w=10 l=745.04733
+XRdiv16as3 Rdiv16ass2 tap16 0 sky130_fd_pr__res_xhigh_po w=10 l=745.04733
+* series-split Rdiv16b n=4 W=10 L=1.1373717 unitR=250
+XRdiv16bs0 tap16 Rdiv16bss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv16bs1 Rdiv16bss0 Rdiv16bss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv16bs2 Rdiv16bss1 Rdiv16bss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv16bs3 Rdiv16bss2 0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+Vin17 in17 0 DC 0
+* passive invert in17 -> in17n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv17ia n=4 W=10 L=12.324372 unitR=2500
+XRinv17ias0 in17 Rinv17iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv17ias1 Rinv17iass0 Rinv17iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv17ias2 Rinv17iass1 Rinv17iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv17ias3 Rinv17iass2 inv17m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv17ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv17ibs0 in17n Rinv17ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv17ibs1 Rinv17ibss0 Rinv17ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv17ibs2 Rinv17ibss1 Rinv17ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv17ibs3 Rinv17ibss2 inv17m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv17amp in17n 0 0 inv17m 10000000
+* load-compensated divider in17n->tap17n: G_load=0.000266255881165782 Ra=788940.067216326 Rb=1000 target beta=0.001 (no tap buffer)
+* series-split Rdiv17na n=4 W=10 L=980.54688 unitR=197235.02
+XRdiv17nas0 in17n Rdiv17nass0 0 sky130_fd_pr__res_xhigh_po w=10 l=980.54688
+XRdiv17nas1 Rdiv17nass0 Rdiv17nass1 0 sky130_fd_pr__res_xhigh_po w=10 l=980.54688
+XRdiv17nas2 Rdiv17nass1 Rdiv17nass2 0 sky130_fd_pr__res_xhigh_po w=10 l=980.54688
+XRdiv17nas3 Rdiv17nass2 tap17n 0 sky130_fd_pr__res_xhigh_po w=10 l=980.54688
+* series-split Rdiv17nb n=4 W=10 L=1.1373717 unitR=250
+XRdiv17nbs0 tap17n Rdiv17nbss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv17nbs1 Rdiv17nbss0 Rdiv17nbss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv17nbs2 Rdiv17nbss1 Rdiv17nbss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv17nbs3 Rdiv17nbss2 0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+Vin18 in18 0 DC 1.19134595226048
+Vin19 in19 0 DC 0
+* passive invert in19 -> in19n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv19ia n=4 W=10 L=12.324372 unitR=2500
+XRinv19ias0 in19 Rinv19iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv19ias1 Rinv19iass0 Rinv19iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv19ias2 Rinv19iass1 Rinv19iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv19ias3 Rinv19iass2 inv19m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv19ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv19ibs0 in19n Rinv19ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv19ibs1 Rinv19ibss0 Rinv19ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv19ibs2 Rinv19ibss1 Rinv19ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv19ibs3 Rinv19ibss2 inv19m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv19amp in19n 0 0 inv19m 10000000
+Vin20 in20 0 DC 0
+* load-compensated divider in20->tap20: G_load=0.000971610549965604 Ra=506692.358700063 Rb=1000 target beta=0.001 (no tap buffer)
+* series-split Rdiv20a n=4 W=10 L=629.71297 unitR=126673.09
+XRdiv20as0 in20 Rdiv20ass0 0 sky130_fd_pr__res_xhigh_po w=10 l=629.71297
+XRdiv20as1 Rdiv20ass0 Rdiv20ass1 0 sky130_fd_pr__res_xhigh_po w=10 l=629.71297
+XRdiv20as2 Rdiv20ass1 Rdiv20ass2 0 sky130_fd_pr__res_xhigh_po w=10 l=629.71297
+XRdiv20as3 Rdiv20ass2 tap20 0 sky130_fd_pr__res_xhigh_po w=10 l=629.71297
+* series-split Rdiv20b n=4 W=10 L=1.1373717 unitR=250
+XRdiv20bs0 tap20 Rdiv20bss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv20bs1 Rdiv20bss0 Rdiv20bss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv20bs2 Rdiv20bss1 Rdiv20bss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv20bs3 Rdiv20bss2 0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+Vin21 in21 0 DC 0
+Vin22 in22 0 DC 0
+* passive invert in22 -> in22n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv22ia n=4 W=10 L=12.324372 unitR=2500
+XRinv22ias0 in22 Rinv22iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv22ias1 Rinv22iass0 Rinv22iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv22ias2 Rinv22iass1 Rinv22iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv22ias3 Rinv22iass2 inv22m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv22ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv22ibs0 in22n Rinv22ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv22ibs1 Rinv22ibss0 Rinv22ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv22ibs2 Rinv22ibss1 Rinv22ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv22ibs3 Rinv22ibss2 inv22m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv22amp in22n 0 0 inv22m 10000000
+Vin23 in23 0 DC 0.370520947636909
+* passive invert in23 -> in23n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv23ia n=4 W=10 L=12.324372 unitR=2500
+XRinv23ias0 in23 Rinv23iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv23ias1 Rinv23iass0 Rinv23iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv23ias2 Rinv23iass1 Rinv23iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv23ias3 Rinv23iass2 inv23m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv23ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv23ibs0 in23n Rinv23ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv23ibs1 Rinv23ibss0 Rinv23ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv23ibs2 Rinv23ibss1 Rinv23ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv23ibs3 Rinv23ibss2 inv23m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv23amp in23n 0 0 inv23m 10000000
+Vin24 in24 0 DC 0
+* load-compensated divider in24->tap24: G_load=0.000881349510863982 Ra=531001.812385847 Rb=1000 target beta=0.001 (no tap buffer)
+* series-split Rdiv24a n=4 W=10 L=659.92962 unitR=132750.45
+XRdiv24as0 in24 Rdiv24ass0 0 sky130_fd_pr__res_xhigh_po w=10 l=659.92962
+XRdiv24as1 Rdiv24ass0 Rdiv24ass1 0 sky130_fd_pr__res_xhigh_po w=10 l=659.92962
+XRdiv24as2 Rdiv24ass1 Rdiv24ass2 0 sky130_fd_pr__res_xhigh_po w=10 l=659.92962
+XRdiv24as3 Rdiv24ass2 tap24 0 sky130_fd_pr__res_xhigh_po w=10 l=659.92962
+* series-split Rdiv24b n=4 W=10 L=1.1373717 unitR=250
+XRdiv24bs0 tap24 Rdiv24bss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv24bs1 Rdiv24bss0 Rdiv24bss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv24bs2 Rdiv24bss1 Rdiv24bss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv24bs3 Rdiv24bss2 0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+Vin25 in25 0 DC 0
+* passive invert in25 -> in25n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv25ia n=4 W=10 L=12.324372 unitR=2500
+XRinv25ias0 in25 Rinv25iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv25ias1 Rinv25iass0 Rinv25iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv25ias2 Rinv25iass1 Rinv25iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv25ias3 Rinv25iass2 inv25m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv25ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv25ibs0 in25n Rinv25ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv25ibs1 Rinv25ibss0 Rinv25ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv25ibs2 Rinv25ibss1 Rinv25ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv25ibs3 Rinv25ibss2 inv25m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv25amp in25n 0 0 inv25m 10000000
+Vin26 in26 0 DC 0
+Vin27 in27 0 DC 1.88293545008737
+* passive invert in27 -> in27n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv27ia n=4 W=10 L=12.324372 unitR=2500
+XRinv27ias0 in27 Rinv27iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv27ias1 Rinv27iass0 Rinv27iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv27ias2 Rinv27iass1 Rinv27iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv27ias3 Rinv27iass2 inv27m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv27ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv27ibs0 in27n Rinv27ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv27ibs1 Rinv27ibss0 Rinv27ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv27ibs2 Rinv27ibss1 Rinv27ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv27ibs3 Rinv27ibss2 inv27m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv27amp in27n 0 0 inv27m 10000000
+Vin28 in28 0 DC 1.38172289531745
+* passive invert in28 -> in28n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv28ia n=4 W=10 L=12.324372 unitR=2500
+XRinv28ias0 in28 Rinv28iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv28ias1 Rinv28iass0 Rinv28iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv28ias2 Rinv28iass1 Rinv28iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv28ias3 Rinv28iass2 inv28m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv28ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv28ibs0 in28n Rinv28ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv28ibs1 Rinv28ibss0 Rinv28ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv28ibs2 Rinv28ibss1 Rinv28ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv28ibs3 Rinv28ibss2 inv28m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv28amp in28n 0 0 inv28m 10000000
+Vin29 in29 0 DC 0
+* passive invert in29 -> in29n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv29ia n=4 W=10 L=12.324372 unitR=2500
+XRinv29ias0 in29 Rinv29iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv29ias1 Rinv29iass0 Rinv29iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv29ias2 Rinv29iass1 Rinv29iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv29ias3 Rinv29iass2 inv29m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv29ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv29ibs0 in29n Rinv29ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv29ibs1 Rinv29ibss0 Rinv29ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv29ibs2 Rinv29ibss1 Rinv29ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv29ibs3 Rinv29ibss2 inv29m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv29amp in29n 0 0 inv29m 10000000
+* load-compensated divider in29n->tap29n: G_load=0.000275989040257845 Ra=782922.085128668 Rb=1000 target beta=0.001 (no tap buffer)
+* series-split Rdiv29na n=4 W=10 L=973.06652 unitR=195730.52
+XRdiv29nas0 in29n Rdiv29nass0 0 sky130_fd_pr__res_xhigh_po w=10 l=973.06652
+XRdiv29nas1 Rdiv29nass0 Rdiv29nass1 0 sky130_fd_pr__res_xhigh_po w=10 l=973.06652
+XRdiv29nas2 Rdiv29nass1 Rdiv29nass2 0 sky130_fd_pr__res_xhigh_po w=10 l=973.06652
+XRdiv29nas3 Rdiv29nass2 tap29n 0 sky130_fd_pr__res_xhigh_po w=10 l=973.06652
+* series-split Rdiv29nb n=4 W=10 L=1.1373717 unitR=250
+XRdiv29nbs0 tap29n Rdiv29nbss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv29nbs1 Rdiv29nbss0 Rdiv29nbss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv29nbs2 Rdiv29nbss1 Rdiv29nbss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdiv29nbs3 Rdiv29nbss2 0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+Vin30 in30 0 DC 0.0467434987671904
+Vin31 in31 0 DC 0.376944739491497
+Vin32 in32 0 DC 0.0618086911540602
+* passive invert in32 -> in32n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinv32ia n=4 W=10 L=12.324372 unitR=2500
+XRinv32ias0 in32 Rinv32iass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv32ias1 Rinv32iass0 Rinv32iass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv32ias2 Rinv32iass1 Rinv32iass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinv32ias3 Rinv32iass2 inv32m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinv32ib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinv32ibs0 in32n Rinv32ibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv32ibs1 Rinv32ibss0 Rinv32ibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv32ibs2 Rinv32ibss1 Rinv32ibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinv32ibs3 Rinv32ibss2 inv32m 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einv32amp in32n 0 0 inv32m 10000000
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* series-split Rinvrefia n=4 W=10 L=12.324372 unitR=2500
+XRinvrefias0 vref Rinvrefiass0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinvrefias1 Rinvrefiass0 Rinvrefiass1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinvrefias2 Rinvrefiass1 Rinvrefiass2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+XRinvrefias3 Rinvrefiass2 invrefm 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324372
+* series-split Rinvrefib n=4 W=10 L=12.324374 unitR=2500.0005
+XRinvrefibs0 vrefn Rinvrefibss0 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinvrefibs1 Rinvrefibss0 Rinvrefibss1 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinvrefibs2 Rinvrefibss1 Rinvrefibss2 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+XRinvrefibs3 Rinvrefibss2 invrefm 0 sky130_fd_pr__res_xhigh_po w=10 l=12.324374
+Einvrefamp vrefn 0 0 invrefm 10000000
+* load-compensated divider vrefn->taprefn: G_load=0.000966391595827364 Ra=508037.159088685 Rb=1000 target beta=0.001 (no tap buffer)
+* series-split Rdivrefna n=4 W=10 L=631.38456 unitR=127009.29
+XRdivrefnas0 vrefn Rdivrefnass0 0 sky130_fd_pr__res_xhigh_po w=10 l=631.38456
+XRdivrefnas1 Rdivrefnass0 Rdivrefnass1 0 sky130_fd_pr__res_xhigh_po w=10 l=631.38456
+XRdivrefnas2 Rdivrefnass1 Rdivrefnass2 0 sky130_fd_pr__res_xhigh_po w=10 l=631.38456
+XRdivrefnas3 Rdivrefnass2 taprefn 0 sky130_fd_pr__res_xhigh_po w=10 l=631.38456
+* series-split Rdivrefnb n=4 W=10 L=1.1373717 unitR=250
+XRdivrefnbs0 taprefn Rdivrefnbss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdivrefnbs1 Rdivrefnbss0 Rdivrefnbss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdivrefnbs2 Rdivrefnbss1 Rdivrefnbss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+XRdivrefnbs3 Rdivrefnbss2 0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1373717
+
+* n1 input 1 w=-0.195521390350609 w-  bank=n alpha=1 R=170484.330505015 G_phys=5.86564171051827e-06 G_eff=5.86564171051827e-06
+* series-split Rn1n1n1 n=4 W=10 L=211.80639 unitR=42621.083
+XRn1n1n1s0 in1 Rn1n1n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=211.80639
+XRn1n1n1s1 Rn1n1n1ss0 Rn1n1n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=211.80639
+XRn1n1n1s2 Rn1n1n1ss1 Rn1n1n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=211.80639
+XRn1n1n1s3 Rn1n1n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=211.80639
+* n1 input 2 w=+0.386445174905558 w+  bank=n alpha=1 R=86256.3061926689 G_phys=1.15933552471668e-05 G_eff=1.15933552471668e-05
+* series-split Rn1p2n1 n=4 W=10 L=107.11096 unitR=21564.077
+XRn1p2n1s0 in2n Rn1p2n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=107.11096
+XRn1p2n1s1 Rn1p2n1ss0 Rn1p2n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=107.11096
+XRn1p2n1s2 Rn1p2n1ss1 Rn1p2n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=107.11096
+XRn1p2n1s3 Rn1p2n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=107.11096
+* n1 input 3 w=+0.296294588630229 w+  bank=n alpha=1 R=112500.648383197 G_phys=8.88883765890688e-06 G_eff=8.88883765890688e-06
+* series-split Rn1p3n1 n=4 W=10 L=139.73268 unitR=28125.162
+XRn1p3n1s0 in3n Rn1p3n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=139.73268
+XRn1p3n1s1 Rn1p3n1ss0 Rn1p3n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=139.73268
+XRn1p3n1s2 Rn1p3n1ss1 Rn1p3n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=139.73268
+XRn1p3n1s3 Rn1p3n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=139.73268
+* n1 input 4 w=-0.299308681857295 w-  bank=n alpha=1 R=111367.746256108 G_phys=8.97926045571886e-06 G_eff=8.97926045571886e-06
+* series-split Rn1n4n1 n=4 W=10 L=138.32448 unitR=27841.937
+XRn1n4n1s0 in4 Rn1n4n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=138.32448
+XRn1n4n1s1 Rn1n4n1ss0 Rn1n4n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=138.32448
+XRn1n4n1s2 Rn1n4n1ss1 Rn1n4n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=138.32448
+XRn1n4n1s3 Rn1n4n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=138.32448
+* n1 input 5 w=+0.732671792857329 w+  bank=n alpha=1 R=45495.5870531571 G_phys=2.19801537857199e-05 G_eff=2.19801537857199e-05
+* series-split Rn1p5n1 n=4 W=10 L=56.445386 unitR=11373.897
+XRn1p5n1s0 in5n Rn1p5n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=56.445386
+XRn1p5n1s1 Rn1p5n1ss0 Rn1p5n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=56.445386
+XRn1p5n1s2 Rn1p5n1ss1 Rn1p5n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=56.445386
+XRn1p5n1s3 Rn1p5n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=56.445386
+* n1 input 6 w=+0.124925987288217 w+  bank=n alpha=1 R=266824.65399637 G_phys=3.7477796186465e-06 G_eff=3.7477796186465e-06
+* series-split Rn1p6n1 n=4 W=10 L=331.55742 unitR=66706.163
+XRn1p6n1s0 in6n Rn1p6n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=331.55742
+XRn1p6n1s1 Rn1p6n1ss0 Rn1p6n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=331.55742
+XRn1p6n1s2 Rn1p6n1ss1 Rn1p6n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=331.55742
+XRn1p6n1s3 Rn1p6n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=331.55742
+* n1 input 7 w=-0.0857938493267301 w-  bank=n alpha=1 R=388528.240601368 G_phys=2.5738154798019e-06 G_eff=2.5738154798019e-06
+* series-split Rn1n7n1 n=4 W=10 L=482.83497 unitR=97132.06
+XRn1n7n1s0 in7 Rn1n7n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=482.83497
+XRn1n7n1s1 Rn1n7n1ss0 Rn1n7n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=482.83497
+XRn1n7n1s2 Rn1n7n1ss1 Rn1n7n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=482.83497
+XRn1n7n1s3 Rn1n7n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=482.83497
+* n1 input 8 w=-0.0609936542707342 w-  bank=n alpha=1 R=546504.939438057 G_phys=1.82980962812202e-06 G_eff=1.82980962812202e-06
+* series-split Rn1n8n1 n=4 W=10 L=679.20001 unitR=136626.23
+XRn1n8n1s0 in8 Rn1n8n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=679.20001
+XRn1n8n1s1 Rn1n8n1ss0 Rn1n8n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=679.20001
+XRn1n8n1s2 Rn1n8n1ss1 Rn1n8n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=679.20001
+XRn1n8n1s3 Rn1n8n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=679.20001
+* n1 input 9 w=+0.256981204903229 w+  bank=n alpha=1 R=129711.172246568 G_phys=7.70943614709688e-06 G_eff=7.70943614709688e-06
+* series-split Rn1p9n1 n=4 W=10 L=161.12536 unitR=32427.793
+XRn1p9n1s0 in9n Rn1p9n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=161.12536
+XRn1p9n1s1 Rn1p9n1ss0 Rn1p9n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=161.12536
+XRn1p9n1s2 Rn1p9n1ss1 Rn1p9n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=161.12536
+XRn1p9n1s3 Rn1p9n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=161.12536
+* n1 input 10 w=+0.073638013162671 w+  bank=n alpha=1 R=452664.756987643 G_phys=2.20914039488013e-06 G_eff=2.20914039488013e-06
+* series-split Rn1p10n1 n=4 W=10 L=562.55666 unitR=113166.19
+XRn1p10n1s0 in10n Rn1p10n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=562.55666
+XRn1p10n1s1 Rn1p10n1ss0 Rn1p10n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=562.55666
+XRn1p10n1s2 Rn1p10n1ss1 Rn1p10n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=562.55666
+XRn1p10n1s3 Rn1p10n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=562.55666
+* n1 input 11 w=-0.149208279345328 w-  bank=n alpha=1 R=223401.365390634 G_phys=4.47624838035983e-06 G_eff=4.47624838035983e-06
+* series-split Rn1n11n1 n=4 W=10 L=277.58227 unitR=55850.341
+XRn1n11n1s0 in11 Rn1n11n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=277.58227
+XRn1n11n1s1 Rn1n11n1ss0 Rn1n11n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=277.58227
+XRn1n11n1s2 Rn1n11n1ss1 Rn1n11n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=277.58227
+XRn1n11n1s3 Rn1n11n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=277.58227
+* n1 input 12 w=-0.475362564845884 w-  bank=n alpha=1 R=70121.9149306388 G_phys=1.42608769453765e-05 G_eff=1.42608769453765e-05
+* series-split Rn1n12n1 n=4 W=10 L=87.055912 unitR=17530.479
+XRn1n12n1s0 in12 Rn1n12n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=87.055912
+XRn1n12n1s1 Rn1n12n1ss0 Rn1n12n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=87.055912
+XRn1n12n1s2 Rn1n12n1ss1 Rn1n12n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=87.055912
+XRn1n12n1s3 Rn1n12n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=87.055912
+* n1 input 13 w=-0.0533811781970356 w-  bank=n alpha=1 R=624439.820535554 G_phys=1.60143534591107e-06 G_eff=1.60143534591107e-06
+* series-split Rn1n13n1 n=4 W=10 L=776.07307 unitR=156109.96
+XRn1n13n1s0 in13 Rn1n13n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=776.07307
+XRn1n13n1s1 Rn1n13n1ss0 Rn1n13n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=776.07307
+XRn1n13n1s2 Rn1n13n1ss1 Rn1n13n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=776.07307
+XRn1n13n1s3 Rn1n13n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=776.07307
+* n1 input 14 w=+0.279456004632752 w+  bank=n alpha=1 R=119279.359830319 G_phys=8.38368013898257e-06 G_eff=8.38368013898257e-06
+* series-split Rn1p14n1 n=4 W=10 L=148.15862 unitR=29819.84
+XRn1p14n1s0 in14n Rn1p14n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=148.15862
+XRn1p14n1s1 Rn1p14n1ss0 Rn1p14n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=148.15862
+XRn1p14n1s2 Rn1p14n1ss1 Rn1p14n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=148.15862
+XRn1p14n1s3 Rn1p14n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=148.15862
+* n1 input 15 w=-0.0744870090943736 w-  bank=n alpha=1 R=447505.326614748 G_phys=2.23461027283121e-06 G_eff=2.23461027283121e-06
+* series-split Rn1n15n1 n=4 W=10 L=556.14349 unitR=111876.33
+XRn1n15n1s0 in15 Rn1n15n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=556.14349
+XRn1n15n1s1 Rn1n15n1ss0 Rn1n15n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=556.14349
+XRn1n15n1s2 Rn1n15n1ss1 Rn1n15n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=556.14349
+XRn1n15n1s3 Rn1n15n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=556.14349
+* n1 input 16 w=-0.0222148593491043 w-  bank=f alpha=0.001 R=1500.49715865869 G_phys=0.000666445780473128 G_eff=6.66445780473128e-07
+* series-split Rn1n16f1 n=4 W=10 L=1.7594896 unitR=375.12429
+XRn1n16f1s0 tap16 Rn1n16f1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.7594896
+XRn1n16f1s1 Rn1n16f1ss0 Rn1n16f1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.7594896
+XRn1n16f1s2 Rn1n16f1ss1 Rn1n16f1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.7594896
+XRn1n16f1s3 Rn1n16f1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=1.7594896
+* n1 input 17 w=+0.0088751960388594 w+  bank=f alpha=0.001 R=3755.78558348297 G_phys=0.000266255881165782 G_eff=2.66255881165782e-07
+* series-split Rn1p17f1 n=4 W=10 L=4.5628132 unitR=938.9464
+XRn1p17f1s0 tap17n Rn1p17f1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=4.5628132
+XRn1p17f1s1 Rn1p17f1ss0 Rn1p17f1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=4.5628132
+XRn1p17f1s2 Rn1p17f1ss1 Rn1p17f1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=4.5628132
+XRn1p17f1s3 Rn1p17f1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=4.5628132
+* n1 input 18 w=-0.194172060066752 w-  bank=n alpha=1 R=171669.051262443 G_phys=5.82516180200256e-06 G_eff=5.82516180200256e-06
+* series-split Rn1n18n1 n=4 W=10 L=213.279 unitR=42917.263
+XRn1n18n1s0 in18 Rn1n18n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=213.279
+XRn1n18n1s1 Rn1n18n1ss0 Rn1n18n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=213.279
+XRn1n18n1s2 Rn1n18n1ss1 Rn1n18n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=213.279
+XRn1n18n1s3 Rn1n18n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=213.279
+* n1 input 19 w=+0.341327626188232 w+  bank=n alpha=1 R=97657.8828546125 G_phys=1.0239828785647e-05 G_eff=1.0239828785647e-05
+* series-split Rn1p19n1 n=4 W=10 L=121.28312 unitR=24414.471
+XRn1p19n1s0 in19n Rn1p19n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=121.28312
+XRn1p19n1s1 Rn1p19n1ss0 Rn1p19n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=121.28312
+XRn1p19n1s2 Rn1p19n1ss1 Rn1p19n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=121.28312
+XRn1p19n1s3 Rn1p19n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=121.28312
+* n1 input 20 w=-0.0323870183321868 w-  bank=f alpha=0.001 R=1029.21896024637 G_phys=0.000971610549965604 G_eff=9.71610549965604e-07
+* series-split Rn1n20f1 n=4 W=10 L=1.1736908 unitR=257.30474
+XRn1n20f1s0 tap20 Rn1n20f1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1736908
+XRn1n20f1s1 Rn1n20f1ss0 Rn1n20f1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1736908
+XRn1n20f1s2 Rn1n20f1ss1 Rn1n20f1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1736908
+XRn1n20f1s3 Rn1n20f1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1736908
+* n1 input 21 w=-0.0999542141187652 w-  bank=n alpha=1 R=333486.022847689 G_phys=2.99862642356296e-06 G_eff=2.99862642356296e-06
+* series-split Rn1n21n1 n=4 W=10 L=414.4175 unitR=83371.506
+XRn1n21n1s0 in21 Rn1n21n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=414.4175
+XRn1n21n1s1 Rn1n21n1ss0 Rn1n21n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=414.4175
+XRn1n21n1s2 Rn1n21n1ss1 Rn1n21n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=414.4175
+XRn1n21n1s3 Rn1n21n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=414.4175
+* n1 input 22 w=+0.693789300406694 w+  bank=n alpha=1 R=48045.3263170729 G_phys=2.08136790122008e-05 G_eff=2.08136790122008e-05
+* series-split Rn1p22n1 n=4 W=10 L=59.614712 unitR=12011.332
+XRn1p22n1s0 in22n Rn1p22n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=59.614712
+XRn1p22n1s1 Rn1p22n1ss0 Rn1p22n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=59.614712
+XRn1p22n1s2 Rn1p22n1ss1 Rn1p22n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=59.614712
+XRn1p22n1s3 Rn1p22n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=59.614712
+* n1 input 23 w=+0.0972685864670828 w+  bank=n alpha=1 R=342693.715864925 G_phys=2.91805759401248e-06 G_eff=2.91805759401248e-06
+* series-split Rn1p23n1 n=4 W=10 L=425.86266 unitR=85673.429
+XRn1p23n1s0 in23n Rn1p23n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=425.86266
+XRn1p23n1s1 Rn1p23n1ss0 Rn1p23n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=425.86266
+XRn1p23n1s2 Rn1p23n1ss1 Rn1p23n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=425.86266
+XRn1p23n1s3 Rn1p23n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=425.86266
+* n1 input 24 w=-0.0293783170287994 w-  bank=f alpha=0.001 R=1134.6236512002 G_phys=0.000881349510863982 G_eff=8.81349510863982e-07
+* series-split Rn1n24f1 n=4 W=10 L=1.3047089 unitR=283.65591
+XRn1n24f1s0 tap24 Rn1n24f1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.3047089
+XRn1n24f1s1 Rn1n24f1ss0 Rn1n24f1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.3047089
+XRn1n24f1s2 Rn1n24f1ss1 Rn1n24f1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.3047089
+XRn1n24f1s3 Rn1n24f1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=1.3047089
+* n1 input 25 w=+0.0497492024826392 w+  bank=n alpha=1 R=670027.491294269 G_phys=1.49247607447918e-06 G_eff=1.49247607447918e-06
+* series-split Rn1p25n1 n=4 W=10 L=832.73854 unitR=167506.87
+XRn1p25n1s0 in25n Rn1p25n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=832.73854
+XRn1p25n1s1 Rn1p25n1ss0 Rn1p25n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=832.73854
+XRn1p25n1s2 Rn1p25n1ss1 Rn1p25n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=832.73854
+XRn1p25n1s3 Rn1p25n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=832.73854
+* n1 input 26 w=-0.466063512962686 w-  bank=n alpha=1 R=71521.0103477937 G_phys=1.39819053888806e-05 G_eff=1.39819053888806e-05
+* series-split Rn1n26n1 n=4 W=10 L=88.794988 unitR=17880.253
+XRn1n26n1s0 in26 Rn1n26n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=88.794988
+XRn1n26n1s1 Rn1n26n1ss0 Rn1n26n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=88.794988
+XRn1n26n1s2 Rn1n26n1ss1 Rn1n26n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=88.794988
+XRn1n26n1s3 Rn1n26n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=88.794988
+* n1 input 27 w=+0.194887582685885 w+  bank=n alpha=1 R=171038.774630702 G_phys=5.84662748057655e-06 G_eff=5.84662748057655e-06
+* series-split Rn1p27n1 n=4 W=10 L=212.49557 unitR=42759.694
+XRn1p27n1s0 in27n Rn1p27n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=212.49557
+XRn1p27n1s1 Rn1p27n1ss0 Rn1p27n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=212.49557
+XRn1p27n1s2 Rn1p27n1ss1 Rn1p27n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=212.49557
+XRn1p27n1s3 Rn1p27n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=212.49557
+* n1 input 28 w=+0.209047565197081 w+  bank=n alpha=1 R=159453.344036359 G_phys=6.27142695591242e-06 G_eff=6.27142695591242e-06
+* series-split Rn1p28n1 n=4 W=10 L=198.09488 unitR=39863.336
+XRn1p28n1s0 in28n Rn1p28n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=198.09488
+XRn1p28n1s1 Rn1p28n1ss0 Rn1p28n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=198.09488
+XRn1p28n1s2 Rn1p28n1ss1 Rn1p28n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=198.09488
+XRn1p28n1s3 Rn1p28n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=198.09488
+* n1 input 29 w=+0.00919963467526149 w+  bank=f alpha=0.001 R=3623.33228546229 G_phys=0.000275989040257845 G_eff=2.75989040257845e-07
+* series-split Rn1p29f1 n=4 W=10 L=4.3981737 unitR=905.83307
+XRn1p29f1s0 tap29n Rn1p29f1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=4.3981737
+XRn1p29f1s1 Rn1p29f1ss0 Rn1p29f1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=4.3981737
+XRn1p29f1s2 Rn1p29f1ss1 Rn1p29f1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=4.3981737
+XRn1p29f1s3 Rn1p29f1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=4.3981737
+* n1 input 30 w=-0.379437042796868 w-  bank=n alpha=1 R=87849.4442388387 G_phys=1.13831112839061e-05 G_eff=1.13831112839061e-05
+* series-split Rn1n30n1 n=4 W=10 L=109.09123 unitR=21962.361
+XRn1n30n1s0 in30 Rn1n30n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=109.09123
+XRn1n30n1s1 Rn1n30n1ss0 Rn1n30n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=109.09123
+XRn1n30n1s2 Rn1n30n1ss1 Rn1n30n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=109.09123
+XRn1n30n1s3 Rn1n30n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=109.09123
+* n1 input 31 w=-0.216631724491884 w-  bank=n alpha=1 R=153870.96885979 G_phys=6.49895173475653e-06 G_eff=6.49895173475653e-06
+* series-split Rn1n31n1 n=4 W=10 L=191.15599 unitR=38467.742
+XRn1n31n1s0 in31 Rn1n31n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=191.15599
+XRn1n31n1s1 Rn1n31n1ss0 Rn1n31n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=191.15599
+XRn1n31n1s2 Rn1n31n1ss1 Rn1n31n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=191.15599
+XRn1n31n1s3 Rn1n31n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=191.15599
+* n1 input 32 w=+0.139103822260271 w+  bank=n alpha=1 R=239629.169002738 G_phys=4.17311466780814e-06 G_eff=4.17311466780814e-06
+* series-split Rn1p32n1 n=4 W=10 L=297.75343 unitR=59907.292
+XRn1p32n1s0 in32n Rn1p32n1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=297.75343
+XRn1p32n1s1 Rn1p32n1ss0 Rn1p32n1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=297.75343
+XRn1p32n1s2 Rn1p32n1ss1 Rn1p32n1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=297.75343
+XRn1p32n1s3 Rn1p32n1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=297.75343
+* n1 bias w+  bank=f alpha=0.001 R=1034.77721072674 G_phys=0.000966391595827364 G_eff=9.66391595827364e-07
+* series-split Rn1bpf1 n=4 W=10 L=1.1805997 unitR=258.6943
+XRn1bpf1s0 taprefn Rn1bpf1ss0 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1805997
+XRn1bpf1s1 Rn1bpf1ss0 Rn1bpf1ss1 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1805997
+XRn1bpf1s2 Rn1bpf1ss1 Rn1bpf1ss2 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1805997
+XRn1bpf1s3 Rn1bpf1ss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=1.1805997
+* feedback TIA n1: Rf=33333.3333333333 A=1000000 V(n1lin) = -I(n1p)*Rf*A/(A+1)  (uncompensated)
+En1tia n1lin 0 0 n1p 1000000
+* series-split Rn1f n=4 W=10 L=41.327705 unitR=8333.3333
+XRn1fs0 n1lin Rn1fss0 0 sky130_fd_pr__res_xhigh_po w=10 l=41.327705
+XRn1fs1 Rn1fss0 Rn1fss1 0 sky130_fd_pr__res_xhigh_po w=10 l=41.327705
+XRn1fs2 Rn1fss1 Rn1fss2 0 sky130_fd_pr__res_xhigh_po w=10 l=41.327705
+XRn1fs3 Rn1fss2 n1p 0 sky130_fd_pr__res_xhigh_po w=10 l=41.327705
+
+.control
+set numdgt=12
+set seed=54015
+op
+print v(n1lin)
+print v(n1p)
+.endc
+.end

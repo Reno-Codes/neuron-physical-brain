@@ -1,0 +1,27 @@
+* Exp 34 one-stage actual dest R from fabric stem=invh20
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vin h20y 0 DC 2.60817586522917
+R1 h20y invh20m 10000
+R2 h20yn invh20m 10000.0020000002
+Xinv 0 invh20m vdd vss h20yn OPAx189
+Ccl h20yn 0 1e-12
+Vfar far 0 DC 0.0005
+Rfab1 h20yn far 780166.522762927
+Rfab2 h20yn far 463414.248186827
+Rfab3 h20yn far 158480.116500076
+Rfab4 h20yn far 667936.874417093
+Rfab5 h20yn far 174292.953166534
+Rfab6 h20yn far 71646.4341552301
+Rfab7 h20yn far 330067.778897631
+Rfab8 h20yn far 169987.172044793
+.control
+set numdgt=15
+op
+print v(h20yn)
+print v(invh20m)
+print v(h20y)
+print i(Vdd)
+.endc
+.end

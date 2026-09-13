@@ -1,0 +1,33 @@
+* Experiment 51 offset-null miller A_ol · no W/L resize
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+.temp 27
+* SKY130 5V miller TIA. Ideal Ibias is labeled non-PDK.
+* Invert VCVS / ReLU B-sources remain behavioral if present.
+.subckt sky_miller inp inn out vdd vss
+.param L=1 WD=6.059 WT=3.029 WL=6.059
++ WOP=24.236 WON=12.118 CC=2e-12 IBIAS=8e-05
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss sky130_fd_pr__nfet_g5v0d10v5 W={WT} L={L}
+Xtail vs vb vss vss sky130_fd_pr__nfet_g5v0d10v5 W={WT} L={L}
+Xdp dplus inp vs vss sky130_fd_pr__nfet_g5v0d10v5 W={WD} L={L}
+Xdn dmin inn vs vss sky130_fd_pr__nfet_g5v0d10v5 W={WD} L={L}
+Xln dmin dmin vdd vdd sky130_fd_pr__pfet_g5v0d10v5 W={WL} L={L}
+Xlp dplus dmin vdd vdd sky130_fd_pr__pfet_g5v0d10v5 W={WL} L={L}
+Xop out dplus vdd vdd sky130_fd_pr__pfet_g5v0d10v5 W={WOP} L={L}
+Xon out vb vss vss sky130_fd_pr__nfet_g5v0d10v5 W={WON} L={L}
+Cc dplus out {CC}
+.ends sky_miller
+
+Vdd vdd 0 DC 2.5
+Vss vss 0 DC -2.5
+Vinn inn 0 DC 0
+Vinp inp 0 DC 0.0057421875
+Xamp inp inn out vdd vss sky_miller
+Cload out 0 1p
+Iload out 0 DC 7.371e-05
+.control
+set numdgt=12
+op
+print v(out)
+.endc
+.end

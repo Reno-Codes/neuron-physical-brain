@@ -1,0 +1,25 @@
+* Experiment 30 isolated invert bench mode=opa1656
+* Vin=2.60818 R1=10000 R2=10000 Rload=4914.01 A=100000
+* Frozen-map invert identity: Vout should equal -Vin.
+.include "C:/ngspice/examples/optran/models/opa1656.lib"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+* 1 pF on each OPA invert so GWL OP exists; not datasheet CL
+
+Vin in 0 DC 2.60817586522917
+Rinvbia in mid 10000
+Rinvbib out mid 10000
+Rload out 0 4914.01304862554
+* OPA1656 invert invb (LEVEL 3 macromodel, include not copy).
+Xinvbinv 0 mid vdd vss out OPA1656
+Cinvbcl out 0 1p
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+print i(Vdd)
+print i(Vss)
+.endc
+.end

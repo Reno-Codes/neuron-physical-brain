@@ -1,0 +1,34 @@
+* Experiment 33 isolated invert kind=physical_sign Vin=1 Rload=4914.01
+Vin in 0 DC 1
+R1 in mid 10000
+R2 out mid 10000
+Rload out 0 4914.01304862554
+.include "C:/ngspice/examples/optran/models/opa1656.lib"
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+* replica OPA1656; physical invert of replica mid by candidate (no E-source)
+Rra 0 rmid 10000
+Rrb rout rmid 10000
+Xrep 0 rmid vdd vss rout OPA1656
+Crc rout 0 1p
+Rrl rout 0 4914.01304862554
+Rs1 rmid smid 10000
+Rs2 sout smid 10000
+Xsign 0 smid vdd vss sout OPAx189
+Csign sout 0 1p
+Xinv sout mid vdd vss out OPA1656
+Ccl out 0 1p
+.control
+set numdgt=15
+op
+print i(Rload)
+print v(rmid)
+print v(sout)
+print v(smid)
+print i(Vdd)
+print v(out)
+print v(mid)
+print v(in)
+.endc
+.end

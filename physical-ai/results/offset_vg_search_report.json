@@ -1,0 +1,84 @@
+{
+  "experiment": 24,
+  "title": "offset-corrected virtual-ground search",
+  "spice_source_of_truth": true,
+  "weights_edited": false,
+  "python_output_correction": false,
+  "final_status": "BEHAVIORAL SERVO VALIDATED",
+  "secondary_pass": "Vref-gated auto-zero also analog-passes Network F",
+  "hardware_level": "LEVEL 2 servo/AZ; LEVEL 3 macromodels analog-failed",
+  "worst_neuron": {"tag": "o2", "Rf_Gtot": 140.89398023224967},
+  "baseline": {
+    "A_I_mae": 3.886058141944204e-15,
+    "A_L_mae": 0.00034423193549905904,
+    "F_I_mae": 3.606876692392909e-15,
+    "F_L_mae": 0.00048383256929716877,
+    "accuracy": 1.0
+  },
+  "network_A": {
+    "L_vos0": {"mae": 0.00034423193549905904, "accuracy": 1.0},
+    "OPA1656": {"mae": 0.017460, "max_abs_error": 0.18293, "accuracy": 0.98, "rails": "+/-15 V"},
+    "OPA1611": {"failed": true, "failure_reason": "vector 0: op/optran failed"},
+    "AZ_vin_only_214uV": {"mae": 0.008105955638693913, "accuracy": 1.0},
+    "AZ_vref_214uV": {"mae": 0.0003442286806118329, "max_abs_error": 0.0008608244071428572, "accuracy": 1.0},
+    "chopper_214uV": {"mae": 0.0057814436979611705, "accuracy": 1.0},
+    "servo_214uV": {"mae": 5.093851661915755e-09, "max_abs_error": 8.553944552680548e-09, "accuracy": 1.0}
+  },
+  "network_F": {
+    "L_vos0": {"mae": 0.00048383256929716877, "accuracy": 1.0},
+    "L_214uV": {"mae": 0.0073721, "max_abs_error": 0.022816, "accuracy": 1.0},
+    "OPA1656": {"mae": 0.017131, "max_abs_error": 0.055685, "accuracy": 1.0, "rails": "+/-15 V"},
+    "AZ_vref_214uV": {"mae": 0.0004838358383713933, "max_abs_error": 0.0034315708801315736, "accuracy": 1.0},
+    "servo_214uV": {"mae": 7.375489911939863e-09, "max_abs_error": 2.2839914071148826e-08, "accuracy": 1.0}
+  },
+  "unit_cell_o2": {
+    "L_vos0_mae_z": 0.00078840,
+    "L_8p75uV_mae_z": 0.00074535,
+    "L_214uV_mae_z": 0.017478,
+    "OPA1656_mae_z": 0.041670,
+    "OPA1656_max_vsum": 0.00049813,
+    "OPA1611_mae_z": 0.009280,
+    "AZ_vin_only_mae_z": 0.032598,
+    "AZ_vref_mae_z": 0.00078837,
+    "servo_mae_z": 1.7894349144814692e-08,
+    "servo_max_vsum": 2.280650796525081e-10
+  },
+  "feasibility_map_summary": {
+    "n_cells": 42,
+    "analog_pass_mae_le_1e-3": 15,
+    "classification_100pct": 42,
+    "A_1e5_analog_Vos_ceiling_V": 2.2e-5,
+    "A_1e6_analog_Vos_ceiling_V": 2.2e-5,
+    "A_1e5_Vos_214uV_mae": 0.0073713,
+    "A_1e6_Vos_214uV_mae": 0.0073581,
+    "high_A_does_not_cancel_offset": true
+  },
+  "error_budget": {
+    "L_idealR_vos0_mae": 0.00048383256929716877,
+    "L_0p5pct_vos0_mae_mean": 0.004154018515943846,
+    "L_idealR_vos8p75u_mae": 0.0005245348082947262,
+    "L_0p5pct_vos8p75u_mae_mean": 0.004207064042195348,
+    "L_idealR_vos22u_mae": 0.000842721882307397,
+    "servo_214uV_0p5pct_mae_mean": 0.0041325941829150415,
+    "servo_214uV_0p5pct_acc_mean": 0.9875,
+    "dominant_after_offset_solved": "0.5% local resistor mismatch"
+  },
+  "physical_accounting_F": {
+    "n_resistors": 1342,
+    "n_tia": 48,
+    "servo_integrators": 48,
+    "az_switches": 48,
+    "az_hold_caps": 48,
+    "clocks_az": 1,
+    "macro_1pF_load_caps": 48,
+    "supply_L": "none (behavioral)",
+    "supply_macro": "+/-15 V",
+    "servo_analysis": "DC OP only",
+    "az_timing_s": {"t_az": 2e-5, "t_stop": 8e-5, "vin_gap": 2e-6}
+  },
+  "plots": [
+    "results/offset_vg_feasibility_map.png",
+    "results/offset_vg_network_F.png"
+  ],
+  "next_experiment": "TRAN nested-loop servo dynamics; do not rebuild encoding; do not invent MOS W/L yet"
+}

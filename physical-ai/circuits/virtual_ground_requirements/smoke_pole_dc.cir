@@ -1,0 +1,15 @@
+* Experiment 22 RC single-pole TIA smoke test
+* C open at DC. Not a transistor op-amp.
+Vin in 0 DC 1
+Rw in sum 10000.0
+Etia int 0 0 sum 100000.0
+Rpole int lin 1
+Clin lin 0 1.59154943091895e-05
+Rf lin sum 10000.0
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

@@ -1,0 +1,13 @@
+* SKY130 5V FET Id vs W at L=1.0 um
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+.temp 27
+Vdd vdd 0 DC 2.5
+Vg vg 0 DC 1.5
+Xmn vd vg 0 0 sky130_fd_pr__nfet_g5v0d10v5 W=20.0 L=1.0
+Vds vd 0 DC 2.5
+.control
+set numdgt=12
+op
+print i(Vds)
+.endc
+.end

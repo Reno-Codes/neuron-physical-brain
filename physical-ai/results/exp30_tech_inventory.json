@@ -1,0 +1,83 @@
+{
+  "pdk_root": null,
+  "pdk": null,
+  "ihp_installed": false,
+  "sky130_installed": false,
+  "foundry_pdk_invented": false,
+  "resistor_tcr_invented": false,
+  "technologies": [
+    {
+      "technology": "Berkeley BSIM3v3 teaching cards (CMOSOpAmp)",
+      "location": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp",
+      "present": true,
+      "devices": "nmos/pmos BSIM3v3 v3.3.0",
+      "resistor_model": false,
+      "temperature": "MOS .temp (kt1/ute). Default R has no TCR.",
+      "mismatch": "None documented. Do not invent a PDF.",
+      "geometry": "MOS W/L only, card limits L 0.35\u201320 \u00b5m W 0.6\u201320 \u00b5m",
+      "suitability": "LEVEL 4 invert/TIA primitive already used in Exp 26\u201328. Not a resistor PDK. Not IHP. Not silicon."
+    },
+    {
+      "technology": "IHP SG13G2 Open PDK",
+      "location": "PDK_ROOT unset",
+      "present": false,
+      "howto": "C:\\ngspice\\examples\\IHPOpenSourcePDK\\IHP-PDK-howto.txt",
+      "howto_present": true,
+      "devices": "not installed",
+      "resistor_model": false,
+      "temperature": null,
+      "mismatch": null,
+      "geometry": null,
+      "suitability": "Howto exists under ngspice/examples/IHPOpenSourcePDK. PDK_ROOT is unset and the PDK tree is not present. Not used."
+    },
+    {
+      "technology": "SkyWater SKY130",
+      "location": "not found",
+      "present": false,
+      "howto": "C:\\ngspice\\examples\\SkywaterOpenSourcePDK\\readme.txt",
+      "howto_present": true,
+      "example_lib_path": "D:\\Spice_general\\open_pdks\\sky130\\sky130A\\libs.tech\\combined\\sky130.lib.spice",
+      "example_lib_present": false,
+      "resistor_model": false,
+      "suitability": "Howto and example netlists exist under ngspice/examples/SkywaterOpenSourcePDK. They .lib a user path that is not present. The PDK tree is not installed. Not used."
+    },
+    {
+      "technology": "CMC r2_cmc compact resistor (ngspice OSDI example)",
+      "location": "C:\\ngspice\\examples\\osdi\\r2_cmc",
+      "present": true,
+      "devices": "r2_cmc example card rsh=200 tc1=1.5e-4",
+      "resistor_model": true,
+      "temperature": "tc1/tc2 on the example card",
+      "mismatch": "Example card has no statistical mismatch PDF",
+      "geometry": "W/L instance parameters on the example",
+      "osdi_binary_present": false,
+      "suitability": "Documented compact-model *example*, not a foundry PDK. Usable only if the OSDI binary is compiled. Probed below."
+    },
+    {
+      "technology": "ngspice default resistor",
+      "location": "built-in",
+      "present": true,
+      "resistor_model": true,
+      "temperature": "No TC1/TC2 unless instance parameters are added. None documented for this fabric; not invented.",
+      "mismatch": "None",
+      "geometry": "None",
+      "suitability": "Used by Experiments 1\u201329. Absolute R only."
+    },
+    {
+      "technology": "TI OPA1656 / OPA171 macromodels",
+      "location": "C:\\ngspice\\examples\\optran\\models",
+      "present": true,
+      "devices": "LEVEL 3 op-amp macromodels",
+      "resistor_model": false,
+      "note": "Internal R_OS has TC1; that is not a fabric resistor family.",
+      "suitability": "LEVEL 3 invert/TIA control. Not a PDK."
+    }
+  ],
+  "r2_cmc_probe": {
+    "example_present": true,
+    "ran": true,
+    "usable": false,
+    "failure_reason": "r2_cmc OSDI plugin not loaded (Unable to find definition of model rmodel). No .osdi binary is installed under C:\\ngspice.",
+    "note": "CMC r2_cmc example card. Not IHP. Not SkyWater. If the OSDI plugin is missing, the model is not usable."
+  }
+}

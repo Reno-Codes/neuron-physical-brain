@@ -1,0 +1,92 @@
+{
+  "experiment_id": "exp53",
+  "kind": "SKY130 tt_mm model mismatch on W=10 o2 at A=1e6",
+  "status": "TECHNOLOGY BOUNDARY",
+  "decision": "C",
+  "decision_label": "1/8 tt_mm DRAWS PASS; MATCHING UNRESOLVED",
+  "yield_claim": false,
+  "silicon": false,
+  "A": 1000000.0,
+  "nominal": {
+    "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp53_o2\\tt_nominal.cir",
+    "failed": false,
+    "failure_reason": null,
+    "z_ref": 2.459489570880132,
+    "y": 2.459890565832,
+    "vsum": -2.45989056583e-06,
+    "err": 0.0004009949518679612,
+    "abs_err": 0.0004009949518679612,
+    "analog_pass": true,
+    "a_eff": 1000000.0000008132,
+    "name": "tt_nominal",
+    "python_corrected": false
+  },
+  "draws": [
+    {
+      "draw": 0,
+      "y": 2.460607346746,
+      "abs_err": 0.0011177758658678094,
+      "analog_pass": false,
+      "failed": false
+    },
+    {
+      "draw": 1,
+      "y": 2.458903555329,
+      "abs_err": 0.0005860155511321352,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "draw": 2,
+      "y": 2.463292259792,
+      "abs_err": 0.0038026889118678575,
+      "analog_pass": false,
+      "failed": false
+    },
+    {
+      "draw": 3,
+      "y": 2.457456127502,
+      "abs_err": 0.0020334433781319383,
+      "analog_pass": false,
+      "failed": false
+    },
+    {
+      "draw": 4,
+      "y": 2.463961766842,
+      "abs_err": 0.004472195961867875,
+      "analog_pass": false,
+      "failed": false
+    },
+    {
+      "draw": 5,
+      "y": 2.455205193743,
+      "abs_err": 0.004284377137131923,
+      "analog_pass": false,
+      "failed": false
+    },
+    {
+      "draw": 6,
+      "y": 2.467999549376,
+      "abs_err": 0.008509978495867987,
+      "analog_pass": false,
+      "failed": false
+    },
+    {
+      "draw": 7,
+      "y": 2.458455148531,
+      "abs_err": 0.0010344223491323135,
+      "analog_pass": false,
+      "failed": false
+    }
+  ],
+  "stats": {
+    "n_ok": 8,
+    "n_pass": 1,
+    "mean": 0.00323011220637498,
+    "max": 0.008509978495867987,
+    "std": 0.002463872990077348
+  },
+  "matching": "UNRESOLVED",
+  "next_experiment": "Experiment 54: more draws; do not treat this as yield.",
+  "conclusion": "Decision C \u2014 1/8 tt_mm DRAWS PASS; MATCHING UNRESOLVED. tt_mm is official model AGAUSS, not a foundry lot. OPA189 remains the Level-1 TIA host. Miller family remains closed."
+}

@@ -1,0 +1,16 @@
+* Exp 24 smoke OPA1656 textbook TIA Vin=1 Rw=Rf=10k op
+.include "C:/ngspice/examples/optran/models/opa1656.lib"
+Vdd vdd 0 DC 15.0
+Vss vss 0 DC -15.0
+Vin in 0 DC 1
+Rw in sum 10000
+Xtia 0 sum vdd vss lin OPA1656
+Rf lin sum 10000
+Cload lin 0 1p
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

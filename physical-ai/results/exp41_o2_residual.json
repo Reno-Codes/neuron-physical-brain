@@ -1,0 +1,222 @@
+{
+  "experiment_id": "exp41",
+  "exp39_modified": false,
+  "exp40_modified": false,
+  "exp40_decision_unchanged": "C",
+  "kind": "controlled diagnostic",
+  "finite_a": {
+    "label": "analytical",
+    "A": 100000.0,
+    "Rf_G": 140.89398023224967,
+    "k": 0.9985830707350086,
+    "z_o2": 2.459489570880132,
+    "y_pred_finite_A": 2.456004648130211,
+    "y_exp40": 2.45254388951,
+    "err_finite_A_V": -0.003484922749921182,
+    "err_finite_A_mV": -3.484922749921182,
+    "err_exp40_V": -0.006945681370132295,
+    "err_exp40_mV": -6.945681370132295,
+    "unexplained_after_finite_A_V": -0.003460758620211113,
+    "unexplained_after_finite_A_mV": -3.460758620211113,
+    "finite_A_explains_all_6p946mV": false,
+    "finite_A_alone_exceeds_1mV_bar": true,
+    "fraction_of_total": 0.5017395075027469
+  },
+  "identity": {
+    "sim_target": "o2 / W2[1]",
+    "compiler_row_index": 1,
+    "forbidden_row_blocked": 2,
+    "frozen_model": "models/scaling/F.npz seed 9",
+    "tag": "o2",
+    "b2": 0.03221305319424547,
+    "Rf_ohm": 33333.333333333336,
+    "Gtot_S": 0.00422681940696749,
+    "Rf_Gtot": 140.89398023224967,
+    "Imax_A": 0.0002028050907723382,
+    "l1": 6.7601696924112735,
+    "z_abs_max_V": 2.459489570880132,
+    "z_at_imax": 2.459489570880132,
+    "imax_vec": 19,
+    "network_z_abs_max_V": 2.9371827051901307,
+    "network_z_abs_max_tag": "h25",
+    "g_weight": 3e-05,
+    "checks": {
+      "index": {
+        "got": 1,
+        "catalog": 1,
+        "ok": true
+      },
+      "Rf_Gtot": {
+        "got": 140.89398023224967,
+        "catalog": 140.89398023224967,
+        "ok": true
+      },
+      "Gtot_S": {
+        "got": 0.00422681940696749,
+        "catalog": 0.00422681940696749,
+        "ok": true
+      },
+      "Imax_A": {
+        "got": 0.0002028050907723382,
+        "catalog": 0.000202805,
+        "ok": true
+      },
+      "z_abs_max_V": {
+        "got": 2.459489570880132,
+        "catalog": 2.459489570880132,
+        "ok": true
+      }
+    }
+  },
+  "pdk": {
+    "version": "1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "ciel_current": "1689ac3f2dc763876eaf967227c7dfe831b031ae"
+  },
+  "diagnostics": {
+    "ideal_r": {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp41_o2\\o2_ideal_r_behav_tt_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": 2.459489570880132,
+      "y": 2.457433737388,
+      "vsum": -2.45743373739e-05,
+      "err": -0.0020558334921321197,
+      "abs_err": 0.0020558334921321197,
+      "analog_pass": false,
+      "a_eff": 99999.99999991861,
+      "name": "ideal_r_behav_tt_27",
+      "kind": "controlled diagnostic"
+    },
+    "w10": {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp41_o2\\o2_pdk_r_w10_tt_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": 2.459489570880132,
+      "y": 2.458037812913,
+      "vsum": -2.45803781291e-05,
+      "err": -0.001451757967132039,
+      "abs_err": 0.001451757967132039,
+      "analog_pass": false,
+      "a_eff": 100000.00000012205,
+      "name": "pdk_r_w10_tt_27",
+      "kind": "controlled diagnostic",
+      "geometry": "W=10 um established Exp39 encode; diagnostic not optimization"
+    },
+    "miller": {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp41_o2\\o2_miller_noservo_tt_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": 2.459489570880132,
+      "y": 1.832237285033,
+      "vsum": -0.00747265318469,
+      "err": -0.6272522858471321,
+      "abs_err": 0.6272522858471321,
+      "analog_pass": false,
+      "a_eff": 245.19233527214865,
+      "i(Vddtia)": -0.000564224297947,
+      "i(Vsstia)": 0.0005089806664567,
+      "i(Vn1ib)": 3.388131789017e-19,
+      "name": "miller_noservo_tt_27",
+      "kind": "controlled diagnostic",
+      "sizes": {
+        "L": 1.0,
+        "WT": 3.029,
+        "WD": 6.059,
+        "WL": 6.059,
+        "WON": 12.118,
+        "WOP": 24.236,
+        "IBIAS": 8e-05,
+        "CC": 2e-12,
+        "servo_c": 1e-09
+      }
+    }
+  },
+  "vc_w1": [
+    {
+      "V": 0.2,
+      "I": -5.99981384476e-06,
+      "R_ohm": 33334.36756119894,
+      "failed": false
+    },
+    {
+      "V": 1.0,
+      "I": -3.00049239536e-05,
+      "R_ohm": 33327.8631716052,
+      "failed": false
+    },
+    {
+      "V": 2.45254388951,
+      "I": -7.37146211182e-05,
+      "R_ohm": 33270.79285366457,
+      "failed": false
+    }
+  ],
+  "vc_w10": [
+    {
+      "V": 0.2,
+      "I": -5.99969190119e-06,
+      "R_ohm": 33335.04508128681,
+      "failed": false
+    },
+    {
+      "V": 1.0,
+      "I": -2.99923583764e-05,
+      "R_ohm": 33341.82618952923,
+      "failed": false
+    },
+    {
+      "V": 2.45254388951,
+      "I": -7.35320739917e-05,
+      "R_ohm": 33353.389294946755,
+      "failed": false
+    }
+  ],
+  "diagnostic_table": [
+    {
+      "mechanism": "Finite A",
+      "predicted": "-3.485 mV (k*z \u2212 z)",
+      "measured": "-2.056 mV (ideal-R SPICE \u2212 z)",
+      "explained": "50.2% of Exp40 |err|; cannot explain all 6.946 mV"
+    },
+    {
+      "mechanism": "Resistor heads/length encoding",
+      "predicted": "xhigh_po L-encode matches R_target at V=0 pred eq.; leftover is heads+unmodeled vs that eq.",
+      "measured": "W=1 leftover -3.461 mV; W=10 leftover 2.033 mV (vs k*z)",
+      "explained": "W=10 vs W=1 isolates geometry/heads (same A, same weights)"
+    },
+    {
+      "mechanism": "Voltage coefficient",
+      "predicted": "card voltco; Exp39 1.0\u21922.5 V R drop ~0.18% on W=1 L=15.72",
+      "measured": "Rf W=1 R(0.2V)=33334.37 \u03a9 R(2.45V)=33270.79 \u03a9 dR/R=-0.0019071820522063422",
+      "explained": "partial; common-mode VC on all xhigh_po tends to cancel in Rf\u00b7G; leftover is differential VC vs L"
+    },
+    {
+      "mechanism": "Transistor operating point",
+      "predicted": "not in Exp40 baseline (behavioral TIA)",
+      "measured": "Miller y=1.832237285033 |err|=0.6272522858471321 (diagnostic)",
+      "explained": "Exp40 residual is not a FET OP effect; Miller is a separate diagnostic"
+    },
+    {
+      "mechanism": "Interaction",
+      "predicted": "finite-A \u00d7 PDK R scale error add in |y\u2212z|",
+      "measured": "3.485 mV + -3.461 mV \u2248 -6.946 mV",
+      "explained": "sum matches Exp40 total within rounding"
+    },
+    {
+      "mechanism": "Other",
+      "predicted": "invert VCVS, 27 C vs tnom 25 C",
+      "measured": "ideal-R vs k*z = 1.4291 mV",
+      "explained": "small if ideal-R tracks k*z"
+    }
+  ],
+  "geometry_note": "Deterministic leftover after finite-A: W=1 -3.461 mV; W=10 2.033 mV. This is not matching. Pelgrom at used Rf W=1 WL=15.72 um2 remains sigma=0.8753% (1\u03c3 body); matching UNRESOLVED. A W that shrinks leftover is not a 0.075% proof.",
+  "conclusion": "Experiment 40 |y\u2212z| = -6.946 mV splits as finite-A -3.485 mV (amplifier implementation, A=1e5, uncompensated Architecture A on Rf\u00b7G=140.894) plus about -3.461 mV deterministic PDK xhigh_po leftover at W=1 (heads / length encode / differential VC). Finite A alone already fails the 1 mV bar. W=10 and Miller are diagnostics only. Matching remains UNRESOLVED. Experiment 40 Decision C is unchanged.",
+  "matching": "UNRESOLVED",
+  "network_2937_hosting": "NOT DEMONSTRATED",
+  "not_tested": [
+    "F40 classification",
+    "temperature",
+    "Monte Carlo",
+    "MOS mismatch"
+  ]
+}

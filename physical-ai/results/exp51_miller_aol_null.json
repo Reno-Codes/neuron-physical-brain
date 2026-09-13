@@ -1,0 +1,144 @@
+{
+  "experiment_id": "exp51",
+  "kind": "Offset-nulled incremental A_ol of existing sky_miller",
+  "status": "PARTIALLY VALIDATED",
+  "decision": "B",
+  "decision_label": "OFFSET-NULLED A_ol = 2507; IDENTICAL CASCADE NEEDS ~2 STAGES",
+  "physical_tia_validated": false,
+  "resized": false,
+  "A_need": 128203.0,
+  "null_noload": {
+    "lo": {
+      "vid": 0.0,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\bare_lo.cir",
+      "vout": -2.31007685635,
+      "headroom_p": 4.810076856349999,
+      "headroom_n": 0.18992314365000018,
+      "linearish": true
+    },
+    "hi": {
+      "vid": 0.02,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\bare_hi.cir",
+      "vout": 2.255109564527,
+      "headroom_p": 0.24489043547300016,
+      "headroom_n": 4.755109564527,
+      "linearish": true
+    },
+    "null": {
+      "vid": 0.004296875,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\bare_m7.cir",
+      "vout": -0.0348339869779,
+      "headroom_p": 2.5348339869779,
+      "headroom_n": 2.4651660130221,
+      "linearish": true
+    }
+  },
+  "null_loaded": {
+    "lo": {
+      "vid": 0.0,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\load_lo.cir",
+      "vout": -2.40227685364,
+      "headroom_p": 4.90227685364,
+      "headroom_n": 0.0977231463599999,
+      "linearish": false
+    },
+    "hi": {
+      "vid": 0.02,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\load_hi.cir",
+      "vout": 2.199319754469,
+      "headroom_p": 0.3006802455309998,
+      "headroom_n": 4.699319754469,
+      "linearish": true
+    },
+    "null": {
+      "vid": 0.0057421875,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\load_m8.cir",
+      "vout": 0.03046780185809,
+      "headroom_p": 2.46953219814191,
+      "headroom_n": 2.53046780185809,
+      "linearish": true
+    }
+  },
+  "inc_noload": {
+    "vid0": 0.004296875,
+    "dvid": 2e-05,
+    "minus": {
+      "vid": 0.004276875,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\bare_inc_m.cir",
+      "vout": -0.08942613872,
+      "headroom_p": 2.58942613872,
+      "headroom_n": 2.41057386128,
+      "linearish": true
+    },
+    "plus": {
+      "vid": 0.004316875,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\bare_inc_p.cir",
+      "vout": 0.01911529252858,
+      "headroom_p": 2.48088470747142,
+      "headroom_n": 2.51911529252858,
+      "linearish": true
+    },
+    "linear_pair": true,
+    "python_corrected": false,
+    "a_inc": 2713.5357812145003,
+    "both_linear": true
+  },
+  "inc_loaded": {
+    "vid0": 0.0057421875,
+    "dvid": 2e-05,
+    "minus": {
+      "vid": 0.0057221875,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\load_inc_m.cir",
+      "vout": -0.0200641461782,
+      "headroom_p": 2.5200641461782,
+      "headroom_n": 2.4799358538218,
+      "linearish": true
+    },
+    "plus": {
+      "vid": 0.0057621875,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp51_amp\\load_inc_p.cir",
+      "vout": 0.08022735574298,
+      "headroom_p": 2.41977264425702,
+      "headroom_n": 2.58022735574298,
+      "linearish": true
+    },
+    "linear_pair": true,
+    "python_corrected": false,
+    "a_inc": 2507.2875480294997,
+    "both_linear": true
+  },
+  "exp50_A_ol_withdrawn": true,
+  "matching": "UNRESOLVED",
+  "next_experiment": "Experiment 52: if n<=3, test that many copies of sky_miller as a composite TIA on W=10 o2. If n>3, close identical-miller cascade.",
+  "conclusion": "Decision B \u2014 OFFSET-NULLED A_ol = 2507; IDENTICAL CASCADE NEEDS ~2 STAGES. No W/L invented. Not silicon. Experiment 50 rail/Vid ratio remains withdrawn."
+}

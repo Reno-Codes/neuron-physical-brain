@@ -1,0 +1,1448 @@
+{
+  "experiment": 32,
+  "spice_source_of_truth": true,
+  "network_f_transistorized": false,
+  "python_correction": false,
+  "frozen_weights_edited": false,
+  "invert_inventory": {
+    "n_invert_amps": 49,
+    "n_invert_resistors": 98,
+    "by_kind": {
+      "hidden": 32,
+      "input": 16,
+      "vref": 1
+    },
+    "r1_ohm": 10000.0,
+    "r2_ohm_mean": 10000.002000000208,
+    "closed_loop_gain_target": -1.0,
+    "ratio_r2_over_r1_mean": 1.0000002000000188,
+    "note": "Input and Vref inverts copy stimulus polarity. Hidden inverts copy a computed ReLU voltage. Those are different physical jobs."
+  },
+  "candidates": [
+    {
+      "candidate": "XSPICE limit invert",
+      "level": 2,
+      "path": "ngspice built-in",
+      "present": true,
+      "doc_vos_V": 0.0,
+      "vsupply": 15.0,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "Exp 30/31 analog-pass at N=32. Behavioral, not a physical device."
+    },
+    {
+      "candidate": "OPA1656",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\opa1656.lib",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Exp 31: loaded invert mid \u2248 498 uV, N>=16 analog-fail."
+    },
+    {
+      "candidate": "OPA1611",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\OPA1611.LIB",
+      "present": true,
+      "doc_vos_V": 9.729e-05,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Exp 31 isolated |err|=576 uV. Datasheet-class Vos \u2260 loaded residual."
+    },
+    {
+      "candidate": "OPA171",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\p-to-n-examples\\OPA171.txt",
+      "present": true,
+      "doc_vos_V": 0.000214023,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Exp 23/24 TIA analog-fail. Ranked, not a low-offset candidate."
+    },
+    {
+      "candidate": "MCP6041",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\p-to-n-examples\\MCP6041.txt",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 2.2,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "6 V CMOS. Rails below 2.61 V hidden swing. Negative control."
+    },
+    {
+      "candidate": "TLV6001",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\TLV6001.LIB",
+      "present": true,
+      "doc_vos_V": 0.000595218,
+      "vsupply": 2.5,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Vos 595 uV and +/-2.5 V. Below hidden swing. Ranked out."
+    },
+    {
+      "candidate": "TLV9002",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\TLV9002.lib",
+      "present": true,
+      "doc_vos_V": 0.00039611,
+      "vsupply": 2.5,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Vos 396 uV and +/-2.5 V. Ranked out."
+    },
+    {
+      "candidate": "TL072-dual",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\TL072-dual.lib",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 15.0,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "JFET audio dual; typical Vos millivolts. Not a precision VG."
+    },
+    {
+      "candidate": "teaching miller",
+      "level": 4,
+      "path": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 2.5,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "Exp 30/31 isolated invert transfer fail at fabric load/swing."
+    },
+    {
+      "candidate": "OPA1656 + shared replica mid on IN+",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\opa1656.lib",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Control: IN+ = replica mid. If Vos is input-referred this should add, not cancel."
+    },
+    {
+      "candidate": "OPA1656 + shared replica -mid on IN+",
+      "level": 2,
+      "path": "OPA1656 + VCVS sign flip of replica mid",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Circuit cancellation. Sign flip is LEVEL 2. Amp still drives dest."
+    },
+    {
+      "candidate": "OPA1656 + replica output subtract",
+      "level": 2,
+      "path": "OPA1656 + B-source dest = raw - repout",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "DC AZ. B-source also hijacks fabric drive. Mechanism test only."
+    },
+    {
+      "candidate": "OPA1656 + LEVEL 2 invert servo",
+      "level": 2,
+      "path": "XSPICE/behavioral G-C + OPA1656",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Circuit correction. Not a physical device primitive."
+    },
+    {
+      "candidate": "OPA1656 invert + OPA1656 follower",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\opa1656.lib",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Drive/offset split. Buffer is not assumed transparent."
+    }
+  ],
+  "technology": {
+    "pdk_root": null,
+    "ihp_installed": false,
+    "sky130_installed": false,
+    "ihp_howto_present": true,
+    "sky_howto_present": true,
+    "osdi_binary_present": false,
+    "osdi_binaries": [],
+    "r2_cmc_usable": false,
+    "vendor_dirs": [
+      "C:\\ngspice\\examples\\optran\\models",
+      "C:\\ngspice\\examples\\p-to-n-examples"
+    ],
+    "opamp_examples": [
+      "Models-for-Debian.txt",
+      "OPA1611.LIB",
+      "TL072-dual.lib",
+      "TL072.301",
+      "TLV6001.LIB",
+      "TLV9002.lib",
+      "opa1612c-dual.lib",
+      "opa1656.lib",
+      "opa1656c-dual.lib",
+      "MCP6041.txt",
+      "OPA171.txt"
+    ],
+    "low_offset_examples": "OPA1656 (model VNEG=8.75 uV) and OPA1611 (model Vos~97 uV) are the only local precision-class macros. No OP07/OPA189/chopper/auto-zero example is installed.",
+    "technologies": [
+      {
+        "technology": "Berkeley BSIM3v3 teaching cards (CMOSOpAmp)",
+        "location": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp",
+        "present": true,
+        "devices": "nmos/pmos BSIM3v3 v3.3.0",
+        "resistor_model": false,
+        "temperature": "MOS .temp (kt1/ute). Default R has no TCR.",
+        "mismatch": "None documented. Do not invent a PDF.",
+        "geometry": "MOS W/L only, card limits L 0.35\u201320 \u00b5m W 0.6\u201320 \u00b5m",
+        "suitability": "LEVEL 4 invert/TIA primitive already used in Exp 26\u201328. Not a resistor PDK. Not IHP. Not silicon."
+      },
+      {
+        "technology": "IHP SG13G2 Open PDK",
+        "location": "PDK_ROOT unset",
+        "present": false,
+        "howto": "C:\\ngspice\\examples\\IHPOpenSourcePDK\\IHP-PDK-howto.txt",
+        "howto_present": true,
+        "devices": "not installed",
+        "resistor_model": false,
+        "temperature": null,
+        "mismatch": null,
+        "geometry": null,
+        "suitability": "Howto exists under ngspice/examples/IHPOpenSourcePDK. PDK_ROOT is unset and the PDK tree is not present. Not used."
+      },
+      {
+        "technology": "SkyWater SKY130",
+        "location": "not found",
+        "present": false,
+        "howto": "C:\\ngspice\\examples\\SkywaterOpenSourcePDK\\readme.txt",
+        "howto_present": true,
+        "example_lib_path": "D:\\Spice_general\\open_pdks\\sky130\\sky130A\\libs.tech\\combined\\sky130.lib.spice",
+        "example_lib_present": false,
+        "resistor_model": false,
+        "suitability": "Howto and example netlists exist under ngspice/examples/SkywaterOpenSourcePDK. They .lib a user path that is not present. The PDK tree is not installed. Not used."
+      },
+      {
+        "technology": "CMC r2_cmc compact resistor (ngspice OSDI example)",
+        "location": "C:\\ngspice\\examples\\osdi\\r2_cmc",
+        "present": true,
+        "devices": "r2_cmc example card rsh=200 tc1=1.5e-4",
+        "resistor_model": true,
+        "temperature": "tc1/tc2 on the example card",
+        "mismatch": "Example card has no statistical mismatch PDF",
+        "geometry": "W/L instance parameters on the example",
+        "osdi_binary_present": false,
+        "suitability": "Documented compact-model *example*, not a foundry PDK. Usable only if the OSDI binary is compiled. Probed below."
+      },
+      {
+        "technology": "ngspice default resistor",
+        "location": "built-in",
+        "present": true,
+        "resistor_model": true,
+        "temperature": "No TC1/TC2 unless instance parameters are added. None documented for this fabric; not invented.",
+        "mismatch": "None",
+        "geometry": "None",
+        "suitability": "Used by Experiments 1\u201329. Absolute R only."
+      },
+      {
+        "technology": "TI OPA1656 / OPA171 macromodels",
+        "location": "C:\\ngspice\\examples\\optran\\models",
+        "present": true,
+        "devices": "LEVEL 3 op-amp macromodels",
+        "resistor_model": false,
+        "note": "Internal R_OS has TC1; that is not a fabric resistor family.",
+        "suitability": "LEVEL 3 invert/TIA control. Not a PDK."
+      }
+    ]
+  },
+  "ranges": {
+    "hy_max": 2.6081758652291698,
+    "r_load_w": 4914.013048625536
+  },
+  "nominal": {
+    "mae": 0.000510150216105271,
+    "max_abs_error": 0.0031606698790742627,
+    "accuracy": 1.0,
+    "analog_pass": true,
+    "failed": false
+  },
+  "opa_scaling": [
+    {
+      "n": 1,
+      "label": "opa1656",
+      "mae": 0.0005321217594020488,
+      "max_abs_error": 0.003160709817044971,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 0.570027099995059
+    },
+    {
+      "n": 2,
+      "label": "opa1656",
+      "mae": 0.0005543866077034526,
+      "max_abs_error": 0.0032850451470038955,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 0.9804470000090078
+    },
+    {
+      "n": 4,
+      "label": "opa1656",
+      "mae": 0.0006156809748010541,
+      "max_abs_error": 0.003334599211603173,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 2.500825100010843
+    },
+    {
+      "n": 8,
+      "label": "opa1656",
+      "mae": 0.0007154731063966317,
+      "max_abs_error": 0.0034406701580080856,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 7.364275600004476
+    },
+    {
+      "n": 16,
+      "label": "opa1656",
+      "mae": 0.0014462371804645647,
+      "max_abs_error": 0.005866488710395856,
+      "accuracy": 1.0,
+      "analog_pass": false,
+      "failed": false,
+      "spice_s": 23.765537300001597
+    },
+    {
+      "n": 32,
+      "label": "opa1656",
+      "mae": 0.0026376656584849475,
+      "max_abs_error": 0.007036020333027082,
+      "accuracy": 1.0,
+      "analog_pass": false,
+      "failed": false,
+      "spice_s": 122.87453319999622
+    }
+  ],
+  "reproduction": [
+    {
+      "label": "F12, 32 hidden XSPICE limit",
+      "mae": 0.0005116471905025167,
+      "max_abs_error": 0.0032170445433830075,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 0.08942379998916294
+    },
+    {
+      "label": "1 OPA1656 hidden inverter",
+      "mae": 0.0005321217594020488,
+      "max_abs_error": 0.003160709817044971,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 0.5735302999964915
+    },
+    {
+      "n": 8,
+      "label": "8 OPA1656",
+      "mae": 0.0007154731063966317,
+      "max_abs_error": 0.0034406701580080856,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 7.364275600004476
+    },
+    {
+      "n": 16,
+      "label": "16 OPA1656",
+      "mae": 0.0014462371804645647,
+      "max_abs_error": 0.005866488710395856,
+      "accuracy": 1.0,
+      "analog_pass": false,
+      "failed": false,
+      "spice_s": 23.765537300001597
+    },
+    {
+      "n": 32,
+      "label": "32 OPA1656",
+      "mae": 0.0026376656584849475,
+      "max_abs_error": 0.007036020333027082,
+      "accuracy": 1.0,
+      "analog_pass": false,
+      "failed": false,
+      "spice_s": 122.87453319999622
+    },
+    {
+      "label": "injected 500 uV hidden inverter offset",
+      "mae": 0.0026673501244802145,
+      "max_abs_error": 0.00710739307300301,
+      "accuracy": 1.0,
+      "analog_pass": false,
+      "failed": false,
+      "spice_s": 0.09087110000837129
+    }
+  ],
+  "opa32_probes": {
+    "mae": 0.0026376656584849475,
+    "mean_invert_residual": 0.0009961835489247918,
+    "mean_vmid": 0.0004981135565295198,
+    "max_invert_residual": 0.0009962431577849693,
+    "failed": false
+  },
+  "isolated_transfer": [
+    {
+      "kind": "passive",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.0,
+      "v_mid": 0.0,
+      "abs_err": 0.0,
+      "i_out_est": 0.0,
+      "headroom_v": 15.0,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "passive",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.1972389208849931,
+      "v_mid": 0.5986194604424966,
+      "abs_err": 1.1972389208849932,
+      "i_out_est": 8.027610791150071e-05,
+      "headroom_v": 14.802761079115006,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "passive",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": 0.5144337931360847,
+      "v_mid": 1.561304829182627,
+      "abs_err": 3.1226096583652545,
+      "i_out_est": 0.00020937420720930854,
+      "headroom_v": 14.485566206863915,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "limit",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.0,
+      "v_mid": 0.0,
+      "abs_err": 0.0,
+      "i_out_est": 0.0,
+      "headroom_v": 15.0,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "limit",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.999980000399992,
+      "v_mid": 9.99980000399992e-06,
+      "abs_err": 1.999960000798051e-05,
+      "i_out_est": 0.0003034945932357501,
+      "headroom_v": 14.000019999600008,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "limit",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60812370275511,
+      "v_mid": 2.608123702755115e-05,
+      "abs_err": 5.2162474059702646e-05,
+      "i_out_est": 0.0007915672733050261,
+      "headroom_v": 12.39187629724489,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "miller",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.0007639999705988387,
+      "v_mid": 0.0003819999852994194,
+      "abs_err": 0.0007639999705988387,
+      "i_out_est": 1.9367373517631323e-07,
+      "headroom_v": 14.999236000029402,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "miller",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.940690205409534,
+      "v_mid": 0.02965489729523299,
+      "abs_err": 0.059309794590466036,
+      "i_out_est": 0.00028846465017876363,
+      "headroom_v": 14.059309794590465,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "miller",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -0.633490136352793,
+      "v_mid": 0.9873428644381882,
+      "abs_err": 1.9746857288763766,
+      "i_out_est": 0.0002909983294215583,
+      "headroom_v": 14.366509863647208,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa1656",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.0009962430559976594,
+      "v_mid": 0.000498106505016872,
+      "abs_err": 0.0009962430559976594,
+      "i_out_est": 2.525487813868279e-07,
+      "headroom_v": 14.999003756944003,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa1656",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.999003716844588,
+      "v_mid": 0.0004981265547229219,
+      "abs_err": 0.0009962831554120033,
+      "i_out_est": 0.00030324710418103986,
+      "headroom_v": 14.000996283155413,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa1656",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60717951758685,
+      "v_mid": 0.0004981587981761418,
+      "abs_err": 0.000996347642319595,
+      "i_out_est": 0.000791327921180644,
+      "headroom_v": 12.39282048241315,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa1611",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.00055004292900506,
+      "v_mid": 0.0001000214604095775,
+      "abs_err": 0.00055004292900506,
+      "i_out_est": 1.569356976178045e-07,
+      "headroom_v": 14.999449957070995,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa1611",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.999920487033004,
+      "v_mid": -1.23442929186308e-05,
+      "abs_err": 7.95129669960426e-05,
+      "i_out_est": 0.00030347429653962535,
+      "headroom_v": 14.000079512966996,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa1611",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60759104945284,
+      "v_mid": 9.799910168448494e-05,
+      "abs_err": 0.0005848157763299611,
+      "i_out_est": 0.0007914128049936889,
+      "headroom_v": 12.39240895054716,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "replica",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.001992457050133844,
+      "v_mid": 0.0009962134890651024,
+      "abs_err": 0.001992457050133844,
+      "i_out_est": 5.050886946053525e-07,
+      "headroom_v": 14.998007542949866,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": 0.0004981065050158694,
+      "v_inp": null
+    },
+    {
+      "kind": "replica",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.998007502854023,
+      "v_mid": 0.0009962335386861365,
+      "abs_err": 0.0019924971459770457,
+      "i_out_est": 0.0003029945642688967,
+      "headroom_v": 14.001992497145977,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": 0.0004981065050158694,
+      "v_inp": null
+    },
+    {
+      "kind": "replica",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60618330358716,
+      "v_mid": 0.0009962657823567428,
+      "abs_err": 0.0019925616420097825,
+      "i_out_est": 0.0007910753812657529,
+      "headroom_v": 12.39381669641284,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": 0.0004981065050158694,
+      "v_inp": null
+    },
+    {
+      "kind": "replica_neg",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 2.906185946998466e-08,
+      "v_mid": -4.79032360841657e-10,
+      "abs_err": 2.906185946998466e-08,
+      "i_out_est": 8.868167795086592e-12,
+      "headroom_v": 14.999999970938141,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": -0.000498106505016872
+    },
+    {
+      "kind": "replica_neg",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.999999930844039,
+      "v_mid": 1.957054718710854e-08,
+      "abs_err": 6.915596095780074e-08,
+      "i_out_est": 0.0003034996440958587,
+      "headroom_v": 14.000000069155961,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": -0.000498106505016872
+    },
+    {
+      "kind": "replica_neg",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60817573158953,
+      "v_mid": 5.181392355667649e-08,
+      "abs_err": 1.3363963979884375e-07,
+      "i_out_est": 0.000791580461096435,
+      "headroom_v": 12.39182426841047,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": -0.000498106505016872
+    },
+    {
+      "kind": "replica_sub",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 2.298749081711127e-12,
+      "v_mid": 0.0004981065061662468,
+      "abs_err": 2.298749081711127e-12,
+      "i_out_est": 4.981065085454444e-08,
+      "headroom_v": 14.999999999997701,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": null
+    },
+    {
+      "kind": "replica_sub",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.999999962205706,
+      "v_mid": 0.0004981254021632019,
+      "abs_err": 3.7794294027726494e-08,
+      "i_out_est": 0.00030354946419727563,
+      "headroom_v": 14.000000037794294,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": null
+    },
+    {
+      "kind": "replica_sub",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.6081757666587,
+      "v_mid": 0.0004981557902491232,
+      "abs_err": 9.85704695644074e-08,
+      "i_out_est": 0.0007916302821375489,
+      "headroom_v": 12.3918242333413,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": null
+    },
+    {
+      "kind": "replica_disabled",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.0009962430559976594,
+      "v_mid": 0.0004981065050168719,
+      "abs_err": 0.0009962430559976594,
+      "i_out_est": 2.525487813868279e-07,
+      "headroom_v": 14.999003756944003,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": null
+    },
+    {
+      "kind": "replica_disabled",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.999003716844588,
+      "v_mid": 0.0004981265547230364,
+      "abs_err": 0.0009962831554120033,
+      "i_out_est": 0.00030324710418103986,
+      "headroom_v": 14.000996283155413,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": null
+    },
+    {
+      "kind": "replica_disabled",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60717951758685,
+      "v_mid": 0.0004981587981763569,
+      "abs_err": 0.000996347642319595,
+      "i_out_est": 0.000791327921180644,
+      "headroom_v": 12.39282048241315,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": 0.0004981065050168721,
+      "v_inp": null
+    },
+    {
+      "kind": "servo",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": -2.24869183950069e-08,
+      "v_mid": -2.62534206196436e-08,
+      "abs_err": 2.24869183950069e-08,
+      "i_out_est": 4.95273054062574e-12,
+      "headroom_v": 14.999999977513081,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": -0.000498132279368368
+    },
+    {
+      "kind": "servo",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -1.00000002248682,
+      "v_mid": -2.62533702173606e-08,
+      "abs_err": 2.2486819961642368e-08,
+      "i_out_est": 0.0003034996673270201,
+      "headroom_v": 13.99999997751318,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": -0.000498152398266288
+    },
+    {
+      "kind": "servo",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60817588771582,
+      "v_mid": -2.62532897435386e-08,
+      "abs_err": 2.2486650319564205e-08,
+      "i_out_est": 0.0007915805006739902,
+      "headroom_v": 12.39182411228418,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": -0.000498184616206674
+    },
+    {
+      "kind": "opa_follow_in",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.0009962430771208433,
+      "v_mid": 0.0004981065155784635,
+      "abs_err": 0.0009962430771208433,
+      "i_out_est": 2.52548786741548e-07,
+      "headroom_v": 14.99900375692288,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa_follow_in",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -1.66602917164408,
+      "v_mid": -0.552044747531776,
+      "abs_err": 0.66602917164408,
+      "i_out_est": 0.00045043481760157985,
+      "headroom_v": 13.33397082835592,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa_follow_in",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.6071795265413,
+      "v_mid": 0.0004981543209504266,
+      "abs_err": 0.0009963386878699687,
+      "i_out_est": 0.0007913279234505939,
+      "headroom_v": 12.3928204734587,
+      "analog_pass": true,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa_follow_out",
+      "vin": 0.0,
+      "r_load": 4914.013048625536,
+      "v_out": 0.001494350551368719,
+      "v_mid": 0.0004981065061662181,
+      "abs_err": 0.001494350551368719,
+      "i_out_est": 4.037242383183499e-07,
+      "headroom_v": 14.998505649448632,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa_follow_out",
+      "vin": 1.0,
+      "r_load": 4914.013048625536,
+      "v_out": -0.998577676306235,
+      "v_mid": 0.0004932282039827734,
+      "abs_err": 0.0014223236937650485,
+      "i_out_est": 0.00030311731118609696,
+      "headroom_v": 14.001422323693765,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa_follow_out",
+      "vin": 2.6081758652291698,
+      "r_load": 4914.013048625536,
+      "v_out": -2.60668397670294,
+      "v_mid": 0.0004981557902495604,
+      "abs_err": 0.0014918885262296122,
+      "i_out_est": 0.0007911775243885186,
+      "headroom_v": 12.39331602329706,
+      "analog_pass": false,
+      "failed": false,
+      "v_rmid": null,
+      "v_inp": null
+    },
+    {
+      "kind": "opa1656",
+      "vin": 2.6081758652291698,
+      "r_load": 1000000000.0,
+      "v_out": -2.60717952360267,
+      "v_mid": 0.0004981557902640002,
+      "abs_err": 0.0009963416264997527,
+      "i_out_est": 0.000791327922705652,
+      "headroom_v": 12.392820476397329,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "kind": "replica_neg",
+      "vin": 2.6081758652291698,
+      "r_load": 1000000000.0,
+      "v_out": -2.60817573760385,
+      "v_mid": 4.880385815849767e-08,
+      "abs_err": 1.276253196458299e-07,
+      "i_out_est": 0.0007915804626207726,
+      "headroom_v": 12.391824262396149,
+      "analog_pass": true,
+      "failed": false
+    }
+  ],
+  "zero_input": [
+    {
+      "kind": "passive",
+      "v_out": 0.0,
+      "v_mid": 0.0,
+      "abs_err": 0.0,
+      "other": "",
+      "mechanism": "no inversion; grounded divider",
+      "failed": false
+    },
+    {
+      "kind": "limit",
+      "v_out": 0.0,
+      "v_mid": 0.0,
+      "abs_err": 0.0,
+      "other": "",
+      "mechanism": "see report",
+      "failed": false
+    },
+    {
+      "kind": "miller",
+      "v_out": 0.0007639999705988387,
+      "v_mid": 0.0003819999852994194,
+      "abs_err": 0.0007639999705988387,
+      "other": "",
+      "mechanism": "output stage saturation / drive",
+      "failed": false
+    },
+    {
+      "kind": "opa1656",
+      "v_out": 0.0009962430559976594,
+      "v_mid": 0.000498106505016872,
+      "abs_err": 0.0009962430559976594,
+      "other": "",
+      "mechanism": "virtual-ground / GWL floor ~498 uV, not datasheet Vos",
+      "failed": false
+    },
+    {
+      "kind": "opa1611",
+      "v_out": 0.00055004292900506,
+      "v_mid": 0.0001000214604095775,
+      "abs_err": 0.00055004292900506,
+      "other": "",
+      "mechanism": "see report",
+      "failed": false
+    },
+    {
+      "kind": "replica",
+      "v_out": 0.001992457050133844,
+      "v_mid": 0.0009962134890651024,
+      "abs_err": 0.001992457050133844,
+      "other": "rmid=4.9811e-04",
+      "mechanism": "IN+=+Vos; input-referred pedestal should add",
+      "failed": false
+    },
+    {
+      "kind": "replica_neg",
+      "v_out": 2.906185946998466e-08,
+      "v_mid": -4.79032360841657e-10,
+      "abs_err": 2.906185946998466e-08,
+      "other": "rmid=4.9811e-04, inp=-4.9811e-04",
+      "mechanism": "IN+=-Vos; input-referred pedestal should cancel",
+      "failed": false
+    },
+    {
+      "kind": "replica_sub",
+      "v_out": 2.298749081711127e-12,
+      "v_mid": 0.0004981065061662468,
+      "abs_err": 2.298749081711127e-12,
+      "other": "rmid=4.9811e-04",
+      "mechanism": "LEVEL 2 dest subtract; B-source drives load",
+      "failed": false
+    },
+    {
+      "kind": "replica_disabled",
+      "v_out": 0.0009962430559976594,
+      "v_mid": 0.0004981065050168719,
+      "abs_err": 0.0009962430559976594,
+      "other": "rmid=4.9811e-04",
+      "mechanism": "see report",
+      "failed": false
+    },
+    {
+      "kind": "servo",
+      "v_out": -2.24869183950069e-08,
+      "v_mid": -2.62534206196436e-08,
+      "abs_err": 2.24869183950069e-08,
+      "other": "inp=-4.9813e-04",
+      "mechanism": "LEVEL 2 integrator on IN+",
+      "failed": false
+    },
+    {
+      "kind": "opa_follow_in",
+      "v_out": 0.0009962430771208433,
+      "v_mid": 0.0004981065155784635,
+      "abs_err": 0.0009962430771208433,
+      "other": "",
+      "mechanism": "see report",
+      "failed": false
+    },
+    {
+      "kind": "opa_follow_out",
+      "v_out": 0.001494350551368719,
+      "v_mid": 0.0004981065061662181,
+      "abs_err": 0.001494350551368719,
+      "other": "",
+      "mechanism": "see report",
+      "failed": false
+    }
+  ],
+  "cancellation": [
+    {
+      "label": "replica present, cancellation disabled",
+      "mae": 0.0026376656584849423,
+      "max_abs_error": 0.00703602033302797,
+      "accuracy": 1.0,
+      "analog_pass": false,
+      "failed": false,
+      "mean_invert_residual": 0.000996183548924844,
+      "mean_vmid": 0.0004981135565295236,
+      "note": "negative control"
+    },
+    {
+      "label": "shared replica mid -> IN+",
+      "mae": 2.4105066003567814,
+      "max_abs_error": 5.824596802067795,
+      "accuracy": 0.4166666666666667,
+      "analog_pass": false,
+      "failed": false,
+      "mean_invert_residual": 0.8734503925446648,
+      "mean_vmid": 0.45916842440147376,
+      "note": "LEVEL 3 wiring; expected to add if Vos is input-referred"
+    },
+    {
+      "label": "shared replica -mid -> IN+",
+      "mae": 0.0005101261701512982,
+      "max_abs_error": 0.0031603231633789974,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "mean_invert_residual": 7.963740453993016e-08,
+      "mean_vmid": 7.758659535025561e-09,
+      "note": "LEVEL 2 sign of LEVEL 3 pedestal; amp still drives dest"
+    },
+    {
+      "label": "replica output subtract (B-source)",
+      "mae": 0.0026161690014813183,
+      "max_abs_error": 0.00703601489734984,
+      "accuracy": 1.0,
+      "analog_pass": false,
+      "failed": false,
+      "mean_invert_residual": 0.000988296131464872,
+      "mean_vmid": 0.000497925648537482,
+      "note": "LEVEL 2 AZ; B-source hijacks drive"
+    },
+    {
+      "label": "LEVEL 2 invert servo, 32 hidden",
+      "mae": 0.42441341879515343,
+      "max_abs_error": 1.7889390039637103,
+      "accuracy": 0.9166666666666666,
+      "analog_pass": false,
+      "failed": false,
+      "mean_invert_residual": 0.1542958518484398,
+      "mean_vmid": 0.07716107415547539,
+      "note": "behavioral G-C on IN+; not a physical primitive"
+    }
+  ],
+  "replica_mid_scaling": [
+    {
+      "n": 32,
+      "label": "replica_mid",
+      "mae": 2.4105066003567814,
+      "max_abs_error": 5.824596802067795,
+      "accuracy": 0.4166666666666667,
+      "analog_pass": false,
+      "failed": false
+    }
+  ],
+  "replica_neg_scaling": [
+    {
+      "n": 1,
+      "label": "replica_neg",
+      "mae": 0.0005101483287732961,
+      "max_abs_error": 0.0031606698719062187,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 0.9312361999909626
+    },
+    {
+      "n": 2,
+      "label": "replica_neg",
+      "mae": 0.0005101479036883355,
+      "max_abs_error": 0.00316066447400587,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 1.5481584999943152
+    },
+    {
+      "n": 4,
+      "label": "replica_neg",
+      "mae": 0.0005101471585460508,
+      "max_abs_error": 0.003160665919570871,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 2.9249722999957157
+    },
+    {
+      "n": 8,
+      "label": "replica_neg",
+      "mae": 0.0005101403707972289,
+      "max_abs_error": 0.003160669013237083,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 6.714504299990949
+    },
+    {
+      "n": 16,
+      "label": "replica_neg",
+      "mae": 0.0005101314696550702,
+      "max_abs_error": 0.0031603471558612206,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 16.422203199996147
+    },
+    {
+      "n": 32,
+      "label": "replica_neg",
+      "mae": 0.0005101261701512982,
+      "max_abs_error": 0.0031603231633789974,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 55.57178689999273
+    }
+  ],
+  "servo_scaling": [
+    {
+      "mae": 0.42441341879515343,
+      "max_abs_error": 1.7889390039637103,
+      "accuracy": 0.9166666666666666,
+      "analog_pass": false,
+      "failed": false,
+      "n": 32,
+      "label": "servo"
+    }
+  ],
+  "accumulation_prediction": {
+    "opa32_mae": 0.0026376656584849475,
+    "mean_invert_residual": 0.0009961835489247918,
+    "note": "32-OPA mean invert residual 9.9618e-04 produced F12 MAE 2.6377e-03. A cancelled residual should track that same scale."
+  },
+  "transient": [
+    {
+      "label": "opa1656 TRAN 100 us",
+      "kind": "opa1656",
+      "t_hold": 0.0001,
+      "abs_err": 0.0009958652291697234,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "opa1656 TRAN 200 us",
+      "kind": "opa1656",
+      "t_hold": 0.0002,
+      "abs_err": 0.0009958652291697234,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "opa1656 TRAN 500 us",
+      "kind": "opa1656",
+      "t_hold": 0.0005,
+      "abs_err": 0.0009958652291697234,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "replica_neg TRAN 100 us",
+      "kind": "replica_neg",
+      "t_hold": 0.0001,
+      "abs_err": 1.3477083005142276e-07,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "replica_neg TRAN 200 us",
+      "kind": "replica_neg",
+      "t_hold": 0.0002,
+      "abs_err": 1.3477083005142276e-07,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "replica_neg TRAN 500 us",
+      "kind": "replica_neg",
+      "t_hold": 0.0005,
+      "abs_err": 1.3477083005142276e-07,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "servo TRAN 100 us",
+      "kind": "servo",
+      "t_hold": 0.0001,
+      "abs_err": 1.3477083005142276e-07,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "servo TRAN 200 us",
+      "kind": "servo",
+      "t_hold": 0.0002,
+      "abs_err": 1.3477083005142276e-07,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "servo TRAN 500 us",
+      "kind": "servo",
+      "t_hold": 0.0005,
+      "abs_err": 1.3477083005142276e-07,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "label": "isolated AZ 200+200 us",
+      "kind": "az",
+      "t_hold": 0.0004,
+      "abs_err": null,
+      "analog_pass": null,
+      "failed": true,
+      "v_hold": null,
+      "v_raw": null
+    }
+  ],
+  "history": [
+    {
+      "kind": "opa1656",
+      "abs_err_max": 0.0010048652291696492,
+      "analog_pass": false,
+      "failed": false,
+      "samples": [
+        {
+          "i": 0,
+          "vin": 0.0,
+          "v_out": 0.0009962431,
+          "abs_err": 0.0009962431
+        },
+        {
+          "i": 1,
+          "vin": 2.6081758652291698,
+          "v_out": -2.607171,
+          "abs_err": 0.0010048652291696492
+        },
+        {
+          "i": 2,
+          "vin": 1.0,
+          "v_out": -0.9990137,
+          "abs_err": 0.0009862999999999955
+        },
+        {
+          "i": 3,
+          "vin": 0.0,
+          "v_out": 0.0009958365000000001,
+          "abs_err": 0.0009958365000000001
+        }
+      ]
+    },
+    {
+      "kind": "replica_neg",
+      "abs_err_max": 9.99999999995449e-06,
+      "analog_pass": true,
+      "failed": false,
+      "samples": [
+        {
+          "i": 0,
+          "vin": 0.0,
+          "v_out": 2.905788e-08,
+          "abs_err": 2.905788e-08
+        },
+        {
+          "i": 1,
+          "vin": 2.6081758652291698,
+          "v_out": -2.608167,
+          "abs_err": 8.865229169874311e-06
+        },
+        {
+          "i": 2,
+          "vin": 1.0,
+          "v_out": -0.99999,
+          "abs_err": 9.99999999995449e-06
+        },
+        {
+          "i": 3,
+          "vin": 0.0,
+          "v_out": 7.37891e-08,
+          "abs_err": 7.37891e-08
+        }
+      ]
+    },
+    {
+      "kind": "servo",
+      "abs_err_max": 1.3799999999952739e-05,
+      "analog_pass": true,
+      "failed": false,
+      "samples": [
+        {
+          "i": 0,
+          "vin": 0.0,
+          "v_out": -2.248803e-08,
+          "abs_err": 2.248803e-08
+        },
+        {
+          "i": 1,
+          "vin": 2.6081758652291698,
+          "v_out": -2.608177,
+          "abs_err": 1.1347708301912007e-06
+        },
+        {
+          "i": 2,
+          "vin": 1.0,
+          "v_out": -0.9999862,
+          "abs_err": 1.3799999999952739e-05
+        },
+        {
+          "i": 3,
+          "vin": 0.0,
+          "v_out": 2.32134e-06,
+          "abs_err": 2.32134e-06
+        }
+      ]
+    }
+  ],
+  "network_validation": [
+    {
+      "mae": 0.0005101261701512982,
+      "max_abs_error": 0.0031603231633789974,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "label": "replica_neg",
+      "set": "F12"
+    },
+    {
+      "mae": 0.42441341879515343,
+      "max_abs_error": 1.7889390039637103,
+      "accuracy": 0.9166666666666666,
+      "analog_pass": false,
+      "failed": false,
+      "label": "servo",
+      "set": "F12"
+    },
+    {
+      "label": "replica_neg",
+      "set": "F40",
+      "mae": 0.0004838443095730961,
+      "max_abs_error": 0.0034315490989036412,
+      "accuracy": 1.0,
+      "analog_pass": true,
+      "failed": false,
+      "spice_s": 192.95970950000628
+    }
+  ],
+  "negative_controls": [
+    {
+      "label": "passive grounded divider",
+      "result": "isolated |err|=0.0000e+00"
+    },
+    {
+      "label": "teaching miller at worst load/swing",
+      "result": "isolated |err|=1.9747e+00"
+    },
+    {
+      "label": "OPA1656 uncorrected",
+      "result": "N=32 MAE=2.6377e-03"
+    },
+    {
+      "label": "one-copy network insertion",
+      "result": "MAE=5.3212e-04 analog-pass"
+    },
+    {
+      "label": "all-32 insertion uncorrected",
+      "result": "MAE=2.6377e-03 analog-fail expected"
+    },
+    {
+      "label": "cancellation disabled",
+      "result": "MAE=2.6377e-03"
+    }
+  ],
+  "matching": {
+    "extra": "replica identity: the shared replica must produce the same mid pedestal as every signal invert (same model, R, load, temp)",
+    "requirement": "If replica cancellation is used, replica-to-signal mid matching must stay well below ~100 uV. That is a new relationship beyond R1/R2. R1/R2 residual <= 0.075% still applies."
+  },
+  "decision": {
+    "status": "PHYSICAL HIDDEN INVERTER PARTIALLY VALIDATED",
+    "reason": "Shared replica with IN+ = -replica mid analog-passes at N=32 because a LEVEL 2 sign of the LEVEL 3 498 uV pedestal cancels the systematic invert residual. The OPA1656 cell itself still has a ~498 uV loaded virtual-ground floor. Datasheet Vos is not that floor. This is documented circuit cancellation, not an uncorrected physical primitive with <=100 uV Vos_eff. Uncorrected OPA isolated |err|=9.9635e-04.",
+    "realism_level": "LEVEL 3 OPA1656 + LEVEL 2 replica-sign cancellation",
+    "remaining_ideal": "TIA VCVS, ReLU B-source, stimulus sources, and any LEVEL 2 sign/servo/B-source used for cancellation. Frozen weights untouched.",
+    "limitations": "Local vendor tree has no chopper/auto-zero/precision <=50 uV op-amp whose loaded invert residual was measured below the 498 uV GWL floor. No PDK. No r2_cmc OSDI. Teaching miller cannot make the hidden swing/load.",
+    "next_bottleneck": "A documented macromodel whose loaded invert mid stays <=100 uV without a behavioral sign/servo, or a foundry PDK that can implement that cell. Do not invent MOS W/L."
+  }
+}

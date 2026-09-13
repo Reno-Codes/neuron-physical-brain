@@ -1,0 +1,17 @@
+* Experiment 22 RC single-pole TIA smoke test
+* C meas tran vend FIND v(lin) AT=50uen at DC. Not a transistor meas tran vend FIND v(lin) AT=50u-amp.
+Vin in 0 PULSE(0 1 1n 1n 1n 1 2)
+Rw in sum 10000.0
+Etia int 0 0 sum 100000.0
+Rpole int lin 1
+Clin lin 0 1.59154943091895e-05
+Rf lin sum 10000.0
+.tran 50n 50u
+.control
+run
+set numdgt=15
+meas tran vend FIND v(lin) AT=50u
+print v(lin)
+print v(sum)
+.endc
+.end

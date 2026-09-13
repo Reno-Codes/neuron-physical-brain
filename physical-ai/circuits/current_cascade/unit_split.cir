@@ -1,0 +1,13 @@
+* Experiment 20 current-split unit Iy=3e-05 w=[0.3,0.5]
+Iy 0 mid DC 3e-05
+R1 mid n1 111111.111111111
+R2 mid n2 66666.6666666667
+V1 n1 0 DC 0
+V2 n2 0 DC 0
+.control
+set numdgt=15
+op
+print i(V1)
+print i(V2)
+.endc
+.end

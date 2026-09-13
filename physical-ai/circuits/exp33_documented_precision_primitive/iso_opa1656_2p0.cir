@@ -1,0 +1,20 @@
+* Experiment 33 isolated invert kind=opa1656 Vin=2 Rload=4914.01
+Vin in 0 DC 2
+R1 in mid 10000
+R2 out mid 10000
+Rload out 0 4914.01304862554
+.include "C:/ngspice/examples/optran/models/opa1656.lib"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Xinv 0 mid vdd vss out OPA1656
+Ccl out 0 1p
+.control
+set numdgt=15
+op
+print i(Rload)
+print i(Vdd)
+print v(out)
+print v(mid)
+print v(in)
+.endc
+.end

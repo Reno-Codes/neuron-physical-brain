@@ -1,0 +1,211 @@
+* Physical AI - Experiment 19 architecture U: unmatched replica-null TIA (replica Vos = 0)
+* Same replica topology as N, but replica Vos is forced to 0. Cancellation requires matched offsets.
+* Frozen Experiment 9 network A. Weights were not edited.
+* Behavioral circuit analysis. Not transistor-level or PCB power.
+* A_tia=100000 vos=0.001 vos_replica=None unmatched=True rout=100 Ileak=1e-08
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+* passive invert in1 -> in1n: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinv1ia in1 inv1m 10008.9530799537
+Rinv1ib in1n inv1m 9968.47444823366
+Einv1amp in1n 0 0 inv1m 100000
+Vin2 in2 0 DC 0
+* passive invert in2 -> in2n: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinv2ia in2 inv2m 9976.89358636989
+Rinv2ib in2n inv2m 9978.16049160722
+Einv2amp in2n 0 0 inv2m 100000
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvrefia vref invrefm 9966.87666170157
+Rinvrefib vrefn invrefm 10043.0377783307
+Einvrefamp vrefn 0 0 invrefm 100000
+* load-compensated divider vref->tapref: G_load=0.00135041774642313 Ra=425030.827613635 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefa vref tapref 426610.286414454
+Rdivrefb tapref 0 1003.30377157688
+* load-compensated divider vrefn->taprefn: G_load=0.000833646933955897 Ra=544815.897488381 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefna vrefn taprefn 545581.234453416
+Rdivrefnb taprefn 0 1002.47597133208
+
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=48749.9920441162 G_phys=2.05128238604645e-05 G_eff=2.05128238604645e-05
+Rh1p1n1 in1n h1p 48850.582181162
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=107746.969487669 G_phys=9.28100349137382e-06 G_eff=9.28100349137382e-06
+Rh1p2n1 in2n h1p 107242.015825259
+* h1 bias w-  bank=f alpha=0.001 R=1253.18954325804 G_phys=0.000797963887729386 G_eff=7.97963887729385e-07
+Rh1bnf1 tapref h1p 1258.46757447725
+* replica dummy G_tot for h1: same R as weights/biases, dest=0
+Rh1dmy000 0 h1rp 48727.8862458602
+Rh1dmy001 0 h1rp 107757.926912562
+Rh1dmy002 0 h1rp 1249.84351651402
+* feedback TIA h1: Rf=33333.3333333333 A=100000 V(h1sig) = -I(h1p)*Rf*A/(A+1)  (uncompensated)
+Bh1tia h1drv 0 V = -(100100) * (v(h1p) - (0.001))
+Rh1ro h1drv h1sig 99.8368151628975
+Rh1f h1sig h1p 33247.2956089785
+Bh1leak 0 h1p I = 1e-08
+* feedback TIA h1r: Rf=33333.3333333333 A=100000 V(h1rep) = -I(h1rp)*Rf*A/(A+1)  (uncompensated)
+Eh1rtia h1rdrv 0 0 h1rp 100100
+Rh1rro h1rdrv h1rep 100.012726257475
+Rh1rf h1rep h1rp 33420.0725054446
+Bh1rleak 0 h1rp I = 1e-08
+* replica null h1: v(h1lin)=v(h1sig)-v(h1rep) Vos_sig=0.001 Vos_rep=0
+Eh1null h1lin 0 h1sig h1rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h1lin)))
+Bh1relu h1y 0 V = max(0, min(15, v(h1lin)))
+
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=37672.3718890781 G_phys=2.65446519519499e-05 G_eff=2.65446519519499e-05
+Rh2n1n1 in1 h2p 37743.679625746
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=42590.1684417639 G_phys=2.34795972072137e-05 G_eff=2.34795972072137e-05
+Rh2p2n1 in2n h2p 42700.0545993994
+* h2 bias w+  bank=f alpha=0.001 R=560963.988396833 G_phys=1.78264562553806e-06 G_eff=1.78264562553806e-09
+Rh2bpf1 taprefn h2p 559454.740440488
+* replica dummy G_tot for h2: same R as weights/biases, dest=0
+Rh2dmy000 0 h2rp 37688.5058681799
+Rh2dmy001 0 h2rp 42503.1909999298
+Rh2dmy002 0 h2rp 562344.004740778
+* feedback TIA h2: Rf=33333.3333333333 A=100000 V(h2sig) = -I(h2p)*Rf*A/(A+1)  (uncompensated)
+Bh2tia h2drv 0 V = -(100100) * (v(h2p) - (0.001))
+Rh2ro h2drv h2sig 99.877211475465
+Rh2f h2sig h2p 33256.1067697732
+Bh2leak 0 h2p I = 1e-08
+* feedback TIA h2r: Rf=33333.3333333333 A=100000 V(h2rep) = -I(h2rp)*Rf*A/(A+1)  (uncompensated)
+Eh2rtia h2rdrv 0 0 h2rp 100100
+Rh2rro h2rdrv h2rep 100.144858986451
+Rh2rf h2rep h2rp 33234.6797507286
+Bh2rleak 0 h2rp I = 1e-08
+* replica null h2: v(h2lin)=v(h2sig)-v(h2rep) Vos_sig=0.001 Vos_rep=0
+Eh2null h2lin 0 h2sig h2rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h2lin)))
+Bh2relu h2y 0 V = max(0, min(15, v(h2lin)))
+
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=41293.0004526854 G_phys=2.42171794017687e-05 G_eff=2.42171794017687e-05
+Rh3p1n1 in1n h3p 41107.4211414562
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=19393.1144355429 G_phys=5.15646934030999e-05 G_eff=5.15646934030999e-05
+Rh3p2n1 in2n h3p 19395.8001802502
+* h3 bias w+  bank=f alpha=0.001 R=1918.09451080035 G_phys=0.000521350743860236 G_eff=5.21350743860236e-07
+Rh3bpf1 taprefn h3p 1922.62254529807
+* replica dummy G_tot for h3: same R as weights/biases, dest=0
+Rh3dmy000 0 h3rp 41245.0067541054
+Rh3dmy001 0 h3rp 19312.6486418589
+Rh3dmy002 0 h3rp 1919.71684822066
+* feedback TIA h3: Rf=33333.3333333333 A=100000 V(h3sig) = -I(h3p)*Rf*A/(A+1)  (uncompensated)
+Bh3tia h3drv 0 V = -(100100) * (v(h3p) - (0.001))
+Rh3ro h3drv h3sig 99.6644462776543
+Rh3f h3sig h3p 33175.3364711579
+Bh3leak 0 h3p I = 1e-08
+* feedback TIA h3r: Rf=33333.3333333333 A=100000 V(h3rep) = -I(h3rp)*Rf*A/(A+1)  (uncompensated)
+Eh3rtia h3rdrv 0 0 h3rp 100100
+Rh3rro h3rdrv h3rep 100.264185278177
+Rh3rf h3rep h3rp 33201.3093956131
+Bh3rleak 0 h3rp I = 1e-08
+* replica null h3: v(h3lin)=v(h3sig)-v(h3rep) Vos_sig=0.001 Vos_rep=0
+Eh3null h3lin 0 h3sig h3rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h3lin)))
+Bh3relu h3y 0 V = max(0, min(15, v(h3lin)))
+
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=15411.6749813161 G_phys=6.48858739372794e-05 G_eff=6.48858739372794e-05
+Rh4n1n1 in1 h4p 15377.9295506193
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=45852.5506319697 G_phys=2.18090375828029e-05 G_eff=2.18090375828029e-05
+Rh4p2n1 in2n h4p 45773.1225404714
+* h4 bias w-  bank=f alpha=0.001 R=1810.10591973139 G_phys=0.000552453858693748 G_eff=5.52453858693748e-07
+Rh4bnf1 tapref h4p 1806.60846749229
+* replica dummy G_tot for h4: same R as weights/biases, dest=0
+Rh4dmy000 0 h4rp 15398.1599634331
+Rh4dmy001 0 h4rp 45730.7511207453
+Rh4dmy002 0 h4rp 1812.19978012309
+* feedback TIA h4: Rf=33333.3333333333 A=100000 V(h4sig) = -I(h4p)*Rf*A/(A+1)  (uncompensated)
+Bh4tia h4drv 0 V = -(100100) * (v(h4p) - (0.001))
+Rh4ro h4drv h4sig 100.322903732689
+Rh4f h4sig h4p 33284.3347769377
+Bh4leak 0 h4p I = 1e-08
+* feedback TIA h4r: Rf=33333.3333333333 A=100000 V(h4rep) = -I(h4rp)*Rf*A/(A+1)  (uncompensated)
+Eh4rtia h4rdrv 0 0 h4rp 100100
+Rh4rro h4rdrv h4rep 100.09785130219
+Rh4rf h4rep h4rp 33410.5200165477
+Bh4rleak 0 h4rp I = 1e-08
+* replica null h4: v(h4lin)=v(h4sig)-v(h4rep) Vos_sig=0.001 Vos_rep=0
+Eh4null h4lin 0 h4sig h4rep 1
+* direct bounded ReLU: y=max(0, min(15, v(h4lin)))
+Bh4relu h4y 0 V = max(0, min(15, v(h4lin)))
+
+* passive invert h1y -> h1yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh1ia h1y invh1m 9977.28287119
+Rinvh1ib h1yn invh1m 9956.92790638759
+Einvh1amp h1yn 0 0 invh1m 100000
+* passive invert h2y -> h2yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh2ia h2y invh2m 10044.9590518345
+Rinvh2ib h2yn invh2m 10047.3886653046
+Einvh2amp h2yn 0 0 invh2m 100000
+* passive invert h3y -> h3yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh3ia h3y invh3m 9990.70246551559
+Rinvh3ib h3yn invh3m 9993.52036678379
+Einvh3amp h3yn 0 0 invh3m 100000
+* passive invert h4y -> h4yn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvh4ia h4y invh4m 10019.7783583164
+Rinvh4ib h4yn invh4m 10007.659752826
+Einvh4amp h4yn 0 0 invh4m 100000
+
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=55381.137413171 G_phys=1.80566894561861e-05 G_eff=1.80566894561861e-05
+Ro1p1n1 h1yn o1p 55279.164098631
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=95974.0918925228 G_phys=1.04194786351285e-05 G_eff=1.04194786351285e-05
+Ro1p2n1 h2yn o1p 95826.7781466839
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=38011.716249768 G_phys=2.63076782281859e-05 G_eff=2.63076782281859e-05
+Ro1p3n1 h3yn o1p 38161.9545926869
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=35860.5019249499 G_phys=2.78858338930346e-05 G_eff=2.78858338930346e-05
+Ro1p4n1 h4yn o1p 36003.1231925422
+* o1 bias w+  bank=f alpha=0.001 R=3220.47143452777 G_phys=0.000310513544470123 G_eff=3.10513544470123e-07
+Ro1bpf1 taprefn o1p 3210.80011273617
+* replica dummy G_tot for o1: same R as weights/biases, dest=0
+Ro1dmy000 0 o1rp 55253.6816244841
+Ro1dmy001 0 o1rp 96010.3577957965
+Ro1dmy002 0 o1rp 37830.8833159643
+Ro1dmy003 0 o1rp 36014.4873845559
+Ro1dmy004 0 o1rp 3232.5820404327
+* feedback TIA o1: Rf=33333.3333333333 A=100000 V(o1sig) = -I(o1p)*Rf*A/(A+1)  (uncompensated)
+Bo1tia o1drv 0 V = -(100100) * (v(o1p) - (0.001))
+Ro1ro o1drv o1sig 100.474546813696
+Ro1f o1sig o1p 33332.192686593
+Bo1leak 0 o1p I = 1e-08
+* feedback TIA o1r: Rf=33333.3333333333 A=100000 V(o1rep) = -I(o1rp)*Rf*A/(A+1)  (uncompensated)
+Eo1rtia o1rdrv 0 0 o1rp 100100
+Ro1rro o1rdrv o1rep 100.227882474862
+Ro1rf o1rep o1rp 33435.9757811644
+Bo1rleak 0 o1rp I = 1e-08
+* replica null o1: v(o1lin)=v(o1sig)-v(o1rep) Vos_sig=0.001 Vos_rep=0
+Eo1null o1lin 0 o1sig o1rep 1
+.control
+set numdgt=15
+alter Vin1 DC 0.437966938348753
+alter Vin2 DC -0.0775067040526836
+op
+print v(o1lin)
+alter Vin1 DC -0.94444905839682
+alter Vin2 DC 0.127807415682234
+op
+print v(o1lin)
+alter Vin1 DC 0.931618253333477
+alter Vin2 DC -0.278443901982192
+op
+print v(o1lin)
+alter Vin1 DC 0.268433340291721
+alter Vin2 DC -0.587750287731436
+op
+print v(o1lin)
+alter Vin1 DC -0.937334348560303
+alter Vin2 DC -0.199377636832023
+op
+print v(o1lin)
+alter Vin1 DC -0.0672669094992321
+alter Vin2 DC -0.907974266221754
+op
+print v(o1lin)
+alter Vin1 DC -0.952218979056413
+alter Vin2 DC -0.414226012911729
+op
+print v(o1lin)
+alter Vin1 DC 0.38750579108911
+alter Vin2 DC 0.726303603690999
+op
+print v(o1lin)
+.endc
+
+.end

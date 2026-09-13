@@ -1,0 +1,46 @@
+{
+  "experiment": 33,
+  "note": "Official TI PSpice zips. Model files were not edited.",
+  "models": [
+    {
+      "part": "OPA189",
+      "subckt": "OPAx189",
+      "manufacturer": "Texas Instruments",
+      "source": "https://www.ti.com/lit/zip/sbomae9",
+      "product": "https://www.ti.com/product/OPA189",
+      "zip_id": "sbomae9",
+      "lib": "opa189/OPAx189.LIB",
+      "date_in_model": "21JUN2022",
+      "architecture": "Green-Williams-Lis",
+      "model_vos_dc_V": -1.86843e-6,
+      "datasheet_vos_max_V": 3e-6,
+      "unmodified": true,
+      "license": "TI macromodel as-is license in file header"
+    },
+    {
+      "part": "OPA192",
+      "subckt": "OPAx192",
+      "manufacturer": "Texas Instruments",
+      "source": "https://www.ti.com/lit/zip/sbom862",
+      "product": "https://www.ti.com/product/OPA192",
+      "zip_id": "sbom862",
+      "lib": "opa192/OPAx192.LIB",
+      "architecture": "Green-Williams-Lis",
+      "model_vos_dc_V": -2.88e-6,
+      "unmodified": true
+    },
+    {
+      "part": "OPA388",
+      "subckt": "OPAx388",
+      "manufacturer": "Texas Instruments",
+      "source": "https://www.ti.com/lit/zip/sbomab3",
+      "product": "https://www.ti.com/product/OPA388",
+      "zip_id": "sbomab3",
+      "lib": "opa388/OPAx388.LIB",
+      "architecture": "Green-Williams-Lis",
+      "model_vos_dc_V": -300.202e-9,
+      "supply_limit_V": 5.5,
+      "unmodified": true
+    }
+  ]
+}

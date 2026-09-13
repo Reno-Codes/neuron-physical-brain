@@ -1,0 +1,30 @@
+* Experiment 32 isolated invert kind=replica_neg Vin=2.60818 Rload=4914.01
+Vin in 0 DC 2.60817586522917
+R1 in mid 10000
+R2 out mid 10000
+Rload out 0 4914.01304862554
+.include "C:/ngspice/examples/optran/models/opa1656.lib"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+* IN+ = -replica mid (LEVEL 2 sign of LEVEL 3 pedestal)
+Rra 0 rmid 10000
+Rrb rout rmid 10000
+Xrep 0 rmid vdd vss rout OPA1656
+Crc rout 0 1p
+Rrl rout 0 4914.01304862554
+Eref inp 0 rmid 0 -1
+Xinv inp mid vdd vss out OPA1656
+Ccl out 0 1p
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+print i(Rload)
+print v(rmid)
+print v(rout)
+print v(inp)
+print i(Vdd)
+.endc
+.end

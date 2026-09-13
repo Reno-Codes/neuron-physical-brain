@@ -1,0 +1,15 @@
+* Experiment 32 isolated invert kind=passive Vin=1 Rload=4914.01
+Vin in 0 DC 1
+R1 in mid 10000
+R2 out mid 10000
+Rload out 0 4914.01304862554
+* no amp: grounded divider
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+print i(Rload)
+.endc
+.end

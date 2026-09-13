@@ -1,0 +1,106 @@
+* Exp 34 isolated N=8 shared=True Vin=1 Rload=4914.01
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vin1 in1 0 DC 1
+Vcm1 inp1 0 DC 0
+R1_1 in1 mid1 10000
+R2_1 out1 mid1 10000
+Rload1 out1 0 4914.01304862554
+Xinv1 inp1 mid1 vdd vss out1 OPAx189
+Ccl1 out1 0 1e-12
+Vin2 in2 0 DC 1
+Vcm2 inp2 0 DC 0
+R1_2 in2 mid2 10000
+R2_2 out2 mid2 10000
+Rload2 out2 0 4914.01304862554
+Xinv2 inp2 mid2 vdd vss out2 OPAx189
+Ccl2 out2 0 1e-12
+Vin3 in3 0 DC 1
+Vcm3 inp3 0 DC 0
+R1_3 in3 mid3 10000
+R2_3 out3 mid3 10000
+Rload3 out3 0 4914.01304862554
+Xinv3 inp3 mid3 vdd vss out3 OPAx189
+Ccl3 out3 0 1e-12
+Vin4 in4 0 DC 1
+Vcm4 inp4 0 DC 0
+R1_4 in4 mid4 10000
+R2_4 out4 mid4 10000
+Rload4 out4 0 4914.01304862554
+Xinv4 inp4 mid4 vdd vss out4 OPAx189
+Ccl4 out4 0 1e-12
+Vin5 in5 0 DC 1
+Vcm5 inp5 0 DC 0
+R1_5 in5 mid5 10000
+R2_5 out5 mid5 10000
+Rload5 out5 0 4914.01304862554
+Xinv5 inp5 mid5 vdd vss out5 OPAx189
+Ccl5 out5 0 1e-12
+Vin6 in6 0 DC 1
+Vcm6 inp6 0 DC 0
+R1_6 in6 mid6 10000
+R2_6 out6 mid6 10000
+Rload6 out6 0 4914.01304862554
+Xinv6 inp6 mid6 vdd vss out6 OPAx189
+Ccl6 out6 0 1e-12
+Vin7 in7 0 DC 1
+Vcm7 inp7 0 DC 0
+R1_7 in7 mid7 10000
+R2_7 out7 mid7 10000
+Rload7 out7 0 4914.01304862554
+Xinv7 inp7 mid7 vdd vss out7 OPAx189
+Ccl7 out7 0 1e-12
+Vin8 in8 0 DC 1
+Vcm8 inp8 0 DC 0
+R1_8 in8 mid8 10000
+R2_8 out8 mid8 10000
+Rload8 out8 0 4914.01304862554
+Xinv8 inp8 mid8 vdd vss out8 OPAx189
+Ccl8 out8 0 1e-12
+.control
+set numdgt=15
+op
+print v(out1)
+print v(mid1)
+print v(in1)
+print v(inp1)
+print i(Rload1)
+print v(out2)
+print v(mid2)
+print v(in2)
+print v(inp2)
+print i(Rload2)
+print v(out3)
+print v(mid3)
+print v(in3)
+print v(inp3)
+print i(Rload3)
+print v(out4)
+print v(mid4)
+print v(in4)
+print v(inp4)
+print i(Rload4)
+print v(out5)
+print v(mid5)
+print v(in5)
+print v(inp5)
+print i(Rload5)
+print v(out6)
+print v(mid6)
+print v(in6)
+print v(inp6)
+print i(Rload6)
+print v(out7)
+print v(mid7)
+print v(in7)
+print v(inp7)
+print i(Rload7)
+print v(out8)
+print v(mid8)
+print v(in8)
+print v(inp8)
+print i(Rload8)
+print i(Vdd)
+.endc
+.end

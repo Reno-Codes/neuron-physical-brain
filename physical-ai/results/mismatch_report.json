@@ -1,0 +1,2001 @@
+{
+  "experiment": 15,
+  "analysis": "behavioral mismatch study on Experiment 14 Architecture D",
+  "error_limit": 0.001,
+  "fairness": "Frozen Experiment 9 weights. No Python output correction. Tiling stays inside 1 kOhm-1 MOhm. Active errors are macromodel parameters, not transistors.",
+  "networks": [
+    {
+      "id": "A",
+      "label": "A 2->4->1",
+      "n_full": 100,
+      "n_sweep": 100,
+      "n_mc": 8,
+      "n_trials": 20,
+      "nominal": {
+        "failed": false,
+        "failure_reason": null,
+        "spice_runtime_s": 0.0627020999963861,
+        "mae": 2.4453356006759465e-15,
+        "rms": 3.585845818811317e-15,
+        "max_abs_error": 8.881784197001252e-15,
+        "accuracy": 1.0,
+        "n_class_failures": 0,
+        "min_margin": 0.023404805330311806,
+        "classification_ok": true,
+        "exceeds_error_limit": false,
+        "n_resistors": 36,
+        "n_weight_resistors": 12,
+        "n_bias_resistors": 5,
+        "n_banks_used": 4,
+        "banks_used": [
+          "divider",
+          "f",
+          "n",
+          "ref"
+        ],
+        "r_min": 1000.0,
+        "r_max": 999000.0,
+        "total_conductance": 0.009666036228434524,
+        "resistors_per_weight": 3.0,
+        "weight_resistors_per_weight": 1.0,
+        "i_rel_A": 0.009666036228434524,
+        "passive_resistors": 36,
+        "passive_diodes": 0,
+        "passive_caps": 0,
+        "active_cccs": 10,
+        "active_vcvs": 21,
+        "active_behavioral": 4,
+        "active_transimpedance": 0,
+        "active_functional_blocks": 35,
+        "active_note": "Active counts are behavioral controlled sources, not transistors.",
+        "n_divider_resistors": 14,
+        "n_reference_resistors": 5,
+        "n_matched_divider_pairs": 7,
+        "n_matched_fabric_groups": 2,
+        "n_calibration_cells": 0,
+        "bank_geff_fraction": {
+          "f": 0.0066760629332748315,
+          "n": 0.9933239370667252
+        },
+        "total_conductance_S": 0.009666036228434524,
+        "energy_note": "I_rel = SigmaG * 1 V is a relative signal-path metric. Not board power. Behavioral sources have no Iq.",
+        "tile": null,
+        "current_cost": {
+          "label": "relative physical current cost",
+          "note": "I_rel = SigmaG * V_rep with V_rep=1 V. This is a relative conductance-derived metric, not measured board power. SPICE source current is the sum of |I| through Vin* and Vref at one representative operating point.",
+          "v_rep_V": 1.0,
+          "total_conductance_S": 0.009666036228434524,
+          "i_rel_A": 0.009666036228434524,
+          "spice_source_current_A": 9.335667113417301e-05
+        },
+        "spice_source_current_A": 9.335667113417301e-05
+      },
+      "tiling": [
+        {
+          "n": 1,
+          "failed": false,
+          "tile": null,
+          "nominal": {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06356150002102368,
+            "mae": 2.4453356006759465e-15,
+            "rms": 3.585845818811317e-15,
+            "max_abs_error": 8.881784197001252e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330311806,
+            "classification_ok": true,
+            "exceeds_error_limit": false
+          },
+          "accounting": {
+            "passive_resistors": 36,
+            "n_reference_resistors": 5,
+            "total_conductance_S": 0.009666036228434524,
+            "active_functional_blocks": 35
+          },
+          "independent": [
+            {
+              "failed": false,
+              "n_trials": 20,
+              "n_ok": 20,
+              "n_spice_failures": 0,
+              "mae_mean": 0.003495968310982713,
+              "mae_std": 0.002105537798468021,
+              "mae_max": 0.00905826732636552,
+              "max_abs_error_mean": 0.011019930961688351,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.062639895559357,
+              "exceeds_error_limit": true,
+              "percent": 0.5
+            },
+            {
+              "failed": false,
+              "n_trials": 20,
+              "n_ok": 20,
+              "n_spice_failures": 0,
+              "mae_mean": 0.00927893513589574,
+              "mae_std": 0.003157878317286632,
+              "mae_max": 0.01516374856279471,
+              "max_abs_error_mean": 0.031801973933220734,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.053027898152486985,
+              "exceeds_error_limit": true,
+              "percent": 1.0
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "failed": false,
+          "tile": {
+            "requested_n": 2,
+            "n_series": 26,
+            "n_parallel": 10,
+            "n_untiled": 0,
+            "n_partial": 0,
+            "n_source_resistors": 36,
+            "n_tiles": 72
+          },
+          "nominal": {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.07113879997632466,
+            "mae": 2.601460713513859e-15,
+            "rms": 3.619176133528142e-15,
+            "max_abs_error": 9.325873406851315e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330309808,
+            "classification_ok": true,
+            "exceeds_error_limit": false
+          },
+          "accounting": {
+            "passive_resistors": 72,
+            "n_reference_resistors": 10,
+            "total_conductance_S": 0.012048839442887996,
+            "active_functional_blocks": 35
+          },
+          "independent": [
+            {
+              "failed": false,
+              "n_trials": 20,
+              "n_ok": 20,
+              "n_spice_failures": 0,
+              "mae_mean": 0.0033039315490001773,
+              "mae_std": 0.0017537499571478883,
+              "mae_max": 0.008039793761298137,
+              "max_abs_error_mean": 0.010793328245494494,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.06174982477937707,
+              "exceeds_error_limit": true,
+              "percent": 0.5
+            },
+            {
+              "failed": false,
+              "n_trials": 20,
+              "n_ok": 20,
+              "n_spice_failures": 0,
+              "mae_mean": 0.007249013664351713,
+              "mae_std": 0.003982632233095213,
+              "mae_max": 0.015821344133206468,
+              "max_abs_error_mean": 0.02223630778355982,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.05669954159500101,
+              "exceeds_error_limit": true,
+              "percent": 1.0
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "failed": false,
+          "tile": {
+            "requested_n": 4,
+            "n_series": 25,
+            "n_parallel": 11,
+            "n_untiled": 0,
+            "n_partial": 0,
+            "n_source_resistors": 36,
+            "n_tiles": 144
+          },
+          "nominal": {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.09030609999899752,
+            "mae": 2.0474941186954253e-15,
+            "rms": 2.7654986028497694e-15,
+            "max_abs_error": 7.105427357601002e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330313805,
+            "classification_ok": true,
+            "exceeds_error_limit": false
+          },
+          "accounting": {
+            "passive_resistors": 144,
+            "n_reference_resistors": 20,
+            "total_conductance_S": 0.016922349133650018,
+            "active_functional_blocks": 35
+          },
+          "independent": [
+            {
+              "failed": false,
+              "n_trials": 20,
+              "n_ok": 20,
+              "n_spice_failures": 0,
+              "mae_mean": 0.002652061971986446,
+              "mae_std": 0.0014656384808839024,
+              "mae_max": 0.006585509487417802,
+              "max_abs_error_mean": 0.007388949633779962,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.06443686677910032,
+              "exceeds_error_limit": true,
+              "percent": 0.5
+            },
+            {
+              "failed": false,
+              "n_trials": 20,
+              "n_ok": 20,
+              "n_spice_failures": 0,
+              "mae_mean": 0.005467105979554043,
+              "mae_std": 0.0026055630525293316,
+              "mae_max": 0.011478532886340957,
+              "max_abs_error_mean": 0.01633819706835964,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.05964736107598101,
+              "exceeds_error_limit": true,
+              "percent": 1.0
+            }
+          ]
+        }
+      ],
+      "signed": {
+        "systematic": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06271460000425577,
+            "mae": 2.4453356006759465e-15,
+            "rms": 3.585845818811317e-15,
+            "max_abs_error": 8.881784197001252e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330311806,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "systematic_0pct",
+            "value": 0.0
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06422410000232048,
+            "mae": 0.001476091726384859,
+            "rms": 0.00215577433032617,
+            "max_abs_error": 0.005355741595832075,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.022199141748370288,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "systematic_0.1pct",
+            "value": 0.1
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06708579999394715,
+            "mae": 0.007345701119175343,
+            "rms": 0.01071828631899254,
+            "max_abs_error": 0.02661949682907805,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.017391000975690518,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "systematic_0.5pct",
+            "value": 0.5
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06750060000922531,
+            "mae": 0.01459793472529065,
+            "rms": 0.021284296458428834,
+            "max_abs_error": 0.05284569354855195,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.011412403869702381,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "systematic_1pct",
+            "value": 1.0
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06344430000171997,
+            "mae": 0.02879922582824654,
+            "rms": 0.04195736503538044,
+            "max_abs_error": 0.10414897458688088,
+            "accuracy": 0.99,
+            "n_class_failures": 1,
+            "min_margin": -0.0004462419563954212,
+            "classification_ok": false,
+            "exceeds_error_limit": true,
+            "name": "systematic_2pct",
+            "value": 2.0
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06348589999834076,
+            "mae": 0.0691808665426643,
+            "rms": 0.10042414606216893,
+            "max_abs_error": 0.2493874250709771,
+            "accuracy": 0.99,
+            "n_class_failures": 1,
+            "min_margin": -0.03535662407472007,
+            "classification_ok": false,
+            "exceeds_error_limit": true,
+            "name": "systematic_5pct",
+            "value": 5.0
+          }
+        ],
+        "random": [
+          {
+            "failed": false,
+            "n_trials": 20,
+            "n_ok": 20,
+            "n_spice_failures": 0,
+            "mae_mean": 0.00326335784067923,
+            "mae_std": 0.0011134282466089868,
+            "mae_max": 0.005899647420872948,
+            "max_abs_error_mean": 0.009299458960652974,
+            "accuracy_mean": 1.0,
+            "accuracy_min": 1.0,
+            "min_margin_min": 0.05974222397901052,
+            "exceeds_error_limit": true,
+            "percent": 0.5
+          },
+          {
+            "failed": false,
+            "n_trials": 20,
+            "n_ok": 20,
+            "n_spice_failures": 0,
+            "mae_mean": 0.007402104268951775,
+            "mae_std": 0.003027348511743138,
+            "mae_max": 0.013118570258064042,
+            "max_abs_error_mean": 0.020458881838605426,
+            "accuracy_mean": 1.0,
+            "accuracy_min": 1.0,
+            "min_margin_min": 0.050239724024902954,
+            "exceeds_error_limit": true,
+            "percent": 1.0
+          },
+          {
+            "failed": false,
+            "n_trials": 20,
+            "n_ok": 20,
+            "n_spice_failures": 0,
+            "mae_mean": 0.029133473895369928,
+            "mae_std": 0.011527494860219027,
+            "mae_max": 0.0490630931594921,
+            "max_abs_error_mean": 0.08578475134184323,
+            "accuracy_mean": 1.0,
+            "accuracy_min": 1.0,
+            "min_margin_min": 0.025518922172615532,
+            "exceeds_error_limit": true,
+            "percent": 5.0
+          }
+        ]
+      },
+      "active": {
+        "cccs_common": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06271900000865571,
+            "mae": 2.4453356006759465e-15,
+            "rms": 3.585845818811317e-15,
+            "max_abs_error": 8.881784197001252e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330311806,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_common_0pct",
+            "value": 0.0,
+            "params": {
+              "name": "cccs_common_0pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06342590000713244,
+            "mae": 0.00021041088946685885,
+            "rms": 0.0002802611738964626,
+            "max_abs_error": 0.0006756648687384903,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023310516674078408,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_common_0.01pct",
+            "value": 0.01,
+            "params": {
+              "name": "cccs_common_0.01pct",
+              "cccs_common": 0.0001,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06423059999360703,
+            "mae": 0.0021050510388808245,
+            "rms": 0.0028038693545470407,
+            "max_abs_error": 0.006759684369856522,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.022461499147711506,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_common_0.1pct",
+            "value": 0.1,
+            "params": {
+              "name": "cccs_common_0.1pct",
+              "cccs_common": 0.001,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06359810000867583,
+            "mae": 0.010546191732017582,
+            "rms": 0.014047293785235983,
+            "max_abs_error": 0.03386588145868341,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.018678949522446586,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_common_0.5pct",
+            "value": 0.5,
+            "params": {
+              "name": "cccs_common_0.5pct",
+              "cccs_common": 0.005,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06315829997765832,
+            "mae": 0.021144724808049967,
+            "rms": 0.028164455102626777,
+            "max_abs_error": 0.06790041194081775,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.013929781477422576,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_common_1pct",
+            "value": 1.0,
+            "params": {
+              "name": "cccs_common_1pct",
+              "cccs_common": 0.01,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ],
+        "cccs_polarity": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06407220000983216,
+            "mae": 2.4453356006759465e-15,
+            "rms": 3.585845818811317e-15,
+            "max_abs_error": 8.881784197001252e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330311806,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_polarity_0pct",
+            "value": 0.0,
+            "params": {
+              "name": "cccs_polarity_0pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06348800001433119,
+            "mae": 0.00014782901546070602,
+            "rms": 0.00021590954957639554,
+            "max_abs_error": 0.0005364024611389517,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023525462292008525,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_polarity_0.01pct",
+            "value": 0.01,
+            "params": {
+              "name": "cccs_polarity_0.01pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0001,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06385159998899326,
+            "mae": 0.0014790398104219415,
+            "rms": 0.002160082768491814,
+            "max_abs_error": 0.005366448052253059,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.024612889644139713,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_polarity_0.1pct",
+            "value": 0.1,
+            "params": {
+              "name": "cccs_polarity_0.1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.001,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06301779998466372,
+            "mae": 0.007411858069837043,
+            "rms": 0.010822372378041328,
+            "max_abs_error": 0.026886094500989,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.029478886829690576,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_polarity_0.5pct",
+            "value": 0.5,
+            "params": {
+              "name": "cccs_polarity_0.5pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.005,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06637939999927767,
+            "mae": 0.014865363683975882,
+            "rms": 0.02169972855269884,
+            "max_abs_error": 0.05390682460121177,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.03563711815466902,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_polarity_1pct",
+            "value": 1.0,
+            "params": {
+              "name": "cccs_polarity_1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.01,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ],
+        "buffer_gain": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06363759998930618,
+            "mae": 2.4453356006759465e-15,
+            "rms": 3.585845818811317e-15,
+            "max_abs_error": 8.881784197001252e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330311806,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "buf_gain_0pct",
+            "value": 0.0,
+            "params": {
+              "name": "buf_gain_0pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06330599999637343,
+            "mae": 0.005267285389904198,
+            "rms": 0.007018445556148036,
+            "max_abs_error": 0.016927881746629403,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.021055035218156715,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "buf_gain_0.1pct",
+            "value": 0.1,
+            "params": {
+              "name": "buf_gain_0.1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.001,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.062598499993328,
+            "mae": 0.026546827117014747,
+            "rms": 0.03537327981117591,
+            "max_abs_error": 0.08531849717309159,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.011563254995888006,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "buf_gain_0.5pct",
+            "value": 0.5,
+            "params": {
+              "name": "buf_gain_0.5pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.005,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06327900002361275,
+            "mae": 0.053624369543935305,
+            "rms": 0.07145550618217689,
+            "max_abs_error": 0.17235001174082543,
+            "accuracy": 0.99,
+            "n_class_failures": 1,
+            "min_margin": -0.0005120860885845513,
+            "classification_ok": false,
+            "exceeds_error_limit": true,
+            "name": "buf_gain_1pct",
+            "value": 1.0,
+            "params": {
+              "name": "buf_gain_1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.01,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ],
+        "relu_vos": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06316929997410625,
+            "mae": 2.4453356006759465e-15,
+            "rms": 3.585845818811317e-15,
+            "max_abs_error": 8.881784197001252e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.023404805330311806,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "relu_vos_0V",
+            "value": 0.0,
+            "params": {
+              "name": "relu_vos_0V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.16931309999199584,
+            "mae": 0.00012082205567010343,
+            "rms": 0.00014083409328571243,
+            "max_abs_error": 0.0002755656007045193,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.02331185255066831,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "relu_vos_0.0001V",
+            "value": 0.0001,
+            "params": {
+              "name": "relu_vos_0.0001V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0001,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06310020000091754,
+            "mae": 0.0012082205567212213,
+            "rms": 0.0014083409328837526,
+            "max_abs_error": 0.00275565600708072,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.02247527753387729,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "relu_vos_0.001V",
+            "value": 0.001,
+            "params": {
+              "name": "relu_vos_0.001V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.001,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.06425750002381392,
+            "mae": 0.012133257763321248,
+            "rms": 0.01412826671970273,
+            "max_abs_error": 0.02755656007084073,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.014109527365966879,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "relu_vos_0.01V",
+            "value": 0.01,
+            "params": {
+              "name": "relu_vos_0.01V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.01,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ]
+      },
+      "first_crossings": {
+        "cccs_common": {
+          "name": "cccs_common_0.1pct",
+          "value": 0.1,
+          "mae": 0.0021050510388808245,
+          "accuracy": 1.0
+        },
+        "cccs_polarity": {
+          "name": "cccs_polarity_0.1pct",
+          "value": 0.1,
+          "mae": 0.0014790398104219415,
+          "accuracy": 1.0
+        },
+        "buffer_gain": {
+          "name": "buf_gain_0.1pct",
+          "value": 0.1,
+          "mae": 0.005267285389904198,
+          "accuracy": 1.0
+        },
+        "relu_vos": {
+          "name": "relu_vos_0.001V",
+          "value": 0.001,
+          "mae": 0.0012082205567212213,
+          "accuracy": 1.0
+        },
+        "signed_systematic": {
+          "name": "systematic_0.1pct",
+          "value": 0.1,
+          "mae": 0.001476091726384859,
+          "accuracy": 1.0
+        }
+      }
+    },
+    {
+      "id": "F",
+      "label": "F 16->32->16",
+      "n_full": 100,
+      "n_sweep": 40,
+      "n_mc": 8,
+      "n_trials": 15,
+      "nominal": {
+        "failed": false,
+        "failure_reason": null,
+        "spice_runtime_s": 1.7627753999840934,
+        "mae": 1.7450678489044913e-15,
+        "rms": 2.314973620892076e-15,
+        "max_abs_error": 9.992007221626409e-15,
+        "accuracy": 1.0,
+        "n_class_failures": 0,
+        "min_margin": 0.001101100222727358,
+        "classification_ok": true,
+        "exceeds_error_limit": false,
+        "n_resistors": 1218,
+        "n_weight_resistors": 1024,
+        "n_bias_resistors": 48,
+        "n_banks_used": 4,
+        "banks_used": [
+          "divider",
+          "f",
+          "n",
+          "ref"
+        ],
+        "r_min": 1000.0,
+        "r_max": 999000.0,
+        "total_conductance": 0.11737670169525315,
+        "resistors_per_weight": 1.189453125,
+        "weight_resistors_per_weight": 1.0,
+        "i_rel_A": 0.11737670169525315,
+        "passive_resistors": 1218,
+        "passive_diodes": 0,
+        "passive_caps": 0,
+        "active_cccs": 96,
+        "active_vcvs": 177,
+        "active_behavioral": 32,
+        "active_transimpedance": 0,
+        "active_functional_blocks": 305,
+        "active_note": "Active counts are behavioral controlled sources, not transistors.",
+        "n_divider_resistors": 98,
+        "n_reference_resistors": 48,
+        "n_matched_divider_pairs": 49,
+        "n_matched_fabric_groups": 2,
+        "n_calibration_cells": 0,
+        "bank_geff_fraction": {
+          "f": 0.008171452804033388,
+          "n": 0.9918285471959667
+        },
+        "total_conductance_S": 0.11737670169525315,
+        "energy_note": "I_rel = SigmaG * 1 V is a relative signal-path metric. Not board power. Behavioral sources have no Iq.",
+        "tile": null,
+        "current_cost": {
+          "label": "relative physical current cost",
+          "note": "I_rel = SigmaG * V_rep with V_rep=1 V. This is a relative conductance-derived metric, not measured board power. SPICE source current is the sum of |I| through Vin* and Vref at one representative operating point.",
+          "v_rep_V": 1.0,
+          "total_conductance_S": 0.11737670169525315,
+          "i_rel_A": 0.11737670169525315,
+          "spice_source_current_A": 0.0024898267756920042
+        },
+        "spice_source_current_A": 0.0024898267756920042
+      },
+      "tiling": [
+        {
+          "n": 1,
+          "failed": false,
+          "tile": null,
+          "nominal": {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.367308699991554,
+            "mae": 1.7678716021478357e-15,
+            "rms": 2.3705293804584445e-15,
+            "max_abs_error": 9.992007221626409e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0055658506018294585,
+            "classification_ok": true,
+            "exceeds_error_limit": false
+          },
+          "accounting": {
+            "passive_resistors": 1218,
+            "n_reference_resistors": 48,
+            "total_conductance_S": 0.11737670169525315,
+            "active_functional_blocks": 305
+          },
+          "independent": [
+            {
+              "failed": false,
+              "n_trials": 15,
+              "n_ok": 15,
+              "n_spice_failures": 0,
+              "mae_mean": 0.00391943423147382,
+              "mae_std": 0.0004115679783437846,
+              "mae_max": 0.004636678198527151,
+              "max_abs_error_mean": 0.017435678684549035,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.07664293465662708,
+              "exceeds_error_limit": true,
+              "percent": 0.5
+            },
+            {
+              "failed": false,
+              "n_trials": 15,
+              "n_ok": 15,
+              "n_spice_failures": 0,
+              "mae_mean": 0.007817498347039395,
+              "mae_std": 0.000799496908924981,
+              "mae_max": 0.009034188414025361,
+              "max_abs_error_mean": 0.03504951095323971,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.06416637931779201,
+              "exceeds_error_limit": true,
+              "percent": 1.0
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "failed": false,
+          "tile": {
+            "requested_n": 2,
+            "n_series": 1107,
+            "n_parallel": 111,
+            "n_untiled": 0,
+            "n_partial": 0,
+            "n_source_resistors": 1218,
+            "n_tiles": 2436
+          },
+          "nominal": {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.9314563000225462,
+            "mae": 2.71390847078265e-15,
+            "rms": 3.5741575977532935e-15,
+            "max_abs_error": 1.4654943925052066e-14,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005565850601833455,
+            "classification_ok": true,
+            "exceeds_error_limit": false
+          },
+          "accounting": {
+            "passive_resistors": 2436,
+            "n_reference_resistors": 96,
+            "total_conductance_S": 0.18484882682285156,
+            "active_functional_blocks": 305
+          },
+          "independent": [
+            {
+              "failed": false,
+              "n_trials": 15,
+              "n_ok": 15,
+              "n_spice_failures": 0,
+              "mae_mean": 0.002827962478773358,
+              "mae_std": 0.00031825393278074496,
+              "mae_max": 0.003514461526493468,
+              "max_abs_error_mean": 0.012210685359100916,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.07682015352708316,
+              "exceeds_error_limit": true,
+              "percent": 0.5
+            },
+            {
+              "failed": false,
+              "n_trials": 15,
+              "n_ok": 15,
+              "n_spice_failures": 0,
+              "mae_mean": 0.005510188371929505,
+              "mae_std": 0.0004388841385474962,
+              "mae_max": 0.006417397649572245,
+              "max_abs_error_mean": 0.025446776213001437,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.07381177209328604,
+              "exceeds_error_limit": true,
+              "percent": 1.0
+            }
+          ]
+        },
+        {
+          "n": 4,
+          "failed": false,
+          "tile": {
+            "requested_n": 4,
+            "n_series": 1081,
+            "n_parallel": 137,
+            "n_untiled": 0,
+            "n_partial": 0,
+            "n_source_resistors": 1218,
+            "n_tiles": 4872
+          },
+          "nominal": {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 2.306038999988232,
+            "mae": 1.6985389060964612e-15,
+            "rms": 2.252531346321891e-15,
+            "max_abs_error": 8.326672684688674e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005565850601826572,
+            "classification_ok": true,
+            "exceeds_error_limit": false
+          },
+          "accounting": {
+            "passive_resistors": 4872,
+            "n_reference_resistors": 192,
+            "total_conductance_S": 0.311914793628842,
+            "active_functional_blocks": 305
+          },
+          "independent": [
+            {
+              "failed": false,
+              "n_trials": 15,
+              "n_ok": 15,
+              "n_spice_failures": 0,
+              "mae_mean": 0.0019611629427431906,
+              "mae_std": 0.00023478500977753528,
+              "mae_max": 0.0023686275108330814,
+              "max_abs_error_mean": 0.008366267249254846,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.08275953386452994,
+              "exceeds_error_limit": true,
+              "percent": 0.5
+            },
+            {
+              "failed": false,
+              "n_trials": 15,
+              "n_ok": 15,
+              "n_spice_failures": 0,
+              "mae_mean": 0.003966969818548269,
+              "mae_std": 0.00034233916496896925,
+              "mae_max": 0.004695580100237244,
+              "max_abs_error_mean": 0.01744304225380134,
+              "accuracy_mean": 1.0,
+              "accuracy_min": 1.0,
+              "min_margin_min": 0.06948288759601895,
+              "exceeds_error_limit": true,
+              "percent": 1.0
+            }
+          ]
+        }
+      ],
+      "signed": {
+        "systematic": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.3601226000173483,
+            "mae": 1.7678716021478357e-15,
+            "rms": 2.3705293804584445e-15,
+            "max_abs_error": 9.992007221626409e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0055658506018294585,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "systematic_0pct",
+            "value": 0.0
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.47001499999896623,
+            "mae": 0.0021346612620594244,
+            "rms": 0.0023811438973638565,
+            "max_abs_error": 0.00618744630197865,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005398045235649351,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "systematic_0.1pct",
+            "value": 0.1
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.36361450000549667,
+            "mae": 0.010679308287441383,
+            "rms": 0.01191309506638312,
+            "max_abs_error": 0.030971501634884824,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.004730329472411587,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "systematic_0.5pct",
+            "value": 0.5
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.37065899997833185,
+            "mae": 0.02137545434449149,
+            "rms": 0.023845281664293096,
+            "max_abs_error": 0.062369864704994615,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0039033943606447963,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "systematic_1pct",
+            "value": 1.0
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.35761599999386817,
+            "mae": 0.042822844594272824,
+            "rms": 0.047746162415909274,
+            "max_abs_error": 0.12648539605236486,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0023746477285284673,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "systematic_2pct",
+            "value": 2.0
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.4800349000142887,
+            "mae": 0.10813531978873761,
+            "rms": 0.12068370147866658,
+            "max_abs_error": 0.3301121528736948,
+            "accuracy": 0.975,
+            "n_class_failures": 1,
+            "min_margin": -0.001659497304606794,
+            "classification_ok": false,
+            "exceeds_error_limit": true,
+            "name": "systematic_5pct",
+            "value": 5.0
+          }
+        ],
+        "random": [
+          {
+            "failed": false,
+            "n_trials": 15,
+            "n_ok": 15,
+            "n_spice_failures": 0,
+            "mae_mean": 0.002786307553745981,
+            "mae_std": 0.00019063054431283394,
+            "mae_max": 0.0031169942777565787,
+            "max_abs_error_mean": 0.010787880091927495,
+            "accuracy_mean": 1.0,
+            "accuracy_min": 1.0,
+            "min_margin_min": 0.0843970505286411,
+            "exceeds_error_limit": true,
+            "percent": 0.5
+          },
+          {
+            "failed": false,
+            "n_trials": 15,
+            "n_ok": 15,
+            "n_spice_failures": 0,
+            "mae_mean": 0.005589961290786638,
+            "mae_std": 0.00037523934195341706,
+            "mae_max": 0.0063594404979667955,
+            "max_abs_error_mean": 0.022090309832839754,
+            "accuracy_mean": 1.0,
+            "accuracy_min": 1.0,
+            "min_margin_min": 0.06379422153998404,
+            "exceeds_error_limit": true,
+            "percent": 1.0
+          },
+          {
+            "failed": false,
+            "n_trials": 15,
+            "n_ok": 15,
+            "n_spice_failures": 0,
+            "mae_mean": 0.02772818363586733,
+            "mae_std": 0.002392368103903937,
+            "mae_max": 0.03225062488397777,
+            "max_abs_error_mean": 0.12344798500037059,
+            "accuracy_mean": 1.0,
+            "accuracy_min": 1.0,
+            "min_margin_min": 0.008430062641453073,
+            "exceeds_error_limit": true,
+            "percent": 5.0
+          }
+        ]
+      },
+      "active": {
+        "cccs_common": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.35878489998867735,
+            "mae": 1.7678716021478357e-15,
+            "rms": 2.3705293804584445e-15,
+            "max_abs_error": 9.992007221626409e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0055658506018294585,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_common_0pct",
+            "value": 0.0,
+            "params": {
+              "name": "cccs_common_0pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.36737200000789016,
+            "mae": 0.00012513790723853944,
+            "rms": 0.0001589802631303354,
+            "max_abs_error": 0.000587381548464716,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005573523627717125,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_common_0.01pct",
+            "value": 0.01,
+            "params": {
+              "name": "cccs_common_0.01pct",
+              "cccs_common": 0.0001,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.35854939999990165,
+            "mae": 0.001251946336899145,
+            "rms": 0.001590523375239178,
+            "max_abs_error": 0.005876487143394726,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005642644902272065,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_common_0.1pct",
+            "value": 0.1,
+            "params": {
+              "name": "cccs_common_0.1pct",
+              "cccs_common": 0.001,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.361711200006539,
+            "mae": 0.006272337562326316,
+            "rms": 0.00796863342378615,
+            "max_abs_error": 0.02944180591034451,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005951245249892989,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_common_0.5pct",
+            "value": 0.5,
+            "params": {
+              "name": "cccs_common_0.5pct",
+              "cccs_common": 0.005,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.4747686999908183,
+            "mae": 0.01257618981921832,
+            "rms": 0.015977308289620466,
+            "max_abs_error": 0.059032037304094676,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.006340197762584765,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_common_1pct",
+            "value": 1.0,
+            "params": {
+              "name": "cccs_common_1pct",
+              "cccs_common": 0.01,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ],
+        "cccs_polarity": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.37346279999474064,
+            "mae": 1.7678716021478357e-15,
+            "rms": 2.3705293804584445e-15,
+            "max_abs_error": 9.992007221626409e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0055658506018294585,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_polarity_0pct",
+            "value": 0.0,
+            "params": {
+              "name": "cccs_polarity_0pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.3704932000255212,
+            "mae": 0.00021346110201041595,
+            "rms": 0.00023809021834974827,
+            "max_abs_error": 0.0006168772724355343,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005582649876298529,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "cccs_polarity_0.01pct",
+            "value": 0.01,
+            "params": {
+              "name": "cccs_polarity_0.01pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0001,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.35733869997784495,
+            "mae": 0.002133267283810122,
+            "rms": 0.002380298629034677,
+            "max_abs_error": 0.00617086254496968,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005733934210999991,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_polarity_0.1pct",
+            "value": 0.1,
+            "params": {
+              "name": "cccs_polarity_0.1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.001,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.361537299992051,
+            "mae": 0.010685802180846499,
+            "rms": 0.01191572646771932,
+            "max_abs_error": 0.030900753182379503,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0064082878582194525,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_polarity_0.5pct",
+            "value": 0.5,
+            "params": {
+              "name": "cccs_polarity_0.5pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.005,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.37042329998803325,
+            "mae": 0.0213924489340132,
+            "rms": 0.02384870446490355,
+            "max_abs_error": 0.061917607508564565,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.007560149015716999,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "cccs_polarity_1pct",
+            "value": 1.0,
+            "params": {
+              "name": "cccs_polarity_1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.01,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ],
+        "buffer_gain": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.4608754999935627,
+            "mae": 1.7678716021478357e-15,
+            "rms": 2.3705293804584445e-15,
+            "max_abs_error": 9.992007221626409e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0055658506018294585,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "buf_gain_0pct",
+            "value": 0.0,
+            "params": {
+              "name": "buf_gain_0pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.36628260000725277,
+            "mae": 0.00314681841927652,
+            "rms": 0.003995268227583272,
+            "max_abs_error": 0.014719275350554728,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005818676636552,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "buf_gain_0.1pct",
+            "value": 0.1,
+            "params": {
+              "name": "buf_gain_0.1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.001,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.3658751999901142,
+            "mae": 0.015861428633475422,
+            "rms": 0.020137885649628873,
+            "max_abs_error": 0.07418976961746448,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.006845470618134786,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "buf_gain_0.5pct",
+            "value": 0.5,
+            "params": {
+              "name": "buf_gain_0.5pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.005,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.37298300000838935,
+            "mae": 0.03204408776039593,
+            "rms": 0.04068329469441631,
+            "max_abs_error": 0.1498763688718845,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.008164243532788551,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "buf_gain_1pct",
+            "value": 1.0,
+            "params": {
+              "name": "buf_gain_1pct",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.01,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ],
+        "relu_vos": [
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.3576869000098668,
+            "mae": 1.7678716021478357e-15,
+            "rms": 2.3705293804584445e-15,
+            "max_abs_error": 9.992007221626409e-15,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.0055658506018294585,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "relu_vos_0V",
+            "value": 0.0,
+            "params": {
+              "name": "relu_vos_0V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.3682334000186529,
+            "mae": 7.155430554909065e-05,
+            "rms": 8.977056048125931e-05,
+            "max_abs_error": 0.0002834324761127327,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.005650488813751964,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "relu_vos_0.0001V",
+            "value": 0.0001,
+            "params": {
+              "name": "relu_vos_0.0001V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.0001,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.35748759997659363,
+            "mae": 0.0007155279733324658,
+            "rms": 0.0008976521262580138,
+            "max_abs_error": 0.002834324761122886,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.006412232721061617,
+            "classification_ok": true,
+            "exceeds_error_limit": false,
+            "name": "relu_vos_0.001V",
+            "value": 0.001,
+            "params": {
+              "name": "relu_vos_0.001V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.001,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          },
+          {
+            "failed": false,
+            "failure_reason": null,
+            "spice_runtime_s": 0.3563815000234172,
+            "mae": 0.007152434476516282,
+            "rms": 0.008976109807682025,
+            "max_abs_error": 0.02834324761120266,
+            "accuracy": 1.0,
+            "n_class_failures": 0,
+            "min_margin": 0.014029671794155374,
+            "classification_ok": true,
+            "exceeds_error_limit": true,
+            "name": "relu_vos_0.01V",
+            "value": 0.01,
+            "params": {
+              "name": "relu_vos_0.01V",
+              "cccs_common": 0.0,
+              "cccs_polarity": 0.0,
+              "i_leak": 0.0,
+              "buf_gain": 0.0,
+              "buf_vos": 0.0,
+              "relu_vos": 0.01,
+              "note": "cccs_common multiplies both polarity conveyors. cccs_polarity raises +path and lowers -path. buf_* apply to VCVS copies. relu_vos adds to the ReLU argument. These are behavioral sources, not transistors."
+            }
+          }
+        ]
+      },
+      "first_crossings": {
+        "cccs_common": {
+          "name": "cccs_common_0.1pct",
+          "value": 0.1,
+          "mae": 0.001251946336899145,
+          "accuracy": 1.0
+        },
+        "cccs_polarity": {
+          "name": "cccs_polarity_0.1pct",
+          "value": 0.1,
+          "mae": 0.002133267283810122,
+          "accuracy": 1.0
+        },
+        "buffer_gain": {
+          "name": "buf_gain_0.1pct",
+          "value": 0.1,
+          "mae": 0.00314681841927652,
+          "accuracy": 1.0
+        },
+        "relu_vos": {
+          "name": "relu_vos_0.01V",
+          "value": 0.01,
+          "mae": 0.007152434476516282,
+          "accuracy": 1.0
+        },
+        "signed_systematic": {
+          "name": "systematic_0.1pct",
+          "value": 0.1,
+          "mae": 0.0021346612620594244,
+          "accuracy": 1.0
+        }
+      }
+    }
+  ],
+  "combined": {
+    "A_N1": {
+      "failed": false,
+      "n_trials": 100,
+      "n_ok": 100,
+      "n_spice_failures": 0,
+      "mae_mean": 0.006381250456834568,
+      "mae_std": 0.0032815474797502522,
+      "mae_max": 0.015526183934744647,
+      "max_abs_error_mean": 0.017550320692520917,
+      "accuracy_mean": 1.0,
+      "accuracy_min": 1.0,
+      "min_margin_min": 0.058302844372291385,
+      "exceeds_error_limit": true,
+      "tile_n": 1,
+      "tile": null,
+      "conditions": {
+        "independent_resistor_pct": 0.5,
+        "cccs_common": 0.001,
+        "relu_vos_V": 0.001,
+        "i_leak_A": 1e-08,
+        "scale_error": 0.001,
+        "input_noise_V": 0.001
+      }
+    },
+    "A_N4": {
+      "failed": false,
+      "n_trials": 100,
+      "n_ok": 100,
+      "n_spice_failures": 0,
+      "mae_mean": 0.0045608274005990235,
+      "mae_std": 0.00213837420958171,
+      "mae_max": 0.010355873725859617,
+      "max_abs_error_mean": 0.011612029759247973,
+      "accuracy_mean": 1.0,
+      "accuracy_min": 1.0,
+      "min_margin_min": 0.06212319255324583,
+      "exceeds_error_limit": true,
+      "tile_n": 4,
+      "tile": {
+        "requested_n": 4,
+        "n_series": 25,
+        "n_parallel": 11,
+        "n_untiled": 0,
+        "n_partial": 0,
+        "n_source_resistors": 36,
+        "n_tiles": 144
+      },
+      "conditions": {
+        "independent_resistor_pct": 0.5,
+        "cccs_common": 0.001,
+        "relu_vos_V": 0.001,
+        "i_leak_A": 1e-08,
+        "scale_error": 0.001,
+        "input_noise_V": 0.001
+      }
+    },
+    "F_N1": {
+      "failed": false,
+      "n_trials": 100,
+      "n_ok": 100,
+      "n_spice_failures": 0,
+      "mae_mean": 0.004634410017206326,
+      "mae_std": 0.000479132128520824,
+      "mae_max": 0.005970291615196198,
+      "max_abs_error_mean": 0.02175457536839055,
+      "accuracy_mean": 1.0,
+      "accuracy_min": 1.0,
+      "min_margin_min": 0.05369253392392692,
+      "exceeds_error_limit": true,
+      "tile_n": 1,
+      "tile": null,
+      "conditions": {
+        "independent_resistor_pct": 0.5,
+        "cccs_common": 0.001,
+        "relu_vos_V": 0.001,
+        "i_leak_A": 1e-08,
+        "scale_error": 0.001,
+        "input_noise_V": 0.001
+      }
+    },
+    "F_N4": {
+      "failed": false,
+      "n_trials": 100,
+      "n_ok": 100,
+      "n_spice_failures": 0,
+      "mae_mean": 0.003105190461927074,
+      "mae_std": 0.00033392979594867964,
+      "mae_max": 0.0037585023498610307,
+      "max_abs_error_mean": 0.013865228904907077,
+      "accuracy_mean": 1.0,
+      "accuracy_min": 1.0,
+      "min_margin_min": 0.0790043953830879,
+      "exceeds_error_limit": true,
+      "tile_n": 4,
+      "tile": {
+        "requested_n": 4,
+        "n_series": 1081,
+        "n_parallel": 137,
+        "n_untiled": 0,
+        "n_partial": 0,
+        "n_source_resistors": 1218,
+        "n_tiles": 4872
+      },
+      "conditions": {
+        "independent_resistor_pct": 0.5,
+        "cccs_common": 0.001,
+        "relu_vos_V": 0.001,
+        "i_leak_A": 1e-08,
+        "scale_error": 0.001,
+        "input_noise_V": 0.001
+      }
+    }
+  },
+  "plots": {
+    "tiling": "results/mismatch_tiling.png",
+    "signed": "results/mismatch_signed_offset.png",
+    "active": "results/mismatch_active_blocks.png",
+    "comparison": "results/mismatch_limit_map.png"
+  },
+  "summary": {
+    "first_sensitive_block": "cccs_common",
+    "first_crossings_F": {
+      "cccs_common": {
+        "name": "cccs_common_0.1pct",
+        "value": 0.1,
+        "mae": 0.001251946336899145,
+        "accuracy": 1.0
+      },
+      "cccs_polarity": {
+        "name": "cccs_polarity_0.1pct",
+        "value": 0.1,
+        "mae": 0.002133267283810122,
+        "accuracy": 1.0
+      },
+      "buffer_gain": {
+        "name": "buf_gain_0.1pct",
+        "value": 0.1,
+        "mae": 0.00314681841927652,
+        "accuracy": 1.0
+      },
+      "relu_vos": {
+        "name": "relu_vos_0.01V",
+        "value": 0.01,
+        "mae": 0.007152434476516282,
+        "accuracy": 1.0
+      },
+      "signed_systematic": {
+        "name": "systematic_0.1pct",
+        "value": 0.1,
+        "mae": 0.0021346612620594244,
+        "accuracy": 1.0
+      }
+    },
+    "first_crossings_A": {
+      "cccs_common": {
+        "name": "cccs_common_0.1pct",
+        "value": 0.1,
+        "mae": 0.0021050510388808245,
+        "accuracy": 1.0
+      },
+      "cccs_polarity": {
+        "name": "cccs_polarity_0.1pct",
+        "value": 0.1,
+        "mae": 0.0014790398104219415,
+        "accuracy": 1.0
+      },
+      "buffer_gain": {
+        "name": "buf_gain_0.1pct",
+        "value": 0.1,
+        "mae": 0.005267285389904198,
+        "accuracy": 1.0
+      },
+      "relu_vos": {
+        "name": "relu_vos_0.001V",
+        "value": 0.001,
+        "mae": 0.0012082205567212213,
+        "accuracy": 1.0
+      },
+      "signed_systematic": {
+        "name": "systematic_0.1pct",
+        "value": 0.1,
+        "mae": 0.001476091726384859,
+        "accuracy": 1.0
+      }
+    },
+    "tiling_1pct_F": {
+      "percent": 1.0,
+      "points": [
+        {
+          "n": 1,
+          "mae_mean": 0.007817498347039395,
+          "mae_n1": 0.007817498347039395,
+          "sqrt_prediction": 0.007817498347039395,
+          "ratio_to_n1": 1.0,
+          "ideal_ratio": 1.0
+        },
+        {
+          "n": 2,
+          "mae_mean": 0.005510188371929505,
+          "mae_n1": 0.007817498347039395,
+          "sqrt_prediction": 0.005527806093106182,
+          "ratio_to_n1": 0.7048531547200514,
+          "ideal_ratio": 0.7071067811865475
+        },
+        {
+          "n": 4,
+          "mae_mean": 0.003966969818548269,
+          "mae_n1": 0.007817498347039395,
+          "sqrt_prediction": 0.003908749173519697,
+          "ratio_to_n1": 0.5074474777536244,
+          "ideal_ratio": 0.5
+        }
+      ]
+    },
+    "tiling_reduces_mismatch": true,
+    "combined_F_N1": 0.004634410017206326,
+    "combined_F_N4": 0.003105190461927074,
+    "signed_note": "Signed-path error is an offset. A single layer gain constant cannot cancel I+ vs I- imbalance.",
+    "verdict": "TILING REDUCES LOCAL MISMATCH"
+  }
+}

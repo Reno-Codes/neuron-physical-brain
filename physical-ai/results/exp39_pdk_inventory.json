@@ -1,0 +1,56 @@
+{
+  "experiment": 39,
+  "pdk": {
+    "pdk_root": "C:\\dev\\pdk",
+    "family": "sky130",
+    "variant": "sky130A",
+    "version": "1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "source": "https://github.com/fossi-foundation/ciel-releases/releases/download/sky130-1689ac3f2dc763876eaf967227c7dfe831b031ae/",
+    "installer": "ciel 2.6.1 + official ciel-releases tarballs (common + sky130_fd_pr)",
+    "lib": "C:\\dev\\pdk\\sky130A\\libs.tech\\ngspice\\sky130.lib.spice",
+    "lib_exists": true,
+    "version_dir": "C:\\dev\\pdk\\ciel\\sky130\\versions\\1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "ciel_current": "1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "resistor_card": "C:\\dev\\pdk\\sky130A\\libs.ref\\sky130_fd_pr\\spice\\sky130_fd_pr__res_xhigh_po.model.spice",
+    "nfet_card": "C:\\dev\\pdk\\sky130A\\libs.ref\\sky130_fd_pr\\spice\\sky130_fd_pr__nfet_g5v0d10v5__tt.pm3.spice",
+    "corners_nominal": [
+      "tt",
+      "ss",
+      "ff",
+      "sf",
+      "fs",
+      "ll",
+      "hh"
+    ],
+    "corners_mm": [
+      "tt_mm"
+    ],
+    "monte_carlo_lib": "mc / tt_mm via mc_mm_switch",
+    "runnable": true,
+    "note": "PDK lives outside the git repo at C:\\dev\\pdk. Not a teaching card."
+  },
+  "o2": {
+    "frozen_model": "models/scaling/F.npz seed 9",
+    "shape": [
+      16,
+      32,
+      16
+    ],
+    "tag": "o2",
+    "layer": 2,
+    "index": 2,
+    "b2": 0.06350070257036132,
+    "Rf_ohm": 33333.333333333336,
+    "Gtot_S": 0.00422681940696749,
+    "Rf_Gtot": 140.89398023224967,
+    "I_max_est_A": 0.00020280509077233813,
+    "z_abs_max_o2": 2.4594895708801316,
+    "z_abs_max_network_tag": "h25",
+    "z_abs_max_network_V": 2.9371827051901307,
+    "g_weight": 3e-05,
+    "imax_vec": 18,
+    "z_at_imax": -2.1624190680719453,
+    "n_logical_resistors_full_F": 1342,
+    "discrepancy_note": "Rf*Gtot must be ~140.9. 234 uA is worst-neuron I_max, not chip current. 2.94 V is Network F |z|max (h25), not o2 |z|max."
+  }
+}

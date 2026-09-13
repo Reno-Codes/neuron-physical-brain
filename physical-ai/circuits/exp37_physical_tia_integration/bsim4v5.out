@@ -1,0 +1,5 @@
+
+Checking parameters for BSIM 4.5 model n1
+Warning: This model supports BSIM4 versions 4.0, 4.1, 4.2, 4.3, 4.4, 4.5
+You specified a wrong version number. Working now with BSIM4v5.
+Warning: Cdsc = -2.14718e-05 is negative.

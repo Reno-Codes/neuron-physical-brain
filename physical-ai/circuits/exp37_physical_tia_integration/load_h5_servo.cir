@@ -1,0 +1,213 @@
+* Experiment 22 isolated TIA neuron n1
+* frozen n=16 L1=4.6997862 b=0.0181393489298792
+* A=100000 vos=0 Ileak=0 Rout=0 fp=0 invertA=1e+07
+* Behavioral TIA. Not transistor-level. Weights were not edited.
+* shape: 16 -> 1 (linear Vlin vs z unless ReLU requested)
+
+* Experiment 26 MOS primitive. Models included, not copied.
+.include "C:/ngspice/examples/xspice/see/CMOSOpAmp/modelcard.nmos"
+.include "C:/ngspice/examples/xspice/see/CMOSOpAmp/modelcard.pmos"
+
+.subckt NCH D G S B W=1u L=1.4u m=1
+MN1 D G S B N1 W={W} L={L} M={m} AS={3*L*W} AD={3*L*W} PS={6*L+W} PD={6*L+W}
+.ends NCH
+
+.subckt PCH D G S B W=1u L=1.4u m=1
+MP1 D G S B P1 W={W} L={L} M={m} AS={3*L*W} AD={3*L*W} PS={6*L+W} PD={6*L+W}
+.ends PCH
+
+* Two-stage Miller CMOS OTA. Topology from ngspice CMOS-OP1, dual supply.
+* Bodies to rails. Analog ground is node 0.
+.subckt miller_tia inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ WOP=14.5u WON=17.4u WDI=5.0u
++ MD=2 MT=2 MO=4 CC=2p IBIAS=40u DW=0 L1=1.4u
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WDI} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+* Diode load on IN- drain (CMOS-OP1 polarity). DW unbalances the pair.
+Xdp dplus inp vs vss NCH W={WD*(1+DW)} L={L1} m={MD}
+Xdn dmin inn vs vss NCH W={WD*(1-DW)} L={L1} m={MD}
+Xln dmin dmin vdd vdd PCH W={WL} L={L1} m={MD}
+Xlp dplus dmin vdd vdd PCH W={WL} L={L1} m={MD}
+Xop out dplus vdd vdd PCH W={WOP} L={L} m={MO}
+Xon out vb vss vss NCH W={WON} L={L} m={MO}
+Cc dplus out {CC}
+.ends miller_tia
+
+* Telescopic-cascode first stage + Miller CS. Higher DC gain for o2 load.
+.subckt miller_cascode inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ WOP=14.5u WON=17.4u WDI=5.0u WC=2.8u
++ MD=2 MT=2 MO=4 CC=2p IBIAS=40u DW=0
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WDI} L={L} m={MT}
+Xstack vcn vcn vb vss NCH W={WDI} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+Xdp splus inp vs vss NCH W={WD*(1+DW)} L={L} m={MD}
+Xdn smin inn vs vss NCH W={WD*(1-DW)} L={L} m={MD}
+Xcn dplus vcn splus vss NCH W={WC} L={L} m={MD}
+Xcm dmin vcn smin vss NCH W={WC} L={L} m={MD}
+Xln dmin dmin vdd vdd PCH W={WL} L={L} m={MD}
+Xlp dplus dmin vdd vdd PCH W={WL} L={L} m={MD}
+Xop out dplus vdd vdd PCH W={WOP} L={L} m={MO}
+Xon out vb vss vss NCH W={WON} L={L} m={MO}
+Cc dplus out {CC}
+.ends miller_cascode
+
+* 5-transistor OTA used as a slow integrator (capacitive load).
+.subckt servo_ota inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ MD=1 MT=1 IBIAS=2u DW=0
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WT} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+Xdp dplus inp vs vss NCH W={WD*(1+DW)} L={L} m={MD}
+Xdn dmin inn vs vss NCH W={WD*(1-DW)} L={L} m={MD}
+Xlp dplus dplus vdd vdd PCH W={WL} L={L} m={MD}
+Xln out dplus vdd vdd PCH W={WL} L={L} m={MD}
+.ends servo_ota
+
+* Experiment 26 device TIA  VDD=2.5 VSS=-2.5
+* Ibias=4e-05 m_diff=2 m_out=4 Cc=2e-12
+* servo=True vos_inject=0 dw_frac=0.00185
+* Weights were not edited. SPICE is not Python-corrected.
+Vdd vdd 0 DC 2.5
+Vss vss 0 DC -2.5
+.temp 27
+.options reltol=1e-6 abstol=1e-12 vntol=1e-8
+
+Vin1 in1 0 DC 0.991664696216928
+Vin2 in2 0 DC 0.921092462049841
+* passive invert in2 -> in2n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv2ia in2 inv2m 10000
+Rinv2ib in2n inv2m 10000.0020000002
+Einv2amp in2n 0 0 inv2m 10000000
+Vin3 in3 0 DC 0.578218548268848
+Vin4 in4 0 DC 0.0269757344529336
+* passive invert in4 -> in4n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv4ia in4 inv4m 10000
+Rinv4ib in4n inv4m 10000.0020000002
+Einv4amp in4n 0 0 inv4m 10000000
+Vin5 in5 0 DC -0.434547784694714
+Vin6 in6 0 DC 0.206636426851205
+* passive invert in6 -> in6n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv6ia in6 inv6m 10000
+Rinv6ib in6n inv6m 10000.0020000002
+Einv6amp in6n 0 0 inv6m 10000000
+Vin7 in7 0 DC -0.241062585681472
+* passive invert in7 -> in7n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv7ia in7 inv7m 10000
+Rinv7ib in7n inv7m 10000.0020000002
+Einv7amp in7n 0 0 inv7m 10000000
+Vin8 in8 0 DC -0.863015815292251
+Vin9 in9 0 DC -0.812323549234783
+Vin10 in10 0 DC 0.709477959094462
+* load-compensated divider in10->tap10: G_load=0.000127945719024037 Ra=885680.918106938 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv10a in10 tap10 885680.918106938
+Rdiv10b tap10 0 1000
+Vin11 in11 0 DC 0.970954563086739
+* passive invert in11 -> in11n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv11ia in11 inv11m 10000
+Rinv11ib in11n inv11m 10000.0020000002
+Einv11amp in11n 0 0 inv11m 10000000
+Vin12 in12 0 DC 0.364403651354763
+* passive invert in12 -> in12n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv12ia in12 inv12m 10000
+Rinv12ib in12n inv12m 10000.0020000002
+Einv12amp in12n 0 0 inv12m 10000000
+Vin13 in13 0 DC 0.0859477023464112
+* passive invert in13 -> in13n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv13ia in13 inv13m 10000
+Rinv13ib in13n inv13m 10000.0020000002
+Einv13amp in13n 0 0 inv13m 10000000
+* load-compensated divider in13n->tap13n: G_load=0.000778673397085092 Ra=561654.546381124 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv13na in13n tap13n 561654.546381124
+Rdiv13nb tap13n 0 1000
+Vin14 in14 0 DC 0.409408967116273
+* passive invert in14 -> in14n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv14ia in14 inv14m 10000
+Rinv14ib in14n inv14m 10000.0020000002
+Einv14amp in14n 0 0 inv14m 10000000
+Vin15 in15 0 DC 0.604937343512566
+* passive invert in15 -> in15n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv15ia in15 inv15m 10000
+Rinv15ib in15n inv15m 10000.0020000002
+Einv15amp in15n 0 0 inv15m 10000000
+Vin16 in16 0 DC -0.236918133906935
+* passive invert in16 -> in16n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv16ia in16 inv16m 10000
+Rinv16ib in16n inv16m 10000.0020000002
+Einv16amp in16n 0 0 inv16m 10000000
+* load-compensated divider in16n->tap16n: G_load=0.000956007413759761 Ra=510734.260500456 Rb=1000 target beta=0.001 (no tap buffer)
+Rdiv16na in16n tap16n 510734.260500456
+Rdiv16nb tap16n 0 1000
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvrefia vref invrefm 10000
+Rinvrefib vrefn invrefm 10000.0020000002
+Einvrefamp vrefn 0 0 invrefm 10000000
+* load-compensated divider vrefn->taprefn: G_load=0.000544180467896375 Ra=646945.108275414 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefna vrefn taprefn 646945.108275414
+Rdivrefnb taprefn 0 1000
+
+* n1 input 1 w=-0.122756848133934 w-  bank=n alpha=1 R=271539.501380525 G_phys=3.68270544401802e-06 G_eff=3.68270544401802e-06
+Rn1n1n1 in1 n1p 271539.501380525
+* n1 input 2 w=+0.794704720471975 w+  bank=n alpha=1 R=41944.300159104 G_phys=2.38411416141592e-05 G_eff=2.38411416141592e-05
+Rn1p2n1 in2n n1p 41944.300159104
+* n1 input 3 w=-0.26372184795707 w-  bank=n alpha=1 R=126395.797661631 G_phys=7.91165543871211e-06 G_eff=7.91165543871211e-06
+Rn1n3n1 in3 n1p 126395.797661631
+* n1 input 4 w=+0.65217090039031 w+  bank=n alpha=1 R=51111.3472149464 G_phys=1.95651270117093e-05 G_eff=1.95651270117093e-05
+Rn1p4n1 in4n n1p 51111.3472149464
+* n1 input 5 w=-0.272670344884174 w-  bank=n alpha=1 R=122247.739656077 G_phys=8.18011034652521e-06 G_eff=8.18011034652521e-06
+Rn1n5n1 in5 n1p 122247.739656077
+* n1 input 6 w=+0.0607101548077554 w+  bank=n alpha=1 R=549056.964833751 G_phys=1.82130464423266e-06 G_eff=1.82130464423266e-06
+Rn1p6n1 in6n n1p 549056.964833751
+* n1 input 7 w=+0.629980287413506 w+  bank=n alpha=1 R=52911.7085078791 G_phys=1.88994086224052e-05 G_eff=1.88994086224052e-05
+Rn1p7n1 in7n n1p 52911.7085078791
+* n1 input 8 w=-0.369402487956774 w-  bank=n alpha=1 R=90235.8116690157 G_phys=1.10820746387032e-05 G_eff=1.10820746387032e-05
+Rn1n8n1 in8 n1p 90235.8116690157
+* n1 input 9 w=-0.0924511829208223 w-  bank=n alpha=1 R=360550.641757401 G_phys=2.77353548762467e-06 G_eff=2.77353548762467e-06
+Rn1n9n1 in9 n1p 360550.641757401
+* n1 input 10 w=-0.00426485730080124 w-  bank=f alpha=0.001 R=7815.81445340996 G_phys=0.000127945719024037 G_eff=1.27945719024037e-07
+Rn1n10f1 tap10 n1p 7815.81445340996
+* n1 input 11 w=+0.540478898079688 w+  bank=n alpha=1 R=61673.6998461292 G_phys=1.62143669423906e-05 G_eff=1.62143669423906e-05
+Rn1p11n1 in11n n1p 61673.6998461292
+* n1 input 12 w=+0.161688921548601 w+  bank=n alpha=1 R=206157.187604928 G_phys=4.85066764645802e-06 G_eff=4.85066764645802e-06
+Rn1p12n1 in12n n1p 206157.187604928
+* n1 input 13 w=+0.0259557799028364 w+  bank=f alpha=0.001 R=1284.23547503154 G_phys=0.000778673397085092 G_eff=7.78673397085092e-07
+Rn1p13f1 tap13n n1p 1284.23547503154
+* n1 input 14 w=+0.470073429319239 w+  bank=n alpha=1 R=70910.907220616 G_phys=1.41022028795772e-05 G_eff=1.41022028795772e-05
+Rn1p14n1 in14n n1p 70910.907220616
+* n1 input 15 w=+0.188749264833093 w+  bank=n alpha=1 R=176601.129349083 G_phys=5.66247794499279e-06 G_eff=5.66247794499279e-06
+Rn1p15n1 in15n n1p 176601.129349083
+* n1 input 16 w=+0.031866913791992 w+  bank=f alpha=0.001 R=1046.01699276288 G_phys=0.000956007413759761 G_eff=9.56007413759761e-07
+Rn1p16f1 tap16n n1p 1046.01699276288
+* n1 bias w+  bank=f alpha=0.001 R=1837.62567566174 G_phys=0.000544180467896375 G_eff=5.44180467896375e-07
+Rn1bpf1 taprefn n1p 1837.62567566174
+* feedback TIA n1: Rf=33333.3333333333 A=100000 V(n1lin) = -I(n1p)*Rf*A/(A+1)  (uncompensated)
+Rn1f n1lin n1p 33333.3333333333
+
+* MOS TIA + optional MOS servo. IN- sense at n1p (sum). OUT = n1lin.
+* TIA subckt=miller_tia topology=miller
+* Vn1ib is a 0 V ammeter: i(Vn1ib) = current from sum into MOS IN-.
+Vn1ib n1p n1inn DC 0
+Vosinj n1osp n1srv DC 0
+Xn1tia n1osp n1inn n1lin vdd vss miller_tia MD=2 MT=2 MO=4 CC=2e-12 IBIAS=4e-05 DW=0.00185 L1=1.4u
+* MOS miller leaky integrator servo: tau~Rin*C=5e-05 s
+Rn1si n1p n1sint 50000
+Cn1int n1sint n1srv 1e-09
+Rn1leak n1sint n1srv 100000000
+Xn1srv 0 n1sint n1srv vdd vss miller_tia MD=2 MT=2 MO=4 CC=2e-12 IBIAS=2e-05 DW=0.001487
+.ic v(n1srv)=0
+.control
+set numdgt=15
+op
+print v(n1lin)
+print v(n1p)
+print v(n1srv)
+print i(Vn1ib)
+print i(Vdd)
+print i(Vss)
+.endc
+.end

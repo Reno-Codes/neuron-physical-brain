@@ -1,0 +1,12 @@
+* Experiment 18 charge-domain transient V=(I/C)*t
+Iin 0 cap DC 3e-05
+C1 cap 0 1e-09
+.ic v(cap)=0
+.tran 2e-08 1e-06 uic
+.control
+set numdgt=15
+run
+meas tran vend FIND v(cap) AT=1e-06
+print vend
+.endc
+.end

@@ -1,0 +1,135 @@
+{
+  "experiment_id": "exp50",
+  "kind": "Track B inventory + existing miller A_ol",
+  "status": "NUMERICAL ISSUE",
+  "decision": "E",
+  "decision_label": "OPEN-LOOP A_ol WAS NOT EXTRACTED; OUTPUT WAS RAIL-SATURATED",
+  "withdrawn_A_ol_pick": "Vrail/Vid at Vid<=1mV is saturation, not linear gain",
+  "physical_tia_validated": false,
+  "resized": false,
+  "A_need": 128203.0,
+  "RfG": 140.89398023224967,
+  "inventory": {
+    "pdk": "sky130A",
+    "version": "1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "lib": "C:\\dev\\pdk\\sky130A\\libs.tech\\ngspice\\sky130.lib.spice",
+    "runnable": true,
+    "devices_used": [
+      "sky130_fd_pr__nfet_g5v0d10v5",
+      "sky130_fd_pr__pfet_g5v0d10v5",
+      "sky130_fd_pr__res_xhigh_po"
+    ],
+    "documented_opamp_cells_in_tech": [],
+    "ihp_installed": false,
+    "gf180_installed": false,
+    "note": "SKY130A fd_pr has 5V MOS and xhigh_po. A filename scan of the ngspice tech tree found no opamp/OTA IP cells. The existing sky_miller is a campaign-constructed two-stage using documented 5V FETs and Experiment 39 sizes, not a foundry analog library cell."
+  },
+  "bare": [
+    {
+      "name": "ol_noload_vid1e-05",
+      "vid": 1e-05,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": -2.3095655776,
+      "a_ol": -230956.55775999997,
+      "headroom_V": 4.8095655776
+    },
+    {
+      "name": "ol_noload_vid1e-04",
+      "vid": 0.0001,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": -2.30490332914,
+      "a_ol": -23049.0332914,
+      "headroom_V": 4.80490332914
+    },
+    {
+      "name": "ol_noload_vid1e-03",
+      "vid": 0.001,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": -2.25114101109,
+      "a_ol": -2251.14101109,
+      "headroom_V": 4.7511410110900005
+    },
+    {
+      "name": "ol_noload_vid1e-02",
+      "vid": 0.01,
+      "i_load": null,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": 2.108035564014,
+      "a_ol": 210.8035564014,
+      "headroom_V": 0.39196443598599995
+    }
+  ],
+  "loaded": [
+    {
+      "name": "ol_load_vid1e-05",
+      "vid": 1e-05,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": -2.40187810585,
+      "a_ol": -240187.81058499997,
+      "headroom_V": 4.90187810585
+    },
+    {
+      "name": "ol_load_vid1e-04",
+      "vid": 0.0001,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": -2.39825217954,
+      "a_ol": -23982.5217954,
+      "headroom_V": 4.89825217954
+    },
+    {
+      "name": "ol_load_vid1e-03",
+      "vid": 0.001,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": -2.35789614823,
+      "a_ol": -2357.89614823,
+      "headroom_V": 4.85789614823
+    },
+    {
+      "name": "ol_load_vid1e-02",
+      "vid": 0.01,
+      "i_load": 7.371e-05,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "resized": false,
+      "vout": 1.992591792496,
+      "a_ol": 199.25917924959998,
+      "headroom_V": 0.5074082075040001
+    }
+  ],
+  "A_ol_noload_pick": null,
+  "A_ol_loaded_pick": null,
+  "identical_stages_needed_loaded": null,
+  "A_two_copy_projected": null,
+  "two_copy_meets_A": false,
+  "matching": "UNRESOLVED",
+  "next_experiment": "Experiment 51: offset-null the existing miller and measure incremental A_ol. No W/L resize.",
+  "conclusion": "Decision E \u2014 OPEN-LOOP A_ol WAS NOT EXTRACTED; OUTPUT WAS RAIL-SATURATED. Inventory: no foundry opamp cell. In-TIA a_eff~245 remains the only defensible gain. Not silicon."
+}

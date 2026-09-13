@@ -1,0 +1,10 @@
+* Experiment 18 charge-domain DC (capacitor is open)
+Iin 0 cap DC 3e-05
+C1 cap 0 1e-09
+.ic v(cap)=0
+.control
+set numdgt=15
+op
+print v(cap)
+.endc
+.end

@@ -1,0 +1,17 @@
+* Experiment 23 smoke: XSPICE gain as inverting TIA with rails
+* LEVEL 2 analog code model. Vout = gain * (V+ - V-).
+
+Vin in 0 DC 1
+Rw in sum 10000
+Vvos vos 0 DC 0
+atia %vd(vos sum) lin gainmod
+.model gainmod gain(gain=1e5 in_offset=0.0 out_lower_limit=-15 out_upper_limit=15)
+Rf lin sum 10000
+
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

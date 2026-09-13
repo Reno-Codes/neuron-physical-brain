@@ -1,0 +1,254 @@
+{
+  "candidates": [
+    {
+      "candidate": "XSPICE limit invert",
+      "level": 2,
+      "path": "ngspice built-in",
+      "present": true,
+      "doc_vos_V": 0.0,
+      "vsupply": 15.0,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "Exp 30/31 analog-pass at N=32. Behavioral, not a physical device."
+    },
+    {
+      "candidate": "OPA1656",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\opa1656.lib",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Exp 31: loaded invert mid \u2248 498 uV, N>=16 analog-fail."
+    },
+    {
+      "candidate": "OPA1611",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\OPA1611.LIB",
+      "present": true,
+      "doc_vos_V": 9.729e-05,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Exp 31 isolated |err|=576 uV. Datasheet-class Vos \u2260 loaded residual."
+    },
+    {
+      "candidate": "OPA171",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\p-to-n-examples\\OPA171.txt",
+      "present": true,
+      "doc_vos_V": 0.000214023,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Exp 23/24 TIA analog-fail. Ranked, not a low-offset candidate."
+    },
+    {
+      "candidate": "MCP6041",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\p-to-n-examples\\MCP6041.txt",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 2.2,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "6 V CMOS. Rails below 2.61 V hidden swing. Negative control."
+    },
+    {
+      "candidate": "TLV6001",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\TLV6001.LIB",
+      "present": true,
+      "doc_vos_V": 0.000595218,
+      "vsupply": 2.5,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Vos 595 uV and +/-2.5 V. Below hidden swing. Ranked out."
+    },
+    {
+      "candidate": "TLV9002",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\TLV9002.lib",
+      "present": true,
+      "doc_vos_V": 0.00039611,
+      "vsupply": 2.5,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Vos 396 uV and +/-2.5 V. Ranked out."
+    },
+    {
+      "candidate": "TL072-dual",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\TL072-dual.lib",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 15.0,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "JFET audio dual; typical Vos millivolts. Not a precision VG."
+    },
+    {
+      "candidate": "teaching miller",
+      "level": 4,
+      "path": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 2.5,
+      "needs_ps": false,
+      "gate_a": true,
+      "note": "Exp 30/31 isolated invert transfer fail at fabric load/swing."
+    },
+    {
+      "candidate": "OPA1656 + shared replica mid on IN+",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\opa1656.lib",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Control: IN+ = replica mid. If Vos is input-referred this should add, not cancel."
+    },
+    {
+      "candidate": "OPA1656 + shared replica -mid on IN+",
+      "level": 2,
+      "path": "OPA1656 + VCVS sign flip of replica mid",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Circuit cancellation. Sign flip is LEVEL 2. Amp still drives dest."
+    },
+    {
+      "candidate": "OPA1656 + replica output subtract",
+      "level": 2,
+      "path": "OPA1656 + B-source dest = raw - repout",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "DC AZ. B-source also hijacks fabric drive. Mechanism test only."
+    },
+    {
+      "candidate": "OPA1656 + LEVEL 2 invert servo",
+      "level": 2,
+      "path": "XSPICE/behavioral G-C + OPA1656",
+      "present": true,
+      "doc_vos_V": null,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Circuit correction. Not a physical device primitive."
+    },
+    {
+      "candidate": "OPA1656 invert + OPA1656 follower",
+      "level": 3,
+      "path": "C:\\ngspice\\examples\\optran\\models\\opa1656.lib",
+      "present": true,
+      "doc_vos_V": 8.75e-06,
+      "vsupply": 15.0,
+      "needs_ps": true,
+      "gate_a": true,
+      "note": "Drive/offset split. Buffer is not assumed transparent."
+    }
+  ],
+  "technology": {
+    "pdk_root": null,
+    "ihp_installed": false,
+    "sky130_installed": false,
+    "ihp_howto_present": true,
+    "sky_howto_present": true,
+    "osdi_binary_present": false,
+    "osdi_binaries": [],
+    "r2_cmc_usable": false,
+    "vendor_dirs": [
+      "C:\\ngspice\\examples\\optran\\models",
+      "C:\\ngspice\\examples\\p-to-n-examples"
+    ],
+    "opamp_examples": [
+      "Models-for-Debian.txt",
+      "OPA1611.LIB",
+      "TL072-dual.lib",
+      "TL072.301",
+      "TLV6001.LIB",
+      "TLV9002.lib",
+      "opa1612c-dual.lib",
+      "opa1656.lib",
+      "opa1656c-dual.lib",
+      "MCP6041.txt",
+      "OPA171.txt"
+    ],
+    "low_offset_examples": "OPA1656 (model VNEG=8.75 uV) and OPA1611 (model Vos~97 uV) are the only local precision-class macros. No OP07/OPA189/chopper/auto-zero example is installed.",
+    "technologies": [
+      {
+        "technology": "Berkeley BSIM3v3 teaching cards (CMOSOpAmp)",
+        "location": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp",
+        "present": true,
+        "devices": "nmos/pmos BSIM3v3 v3.3.0",
+        "resistor_model": false,
+        "temperature": "MOS .temp (kt1/ute). Default R has no TCR.",
+        "mismatch": "None documented. Do not invent a PDF.",
+        "geometry": "MOS W/L only, card limits L 0.35\u201320 \u00b5m W 0.6\u201320 \u00b5m",
+        "suitability": "LEVEL 4 invert/TIA primitive already used in Exp 26\u201328. Not a resistor PDK. Not IHP. Not silicon."
+      },
+      {
+        "technology": "IHP SG13G2 Open PDK",
+        "location": "PDK_ROOT unset",
+        "present": false,
+        "howto": "C:\\ngspice\\examples\\IHPOpenSourcePDK\\IHP-PDK-howto.txt",
+        "howto_present": true,
+        "devices": "not installed",
+        "resistor_model": false,
+        "temperature": null,
+        "mismatch": null,
+        "geometry": null,
+        "suitability": "Howto exists under ngspice/examples/IHPOpenSourcePDK. PDK_ROOT is unset and the PDK tree is not present. Not used."
+      },
+      {
+        "technology": "SkyWater SKY130",
+        "location": "not found",
+        "present": false,
+        "howto": "C:\\ngspice\\examples\\SkywaterOpenSourcePDK\\readme.txt",
+        "howto_present": true,
+        "example_lib_path": "D:\\Spice_general\\open_pdks\\sky130\\sky130A\\libs.tech\\combined\\sky130.lib.spice",
+        "example_lib_present": false,
+        "resistor_model": false,
+        "suitability": "Howto and example netlists exist under ngspice/examples/SkywaterOpenSourcePDK. They .lib a user path that is not present. The PDK tree is not installed. Not used."
+      },
+      {
+        "technology": "CMC r2_cmc compact resistor (ngspice OSDI example)",
+        "location": "C:\\ngspice\\examples\\osdi\\r2_cmc",
+        "present": true,
+        "devices": "r2_cmc example card rsh=200 tc1=1.5e-4",
+        "resistor_model": true,
+        "temperature": "tc1/tc2 on the example card",
+        "mismatch": "Example card has no statistical mismatch PDF",
+        "geometry": "W/L instance parameters on the example",
+        "osdi_binary_present": false,
+        "suitability": "Documented compact-model *example*, not a foundry PDK. Usable only if the OSDI binary is compiled. Probed below."
+      },
+      {
+        "technology": "ngspice default resistor",
+        "location": "built-in",
+        "present": true,
+        "resistor_model": true,
+        "temperature": "No TC1/TC2 unless instance parameters are added. None documented for this fabric; not invented.",
+        "mismatch": "None",
+        "geometry": "None",
+        "suitability": "Used by Experiments 1\u201329. Absolute R only."
+      },
+      {
+        "technology": "TI OPA1656 / OPA171 macromodels",
+        "location": "C:\\ngspice\\examples\\optran\\models",
+        "present": true,
+        "devices": "LEVEL 3 op-amp macromodels",
+        "resistor_model": false,
+        "note": "Internal R_OS has TC1; that is not a fabric resistor family.",
+        "suitability": "LEVEL 3 invert/TIA control. Not a PDK."
+      }
+    ]
+  }
+}

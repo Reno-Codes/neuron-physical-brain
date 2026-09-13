@@ -1,0 +1,30 @@
+{
+  "experiment_id": "exp52",
+  "kind": "Two identical sky_miller composite TIA on W=10 o2",
+  "status": "CLOSED NEGATIVE PATH",
+  "decision": "D",
+  "decision_label": "TWO-COPY MILLER TIA MISSES; VOS OF THIS STAGE STILL DOMINATES",
+  "physical_tia_validated": false,
+  "resized": false,
+  "exp51_A_inc": 2507.2875480294997,
+  "exp51_Vos_loaded": 0.0057421875,
+  "cell": {
+    "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp52_o2\\w10_cascade2.cir",
+    "failed": false,
+    "failure_reason": null,
+    "z_ref": 2.459489570880132,
+    "y": 2.098874437516,
+    "vsum": -0.00431305133891,
+    "err": -0.3606151333641323,
+    "abs_err": 0.3606151333641323,
+    "analog_pass": false,
+    "a_eff": 486.6333072785612,
+    "v(n1mid)": 0.01259432632992,
+    "name": "w10_cascade2",
+    "python_corrected": false,
+    "resized": false
+  },
+  "matching": "UNRESOLVED",
+  "next_experiment": "Experiment 53: close the unre-sized miller-family TIA. Keep OPA189 as Level-1 host. Next bottleneck is resistor matching (Track C) or a documented offset-cancellation primitive that does not invent W/L.",
+  "conclusion": "Decision D \u2014 TWO-COPY MILLER TIA MISSES; VOS OF THIS STAGE STILL DOMINATES. Exp51 Vos~5.74 mV, A_inc~2507. No new W/L. Not silicon."
+}

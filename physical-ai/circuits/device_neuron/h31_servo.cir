@@ -1,0 +1,209 @@
+* Experiment 22 isolated TIA neuron n1
+* frozen n=16 L1=4.9460707 b=-0.0537174074345555
+* A=100000 vos=0 Ileak=0 Rout=0 fp=0 invertA=1e+07
+* Behavioral TIA. Not transistor-level. Weights were not edited.
+* shape: 16 -> 1 (linear Vlin vs z unless ReLU requested)
+
+* Experiment 26 MOS primitive. Models included, not copied.
+.include "C:/ngspice/examples/xspice/see/CMOSOpAmp/modelcard.nmos"
+.include "C:/ngspice/examples/xspice/see/CMOSOpAmp/modelcard.pmos"
+
+.subckt NCH D G S B W=1u L=1.4u m=1
+MN1 D G S B N1 W={W} L={L} M={m} AS={3*L*W} AD={3*L*W} PS={6*L+W} PD={6*L+W}
+.ends NCH
+
+.subckt PCH D G S B W=1u L=1.4u m=1
+MP1 D G S B P1 W={W} L={L} M={m} AS={3*L*W} AD={3*L*W} PS={6*L+W} PD={6*L+W}
+.ends PCH
+
+* Two-stage Miller CMOS OTA. Topology from ngspice CMOS-OP1, dual supply.
+* Bodies to rails. Analog ground is node 0.
+.subckt miller_tia inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ WOP=14.5u WON=17.4u WDI=5.0u
++ MD=2 MT=2 MO=4 CC=2p IBIAS=40u DW=0 L1=1.4u
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WDI} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+* Diode load on IN- drain (CMOS-OP1 polarity). DW unbalances the pair.
+Xdp dplus inp vs vss NCH W={WD*(1+DW)} L={L1} m={MD}
+Xdn dmin inn vs vss NCH W={WD*(1-DW)} L={L1} m={MD}
+Xln dmin dmin vdd vdd PCH W={WL} L={L1} m={MD}
+Xlp dplus dmin vdd vdd PCH W={WL} L={L1} m={MD}
+Xop out dplus vdd vdd PCH W={WOP} L={L} m={MO}
+Xon out vb vss vss NCH W={WON} L={L} m={MO}
+Cc dplus out {CC}
+.ends miller_tia
+
+* Telescopic-cascode first stage + Miller CS. Higher DC gain for o2 load.
+.subckt miller_cascode inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ WOP=14.5u WON=17.4u WDI=5.0u WC=2.8u
++ MD=2 MT=2 MO=4 CC=2p IBIAS=40u DW=0
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WDI} L={L} m={MT}
+Xstack vcn vcn vb vss NCH W={WDI} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+Xdp splus inp vs vss NCH W={WD*(1+DW)} L={L} m={MD}
+Xdn smin inn vs vss NCH W={WD*(1-DW)} L={L} m={MD}
+Xcn dplus vcn splus vss NCH W={WC} L={L} m={MD}
+Xcm dmin vcn smin vss NCH W={WC} L={L} m={MD}
+Xln dmin dmin vdd vdd PCH W={WL} L={L} m={MD}
+Xlp dplus dmin vdd vdd PCH W={WL} L={L} m={MD}
+Xop out dplus vdd vdd PCH W={WOP} L={L} m={MO}
+Xon out vb vss vss NCH W={WON} L={L} m={MO}
+Cc dplus out {CC}
+.ends miller_cascode
+
+* 5-transistor OTA used as a slow integrator (capacitive load).
+.subckt servo_ota inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ MD=1 MT=1 IBIAS=2u DW=0
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WT} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+Xdp dplus inp vs vss NCH W={WD*(1+DW)} L={L} m={MD}
+Xdn dmin inn vs vss NCH W={WD*(1-DW)} L={L} m={MD}
+Xlp dplus dplus vdd vdd PCH W={WL} L={L} m={MD}
+Xln out dplus vdd vdd PCH W={WL} L={L} m={MD}
+.ends servo_ota
+
+* Experiment 26 device TIA  VDD=2.5 VSS=-2.5
+* Ibias=4e-05 m_diff=2 m_out=4 Cc=2e-12
+* servo=True vos_inject=0 dw_frac=0.00185
+* Weights were not edited. SPICE is not Python-corrected.
+Vdd vdd 0 DC 2.5
+Vss vss 0 DC -2.5
+.temp 27
+.options reltol=1e-6 abstol=1e-12 vntol=1e-8
+
+Vin1 in1 0 DC 0.991664696216928
+* passive invert in1 -> in1n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv1ia in1 inv1m 10000
+Rinv1ib in1n inv1m 10000.0020000002
+Einv1amp in1n 0 0 inv1m 10000000
+Vin2 in2 0 DC 0.921092462049841
+* passive invert in2 -> in2n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv2ia in2 inv2m 10000
+Rinv2ib in2n inv2m 10000.0020000002
+Einv2amp in2n 0 0 inv2m 10000000
+Vin3 in3 0 DC 0.578218548268848
+* passive invert in3 -> in3n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv3ia in3 inv3m 10000
+Rinv3ib in3n inv3m 10000.0020000002
+Einv3amp in3n 0 0 inv3m 10000000
+Vin4 in4 0 DC 0.0269757344529336
+* passive invert in4 -> in4n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv4ia in4 inv4m 10000
+Rinv4ib in4n inv4m 10000.0020000002
+Einv4amp in4n 0 0 inv4m 10000000
+Vin5 in5 0 DC -0.434547784694714
+* passive invert in5 -> in5n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv5ia in5 inv5m 10000
+Rinv5ib in5n inv5m 10000.0020000002
+Einv5amp in5n 0 0 inv5m 10000000
+Vin6 in6 0 DC 0.206636426851205
+Vin7 in7 0 DC -0.241062585681472
+* passive invert in7 -> in7n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv7ia in7 inv7m 10000
+Rinv7ib in7n inv7m 10000.0020000002
+Einv7amp in7n 0 0 inv7m 10000000
+Vin8 in8 0 DC -0.863015815292251
+Vin9 in9 0 DC -0.812323549234783
+* passive invert in9 -> in9n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv9ia in9 inv9m 10000
+Rinv9ib in9n inv9m 10000.0020000002
+Einv9amp in9n 0 0 inv9m 10000000
+Vin10 in10 0 DC 0.709477959094462
+Vin11 in11 0 DC 0.970954563086739
+* passive invert in11 -> in11n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv11ia in11 inv11m 10000
+Rinv11ib in11n inv11m 10000.0020000002
+Einv11amp in11n 0 0 inv11m 10000000
+Vin12 in12 0 DC 0.364403651354763
+* passive invert in12 -> in12n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv12ia in12 inv12m 10000
+Rinv12ib in12n inv12m 10000.0020000002
+Einv12amp in12n 0 0 inv12m 10000000
+Vin13 in13 0 DC 0.0859477023464112
+* passive invert in13 -> in13n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv13ia in13 inv13m 10000
+Rinv13ib in13n inv13m 10000.0020000002
+Einv13amp in13n 0 0 inv13m 10000000
+Vin14 in14 0 DC 0.409408967116273
+* passive invert in14 -> in14n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv14ia in14 inv14m 10000
+Rinv14ib in14n inv14m 10000.0020000002
+Einv14amp in14n 0 0 inv14m 10000000
+Vin15 in15 0 DC 0.604937343512566
+* passive invert in15 -> in15n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv15ia in15 inv15m 10000
+Rinv15ib in15n inv15m 10000.0020000002
+Einv15amp in15n 0 0 inv15m 10000000
+Vin16 in16 0 DC -0.236918133906935
+* passive invert in16 -> in16n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv16ia in16 inv16m 10000
+Rinv16ib in16n inv16m 10000.0020000002
+Einv16amp in16n 0 0 inv16m 10000000
+Vref vref 0 DC 1
+
+* n1 input 1 w=+0.786523739677983 w+  bank=n alpha=1 R=42380.5813502598 G_phys=2.35957121903395e-05 G_eff=2.35957121903395e-05
+Rn1p1n1 in1n n1p 42380.5813502598
+* n1 input 2 w=+0.575951127580127 w+  bank=n alpha=1 R=57875.2809693839 G_phys=1.72785338274038e-05 G_eff=1.72785338274038e-05
+Rn1p2n1 in2n n1p 57875.2809693839
+* n1 input 3 w=+0.131568206508636 w+  bank=n alpha=1 R=253354.014756941 G_phys=3.94704619525908e-06 G_eff=3.94704619525908e-06
+Rn1p3n1 in3n n1p 253354.014756941
+* n1 input 4 w=+0.217046331869883 w+  bank=n alpha=1 R=153577.040653773 G_phys=6.51138995609649e-06 G_eff=6.51138995609649e-06
+Rn1p4n1 in4n n1p 153577.040653773
+* n1 input 5 w=+0.0670548023806797 w+  bank=n alpha=1 R=497105.832093803 G_phys=2.01164407142039e-06 G_eff=2.01164407142039e-06
+Rn1p5n1 in5n n1p 497105.832093803
+* n1 input 6 w=-0.0924541633789126 w-  bank=n alpha=1 R=360539.018634786 G_phys=2.77362490136738e-06 G_eff=2.77362490136738e-06
+Rn1n6n1 in6 n1p 360539.018634786
+* n1 input 7 w=+0.532768880755568 w+  bank=n alpha=1 R=62566.2168669842 G_phys=1.59830664226671e-05 G_eff=1.59830664226671e-05
+Rn1p7n1 in7n n1p 62566.2168669842
+* n1 input 8 w=-0.213038536483163 w-  bank=n alpha=1 R=156466.214439883 G_phys=6.39115609449489e-06 G_eff=6.39115609449489e-06
+Rn1n8n1 in8 n1p 156466.214439883
+* n1 input 9 w=+0.217996086164886 w+  bank=n alpha=1 R=152907.943989971 G_phys=6.53988258494657e-06 G_eff=6.53988258494657e-06
+Rn1p9n1 in9n n1p 152907.943989971
+* n1 input 10 w=-0.173189336412784 w-  bank=n alpha=1 R=192467.58503587 G_phys=5.19568009238351e-06 G_eff=5.19568009238351e-06
+Rn1n10n1 in10 n1p 192467.58503587
+* n1 input 11 w=+0.227561810267943 w+  bank=n alpha=1 R=146480.348763639 G_phys=6.8268543080383e-06 G_eff=6.8268543080383e-06
+Rn1p11n1 in11n n1p 146480.348763639
+* n1 input 12 w=+0.400647928830177 w+  bank=n alpha=1 R=83198.5664587384 G_phys=1.20194378649053e-05 G_eff=1.20194378649053e-05
+Rn1p12n1 in12n n1p 83198.5664587384
+* n1 input 13 w=+0.0924404555732517 w+  bank=n alpha=1 R=360592.482226781 G_phys=2.77321366719755e-06 G_eff=2.77321366719755e-06
+Rn1p13n1 in13n n1p 360592.482226781
+* n1 input 14 w=+0.340918137300815 w+  bank=n alpha=1 R=97775.1832074605 G_phys=1.02275441190244e-05 G_eff=1.02275441190244e-05
+Rn1p14n1 in14n n1p 97775.1832074605
+* n1 input 15 w=+0.631456773568415 w+  bank=n alpha=1 R=52787.9891840638 G_phys=1.89437032070525e-05 G_eff=1.89437032070525e-05
+Rn1p15n1 in15n n1p 52787.9891840638
+* n1 input 16 w=+0.19173700817347 w+  bank=n alpha=1 R=173849.240951834 G_phys=5.75211024520409e-06 G_eff=5.75211024520409e-06
+Rn1p16n1 in16n n1p 173849.240951834
+* n1 bias w-  bank=n alpha=1 R=620531.31238591 G_phys=1.61152222303666e-06 G_eff=1.61152222303666e-06
+Rn1bnn1 vref n1p 620531.31238591
+* feedback TIA n1: Rf=33333.3333333333 A=100000 V(n1lin) = -I(n1p)*Rf*A/(A+1)  (uncompensated)
+Rn1f n1lin n1p 33333.3333333333
+
+* MOS TIA + optional MOS servo. IN- sense at n1p (sum). OUT = n1lin.
+* TIA subckt=miller_tia topology=miller
+* Vn1ib is a 0 V ammeter: i(Vn1ib) = current from sum into MOS IN-.
+Vn1ib n1p n1inn DC 0
+Vosinj n1osp n1srv DC 0
+Xn1tia n1osp n1inn n1lin vdd vss miller_tia MD=2 MT=2 MO=4 CC=2e-12 IBIAS=4e-05 DW=0.00185 L1=1.4u
+* MOS miller leaky integrator servo: tau~Rin*C=5e-05 s
+Rn1si n1p n1sint 50000
+Cn1int n1sint n1srv 1e-09
+Rn1leak n1sint n1srv 100000000
+Xn1srv 0 n1sint n1srv vdd vss miller_tia MD=2 MT=2 MO=4 CC=2e-12 IBIAS=2e-05 DW=0.001487
+.ic v(n1srv)=0
+.control
+set numdgt=15
+op
+print v(n1lin)
+print v(n1p)
+print v(n1srv)
+print i(Vn1ib)
+print i(Vdd)
+print i(Vss)
+.endc
+.end

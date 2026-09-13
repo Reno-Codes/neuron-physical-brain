@@ -1,0 +1,20 @@
+* Exp 34 isolated N=1 shared=True Vin=2.60818 Rload=4914.01
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vin1 in1 0 DC 2.60817586522917
+Vcm1 inp1 0 DC 0
+R1_1 in1 mid1 10000
+R2_1 out1 mid1 10000
+Rload1 out1 0 4914.01304862554
+Xinv1 inp1 mid1 vdd vss out1 OPAx189
+Ccl1 out1 0 1e-13
+.control
+set numdgt=15
+tran 1e-06 0.0002
+meas tran vout1_end find v(out1) at=0.0002
+print vout1_end
+meas tran vmid1_end find v(mid1) at=0.0002
+print vmid1_end
+.endc
+.end

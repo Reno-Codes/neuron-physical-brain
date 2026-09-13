@@ -1,0 +1,13 @@
+* SKY130 xhigh_po voltage coefficient
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+.temp 27
+Vtest n1 0 DC 1
+Xres n1 n2 0 sky130_fd_pr__res_xhigh_po w=1.0 l=15.72
+Vamm n2 0 DC 0
+.control
+set numdgt=12
+op
+let rmeas = v(n1) / i(Vamm)
+print rmeas
+.endc
+.end

@@ -1,0 +1,252 @@
+* Physical AI - Experiment 18 architecture P: passive Rf I-to-V, ReLU-isolated next layer
+* Rf from sum node to ground. Vsum = I_loaded * Rf. No TIA and no current dump. Hidden ReLU is a B-source, so layer 2 does not load the hidden sums.
+* Frozen Experiment 9 network A. Weights were not edited.
+* Behavioral circuit analysis. Not transistor-level or PCB power.
+* invert A=100000 Ileak=0 rail=15 linear=False mesh=False
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+* passive invert in1 -> in1n: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinv1ia in1 inv1m 10067.7489504806
+Rinv1ib in1n inv1m 9888.95607752739
+Einv1amp in1n 0 0 inv1m 100000
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvrefia vref invrefm 10167.9407828012
+Rinvrefib vrefn invrefm 10054.588721531
+Einvrefamp vrefn 0 0 invrefm 100000
+* load-compensated divider vref->tapref: G_load=0.000833646933955897 Ra=544815.897488381 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefa vref tapref 553831.067223107
+Rdivrefb tapref 0 1015.29979924746
+* load-compensated divider vrefn->taprefn: G_load=0.00135041774642313 Ra=425030.827613635 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefna vrefn taprefn 422247.41258058
+Rdivrefnb taprefn 0 989.332723687943
+
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=48749.9920441162 G_phys=2.05128238604645e-05 G_eff=2.05128238604645e-05
+Rh1p1n1 in1 h1p 48203.7050996746
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=107746.969487669 G_phys=9.28100349137382e-06 G_eff=9.28100349137382e-06
+Rh1p2n1 in2 h1p 106421.168263082
+* h1 bias w-  bank=f alpha=0.001 R=1253.18954325804 G_phys=0.000797963887729386 G_eff=7.97963887729385e-07
+Rh1bnf1 taprefn h1p 1235.8902717908
+* PASSIVE I-to-V h1: h1p --Rf=33333.3333333333--> 0  (no amplifier; V = I_loaded * Rf)
+Rh1f h1p 0 33056.7802557503
+Vh1alias h1lin h1p DC 0
+* direct bounded ReLU: y=max(0, min(15, v(h1lin)))
+Bh1relu h1y 0 V = max(0, min(15, v(h1lin)))
+
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=37672.3718890781 G_phys=2.65446519519499e-05 G_eff=2.65446519519499e-05
+Rh2n1n1 in1n h2p 38331.002151681
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=42590.1684417639 G_phys=2.34795972072137e-05 G_eff=2.34795972072137e-05
+Rh2p2n1 in2 h2p 42217.71614409
+* h2 bias w+  bank=f alpha=0.001 R=560963.988396833 G_phys=1.78264562553806e-06 G_eff=1.78264562553806e-09
+Rh2bpf1 tapref h2p 560463.084112378
+* PASSIVE I-to-V h2: h2p --Rf=33333.3333333333--> 0  (no amplifier; V = I_loaded * Rf)
+Rh2f h2p 0 33184.0299610443
+Vh2alias h2lin h2p DC 0
+* direct bounded ReLU: y=max(0, min(15, v(h2lin)))
+Bh2relu h2y 0 V = max(0, min(15, v(h2lin)))
+
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=41293.0004526854 G_phys=2.42171794017687e-05 G_eff=2.42171794017687e-05
+Rh3p1n1 in1 h3p 41942.3287970632
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=19393.1144355429 G_phys=5.15646934030999e-05 G_eff=5.15646934030999e-05
+Rh3p2n1 in2 h3p 19758.8222166588
+* h3 bias w+  bank=f alpha=0.001 R=1918.09451080035 G_phys=0.000521350743860236 G_eff=5.21350743860236e-07
+Rh3bpf1 tapref h3p 1917.84548783553
+* PASSIVE I-to-V h3: h3p --Rf=33333.3333333333--> 0  (no amplifier; V = I_loaded * Rf)
+Rh3f h3p 0 33885.995412957
+Vh3alias h3lin h3p DC 0
+* direct bounded ReLU: y=max(0, min(15, v(h3lin)))
+Bh3relu h3y 0 V = max(0, min(15, v(h3lin)))
+
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=15411.6749813161 G_phys=6.48858739372794e-05 G_eff=6.48858739372794e-05
+Rh4n1n1 in1n h4p 15357.9664878063
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=45852.5506319697 G_phys=2.18090375828029e-05 G_eff=2.18090375828029e-05
+Rh4p2n1 in2 h4p 46377.4692419674
+* h4 bias w-  bank=f alpha=0.001 R=1810.10591973139 G_phys=0.000552453858693748 G_eff=5.52453858693748e-07
+Rh4bnf1 taprefn h4p 1820.41242555584
+* PASSIVE I-to-V h4: h4p --Rf=33333.3333333333--> 0  (no amplifier; V = I_loaded * Rf)
+Rh4f h4p 0 33630.8418594993
+Vh4alias h4lin h4p DC 0
+* direct bounded ReLU: y=max(0, min(15, v(h4lin)))
+Bh4relu h4y 0 V = max(0, min(15, v(h4lin)))
+
+
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=55381.137413171 G_phys=1.80566894561861e-05 G_eff=1.80566894561861e-05
+Ro1p1n1 h1y o1p 56222.882745932
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=95974.0918925228 G_phys=1.04194786351285e-05 G_eff=1.04194786351285e-05
+Ro1p2n1 h2y o1p 96243.0177627359
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=38011.716249768 G_phys=2.63076782281859e-05 G_eff=2.63076782281859e-05
+Ro1p3n1 h3y o1p 38737.8223222181
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=35860.5019249499 G_phys=2.78858338930346e-05 G_eff=2.78858338930346e-05
+Ro1p4n1 h4y o1p 35402.8045187465
+* o1 bias w+  bank=f alpha=0.001 R=3220.47143452777 G_phys=0.000310513544470123 G_eff=3.10513544470123e-07
+Ro1bpf1 tapref o1p 3161.9472588256
+* PASSIVE I-to-V o1: o1p --Rf=33333.3333333333--> 0  (no amplifier; V = I_loaded * Rf)
+Ro1f o1p 0 32763.8421234652
+Vo1alias o1lin o1p DC 0
+.control
+set numdgt=15
+alter Vin1 DC 0.823325950125704
+alter Vin2 DC -0.788495456014185
+op
+print v(o1lin)
+alter Vin1 DC 0.230850492972004
+alter Vin2 DC 0.477341106402152
+op
+print v(o1lin)
+alter Vin1 DC -0.798465303937447
+alter Vin2 DC -0.591593104426365
+op
+print v(o1lin)
+alter Vin1 DC 0.416277871741738
+alter Vin2 DC 0.330129248604278
+op
+print v(o1lin)
+alter Vin1 DC -0.124186358549361
+alter Vin2 DC -0.817383279304098
+op
+print v(o1lin)
+alter Vin1 DC -0.831258583159138
+alter Vin2 DC -0.678496949270389
+op
+print v(o1lin)
+alter Vin1 DC -0.122308762303494
+alter Vin2 DC 0.939890311910908
+op
+print v(o1lin)
+alter Vin1 DC -0.666158001854396
+alter Vin2 DC 0.411663182626058
+op
+print v(o1lin)
+alter Vin1 DC -0.312462846755673
+alter Vin2 DC -0.270288851266497
+op
+print v(o1lin)
+alter Vin1 DC -0.159677656991949
+alter Vin2 DC 0.510310720974206
+op
+print v(o1lin)
+alter Vin1 DC 0.279180589186491
+alter Vin2 DC 0.582413246641001
+op
+print v(o1lin)
+alter Vin1 DC 0.75073426824867
+alter Vin2 DC -0.516113386588328
+op
+print v(o1lin)
+alter Vin1 DC 0.932446925011742
+alter Vin2 DC 0.738566615773005
+op
+print v(o1lin)
+alter Vin1 DC 0.570381674026676
+alter Vin2 DC -0.946367633888717
+op
+print v(o1lin)
+alter Vin1 DC -0.550098492274588
+alter Vin2 DC 0.596409599089011
+op
+print v(o1lin)
+alter Vin1 DC -0.739904902051369
+alter Vin2 DC 0.0222701857050873
+op
+print v(o1lin)
+alter Vin1 DC 0.401448179852653
+alter Vin2 DC -0.614131649633203
+op
+print v(o1lin)
+alter Vin1 DC -0.211884876991164
+alter Vin2 DC -0.606886608663423
+op
+print v(o1lin)
+alter Vin1 DC -0.0457072226800794
+alter Vin2 DC -0.909689293856802
+op
+print v(o1lin)
+alter Vin1 DC -0.589536864606982
+alter Vin2 DC 0.250609932619571
+op
+print v(o1lin)
+alter Vin1 DC 0.326019967426835
+alter Vin2 DC 0.274103028899176
+op
+print v(o1lin)
+alter Vin1 DC 0.588637357669822
+alter Vin2 DC -0.897808551796973
+op
+print v(o1lin)
+alter Vin1 DC -0.196893614076596
+alter Vin2 DC -0.446459684006713
+op
+print v(o1lin)
+alter Vin1 DC -0.828331181361945
+alter Vin2 DC 0.743578568264277
+op
+print v(o1lin)
+alter Vin1 DC -0.599847808056243
+alter Vin2 DC -0.876279060186776
+op
+print v(o1lin)
+alter Vin1 DC -0.815576489654184
+alter Vin2 DC 0.8123863879585
+op
+print v(o1lin)
+alter Vin1 DC 0.911658222047365
+alter Vin2 DC 0.251248185240843
+op
+print v(o1lin)
+alter Vin1 DC -0.586228399275776
+alter Vin2 DC -0.0967161286577443
+op
+print v(o1lin)
+alter Vin1 DC 0.107470307976215
+alter Vin2 DC -0.0032491406501467
+op
+print v(o1lin)
+alter Vin1 DC -0.0766699089950498
+alter Vin2 DC 0.13084873043975
+op
+print v(o1lin)
+alter Vin1 DC 0.289674200874974
+alter Vin2 DC -0.623694382907614
+op
+print v(o1lin)
+alter Vin1 DC -0.87551428210537
+alter Vin2 DC 0.635175644749129
+op
+print v(o1lin)
+alter Vin1 DC -0.430251908467861
+alter Vin2 DC 0.809669807694895
+op
+print v(o1lin)
+alter Vin1 DC 0.00562964434151381
+alter Vin2 DC 0.70050794018216
+op
+print v(o1lin)
+alter Vin1 DC 0.619679359080432
+alter Vin2 DC 0.254133804791318
+op
+print v(o1lin)
+alter Vin1 DC -0.705627613705424
+alter Vin2 DC 0.876045838529863
+op
+print v(o1lin)
+alter Vin1 DC -0.853296118628172
+alter Vin2 DC -0.572467224840337
+op
+print v(o1lin)
+alter Vin1 DC 0.220915276768065
+alter Vin2 DC -0.633495540068099
+op
+print v(o1lin)
+alter Vin1 DC 0.0075616613441436
+alter Vin2 DC -0.322136469759884
+op
+print v(o1lin)
+alter Vin1 DC -0.331704649531507
+alter Vin2 DC -0.533761443901328
+op
+print v(o1lin)
+.endc
+
+.end

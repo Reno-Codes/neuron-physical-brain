@@ -1,0 +1,58 @@
+[
+  {
+    "kind": "replica_neg_1656",
+    "max_abs_err": 1.3363963979884375e-07,
+    "mean_abs_err": 8.077451873977117e-08,
+    "tier1": true,
+    "note": "Exp 32 LEVEL 2 sign control."
+  },
+  {
+    "kind": "opa189",
+    "max_abs_err": 6.750594256921261e-07,
+    "mean_abs_err": 6.50760068967391e-07,
+    "tier1": true,
+    "note": "GWL static Vos ~1.87 uV. Not a switching chopper."
+  },
+  {
+    "kind": "opa192",
+    "max_abs_err": 9.472171849989053e-06,
+    "mean_abs_err": 8.107042699478202e-06,
+    "tier1": true,
+    "note": "GWL e-trim. Isolated residual ~8 uV."
+  },
+  {
+    "kind": "limit",
+    "max_abs_err": 5.2162474059702646e-05,
+    "mean_abs_err": 3.3040218522517595e-05,
+    "tier1": true,
+    "note": "LEVEL 2 behavioral."
+  },
+  {
+    "kind": "opa1656",
+    "max_abs_err": 0.000996347642319595,
+    "mean_abs_err": 0.0009962731305570433,
+    "tier1": false,
+    "note": "Exp 32 498 uV GWL floor. Control."
+  },
+  {
+    "kind": "opa1611",
+    "max_abs_err": 0.0011064429970699674,
+    "mean_abs_err": 0.0005176670500658805,
+    "tier1": false,
+    "note": "Exp 32 ~550-585 uV. Control."
+  },
+  {
+    "kind": "opa388",
+    "max_abs_err": 0.09054649000951986,
+    "mean_abs_err": 0.015091766778595436,
+    "tier1": false,
+    "note": "5.5 V zero-drift. Clips at 2.61 V on +/-2.5 V."
+  },
+  {
+    "kind": "miller",
+    "max_abs_err": 1.9746857288763766,
+    "mean_abs_err": 0.6723817572993176,
+    "tier1": false,
+    "note": "Teaching card drive/swing fail."
+  }
+]

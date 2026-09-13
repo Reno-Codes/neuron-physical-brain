@@ -1,0 +1,14 @@
+* Experiment 22 Laplace TIA smoke test
+Vin in 0 PULSE(0 1 1n 1n 1n 1 2)
+Rw in sum 10000.0
+Etia lin 0 LAPLACE {-v(sum)} {100000.0/(1 + s/62831.8530717959)}
+Rf lin sum 10000.0
+.tran 50n 20u
+.control
+run
+set numdgt=15
+meas tran vend FIND v(lin) AT=20u
+print v(lin)
+print v(sum)
+.endc
+.end

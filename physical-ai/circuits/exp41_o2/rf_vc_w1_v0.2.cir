@@ -1,0 +1,12 @@
+* Experiment 41 Rf voltage-coefficient diagnostic
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+.temp 27
+Vr r 0 DC 0.2
+Vm m 0 DC 0
+Xrf r m 0 sky130_fd_pr__res_xhigh_po w=1 l=15.717061
+.control
+set numdgt=12
+op
+print i(Vr)
+.endc
+.end

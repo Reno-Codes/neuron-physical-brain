@@ -1,0 +1,162 @@
+* Physical AI - Experiment 17 architecture A: feedback resistor TIA
+* Inverting TIA. Vout = I * Rf * A/(A+1). Summing node held by the amplifier, not by a 0 V source. Rf = 1/G_WEIGHT.
+* Frozen Experiment 9 network A. Weights were not edited.
+* Behavioral circuit analysis. Not transistor-level or PCB power.
+* A_tia=100000 A_inv=1e+07 rail=15 vos=0.000214023 rout=0 Ileak=0 clip=False linear=False
+* shape: 2 -> 4 -> 1
+
+* Experiment 24 candidate L
+* XSPICE limit TIA (programmable Vos)
+* source: ngspice built-in analog code model `limit`
+* Behavioral. Used as AZ/servo/chopper carrier and feasibility map.
+* Weights were not edited. SPICE is not Python-corrected.
+* Exp 24 auto-zero: sample actual TIA output at Vin=0, subtract in SPICE
+Vazclk clk 0 PULSE(1 0 2e-05 10n 10n 1 2)
+.model azsw sw(vt=0.5 vh=0 ron=10 roff=1e12)
+
+.model limtia limit(gain=100000 in_offset=0.0 out_lower_limit=-15 out_upper_limit=15 fraction=false limit_range=0.05)
+
+Vin1 in1 0 PULSE(0 0.503198624949371 2.2e-05 10n 10n 1 2)
+* passive invert in1 -> in1n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv1ia in1 inv1m 10000
+Rinv1ib in1n inv1m 10000.0020000002
+Einv1amp in1n 0 0 inv1m 10000000
+Vin2 in2 0 PULSE(0 0.413694967335972 2.2e-05 10n 10n 1 2)
+* passive invert in2 -> in2n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv2ia in2 inv2m 10000
+Rinv2ib in2n inv2m 10000.0020000002
+Einv2amp in2n 0 0 inv2m 10000000
+Vref vref 0 PULSE(0 1 2.2e-05 10n 10n 1 2)
+* passive invert vref -> vrefn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvrefia vref invrefm 10000
+Rinvrefib vrefn invrefm 10000.0020000002
+Einvrefamp vrefn 0 0 invrefm 10000000
+* load-compensated divider vref->tapref: G_load=0.00135041774642313 Ra=425030.827613635 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefa vref tapref 425030.827613635
+Rdivrefb tapref 0 1000
+* load-compensated divider vrefn->taprefn: G_load=0.000833646933955897 Ra=544815.897488381 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefna vrefn taprefn 544815.897488381
+Rdivrefnb taprefn 0 1000
+
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=48749.9920441162 G_phys=2.05128238604645e-05 G_eff=2.05128238604645e-05
+Rh1p1n1 in1n h1p 48749.9920441162
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=107746.969487669 G_phys=9.28100349137382e-06 G_eff=9.28100349137382e-06
+Rh1p2n1 in2n h1p 107746.969487669
+* h1 bias w-  bank=f alpha=0.001 R=1253.18954325804 G_phys=0.000797963887729386 G_eff=7.97963887729385e-07
+Rh1bnf1 tapref h1p 1253.18954325804
+* feedback TIA h1: Rf=33333.3333333333 A=100000 V(h1lin) = -I(h1p)*Rf*A/(A+1)  (uncompensated)
+* Exp 24 L TIA h1 -> h1lin, vg=h1p
+Vh1os h1osp 0 DC 0.000214023
+Ah1tia %vd(h1osp h1p) h1raw limtia
+Rh1f h1raw h1p 33333.3333333333
+* direct bounded ReLU: y=max(0, min(15, v(h1lin)))
+Bh1relu h1y 0 V = max(0, min(15, v(h1lin)))
+
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=37672.3718890781 G_phys=2.65446519519499e-05 G_eff=2.65446519519499e-05
+Rh2n1n1 in1 h2p 37672.3718890781
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=42590.1684417639 G_phys=2.34795972072137e-05 G_eff=2.34795972072137e-05
+Rh2p2n1 in2n h2p 42590.1684417639
+* h2 bias w+  bank=f alpha=0.001 R=560963.988396833 G_phys=1.78264562553806e-06 G_eff=1.78264562553806e-09
+Rh2bpf1 taprefn h2p 560963.988396833
+* feedback TIA h2: Rf=33333.3333333333 A=100000 V(h2lin) = -I(h2p)*Rf*A/(A+1)  (uncompensated)
+* Exp 24 L TIA h2 -> h2lin, vg=h2p
+Vh2os h2osp 0 DC 0.000214023
+Ah2tia %vd(h2osp h2p) h2raw limtia
+Rh2f h2raw h2p 33333.3333333333
+* direct bounded ReLU: y=max(0, min(15, v(h2lin)))
+Bh2relu h2y 0 V = max(0, min(15, v(h2lin)))
+
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=41293.0004526854 G_phys=2.42171794017687e-05 G_eff=2.42171794017687e-05
+Rh3p1n1 in1n h3p 41293.0004526854
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=19393.1144355429 G_phys=5.15646934030999e-05 G_eff=5.15646934030999e-05
+Rh3p2n1 in2n h3p 19393.1144355429
+* h3 bias w+  bank=f alpha=0.001 R=1918.09451080035 G_phys=0.000521350743860236 G_eff=5.21350743860236e-07
+Rh3bpf1 taprefn h3p 1918.09451080035
+* feedback TIA h3: Rf=33333.3333333333 A=100000 V(h3lin) = -I(h3p)*Rf*A/(A+1)  (uncompensated)
+* Exp 24 L TIA h3 -> h3lin, vg=h3p
+Vh3os h3osp 0 DC 0.000214023
+Ah3tia %vd(h3osp h3p) h3raw limtia
+Rh3f h3raw h3p 33333.3333333333
+* direct bounded ReLU: y=max(0, min(15, v(h3lin)))
+Bh3relu h3y 0 V = max(0, min(15, v(h3lin)))
+
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=15411.6749813161 G_phys=6.48858739372794e-05 G_eff=6.48858739372794e-05
+Rh4n1n1 in1 h4p 15411.6749813161
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=45852.5506319697 G_phys=2.18090375828029e-05 G_eff=2.18090375828029e-05
+Rh4p2n1 in2n h4p 45852.5506319697
+* h4 bias w-  bank=f alpha=0.001 R=1810.10591973139 G_phys=0.000552453858693748 G_eff=5.52453858693748e-07
+Rh4bnf1 tapref h4p 1810.10591973139
+* feedback TIA h4: Rf=33333.3333333333 A=100000 V(h4lin) = -I(h4p)*Rf*A/(A+1)  (uncompensated)
+* Exp 24 L TIA h4 -> h4lin, vg=h4p
+Vh4os h4osp 0 DC 0.000214023
+Ah4tia %vd(h4osp h4p) h4raw limtia
+Rh4f h4raw h4p 33333.3333333333
+* direct bounded ReLU: y=max(0, min(15, v(h4lin)))
+Bh4relu h4y 0 V = max(0, min(15, v(h4lin)))
+
+* passive invert h1y -> h1yn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvh1ia h1y invh1m 10000
+Rinvh1ib h1yn invh1m 10000.0020000002
+Einvh1amp h1yn 0 0 invh1m 10000000
+* passive invert h2y -> h2yn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvh2ia h2y invh2m 10000
+Rinvh2ib h2yn invh2m 10000.0020000002
+Einvh2amp h2yn 0 0 invh2m 10000000
+* passive invert h3y -> h3yn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvh3ia h3y invh3m 10000
+Rinvh3ib h3yn invh3m 10000.0020000002
+Einvh3amp h3yn 0 0 invh3m 10000000
+* passive invert h4y -> h4yn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvh4ia h4y invh4m 10000
+Rinvh4ib h4yn invh4m 10000.0020000002
+Einvh4amp h4yn 0 0 invh4m 10000000
+
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=55381.137413171 G_phys=1.80566894561861e-05 G_eff=1.80566894561861e-05
+Ro1p1n1 h1yn o1p 55381.137413171
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=95974.0918925228 G_phys=1.04194786351285e-05 G_eff=1.04194786351285e-05
+Ro1p2n1 h2yn o1p 95974.0918925228
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=38011.716249768 G_phys=2.63076782281859e-05 G_eff=2.63076782281859e-05
+Ro1p3n1 h3yn o1p 38011.716249768
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=35860.5019249499 G_phys=2.78858338930346e-05 G_eff=2.78858338930346e-05
+Ro1p4n1 h4yn o1p 35860.5019249499
+* o1 bias w+  bank=f alpha=0.001 R=3220.47143452777 G_phys=0.000310513544470123 G_eff=3.10513544470123e-07
+Ro1bpf1 taprefn o1p 3220.47143452777
+* feedback TIA o1: Rf=33333.3333333333 A=100000 V(o1lin) = -I(o1p)*Rf*A/(A+1)  (uncompensated)
+* Exp 24 L TIA o1 -> o1lin, vg=o1p
+Vo1os o1osp 0 DC 0.000214023
+Ao1tia %vd(o1osp o1p) o1raw limtia
+Ro1f o1raw o1p 33333.3333333333
+
+* auto-zero S/H h1: sample h1raw onto C, Vlin=h1raw-Vhold
+Sh1az h1raw h1hold clk 0 azsw
+Ch1hold h1hold 0 1e-08
+Rh1hld h1hold 0 1e12
+Eh1az h1lin 0 h1raw h1hold 1
+* auto-zero S/H h2: sample h2raw onto C, Vlin=h2raw-Vhold
+Sh2az h2raw h2hold clk 0 azsw
+Ch2hold h2hold 0 1e-08
+Rh2hld h2hold 0 1e12
+Eh2az h2lin 0 h2raw h2hold 1
+* auto-zero S/H h3: sample h3raw onto C, Vlin=h3raw-Vhold
+Sh3az h3raw h3hold clk 0 azsw
+Ch3hold h3hold 0 1e-08
+Rh3hld h3hold 0 1e12
+Eh3az h3lin 0 h3raw h3hold 1
+* auto-zero S/H h4: sample h4raw onto C, Vlin=h4raw-Vhold
+Sh4az h4raw h4hold clk 0 azsw
+Ch4hold h4hold 0 1e-08
+Rh4hld h4hold 0 1e12
+Eh4az h4lin 0 h4raw h4hold 1
+* auto-zero S/H o1: sample o1raw onto C, Vlin=o1raw-Vhold
+So1az o1raw o1hold clk 0 azsw
+Co1hold o1hold 0 1e-08
+Ro1hld o1hold 0 1e12
+Eo1az o1lin 0 o1raw o1hold 1
+.control
+set numdgt=15
+tran 2e-07 8e-05
+meas tran m0 FIND v(o1lin) AT=6.8e-05
+print m0
+.endc
+
+.end

@@ -1,0 +1,20 @@
+* Experiment 33 isolated invert kind=opa388 Vin=1.5 Rload=4914.01
+Vin in 0 DC 1.5
+R1 in mid 10000
+R2 out mid 10000
+Rload out 0 4914.01304862554
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa388/OPAx388.LIB"
+Vdd vdd 0 DC 2.5
+Vss vss 0 DC -2.5
+Xinv 0 mid vdd vss out OPAx388
+Ccl out 0 1p
+.control
+set numdgt=15
+op
+print i(Rload)
+print i(Vdd)
+print v(out)
+print v(mid)
+print v(in)
+.endc
+.end

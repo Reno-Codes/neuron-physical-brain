@@ -1,0 +1,14 @@
+* Experiment 45 smoke OPA189 follower - not the o2 cell
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vin in 0 DC 1
+Xamp 0 in vdd vss out OPAx189
+Cload out 0 1p
+.control
+set numdgt=12
+op
+print v(out)
+print v(in)
+.endc
+.end

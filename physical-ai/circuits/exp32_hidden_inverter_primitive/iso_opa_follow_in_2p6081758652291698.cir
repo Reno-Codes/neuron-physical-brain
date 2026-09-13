@@ -1,0 +1,24 @@
+* Experiment 32 isolated invert kind=opa_follow_in Vin=2.60818 Rload=4914.01
+Vin in 0 DC 2.60817586522917
+R1 in mid 10000
+R2 out mid 10000
+Rload out 0 4914.01304862554
+.include "C:/ngspice/examples/optran/models/opa1656.lib"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+* follower inside invert loop; R2 from dest
+Xinv 0 mid vdd vss nint OPA1656
+Ccli nint 0 1p
+Xbuf nint out vdd vss out OPA1656
+Ccl out 0 1p
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+print i(Rload)
+print v(nint)
+print i(Vdd)
+.endc
+.end

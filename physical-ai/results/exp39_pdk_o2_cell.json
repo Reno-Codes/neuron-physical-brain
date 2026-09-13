@@ -1,0 +1,914 @@
+{
+  "experiment_id": "exp39",
+  "spice_source_of_truth": true,
+  "frozen_weights_edited": false,
+  "pdk_invented": false,
+  "python_correction": false,
+  "no_invented": true,
+  "teaching_bsim3_used": false,
+  "pdk": {
+    "pdk_root": "C:\\dev\\pdk",
+    "family": "sky130",
+    "variant": "sky130A",
+    "version": "1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "source": "https://github.com/fossi-foundation/ciel-releases/releases/download/sky130-1689ac3f2dc763876eaf967227c7dfe831b031ae/",
+    "installer": "ciel 2.6.1 + official ciel-releases tarballs (common + sky130_fd_pr)",
+    "lib": "C:\\dev\\pdk\\sky130A\\libs.tech\\ngspice\\sky130.lib.spice",
+    "lib_exists": true,
+    "version_dir": "C:\\dev\\pdk\\ciel\\sky130\\versions\\1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "ciel_current": "1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "resistor_card": "C:\\dev\\pdk\\sky130A\\libs.ref\\sky130_fd_pr\\spice\\sky130_fd_pr__res_xhigh_po.model.spice",
+    "nfet_card": "C:\\dev\\pdk\\sky130A\\libs.ref\\sky130_fd_pr\\spice\\sky130_fd_pr__nfet_g5v0d10v5__tt.pm3.spice",
+    "corners_nominal": [
+      "tt",
+      "ss",
+      "ff",
+      "sf",
+      "fs",
+      "ll",
+      "hh"
+    ],
+    "corners_mm": [
+      "tt_mm"
+    ],
+    "monte_carlo_lib": "mc / tt_mm via mc_mm_switch",
+    "runnable": true,
+    "note": "PDK lives outside the git repo at C:\\dev\\pdk. Not a teaching card."
+  },
+  "o2": {
+    "frozen_model": "models/scaling/F.npz seed 9",
+    "shape": [
+      16,
+      32,
+      16
+    ],
+    "tag": "o2",
+    "layer": 2,
+    "index": 2,
+    "W2_row": [
+      -0.10059594443403454,
+      -0.26531511510715855,
+      -0.05916773721879767,
+      -0.0695954531730398,
+      -0.2843133478505469,
+      0.31444027215943776,
+      -0.349535009995164,
+      -0.29569630081385856,
+      -0.7358548675655586,
+      -0.08592387605688943,
+      -0.10599693457041096,
+      -0.19354147960388765,
+      -0.3519509307569744,
+      0.040234232532431836,
+      0.1881588810955588,
+      0.20469331448460223,
+      0.1536400892662721,
+      0.46315365042995266,
+      -0.04267059185713659,
+      0.21033132779983385,
+      -0.06258157219041278,
+      0.23869720168484795,
+      -0.05586242606714647,
+      0.43923604483533185,
+      0.11374274178730233,
+      -0.43361726689660557,
+      0.23031517463054785,
+      -0.12398109066818036,
+      -0.2617830564761402,
+      -0.44647126763401035,
+      -0.5303939000666795,
+      0.28881865452026173
+    ],
+    "b2": 0.06350070257036132,
+    "Rf_ohm": 33333.333333333336,
+    "Gtot_S": 0.00422681940696749,
+    "Rf_Gtot": 140.89398023224967,
+    "I_max_est_A": 0.00023411431370398128,
+    "z_abs_max_o2": 2.4594895708801316,
+    "z_abs_max_network_tag": "h25",
+    "z_abs_max_network_V": 2.9371827051901307,
+    "g_weight": 3e-05,
+    "imax_vec": 18,
+    "hy_at_imax": [
+      0.03976649102753331,
+      1.1104688398408653,
+      0.22231761572442135,
+      0.6487318604739136,
+      0.835945102835161,
+      1.2046557004773122,
+      0.0,
+      1.3292004715805505,
+      0.39325011422044676,
+      0.11157102036647076,
+      0.6710628602755675,
+      0.12613504243618587,
+      0.0,
+      0.00407341606963825,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1.0991754023436204,
+      0.0,
+      1.0800468283774365,
+      1.2528006094615167,
+      1.0045174180757794,
+      0.39271285080776774,
+      0.0,
+      2.0686874992146476,
+      0.0,
+      0.0
+    ],
+    "z_at_imax": -2.1624190680719453,
+    "x_at_imax": [
+      -0.9572358415732187,
+      -0.5833524776895809,
+      -0.5183333126003808,
+      0.7217675859247663,
+      -0.6471212581513455,
+      -0.9806634787199289,
+      0.1569940557767604,
+      0.825570713157576,
+      0.24936639132646965,
+      -0.18045169399281802,
+      0.7994877068885928,
+      0.3222022169106027,
+      -0.5687310207877567,
+      0.1977742201318371,
+      0.512069660932079,
+      0.2777970279260942
+    ],
+    "n_logical_resistors_full_F": 1342,
+    "discrepancy_note": "Rf*Gtot must be ~140.9. 234 uA is worst-neuron I_max, not chip current. 2.94 V is Network F |z|max (h25), not o2 |z|max.",
+    "I_max_est_A_frozen_row": 0.00023411431370398128,
+    "I_max_est_A_rank_neurons": 0.00020280509077233813,
+    "I_max_note": "234.11 uA is G_WEIGHT * L1 of frozen W2[2]+b2. rank_neurons reported 202.8 uA; use 234.11 uA as the requirement."
+  },
+  "resistor": {
+    "model": "sky130_fd_pr__res_xhigh_po",
+    "rsheet_ohm_per_sq": 2000.0,
+    "pelgrom_A": 0.0347,
+    "tc1_body": -0.00147,
+    "tnom_note": "model tnom=25 C on body/head; ngspice .temp is used",
+    "mismatch_in_model": "MC_MM_SWITCH*AGAUSS * body_pelgrom/sqrt(W*L). Off unless tt_mm/mc.",
+    "points": [
+      {
+        "temp_C": -40.0,
+        "w_um": 1.0,
+        "l_um": 8.0,
+        "R_pred": 16983.62685943868,
+        "R_meas": 18818.89870914,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": -40.0,
+        "w_um": 1.0,
+        "l_um": 15.72,
+        "R_pred": 33339.559062828506,
+        "R_meas": 36999.3316216,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": -40.0,
+        "w_um": 1.0,
+        "l_um": 16.67,
+        "R_pred": 35352.270927235295,
+        "R_meas": 39235.95523619,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": -40.0,
+        "w_um": 1.0,
+        "l_um": 32.0,
+        "R_pred": 67831.08448655732,
+        "R_meas": 75322.71986609,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 27.0,
+        "w_um": 1.0,
+        "l_um": 8.0,
+        "R_pred": 16983.62685943868,
+        "R_meas": 16964.36337948,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 27.0,
+        "w_um": 1.0,
+        "l_um": 15.72,
+        "R_pred": 33339.559062828506,
+        "R_meas": 33334.09354329,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 27.0,
+        "w_um": 1.0,
+        "l_um": 16.67,
+        "R_pred": 35352.270927235295,
+        "R_meas": 35347.96087009,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 27.0,
+        "w_um": 1.0,
+        "l_um": 32.0,
+        "R_pred": 67831.08448655732,
+        "R_meas": 67840.68423478,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 85.0,
+        "w_um": 1.0,
+        "l_um": 8.0,
+        "R_pred": 16983.62685943868,
+        "R_meas": 15672.77433192,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 85.0,
+        "w_um": 1.0,
+        "l_um": 15.72,
+        "R_pred": 33339.559062828506,
+        "R_meas": 30795.50293138,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 85.0,
+        "w_um": 1.0,
+        "l_um": 16.67,
+        "R_pred": 35352.270927235295,
+        "R_meas": 32655.95942527,
+        "failed": false,
+        "failure_reason": null
+      },
+      {
+        "temp_C": 85.0,
+        "w_um": 1.0,
+        "l_um": 32.0,
+        "R_pred": 67831.08448655732,
+        "R_meas": 62673.47773559,
+        "failed": false,
+        "failure_reason": null
+      }
+    ],
+    "voltage": [
+      {
+        "V": 0.2,
+        "R_meas": 33340.59466541,
+        "failed": false
+      },
+      {
+        "V": 1.0,
+        "R_meas": 33334.09354329,
+        "failed": false
+      },
+      {
+        "V": 2.5,
+        "R_meas": 33274.20957852,
+        "failed": false
+      }
+    ],
+    "corners": [
+      {
+        "corner": "tt",
+        "R_meas": 33334.09354329,
+        "failed": false
+      },
+      {
+        "corner": "ll",
+        "R_meas": 28333.9795118,
+        "failed": false
+      },
+      {
+        "corner": "hh",
+        "R_meas": 38334.20757479,
+        "failed": false
+      }
+    ],
+    "level": "LEVEL 1 MODEL DEMONSTRATED"
+  },
+  "sizing": {
+    "sweep": [
+      {
+        "type": "n",
+        "model": "sky130_fd_pr__nfet_g5v0d10v5",
+        "W_um": 1.0,
+        "L_um": 1.0,
+        "Vgs": 1.5,
+        "Vds": 2.5,
+        "Id": -2.49932045087e-05,
+        "failed": false
+      },
+      {
+        "type": "n",
+        "model": "sky130_fd_pr__nfet_g5v0d10v5",
+        "W_um": 5.0,
+        "L_um": 1.0,
+        "Vgs": 1.5,
+        "Vds": 2.5,
+        "Id": -0.000132036428271,
+        "failed": false
+      },
+      {
+        "type": "n",
+        "model": "sky130_fd_pr__nfet_g5v0d10v5",
+        "W_um": 10.0,
+        "L_um": 1.0,
+        "Vgs": 1.5,
+        "Vds": 2.5,
+        "Id": -0.000259289397284,
+        "failed": false
+      },
+      {
+        "type": "n",
+        "model": "sky130_fd_pr__nfet_g5v0d10v5",
+        "W_um": 20.0,
+        "L_um": 1.0,
+        "Vgs": 1.5,
+        "Vds": 2.5,
+        "Id": -0.000539773520591,
+        "failed": false
+      },
+      {
+        "type": "p",
+        "model": "sky130_fd_pr__pfet_g5v0d10v5",
+        "W_um": 1.0,
+        "L_um": 1.0,
+        "Vgs": -1.5,
+        "Vds": 2.5,
+        "Id": 6.993520194605e-06,
+        "failed": false
+      },
+      {
+        "type": "p",
+        "model": "sky130_fd_pr__pfet_g5v0d10v5",
+        "W_um": 5.0,
+        "L_um": 1.0,
+        "Vgs": -1.5,
+        "Vds": 2.5,
+        "Id": 2.957494595149e-05,
+        "failed": false
+      },
+      {
+        "type": "p",
+        "model": "sky130_fd_pr__pfet_g5v0d10v5",
+        "W_um": 10.0,
+        "L_um": 1.0,
+        "Vgs": -1.5,
+        "Vds": 2.5,
+        "Id": 5.869976830853e-05,
+        "failed": false
+      },
+      {
+        "type": "p",
+        "model": "sky130_fd_pr__pfet_g5v0d10v5",
+        "W_um": 20.0,
+        "L_um": 1.0,
+        "Vgs": -1.5,
+        "Vds": 2.5,
+        "Id": 0.0001151952861152,
+        "failed": false
+      }
+    ],
+    "sizes": {
+      "L": 1.0,
+      "L_note": "2x documented 5V Lmin 0.50 um; bin 1.0-2.0 um exists",
+      "WT": 3.029,
+      "WD": 6.059,
+      "WL": 6.059,
+      "WON": 12.118,
+      "WOP": 24.236,
+      "IBIAS": 8e-05,
+      "CC": 2e-12,
+      "servo_c": 1e-09,
+      "vsupply": 2.5,
+      "id_nfet_W5_L1": -0.000132036428271,
+      "derivation": "NFET W=5 L=1 Vgs=1.5 Vds=2.5 Id=1.3204e-04 A from this PDK. Tail 80 uA scales W. Output devices 4x/8x tail for o2 ~234 uA plus margin."
+    },
+    "lmin_um": 0.5,
+    "wmin_um": 0.42
+  },
+  "tia_ol": {
+    "failed": false,
+    "failure_reason": null,
+    "gain_max_abs": null,
+    "vout_op": -2.31007685635,
+    "idd": -0.000329240249444,
+    "iss": 0.0003292402494438,
+    "log_tail": null,
+    "level": "LEVEL 1 MODEL DEMONSTRATED"
+  },
+  "geometry": {
+    "n": 60,
+    "w_set": [
+      1.0
+    ],
+    "l_min": 4.703728122089274,
+    "l_max": 391.02718398258537,
+    "rf": {
+      "name": "Rn1f",
+      "R_target": 33333.333333333336,
+      "w_um": 1.0,
+      "l_um": 15.7170614549824,
+      "R_pred": 33333.333331859016,
+      "pelgrom_sigma": 0.008752735388652982,
+      "model": "sky130_fd_pr__res_xhigh_po"
+    },
+    "note": "Same-family xhigh_po. Same-W length encode. Not extracted common-centroid layout."
+  },
+  "temperature": [
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tt_t27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15649491938,
+      "vsum": 2.156494919376e-05,
+      "err": 0.005924148691945241,
+      "abs_err": 0.005924148691945241,
+      "analog_pass": false,
+      "a_eff": 100000.00000018548,
+      "name": "pdk_r_tt_27",
+      "corner": "tt",
+      "temp_C": 27.0
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_ll_t27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15649491938,
+      "vsum": 2.156494919376e-05,
+      "err": 0.005924148691945241,
+      "abs_err": 0.005924148691945241,
+      "analog_pass": false,
+      "a_eff": 100000.00000018548,
+      "name": "pdk_r_ll_27",
+      "corner": "ll",
+      "temp_C": 27.0
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_hh_t27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15649491938,
+      "vsum": 2.156494919376e-05,
+      "err": 0.005924148691945241,
+      "abs_err": 0.005924148691945241,
+      "analog_pass": false,
+      "a_eff": 100000.00000018548,
+      "name": "pdk_r_hh_27",
+      "corner": "hh",
+      "temp_C": 27.0
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tt_tm40.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15578308383,
+      "vsum": 2.155783083827e-05,
+      "err": 0.006635984241945447,
+      "abs_err": 0.006635984241945447,
+      "analog_pass": false,
+      "a_eff": 100000.00000013916,
+      "name": "pdk_r_tt_-40",
+      "corner": "tt",
+      "temp_C": -40.0
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tt_t85.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15652260643,
+      "vsum": 2.156522606425e-05,
+      "err": 0.005896461641945461,
+      "abs_err": 0.005896461641945461,
+      "analog_pass": false,
+      "a_eff": 100000.00000023186,
+      "name": "pdk_r_tt_85",
+      "corner": "tt",
+      "temp_C": 85.0
+    }
+  ],
+  "dc_results": [
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tt_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15649491938,
+      "vsum": 2.156494919376e-05,
+      "err": 0.005924148691945241,
+      "abs_err": 0.005924148691945241,
+      "analog_pass": false,
+      "a_eff": 100000.00000018548,
+      "name": "pdk_r_behav_tt_27"
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tt_tm40.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15578308383,
+      "vsum": 2.155783083827e-05,
+      "err": 0.006635984241945447,
+      "abs_err": 0.006635984241945447,
+      "analog_pass": false,
+      "a_eff": 100000.00000013916,
+      "name": "pdk_r_tt_-40",
+      "corner": "tt",
+      "temp_C": -40.0
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tt_t85.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.15652260643,
+      "vsum": 2.156522606425e-05,
+      "err": 0.005896461641945461,
+      "abs_err": 0.005896461641945461,
+      "analog_pass": false,
+      "a_eff": 100000.00000023186,
+      "name": "pdk_r_tt_85",
+      "corner": "tt",
+      "temp_C": 85.0
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_miller_noservo_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.16075648572,
+      "vsum": -0.000465488455612,
+      "err": 0.0016625823519453853,
+      "abs_err": 0.0016625823519453853,
+      "analog_pass": false,
+      "a_eff": 4641.9120811044595,
+      "i(Vddtia)": -0.000345481128948,
+      "i(Vsstia)": 0.0004104536843721,
+      "i(Vn1ib)": 4.39610099625e-19,
+      "name": "miller_noservo_27"
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_miller_servo_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.19436393838,
+      "vsum": -0.00430681228419,
+      "err": -0.03194487030805471,
+      "abs_err": 0.03194487030805471,
+      "analog_pass": false,
+      "a_eff": 509.5100026614471,
+      "i(Vddtia)": -0.000827525916113,
+      "i(Vsstia)": 0.0008933979070263,
+      "v(n1srv)": -0.00426411339303,
+      "name": "miller_servo_27"
+    },
+    {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_w10_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.16014477745,
+      "vsum": 2.160144777445e-05,
+      "err": 0.002274290621945063,
+      "abs_err": 0.002274290621945063,
+      "analog_pass": false,
+      "a_eff": 100000.00000023148,
+      "name": "pdk_r_behav_w10_27",
+      "geometry": "W=10 um same-family length encode"
+    }
+  ],
+  "transient": [
+    {
+      "name": "tran_0.0001",
+      "t_stop": 0.0001,
+      "z_ref": -2.1624190680719453,
+      "dat": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tran_0.0001.dat",
+      "failed": false,
+      "y": -2.156494926234,
+      "vsum": 2.156494926234e-05,
+      "err": 0.005924141837945207,
+      "abs_err": 0.005924141837945207,
+      "analog_pass": false,
+      "n_points": 119,
+      "note": "Recovered from wrdata. print-after-tran was not parseable."
+    },
+    {
+      "name": "tran_0.0002",
+      "t_stop": 0.0002,
+      "z_ref": -2.1624190680719453,
+      "dat": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tran_0.0002.dat",
+      "failed": false,
+      "y": -2.156494926234,
+      "vsum": 2.156494926234e-05,
+      "err": 0.005924141837945207,
+      "abs_err": 0.005924141837945207,
+      "analog_pass": false,
+      "n_points": 219,
+      "note": "Recovered from wrdata. print-after-tran was not parseable."
+    },
+    {
+      "name": "tran_0.0005",
+      "t_stop": 0.0005,
+      "z_ref": -2.1624190680719453,
+      "dat": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tran_0.0005.dat",
+      "failed": false,
+      "y": -2.156494912517,
+      "vsum": 2.156494912517e-05,
+      "err": 0.005924155554945187,
+      "abs_err": 0.005924155554945187,
+      "analog_pass": false,
+      "n_points": 220,
+      "note": "Recovered from wrdata. print-after-tran was not parseable."
+    },
+    {
+      "name": "tran_0.001",
+      "t_stop": 0.001,
+      "z_ref": -2.1624190680719453,
+      "dat": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_behav_tran_0.001.dat",
+      "failed": false,
+      "y": -2.156494926235,
+      "vsum": 2.156494926235e-05,
+      "err": 0.005924141836945118,
+      "abs_err": 0.005924141836945118,
+      "analog_pass": false,
+      "n_points": 221,
+      "note": "Recovered from wrdata. print-after-tran was not parseable."
+    },
+    {
+      "name": "miller_noservo_tran200",
+      "t_stop": 0.0002,
+      "z_ref": -2.1624190680719453,
+      "failed": false,
+      "y": -2.160752345399,
+      "err": 0.001666722672945209,
+      "abs_err": 0.001666722672945209,
+      "analog_pass": false
+    }
+  ],
+  "leakage": {
+    "i_sum_miller": 4.39610099625e-19,
+    "ceiling_A": 1.3098e-08,
+    "note": "Measured TIA input ammeter if present. 85 C FET leak not a separate off-FET bench unless listed.",
+    "status": "measured",
+    "level": "LEVEL 1 MODEL DEMONSTRATED"
+  },
+  "power": {
+    "idd_tia_A": -0.000827525916113,
+    "vsupply_plus_minus": 2.5,
+    "p_quiescent_W": 0.004137629580565,
+    "note": "One isolated TIA (+servo if used). Not chip power. Not OPA189 Iq.",
+    "level": "LEVEL 1 MODEL DEMONSTRATED"
+  },
+  "swing": {
+    "o2_z": 2.4594895708801316,
+    "network_z": 2.9371827051901307,
+    "rails": "+/-2.5 V",
+    "o2_in_range": true,
+    "network_in_range": false,
+    "note": "2.94 V network requirement exceeds +/-2.5 V. 5V devices span 5 V. Unsafe to invent 6 V rails.",
+    "level": "LEVEL 2 PROCESS DOCUMENTED"
+  },
+  "capacitors": {
+    "source": "sky130A libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice camimc=2.00e-15",
+    "level": "LEVEL 2 PROCESS DOCUMENTED + LEVEL 1 model parameter",
+    "rows": [
+      {
+        "C_F": 1e-12,
+        "density_F_per_um2": 2e-15,
+        "area_um2": 499.99999999999994,
+        "area_mm2": 0.0004999999999999999,
+        "verdict": "realistic"
+      },
+      {
+        "C_F": 1e-11,
+        "density_F_per_um2": 2e-15,
+        "area_um2": 4999.999999999999,
+        "area_mm2": 0.004999999999999999,
+        "verdict": "realistic"
+      },
+      {
+        "C_F": 1e-10,
+        "density_F_per_um2": 2e-15,
+        "area_um2": 50000.0,
+        "area_mm2": 0.05,
+        "verdict": "large_but_possible"
+      },
+      {
+        "C_F": 1e-09,
+        "density_F_per_um2": 2e-15,
+        "area_um2": 500000.0,
+        "area_mm2": 0.5,
+        "verdict": "impractical_on_die"
+      },
+      {
+        "C_F": 2e-09,
+        "density_F_per_um2": 2e-15,
+        "area_um2": 1000000.0,
+        "area_mm2": 1.0,
+        "verdict": "impractical_on_die"
+      }
+    ],
+    "exp28_stack_note": "2 nF+2 nF+1 nF at 2 fF/um2 is 2.5 mm2 per neuron. Impractical on-die."
+  },
+  "monte_carlo": {
+    "supported": true,
+    "corner": "tt_mm",
+    "n": 20,
+    "n_ok": 20,
+    "n_failed": 0,
+    "mae": 0.01955437761558356,
+    "max": 0.050145889121945064,
+    "std": 0.01193825363621083,
+    "p95": 0.03994487199994526,
+    "mean_abs": 0.01955437761558356,
+    "level": "LEVEL 1 MODEL DEMONSTRATED"
+  },
+  "matching": {
+    "status": "MATCHING FEASIBILITY UNRESOLVED",
+    "model_pelgrom_A": 0.0347,
+    "sigma_at_used_Rf_geometry": 0.008752735388652982,
+    "target_leftover": 0.00075,
+    "WL_um2_for_0p075pct": 2140.604444444444,
+    "used_WL_um2": 15.7170614549824,
+    "note": "LEVEL 1 model mismatch. Not silicon PCM. tt_mm Monte Carlo below is model AGAUSS, not a foundry yield. Used geometry sigma~0.875% > 0.075%. Need larger WL or unit tiling; not proven here."
+  },
+  "comparison": [
+    {
+      "metric": "Rf*Gtot",
+      "required": "~140.9",
+      "result": "140.8940",
+      "status": "measured"
+    },
+    {
+      "metric": "residual ratio error",
+      "required": "<=0.075% target",
+      "result": "MATCHING FEASIBILITY UNRESOLVED",
+      "status": "MATCHING FEASIBILITY UNRESOLVED"
+    },
+    {
+      "metric": "output swing",
+      "required": ">=2.94 V network / o2 2.46 V",
+      "result": "o2 2.459 V on +/-2.5 V; 2.94 V not in range",
+      "status": "documented"
+    },
+    {
+      "metric": "current",
+      "required": "2.028e-04 A worst-neuron",
+      "result": "FET Id sweep supports 80 uA-class tail",
+      "status": "measured"
+    },
+    {
+      "metric": "gain",
+      "required": "~1e5 behavioral / 4.88e4 analog",
+      "result": "OL OP sat near -2.31 V (inputs 0); closed-loop a_eff~1e5 on behavioral TIA",
+      "status": "measured"
+    },
+    {
+      "metric": "settling",
+      "required": "<=200 us",
+      "result": 0.005924141837945207,
+      "status": "measured"
+    },
+    {
+      "metric": "leakage",
+      "required": "~13 nA ceiling",
+      "result": 4.39610099625e-19,
+      "status": "measured"
+    },
+    {
+      "metric": "temperature",
+      "required": "-40...85 C",
+      "result": "PDK .temp + resistor TCR exercised",
+      "status": "measured"
+    },
+    {
+      "metric": "capacitor",
+      "required": "1-2 nF previous design",
+      "result": "2 nF => 1.0 mm2 at 2 fF/um2",
+      "status": "documented"
+    },
+    {
+      "metric": "mismatch",
+      "required": "technology-dependent",
+      "result": "MATCHING FEASIBILITY UNRESOLVED",
+      "status": "MATCHING FEASIBILITY UNRESOLVED"
+    },
+    {
+      "metric": "TCR",
+      "required": "technology-dependent",
+      "result": "xhigh_po tc1=-0.00147; temp sweep in resistor[]",
+      "status": "measured"
+    }
+  ],
+  "levels": [
+    {
+      "property": "SKY130 models in ngspice",
+      "level": "LEVEL 1",
+      "note": "this experiment"
+    },
+    {
+      "property": "xhigh_po rsheet/TCR/Pelgrom",
+      "level": "LEVEL 1+2",
+      "note": "in official model + PDK docs"
+    },
+    {
+      "property": "MIM 2 fF/um2",
+      "level": "LEVEL 2",
+      "note": "camimc typical card / public e-test"
+    },
+    {
+      "property": "5V FET voltage",
+      "level": "LEVEL 2",
+      "note": "official device family g5v0"
+    },
+    {
+      "property": "isolated o2 PDK R map",
+      "level": "LEVEL 1",
+      "note": "behavioral TIA labeled"
+    },
+    {
+      "property": "SKY130 miller TIA",
+      "level": "LEVEL 1",
+      "note": "not silicon"
+    },
+    {
+      "property": "0.075% leftover matching",
+      "level": "UNKNOWN / UNRESOLVED",
+      "note": "model Pelgrom says used area is too small"
+    },
+    {
+      "property": "silicon PCM / yield",
+      "level": "not LEVEL 3",
+      "note": "no measured silicon"
+    },
+    {
+      "property": "F40 / chip",
+      "level": "not demonstrated",
+      "note": "forbidden in this experiment"
+    }
+  ],
+  "decision": {
+    "letter": "B",
+    "title": "O2 CELL WORKS BUT TECHNOLOGY DATA REMAINS MISSING",
+    "why": [
+      "Official SKY130A models ran. Isolated frozen o2 was hosted. F40 was not built.",
+      "Length-encoded W=1 xhigh_po + behavioral TIA: |err|=5.924e-03 (systematic; tt/ll/hh identical).",
+      "W=10 um encode |err|=0.002274290621945063. Miller noservo DC |err|=0.0016625823519453853.",
+      "200 us behavioral fabric settled to the DC value (|err|=0.005924141837945207).",
+      "tt_mm n=20 MAE=0.0196. Model Pelgrom at used Rf area is 0.875% vs 0.075% target.",
+      "2.94 V network swing exceeds +/-2.5 V 5V-device span. 1-2 nF CDS remains impractical.",
+      "Analog bar 1e-3 was not met. Matching remains UNRESOLVED. Not silicon."
+    ]
+  },
+  "plots": [
+    "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp39_resistor_tcr.png",
+    "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp39_pdk_o2_cell.png",
+    "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp39_o2_error.png"
+  ],
+  "wide_w": {
+    "W_um": 10.0,
+    "rf": {
+      "name": "Rn1f",
+      "R_target": 33333.333333333336,
+      "w_um": 10.0,
+      "l_um": 165.62770500860506,
+      "R_pred": 33333.333333351664,
+      "pelgrom_sigma": 0.000852634659524999
+    },
+    "rec": {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp39_o2\\o2_pdk_r_w10_27.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": -2.1624190680719453,
+      "y": -2.16014477745,
+      "vsum": 2.160144777445e-05,
+      "err": 0.002274290621945063,
+      "abs_err": 0.002274290621945063,
+      "analog_pass": false,
+      "a_eff": 100000.00000023148,
+      "name": "pdk_r_behav_w10_27",
+      "geometry": "W=10 um same-family length encode"
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "experiment_id": "exp49",
+  "kind": "Existing Miller+servo 200 us transient discrimination",
+  "objective": "DC miss vs settled sampled inference",
+  "frozen_baseline": "Exp9 F / catalog o2 W2[1] / Exp41 W=10 / Exp39 Miller sizes",
+  "hypothesis": "The integrating servo may reach a different equilibrium in TRAN than the Experiment 48 DC operating point.",
+  "pass_fail": "|y-z|<=1e-3 at 200 us",
+  "allowed": [
+    "transient time",
+    "trap vs gear"
+  ],
+  "forbidden": [
+    "W/L resize",
+    "weight edit",
+    "Python correction"
+  ],
+  "status": "CLOSED NEGATIVE PATH",
+  "decision": "D",
+  "decision_label": "EXISTING MILLER+SERVO STILL MISSES BY HUNDREDS OF mV AT 200 us",
+  "physical_tia_validated": false,
+  "silicon": false,
+  "resized": false,
+  "dc": {
+    "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp49_o2\\dc_servo_repeat.cir",
+    "failed": false,
+    "failure_reason": null,
+    "z_ref": 2.459489570880132,
+    "y": 2.098479338703,
+    "vsum": -0.00431771919803,
+    "err": -0.361010232177132,
+    "abs_err": 0.361010232177132,
+    "analog_pass": false,
+    "a_eff": 486.01570469437917,
+    "v(n1srv)": 0.00825031921733,
+    "name": "dc_servo_repeat",
+    "python_corrected": false,
+    "resized": false,
+    "delta_vs_exp48": 0.0,
+    "repeat_ok": true,
+    "headroom_V": 0.4015206612969999
+  },
+  "transients": [
+    {
+      "name": "servo_tran_500u_trap",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp49_o2\\servo_tran_500u_trap.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": 2.459489570880132,
+      "tstop_s": 0.0005,
+      "method": "trap_default",
+      "python_corrected": false,
+      "resized": false,
+      "samples": [
+        {
+          "t_s": 0.0001,
+          "y": 1.993869,
+          "vsum": -0.0055571,
+          "vsrv": 0.00400105,
+          "err": -0.4656205708801322,
+          "abs_err": 0.4656205708801322,
+          "analog_pass": false,
+          "headroom_V": 0.5061310000000001,
+          "delta_vs_exp48_dc": -0.10461033870300018
+        },
+        {
+          "t_s": 0.0002,
+          "y": 2.044546,
+          "vsum": -0.0049567,
+          "vsrv": 0.00579617,
+          "err": -0.4149435708801321,
+          "abs_err": 0.4149435708801321,
+          "analog_pass": false,
+          "headroom_V": 0.455454,
+          "delta_vs_exp48_dc": -0.0539333387030001
+        },
+        {
+          "t_s": 0.0005,
+          "y": 2.087267,
+          "vsum": -0.00445057,
+          "vsrv": 0.00768364,
+          "err": -0.3722225708801319,
+          "abs_err": 0.3722225708801319,
+          "analog_pass": false,
+          "headroom_V": 0.4127329999999998,
+          "delta_vs_exp48_dc": -0.011212338702999869
+        }
+      ],
+      "y": 2.087267,
+      "vsum": -0.00445057,
+      "err": -0.3722225708801319,
+      "abs_err": 0.3722225708801319,
+      "analog_pass": false,
+      "headroom_V": 0.4127329999999998,
+      "vsrv": 0.00768364
+    },
+    {
+      "name": "servo_tran_200u_repeat",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp49_o2\\servo_tran_200u_repeat.cir",
+      "failed": false,
+      "failure_reason": null,
+      "z_ref": 2.459489570880132,
+      "tstop_s": 0.0002,
+      "method": "trap_default",
+      "python_corrected": false,
+      "resized": false,
+      "samples": [
+        {
+          "t_s": 0.0001,
+          "y": 1.993869,
+          "vsum": -0.0055571,
+          "vsrv": 0.00400105,
+          "err": -0.4656205708801322,
+          "abs_err": 0.4656205708801322,
+          "analog_pass": false,
+          "headroom_V": 0.5061310000000001,
+          "delta_vs_exp48_dc": -0.10461033870300018
+        },
+        {
+          "t_s": 0.0002,
+          "y": 2.044546,
+          "vsum": -0.00495671,
+          "vsrv": 0.00579867,
+          "err": -0.4149435708801321,
+          "abs_err": 0.4149435708801321,
+          "analog_pass": false,
+          "headroom_V": 0.455454,
+          "delta_vs_exp48_dc": -0.0539333387030001
+        }
+      ],
+      "y": 2.044546,
+      "vsum": -0.00495671,
+      "err": -0.4149435708801321,
+      "abs_err": 0.4149435708801321,
+      "analog_pass": false,
+      "headroom_V": 0.455454,
+      "vsrv": 0.00579867
+    }
+  ],
+  "exp48_dc_y": 2.098479338703,
+  "exp48_dc_abs_err": 0.361010232177132,
+  "matching": "UNRESOLVED",
+  "solver": {
+    "ngspice": "C:\\ngspice\\bin\\ngspice_con.exe",
+    "primary": "tran 1u; default trap, gear fallback",
+    "spiceinit": "ngbehavior=hsa skywaterpdk ng_nomodcheck klu"
+  },
+  "next_experiment": "Experiment 50: Track B \u2014 inventory documented SKY130/PDK amplifier classes against Experiment 44 budgets. Do not resize this Miller. Do not invent W/L.",
+  "conclusion": "Decision D \u2014 EXISTING MILLER+SERVO STILL MISSES BY HUNDREDS OF mV AT 200 us. Experiment 48 DC was y=2.098479338703 (|err|=361.0 mV). No W/L was changed. Not silicon. PHYSICAL TIA VALIDATED remains no."
+}

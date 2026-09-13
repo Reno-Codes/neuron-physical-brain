@@ -1,0 +1,44 @@
+[
+  {
+    "id": "ciel-releases",
+    "title": "FOSSI Ciel official open_pdks SKY130 tarballs",
+    "url": "https://github.com/fossi-foundation/ciel-releases/releases/tag/sky130-1689ac3f2dc763876eaf967227c7dfe831b031ae",
+    "kind": "official_pdk_release",
+    "used_for": "SKY130A common + sky130_fd_pr install"
+  },
+  {
+    "id": "ciel",
+    "title": "fossi-foundation/ciel v2.6.1",
+    "url": "https://github.com/fossi-foundation/ciel",
+    "kind": "official_pdk_manager",
+    "used_for": "version listing and release manifest"
+  },
+  {
+    "id": "open_pdks",
+    "title": "RTimothyEdwards/open_pdks (processed SKY130)",
+    "url": "https://github.com/RTimothyEdwards/open_pdks",
+    "kind": "official_pdk_repo",
+    "used_for": "ciel builds are open_pdks snapshots"
+  },
+  {
+    "id": "sky-xhigh",
+    "title": "sky130_fd_pr__res_xhigh_po.model.spice",
+    "url": "C:/dev/pdk/sky130A/libs.ref/sky130_fd_pr/spice/sky130_fd_pr__res_xhigh_po.model.spice",
+    "kind": "pdk_model",
+    "used_for": "rsheet 2000, Pelgrom 0.0347, TCR tc1=-1.47e-3"
+  },
+  {
+    "id": "sky-mim",
+    "title": "res_typical__cap_typical__lin.spice camimc",
+    "url": "C:/dev/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice",
+    "kind": "pdk_model",
+    "used_for": "MIM 2.00e-15 F/um2"
+  },
+  {
+    "id": "sky-g5v",
+    "title": "nfet_g5v0d10v5 xschem default W/L and model bins",
+    "url": "C:/dev/pdk/sky130A/libs.tech/xschem/sky130_fd_pr/nfet_g5v0d10v5.sym",
+    "kind": "pdk_symbol",
+    "used_for": "default L=0.5 um; bins Lmin=0.50 um Wmin=0.42 um"
+  }
+]

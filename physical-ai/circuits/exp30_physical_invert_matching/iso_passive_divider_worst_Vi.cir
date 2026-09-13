@@ -1,0 +1,16 @@
+* Experiment 30 isolated invert bench mode=passive_divider
+* Vin=2.60818 R1=10000 R2=10000 Rload=4914.01 A=100000
+* Frozen-map invert identity: Vout should equal -Vin.
+Vin in 0 DC 2.60817586522917
+Rinvbia in mid 10000
+Rinvbib out mid 10000
+Rload out 0 4914.01304862554
+* no amplifier — dest is the R1/R2 tap to ground through Rload
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+.endc
+.end

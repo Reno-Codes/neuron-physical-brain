@@ -1,0 +1,86 @@
+[
+  {
+    "id": "ihp-docs",
+    "title": "IHP 130nm BiCMOS Open Source PDK documentation",
+    "url": "https://ihp-open-pdk-docs.readthedocs.io/en/latest/process_specs/01_general.html",
+    "kind": "official_pdk_docs",
+    "used_for": "SG13G2 1.2 V / 3.3 V oxides, poly resistors, MIM, analog device list"
+  },
+  {
+    "id": "ihp-github",
+    "title": "IHP-GmbH/IHP-Open-PDK",
+    "url": "https://github.com/IHP-GmbH/IHP-Open-PDK",
+    "kind": "official_pdk_repo",
+    "used_for": "ngspice PSP MOS models, resistor symbols rsil/rppd/rhigh"
+  },
+  {
+    "id": "ihp-rhigh",
+    "title": "IHP xschem analog devices: rhigh 1360 ohm/sq",
+    "url": "https://ihp-open-pdk-docs.readthedocs.io/en/main/analog/xschem.html",
+    "kind": "official_pdk_docs",
+    "used_for": "rhigh / rsil / rppd sheet resistances"
+  },
+  {
+    "id": "ihp-mim-fraunhofer",
+    "title": "Fraunhofer IIS IHP process sheet, MIM 1.5 fF/um2",
+    "url": "https://www.iis.fraunhofer.de/content/dam/iis/en/doc/il/ics/IHP%20HR%20CMYK%20v1.pdf",
+    "kind": "published_process_sheet",
+    "used_for": "SG13G2 MIM 1.5 fF/um2, CMOS I/O 3.3 V"
+  },
+  {
+    "id": "ihp-mpw",
+    "title": "IHP SiGe:C BiCMOS MPW technologies",
+    "url": "https://www.ihp-microelectronics.com/services/research-and-prototyping-service/mpw-prototyping-service/sigec-bicmos-technologies",
+    "kind": "official_foundry",
+    "used_for": "SG13G2Cu MIM 2 fF/um2 copper-BEOL option"
+  },
+  {
+    "id": "sky-device",
+    "title": "SkyWater SKY130 device details",
+    "url": "https://skywater-pdk.readthedocs.io/en/main/rules/device-details.html",
+    "kind": "official_pdk_docs",
+    "used_for": "1.8/5 V FETs, precision poly R 300 and 2000 ohm/sq, MIM 2 fF/um2"
+  },
+  {
+    "id": "sky-github",
+    "title": "google/skywater-pdk",
+    "url": "https://github.com/google/skywater-pdk",
+    "kind": "official_pdk_repo",
+    "used_for": "open PDK availability; matching numbers in SkyWater 002-21997 not public"
+  },
+  {
+    "id": "gf-res",
+    "title": "GF180MCU resistor models",
+    "url": "https://gf180mcu-pdk.readthedocs.io/en/latest/analog/model_parameters/LV/LV_4.html",
+    "kind": "official_pdk_docs",
+    "used_for": "3.3 V and 6.0 V high-R poly resistors"
+  },
+  {
+    "id": "gf-mim",
+    "title": "GF180MCU MIM model table",
+    "url": "https://gf180mcu-pdk.readthedocs.io/en/latest/analog/model_parameters/LV/LV_1_4_6.html",
+    "kind": "official_pdk_docs",
+    "used_for": "MIM 1.0 / 1.5 / 2.0 fF/um2, V<=6 V; local statistical N for MIM"
+  },
+  {
+    "id": "gf-rstat",
+    "title": "GF180MCU resistor statistical flags",
+    "url": "https://gf180mcu-pdk.readthedocs.io/en/latest/analog/model_parameters/LV/LV_1_4_4.html",
+    "kind": "official_pdk_docs",
+    "used_for": "npolyf_u/ppolyf_u local statistical Y; high-R 1k/2k local statistical N"
+  },
+  {
+    "id": "ng-ihp-howto",
+    "title": "ngspice IHP-PDK-howto.txt (local)",
+    "url": "C:\\ngspice\\examples\\IHPOpenSourcePDK\\IHP-PDK-howto.txt",
+    "kind": "local_ngspice",
+    "used_for": "PDK_ROOT / OpenVAF install recipe; PDK not installed here"
+  },
+  {
+    "id": "ng-sky-howto",
+    "title": "ngspice SkywaterOpenSourcePDK readme (local)",
+    "url": "C:\\ngspice\\examples\\SkywaterOpenSourcePDK\\readme.txt",
+    "kind": "local_ngspice",
+    "used_for": "example .lib path D:\\Spice_general\\open_pdks\\sky130\\... not present"
+  }
+]

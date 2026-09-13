@@ -1,0 +1,925 @@
+{
+  "experiment_id": "exp38",
+  "spice_source_of_truth": true,
+  "frozen_weights_edited": false,
+  "pdk_invented": false,
+  "device_parameters_invented": false,
+  "python_correction": false,
+  "local": {
+    "ngspice": "C:\\ngspice\\bin\\ngspice_con.exe",
+    "env": {
+      "PDK_ROOT": null,
+      "PDK": null,
+      "PDK_ROOT_SKY130": null,
+      "OPENPDK": null
+    },
+    "pdk_root_set": false,
+    "teaching_bsim3": {
+      "nmos": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp\\modelcard.nmos",
+      "pmos": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp\\modelcard.pmos",
+      "present": true,
+      "resistor_model": false
+    },
+    "ihp_howto": "C:\\ngspice\\examples\\IHPOpenSourcePDK\\IHP-PDK-howto.txt",
+    "ihp_tree": null,
+    "sky_howto": "C:\\ngspice\\examples\\SkywaterOpenSourcePDK\\readme.txt",
+    "sky_example_lib": null,
+    "r2_cmc_example": "C:\\ngspice\\examples\\osdi\\r2_cmc",
+    "osdi_binaries": [
+      "C:\\ngspice\\lib\\ngspice\\asmhemt.osdi",
+      "C:\\ngspice\\lib\\ngspice\\bjt504t.osdi",
+      "C:\\ngspice\\lib\\ngspice\\bjt505t.osdi",
+      "C:\\ngspice\\lib\\ngspice\\bsim480.osdi",
+      "C:\\ngspice\\lib\\ngspice\\BSIMBULK106.osdi",
+      "C:\\ngspice\\lib\\ngspice\\BSIMBULK107.osdi",
+      "C:\\ngspice\\lib\\ngspice\\BSIMCMG.osdi",
+      "C:\\ngspice\\lib\\ngspice\\EKV3.osdi",
+      "C:\\ngspice\\lib\\ngspice\\HICUMl0-2.0.osdi",
+      "C:\\ngspice\\lib\\ngspice\\hicumL2_v31.osdi",
+      "C:\\ngspice\\lib\\ngspice\\juncap200.osdi",
+      "C:\\ngspice\\lib\\ngspice\\mosvar.osdi",
+      "C:\\ngspice\\lib\\ngspice\\psp102.osdi",
+      "C:\\ngspice\\lib\\ngspice\\psp103.osdi",
+      "C:\\ngspice\\lib\\ngspice\\psp103_nqs.osdi",
+      "C:\\ngspice\\lib\\ngspice\\psp103_nqs_gmin.osdi",
+      "C:\\ngspice\\lib\\ngspice\\r2_cmc.osdi",
+      "C:\\ngspice\\lib\\ngspice\\r3_cmc.osdi",
+      "C:\\ngspice\\lib\\ngspice\\vbic_4T_et_cf.osdi"
+    ],
+    "opa189": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\vendor\\ti\\opa189\\OPAx189.LIB",
+    "foundry_pdk_installed": false,
+    "note": "PDK_ROOT unset. IHP and SkyWater howtos exist under ngspice/examples. Foundry model trees are absent. Compact-model .osdi plugins exist under C:\\ngspice\\lib\\ngspice (including psp103 and r2_cmc) but they are not a PDK."
+  },
+  "requirements": {
+    "network": "F",
+    "shape": [
+      16,
+      32,
+      16
+    ],
+    "frozen_model": "models/scaling/F.npz seed 9",
+    "n_logical_resistors": 1342,
+    "by_kind": {
+      "invert": 98,
+      "divider": 124,
+      "weight": 1024,
+      "bias": 48,
+      "feedback": 48
+    },
+    "r_min_ohm": 1000.0,
+    "r_max_ohm": 993299.1935926969,
+    "n_hidden_inverts": 32,
+    "n_invert_stages_total": 49,
+    "worst_RfG_tag": "o2",
+    "worst_RfG": 140.89398023224967,
+    "worst_G_tag": "o2",
+    "worst_G_S": 0.00422681940696749,
+    "largest_hidden_G_tag": "h5",
+    "largest_hidden_G_S": 0.0025453937764267735,
+    "Rf_ohm": 33333.333333333336,
+    "o2_RfG": 140.89398023224967,
+    "o2_z_abs_max": 2.4594895708801316,
+    "z_abs_max_tag": "h25",
+    "z_abs_max_V": 2.9371827051901307,
+    "hy_max_V": 2.6081758652291698,
+    "z2_max_V": 2.4594895708801316,
+    "I_max_worst_neuron_A": 0.00023411431370398122,
+    "I_max_sum_all_neurons_A": 0.007299530602891502,
+    "I_max_note": "I_max_est = G_WEIGHT * L1 mass per neuron. 234 uA in Exp 37 is the worst-neuron estimate, not network total current.",
+    "analog_mae_bar": 0.001,
+    "classification_required": 1.0,
+    "dwell_s": 0.0002,
+    "temp_C": [
+      -40.0,
+      27.0,
+      85.0
+    ],
+    "vos_uncorrected_ceiling_V": 2.2e-05,
+    "vos_raw_representative_V": 0.000214023,
+    "ileak_analog_ceiling_A": 1.3098e-08,
+    "tia_A_analog": 48846.0,
+    "tia_A_conservative": 100000.0,
+    "invert_A_uncompensated_pass": 10000.0,
+    "invert_Vos_analog_ceiling_V": 0.0001,
+    "exp29_local_residual_pass": 0.00075,
+    "exp29_local_residual_fail": 0.00125,
+    "cds_C_F": {
+      "Ccds": 2e-09,
+      "Ccouple": 2e-09,
+      "Cf": 1e-09
+    },
+    "miller_vsupply_V": 2.5
+  },
+  "priors": {
+    "exp22": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\virtual_ground_requirements_report.json",
+      "keys": [
+        "experiment",
+        "title",
+        "frozen_weights",
+        "spice_source_of_truth",
+        "python_does_not_correct_spice",
+        "device_level",
+        "pole_smoke",
+        "laplace_smoke",
+        "baseline",
+        "ranking",
+        "gain",
+        "offset",
+        "leakage",
+        "rout",
+        "bandwidth",
+        "combined",
+        "thresholds",
+        "design_rule",
+        "validation",
+        "isolated_vs_network_vos_1mV",
+        "requirement_table",
+        "conservative_notes",
+        "comparison",
+        "failure_modes"
+      ]
+    },
+    "exp26": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\device_neuron_report.json",
+      "keys": [
+        "experiment",
+        "spice_source_of_truth",
+        "ihp_pdk_installed",
+        "ranking",
+        "area_proxy",
+        "o2_noservo",
+        "o2_servo",
+        "tiling",
+        "o2_vectors",
+        "other_neurons",
+        "gtot_sweep",
+        "tran_o2",
+        "tran_o2_slim",
+        "dwell",
+        "offset_sweep",
+        "mos_mismatch",
+        "resistor_mismatch",
+        "supply_sweep",
+        "temp_sweep",
+        "amp_char",
+        "behavioral_L_o2",
+        "cascode_o2",
+        "gain_tries",
+        "multi_input"
+      ]
+    },
+    "exp27": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp27_matching_temperature.json",
+      "keys": [
+        "experiment",
+        "spice_source_of_truth",
+        "ihp_pdk_installed",
+        "resistor_tcr_invented",
+        "n_logical",
+        "o2_Rf_Gtot",
+        "baseline_exp26",
+        "nominal_27",
+        "tiling",
+        "n_for_1e3",
+        "mismatch_tol",
+        "role_mismatch",
+        "ratio_matching",
+        "polarity",
+        "case1_temp",
+        "temp_decomposition",
+        "case2_replica",
+        "case3_az",
+        "case3_follower",
+        "case3_vcvs_ref",
+        "case3_sum",
+        "case3_mos_diff",
+        "dynamic_compensation",
+        "az_dwell"
+      ]
+    },
+    "exp28": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp28_output_interface.json",
+      "keys": [
+        "experiment",
+        "spice_source_of_truth",
+        "ihp_pdk_installed",
+        "z_maxabs",
+        "z_neg",
+        "z_pos",
+        "ccds_F",
+        "q_at_zmax",
+        "ranking_pre_registered",
+        "invert_dw_27C_null",
+        "invert_dw_note",
+        "raw_vs_temp",
+        "unbuf_27",
+        "droop",
+        "droop_summary",
+        "plate_sensitivity",
+        "requirements",
+        "miller_diag",
+        "miller_text",
+        "candidates_200us",
+        "iface_vs_temp",
+        "best_name",
+        "candidate_text",
+        "best_dwell"
+      ]
+    },
+    "exp29": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp29_resistor_ratio_matching.json",
+      "keys": [
+        "experiment",
+        "spice_source_of_truth",
+        "frozen_weights",
+        "network_f_transistorized",
+        "python_correction",
+        "foundry_parameters_invented",
+        "inventory",
+        "accounting",
+        "o2",
+        "n_compare",
+        "n_full",
+        "n_mc",
+        "models",
+        "exp27_replay",
+        "nominal_f",
+        "nominal_f12",
+        "nominal_iso",
+        "independent_f12",
+        "common_mode_f12",
+        "ratio_exp27_f12",
+        "iso_independent",
+        "iso_common_mode",
+        "iso_ratio_exp27",
+        "independent_vs_tol"
+      ],
+      "f40_ratio_mae": null,
+      "local_pass": 0.00075
+    },
+    "exp30": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp30_tech_inventory.json",
+      "keys": [
+        "pdk_root",
+        "pdk",
+        "ihp_installed",
+        "sky130_installed",
+        "foundry_pdk_invented",
+        "resistor_tcr_invented",
+        "technologies",
+        "r2_cmc_probe"
+      ]
+    },
+    "exp36": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp36_f40_physical_hidden_inverter.json",
+      "keys": [
+        "experiment_id",
+        "source_experiment",
+        "network",
+        "vector_count",
+        "hidden_inverter_count",
+        "hidden_inverter_model",
+        "dc_solver_policy",
+        "tran_solver_policy",
+        "spice_source_of_truth",
+        "network_f_transistorized",
+        "python_correction",
+        "frozen_weights_edited",
+        "pdk_installed",
+        "manifest",
+        "remaining_ideal_blocks",
+        "controls",
+        "n32_regression",
+        "dc_results",
+        "dc_repeatability",
+        "reltol_sweep",
+        "hidden_inverter_residuals",
+        "worst_vectors",
+        "power_scope",
+        "tran_vectors_0.0001"
+      ],
+      "dc_mae": 0.0006313215899900776,
+      "tran200_mae": 0.0004858913171310178
+    },
+    "exp37": {
+      "present": true,
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp37_physical_tia_integration.json",
+      "keys": [
+        "experiment_id",
+        "source_experiment",
+        "network",
+        "spice_source_of_truth",
+        "network_f_transistorized",
+        "python_correction",
+        "frozen_weights_edited",
+        "pdk_installed",
+        "tia_primitive",
+        "inverter_primitive",
+        "dc_solver_policy",
+        "tran_solver_policy",
+        "requirements",
+        "requirements_rows",
+        "representative_tags",
+        "baseline",
+        "isolated_replay",
+        "_iso_cat_n",
+        "loaded_neurons",
+        "temperature",
+        "cds_path",
+        "ratio",
+        "insertions",
+        "insertion_tran"
+      ],
+      "decision": "B",
+      "o2_gear": 0.0007953792072091372
+    }
+  },
+  "sources": [
+    {
+      "id": "ihp-docs",
+      "title": "IHP 130nm BiCMOS Open Source PDK documentation",
+      "url": "https://ihp-open-pdk-docs.readthedocs.io/en/latest/process_specs/01_general.html",
+      "kind": "official_pdk_docs",
+      "used_for": "SG13G2 1.2 V / 3.3 V oxides, poly resistors, MIM, analog device list"
+    },
+    {
+      "id": "ihp-github",
+      "title": "IHP-GmbH/IHP-Open-PDK",
+      "url": "https://github.com/IHP-GmbH/IHP-Open-PDK",
+      "kind": "official_pdk_repo",
+      "used_for": "ngspice PSP MOS models, resistor symbols rsil/rppd/rhigh"
+    },
+    {
+      "id": "ihp-rhigh",
+      "title": "IHP xschem analog devices: rhigh 1360 ohm/sq",
+      "url": "https://ihp-open-pdk-docs.readthedocs.io/en/main/analog/xschem.html",
+      "kind": "official_pdk_docs",
+      "used_for": "rhigh / rsil / rppd sheet resistances"
+    },
+    {
+      "id": "ihp-mim-fraunhofer",
+      "title": "Fraunhofer IIS IHP process sheet, MIM 1.5 fF/um2",
+      "url": "https://www.iis.fraunhofer.de/content/dam/iis/en/doc/il/ics/IHP%20HR%20CMYK%20v1.pdf",
+      "kind": "published_process_sheet",
+      "used_for": "SG13G2 MIM 1.5 fF/um2, CMOS I/O 3.3 V"
+    },
+    {
+      "id": "ihp-mpw",
+      "title": "IHP SiGe:C BiCMOS MPW technologies",
+      "url": "https://www.ihp-microelectronics.com/services/research-and-prototyping-service/mpw-prototyping-service/sigec-bicmos-technologies",
+      "kind": "official_foundry",
+      "used_for": "SG13G2Cu MIM 2 fF/um2 copper-BEOL option"
+    },
+    {
+      "id": "sky-device",
+      "title": "SkyWater SKY130 device details",
+      "url": "https://skywater-pdk.readthedocs.io/en/main/rules/device-details.html",
+      "kind": "official_pdk_docs",
+      "used_for": "1.8/5 V FETs, precision poly R 300 and 2000 ohm/sq, MIM 2 fF/um2"
+    },
+    {
+      "id": "sky-github",
+      "title": "google/skywater-pdk",
+      "url": "https://github.com/google/skywater-pdk",
+      "kind": "official_pdk_repo",
+      "used_for": "open PDK availability; matching numbers in SkyWater 002-21997 not public"
+    },
+    {
+      "id": "gf-res",
+      "title": "GF180MCU resistor models",
+      "url": "https://gf180mcu-pdk.readthedocs.io/en/latest/analog/model_parameters/LV/LV_4.html",
+      "kind": "official_pdk_docs",
+      "used_for": "3.3 V and 6.0 V high-R poly resistors"
+    },
+    {
+      "id": "gf-mim",
+      "title": "GF180MCU MIM model table",
+      "url": "https://gf180mcu-pdk.readthedocs.io/en/latest/analog/model_parameters/LV/LV_1_4_6.html",
+      "kind": "official_pdk_docs",
+      "used_for": "MIM 1.0 / 1.5 / 2.0 fF/um2, V<=6 V; local statistical N for MIM"
+    },
+    {
+      "id": "gf-rstat",
+      "title": "GF180MCU resistor statistical flags",
+      "url": "https://gf180mcu-pdk.readthedocs.io/en/latest/analog/model_parameters/LV/LV_1_4_4.html",
+      "kind": "official_pdk_docs",
+      "used_for": "npolyf_u/ppolyf_u local statistical Y; high-R 1k/2k local statistical N"
+    },
+    {
+      "id": "ng-ihp-howto",
+      "title": "ngspice IHP-PDK-howto.txt (local)",
+      "url": "C:\\ngspice\\examples\\IHPOpenSourcePDK\\IHP-PDK-howto.txt",
+      "kind": "local_ngspice",
+      "used_for": "PDK_ROOT / OpenVAF install recipe; PDK not installed here"
+    },
+    {
+      "id": "ng-sky-howto",
+      "title": "ngspice SkywaterOpenSourcePDK readme (local)",
+      "url": "C:\\ngspice\\examples\\SkywaterOpenSourcePDK\\readme.txt",
+      "kind": "local_ngspice",
+      "used_for": "example .lib path D:\\Spice_general\\open_pdks\\sky130\\... not present"
+    }
+  ],
+  "candidates": [
+    {
+      "name": "IHP SG13G2 Open PDK",
+      "node": "130 nm SiGe BiCMOS",
+      "local_pdk": false,
+      "transistor_models": "official PSP in PDK repo; not installed locally",
+      "resistor_models": "rsil 7 ohm/sq, rppd 7 ohm/sq, rhigh 1360 ohm/sq (docs)",
+      "capacitor_models": "MIM; published 1.5 fF/um2 Al BEOL, 2 fF/um2 Cu option",
+      "temperature_docs": "process spec section 2.13 exists; numeric TCR not extracted here",
+      "mismatch_docs": "corners exist; Pelgrom/ratio matching for 0.075% not published in cited pages",
+      "analog_supported": true,
+      "hv_devices": true,
+      "vmax_V": 3.3,
+      "runnable_here": false,
+      "license": "open PDK; foundry states not for production use of the open release",
+      "access": "REFERENCE ONLY until PDK_ROOT+OpenVAF installed",
+      "rank_axes": {
+        "evidence": "GREEN",
+        "analog": "GREEN",
+        "resistor_match": "UNKNOWN",
+        "temp_mismatch": "YELLOW",
+        "voltage": "YELLOW",
+        "models": "YELLOW",
+        "local_sim": "RED",
+        "timing_200us": "GREEN",
+        "capacitor": "YELLOW",
+        "access": "GREEN"
+      },
+      "overall": "YELLOW",
+      "notes": "Best analog-process documentation among open PDKs. 2.94 V swing on 3.3 V HV CMOS has little TIA headroom unless analog ground is mid-rail. Dual +/-2.5 V exceeds 3.3 V devices."
+    },
+    {
+      "name": "SkyWater SKY130",
+      "node": "180/130 nm hybrid",
+      "local_pdk": false,
+      "transistor_models": "official; 1.8 V core and 5 V / HV FETs documented",
+      "resistor_models": "P+ poly precision 300 ohm/sq; P- poly 2000 ohm/sq; matching in SkyWater 002-21997 (not public)",
+      "capacitor_models": "MIM area 2 fF/um2 (CMIMA nom 2, LSL 1.8, USL 2.2)",
+      "temperature_docs": "models include TC; public numeric matching/TCR table not cited as sufficient",
+      "mismatch_docs": "INSUFFICIENT DATA in public docs; Family Device Models upon request",
+      "analog_supported": true,
+      "hv_devices": true,
+      "vmax_V": 5.0,
+      "runnable_here": false,
+      "license": "open PDK (Apache-2.0 / foundry open release)",
+      "access": "REFERENCE ONLY; ngspice howto present, example lib path absent",
+      "rank_axes": {
+        "evidence": "GREEN",
+        "analog": "YELLOW",
+        "resistor_match": "UNKNOWN",
+        "temp_mismatch": "UNKNOWN",
+        "voltage": "GREEN",
+        "models": "YELLOW",
+        "local_sim": "RED",
+        "timing_200us": "GREEN",
+        "capacitor": "YELLOW",
+        "access": "GREEN"
+      },
+      "overall": "YELLOW",
+      "notes": "5 V devices can host +/-2.5 V miller rails. Precision resistor matching numbers are not in the public PDK pages."
+    },
+    {
+      "name": "GlobalFoundries GF180MCU Open PDK",
+      "node": "180 nm MCU",
+      "local_pdk": false,
+      "transistor_models": "official BSIM4 3.3 V / 6 V; not installed locally",
+      "resistor_models": "unsalicided poly with local statistical Y; high-R 1k/2k local statistical N",
+      "capacitor_models": "MIM 1.0 / 1.5 / 2.0 fF/um2, V<=6 V; MIM local statistical N",
+      "temperature_docs": "TCR section exists in electrical specs",
+      "mismatch_docs": "statistical guide exists; high-R family used for compact 33 kOhm may lack local mismatch",
+      "analog_supported": true,
+      "hv_devices": true,
+      "vmax_V": 6.0,
+      "runnable_here": false,
+      "license": "open PDK",
+      "access": "REFERENCE ONLY; no local tree",
+      "rank_axes": {
+        "evidence": "GREEN",
+        "analog": "YELLOW",
+        "resistor_match": "UNKNOWN",
+        "temp_mismatch": "YELLOW",
+        "voltage": "GREEN",
+        "models": "YELLOW",
+        "local_sim": "RED",
+        "timing_200us": "GREEN",
+        "capacitor": "YELLOW",
+        "access": "GREEN"
+      },
+      "overall": "YELLOW",
+      "notes": "Best documented voltage headroom (6 V resistors/MIM). High-R poly local mismatch flag is N, so the compact Rf family is not proven for 0.075% leftover."
+    },
+    {
+      "name": "Berkeley BSIM3v3 teaching cards (CMOSOpAmp)",
+      "node": "teaching 0.35 um-class",
+      "local_pdk": true,
+      "transistor_models": "present; used in Exp 26-28/37",
+      "resistor_models": false,
+      "capacitor_models": "lumped C only",
+      "temperature_docs": "MOS kt1/ute only; default R has no TCR",
+      "mismatch_docs": false,
+      "analog_supported": true,
+      "hv_devices": false,
+      "vmax_V": 2.5,
+      "runnable_here": true,
+      "license": "ngspice example",
+      "access": "locally runnable MOS only",
+      "rank_axes": {
+        "evidence": "GREEN",
+        "analog": "YELLOW",
+        "resistor_match": "RED",
+        "temp_mismatch": "RED",
+        "voltage": "YELLOW",
+        "models": "GREEN",
+        "local_sim": "GREEN",
+        "timing_200us": "GREEN",
+        "capacitor": "RED",
+        "access": "GREEN"
+      },
+      "overall": "RED",
+      "notes": "Already used. Not a foundry. Cannot host the resistor fabric."
+    },
+    {
+      "name": "TI OPA189 GWL macromodel",
+      "node": "vendor IC, not a process",
+      "local_pdk": false,
+      "transistor_models": "macromodel only",
+      "resistor_models": false,
+      "capacitor_models": false,
+      "temperature_docs": "datasheet / macromodel, not fabric TCR",
+      "mismatch_docs": false,
+      "analog_supported": true,
+      "hv_devices": true,
+      "vmax_V": 36.0,
+      "runnable_here": true,
+      "license": "TI model",
+      "access": "LEVEL 3 invert primitive only",
+      "rank_axes": {
+        "evidence": "GREEN",
+        "analog": "GREEN",
+        "resistor_match": "RED",
+        "temp_mismatch": "UNKNOWN",
+        "voltage": "GREEN",
+        "models": "GREEN",
+        "local_sim": "GREEN",
+        "timing_200us": "GREEN",
+        "capacitor": "RED",
+        "access": "GREEN"
+      },
+      "overall": "YELLOW",
+      "notes": "Validates invert requirements as a vendor part, not as custom silicon in a PDK."
+    },
+    {
+      "name": "ASAP7",
+      "node": "7 nm academic predictive",
+      "local_pdk": false,
+      "transistor_models": "predictive academic",
+      "resistor_models": "not an analog foundry resistor family",
+      "capacitor_models": "not used here",
+      "temperature_docs": "academic",
+      "mismatch_docs": "not a production analog PDK",
+      "analog_supported": false,
+      "hv_devices": false,
+      "vmax_V": 0.7,
+      "runnable_here": false,
+      "license": "academic",
+      "access": "REFERENCE ONLY",
+      "rank_axes": {
+        "evidence": "YELLOW",
+        "analog": "RED",
+        "resistor_match": "RED",
+        "temp_mismatch": "UNKNOWN",
+        "voltage": "RED",
+        "models": "YELLOW",
+        "local_sim": "RED",
+        "timing_200us": "GREEN",
+        "capacitor": "UNKNOWN",
+        "access": "YELLOW"
+      },
+      "overall": "RED",
+      "notes": "Predictive digital node. 2.94 V swing is a documented contradiction."
+    },
+    {
+      "name": "CMC r2_cmc compact resistor example",
+      "node": "compact-model example",
+      "local_pdk": false,
+      "transistor_models": false,
+      "resistor_models": "example card only; OSDI binary absent",
+      "capacitor_models": false,
+      "temperature_docs": "example tc1=1.5e-4 is not a foundry TCR",
+      "mismatch_docs": false,
+      "analog_supported": false,
+      "hv_devices": false,
+      "vmax_V": null,
+      "runnable_here": false,
+      "license": "CMC example",
+      "access": "REFERENCE ONLY",
+      "rank_axes": {
+        "evidence": "YELLOW",
+        "analog": "RED",
+        "resistor_match": "RED",
+        "temp_mismatch": "RED",
+        "voltage": "UNKNOWN",
+        "models": "RED",
+        "local_sim": "RED",
+        "timing_200us": "GREEN",
+        "capacitor": "RED",
+        "access": "YELLOW"
+      },
+      "overall": "RED",
+      "notes": "r2_cmc.osdi is now present locally, but the example TC1 is not a foundry TCR and must not be used as the fabric TCR."
+    }
+  ],
+  "capacitors": {
+    "C_per_neuron_F": 5e-09,
+    "note": "Arithmetic from documented MIM density. Not a layout. Fully integrated 2 nF CDS is large.",
+    "by_density": {
+      "1.0e-15": {
+        "density_F_per_m2": 0.001,
+        "density_F_per_um2": 1e-15,
+        "area_one_neuron_um2": 5000000.0,
+        "area_one_neuron_mm2": 5.0,
+        "area_48_neurons_mm2": 240.0,
+        "area_2nF_um2": 2000000.0
+      },
+      "1.5e-15": {
+        "density_F_per_m2": 0.0014999999999999998,
+        "density_F_per_um2": 1.5e-15,
+        "area_one_neuron_um2": 3333333.3333333335,
+        "area_one_neuron_mm2": 3.3333333333333335,
+        "area_48_neurons_mm2": 160.0,
+        "area_2nF_um2": 1333333.3333333335
+      },
+      "2.0e-15": {
+        "density_F_per_m2": 0.002,
+        "density_F_per_um2": 2e-15,
+        "area_one_neuron_um2": 2500000.0,
+        "area_one_neuron_mm2": 2.5,
+        "area_48_neurons_mm2": 120.0,
+        "area_2nF_um2": 1000000.0
+      }
+    }
+  },
+  "matrix": [
+    {
+      "requirement": "analog MAE",
+      "required": 0.001,
+      "prior": "Exp 17/29/36/37 SPICE vs NumPy",
+      "tech": "independent of PDK; already demonstrated mixed-level",
+      "status": "GREEN",
+      "class": "demonstrated_in_spice"
+    },
+    {
+      "requirement": "classification",
+      "required": 1.0,
+      "prior": "F40 Exp 36/37 acc 1.0",
+      "tech": "independent",
+      "status": "GREEN",
+      "class": "demonstrated_in_spice"
+    },
+    {
+      "requirement": "output swing |z|max",
+      "required": 2.9371827051901307,
+      "prior": "Exp 37 F40 software z, h25",
+      "tech": "IHP 3.3 V YELLOW; SKY130 5 V / GF180 6 V GREEN; ASAP7 RED",
+      "status": "YELLOW",
+      "class": "supported_by_published_docs"
+    },
+    {
+      "requirement": "worst-neuron current",
+      "required": 0.00023411431370398122,
+      "prior": "G_WEIGHT * L1; Exp 37 called this 234 uA",
+      "tech": "any analog CMOS; not a process limiter",
+      "status": "GREEN",
+      "class": "inferred_estimated"
+    },
+    {
+      "requirement": "sum of per-neuron I_max",
+      "required": 0.007299530602891502,
+      "prior": "not previously labeled as network current",
+      "tech": "still modest for analog CMOS; supply design unknown",
+      "status": "YELLOW",
+      "class": "inferred_estimated"
+    },
+    {
+      "requirement": "200 us dwell",
+      "required": 0.0002,
+      "prior": "Exp 25/28/36/37; isolated 100 us fail",
+      "tech": "audio-speed analog; GREEN on all real processes",
+      "status": "GREEN",
+      "class": "demonstrated_in_spice"
+    },
+    {
+      "requirement": "residual local Rf*G leftover",
+      "required": 0.00075,
+      "prior": "Exp 29 local residual 0.075% pass / 0.125% fail",
+      "tech": "INSUFFICIENT DATA in public open-PDK matching tables",
+      "status": "UNKNOWN",
+      "class": "completely_unknown"
+    },
+    {
+      "requirement": "uncorrected TIA |Vos|",
+      "required": 2.2e-05,
+      "prior": "Exp 22 analog ceiling",
+      "tech": "raw MOS offset typically larger; servo/CDS required (Exp 26/27)",
+      "status": "YELLOW",
+      "class": "demonstrated_in_spice"
+    },
+    {
+      "requirement": "effective post-CDS offset",
+      "required": 0.001,
+      "prior": "Exp 27/37 CDS analog-pass -40/27/85 C on isolated o2",
+      "tech": "needs PDK switch/C/leakage models; not silicon",
+      "status": "YELLOW",
+      "class": "demonstrated_in_spice"
+    },
+    {
+      "requirement": "summing-node leakage",
+      "required": 1.3098e-08,
+      "prior": "Exp 22 analog |Ileak|",
+      "tech": "85 C junction leak UNKNOWN without PDK",
+      "status": "UNKNOWN",
+      "class": "completely_unknown"
+    },
+    {
+      "requirement": "TIA open-loop A",
+      "required": 48846.0,
+      "prior": "Exp 22 analog A_min; conservative 1e5 simulated",
+      "tech": "two-stage miller in analog CMOS is plausible; not demonstrated on a PDK",
+      "status": "YELLOW",
+      "class": "demonstrated_in_spice"
+    },
+    {
+      "requirement": "hidden invert Vos (32 copies)",
+      "required": 0.0001,
+      "prior": "Exp 30/31; OPA189 Exp 36 macromodel",
+      "tech": "custom invert on PDK UNKNOWN; OPA189 is vendor model",
+      "status": "YELLOW",
+      "class": "demonstrated_using_vendor_model"
+    },
+    {
+      "requirement": "CDS capacitors 1-2 nF",
+      "required": 2e-09,
+      "prior": "Exp 28 teaching lumped C",
+      "tech": "at 2 fF/um2, 48-neuron CDS stack ~120.0 mm2 (inferred area)",
+      "status": "RED",
+      "class": "inferred_estimated"
+    },
+    {
+      "requirement": "resistor TCR",
+      "required": "common-mode cancel if same family; differential TCR unknown",
+      "prior": "Exp 27 .temp is MOS-only; no fabric TCR",
+      "tech": "IHP/SKY/GF document TCR sections; numeric leftover vs 1e-3 UNKNOWN",
+      "status": "UNKNOWN",
+      "class": "completely_unknown"
+    },
+    {
+      "requirement": "MOS mismatch PDF",
+      "required": "servo/CDS must absorb raw Vos",
+      "prior": "teaching DW null is not a PCM",
+      "tech": "PDK statistical models exist (GF/IHP) but unused locally",
+      "status": "UNKNOWN",
+      "class": "completely_unknown"
+    },
+    {
+      "requirement": "layout parasitics",
+      "required": "must not destroy analog map",
+      "prior": "not demonstrated",
+      "tech": "unknown until extraction",
+      "status": "UNKNOWN",
+      "class": "completely_unknown"
+    },
+    {
+      "requirement": "ReLU",
+      "required": "bounded max(0,z)",
+      "prior": "behavioral B-source only",
+      "tech": "not a documented physical primitive",
+      "status": "YELLOW",
+      "class": "demonstrated_in_spice"
+    }
+  ],
+  "demonstrated_vs_required": [
+    {
+      "property": "Frozen weights",
+      "experiment": "demonstrated (Exp 9)",
+      "required": "yes",
+      "technology": "independent"
+    },
+    {
+      "property": "Physical weighted sum",
+      "experiment": "demonstrated (Exp 1-17 SPICE)",
+      "required": "yes",
+      "technology": "resistor implementation required"
+    },
+    {
+      "property": "ReLU",
+      "experiment": "behavioral B-source only",
+      "required": "yes",
+      "technology": "still incomplete"
+    },
+    {
+      "property": "TIA",
+      "experiment": "partial teaching MOS + F12 Gear (Exp 26/37)",
+      "required": "yes",
+      "technology": "PDK miller not simulated"
+    },
+    {
+      "property": "Hidden inverter",
+      "experiment": "OPA189 vendor macromodel (Exp 36)",
+      "required": "yes",
+      "technology": "custom transistor invert incomplete"
+    },
+    {
+      "property": "Rf/G matching",
+      "experiment": "behavioral/statistical (Exp 29)",
+      "required": "yes",
+      "technology": "PDK matching data required"
+    },
+    {
+      "property": "TCR",
+      "experiment": "not demonstrated on fabric",
+      "required": "required",
+      "technology": "unknown until PDK"
+    },
+    {
+      "property": "MOS mismatch",
+      "experiment": "teaching DW null only",
+      "required": "required",
+      "technology": "PDK/model required"
+    },
+    {
+      "property": "Layout parasitics",
+      "experiment": "not demonstrated",
+      "required": "required",
+      "technology": "unknown"
+    },
+    {
+      "property": "Full silicon F40",
+      "experiment": "not demonstrated",
+      "required": "final target",
+      "technology": "unknown"
+    },
+    {
+      "property": "CDS capacitors 1-2 nF",
+      "experiment": "lumped teaching C (Exp 28)",
+      "required": "if CDS path kept",
+      "technology": "on-die area impractical at documented MIM density"
+    }
+  ],
+  "unknowns": [
+    "Public open-PDK resistor matching vs leftover 0.075%",
+    "Fabric resistor TCR leftover after same-family tracking",
+    "85 C summing-node leakage on a real device",
+    "Custom invert offset at N=32 in a PDK (OPA189 is not that)",
+    "Layout parasitics and routing drop",
+    "Physical ReLU",
+    "Switch charge injection at the documented AZ device beyond teaching NCH"
+  ],
+  "min_spec_text": "Minimum Physical AI Process Specification (only numbers the experiments support):\n- Analog bar MAE <= 1e-3; classification 100% on frozen F40.\n- Output swing >= 2.937 V with TIA headroom. Dual +/-2.5 V needs >=5 V devices, or the analog ground must move to mid-supply on a 3.3 V HV process.\n- Worst-neuron current estimate 2.341e-04 A; do not call this chip power.\n- Sampled inference dwell 200 us (100 us failed on the documented physical path).\n- TIA A >= 4.88e4 analog (1e5 conservative, already simulated).\n- Uncorrected |Vos| <= 22 uV or a physical servo/CDS that reduces effective offset below the analog bar.\n- Invert |Vos| <= 100 uV at N=32, or a documented zero-drift / AZ invert.\n- Summing-node |Ileak| <= 13 nA analog (Exp 22); 85 C value UNKNOWN until PDK.\n- Per-neuron Rf must share the resistor family of that neuron's weights/bias. Unmatched leftover after grouping <= 7.50e-04 (0.075%). Not a foundry yield.\n- Invert R1/R2 and divider pairs must be ratio-matched.\n- TCR: common-mode same-family scale cancels (Exp 29). Differential TCR UNKNOWN.\n- Temperature range already exercised: -40, 27, 85 C (MOS teaching card; fabric TCR not present).\n- CDS capacitors in the demonstrated path are 2 nF / 2 nF / 1 nF. Fully integrated area is impractical at 1-2 fF/um2. Hybrid/external C, or a new physically justified smaller-C path, is required.\n- ReLU remains a behavioral B-source. A physical ReLU is still missing.\n- Layout parasitics: no experiment has extracted them.\nDo not invent a numeric TCR, Pelgrom A_R, or MOS mismatch sigma.",
+  "decision": {
+    "letter": "B",
+    "title": "TECHNOLOGY PLAUSIBLE BUT KEY DATA MISSING",
+    "best_candidate": "SkyWater SKY130 (voltage headroom) and IHP SG13G2 (analog documentation); GF180MCU is the 6 V alternative",
+    "strongest_evidence": "Official SKY130 MIM 2 fF/um2 e-test; official 5 V FETs; official IHP 3.3 V HV CMOS + rhigh; official GF180 6 V resistors/MIM. Local Exp 22/29/36/37 requirement numbers.",
+    "biggest_unknown": "documented resistor matching / TCR sufficient to judge residual leftover 0.075%",
+    "hardest_requirement": "per-neuron Rf*G leftover <= 0.075% AND fully-integrated 1-2 nF CDS",
+    "real_pdk_used": false,
+    "transistor_sim_legitimate": false,
+    "proceed_toward_silicon": "Do not tape out. Next is install one real open PDK and host a single o2 Rf*G cell, or accept hybrid/external capacitors and mid-rail analog ground.",
+    "why": [
+      "Open PDKs document analog MOSFET, poly resistors, MIM, and enough voltage on 5-6 V nodes.",
+      "No installed PDK, so no legitimate transistor-level Network F simulation was possible.",
+      "Public docs do not quantify resistor-ratio leftover at 0.075%, TCR leftover, or 85 C leak.",
+      "Fully integrated 2 nF CDS is area-impractical (~120 mm2 at 2 fF/um2 for 48 neurons)."
+    ],
+    "unknown_critical": [
+      "residual local Rf*G leftover",
+      "summing-node leakage",
+      "resistor TCR",
+      "MOS mismatch PDF"
+    ],
+    "cap_status": "RED",
+    "yellow_open_pdks": [
+      "IHP SG13G2 Open PDK",
+      "SkyWater SKY130",
+      "GlobalFoundries GF180MCU Open PDK"
+    ],
+    "no_invented_parameters": true
+  },
+  "plots": [
+    "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp38_voltage.png",
+    "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp38_capacitor_area.png",
+    "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp38_matching_residual.png",
+    "C:\\dev\\neuron-physical-brain\\physical-ai\\results\\exp38_temperature.png"
+  ]
+}

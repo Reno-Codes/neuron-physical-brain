@@ -1,0 +1,17 @@
+* Experiment 54 1:1 invert-unit ratio w10 tt_mm 21
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt_mm
+.temp 27
+V1 a 0 DC 1
+Vm1 b 0 DC 0
+V2 c 0 DC 1
+Vm2 d 0 DC 0
+Xr1 a b 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+Xr2 c d 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+.control
+set numdgt=12
+set seed=54121
+op
+print i(Vm1)
+print i(Vm2)
+.endc
+.end

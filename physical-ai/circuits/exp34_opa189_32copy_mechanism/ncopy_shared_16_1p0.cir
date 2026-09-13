@@ -1,0 +1,202 @@
+* Exp 34 isolated N=16 shared=True Vin=1 Rload=4914.01
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vin1 in1 0 DC 1
+Vcm1 inp1 0 DC 0
+R1_1 in1 mid1 10000
+R2_1 out1 mid1 10000
+Rload1 out1 0 4914.01304862554
+Xinv1 inp1 mid1 vdd vss out1 OPAx189
+Ccl1 out1 0 1e-12
+Vin2 in2 0 DC 1
+Vcm2 inp2 0 DC 0
+R1_2 in2 mid2 10000
+R2_2 out2 mid2 10000
+Rload2 out2 0 4914.01304862554
+Xinv2 inp2 mid2 vdd vss out2 OPAx189
+Ccl2 out2 0 1e-12
+Vin3 in3 0 DC 1
+Vcm3 inp3 0 DC 0
+R1_3 in3 mid3 10000
+R2_3 out3 mid3 10000
+Rload3 out3 0 4914.01304862554
+Xinv3 inp3 mid3 vdd vss out3 OPAx189
+Ccl3 out3 0 1e-12
+Vin4 in4 0 DC 1
+Vcm4 inp4 0 DC 0
+R1_4 in4 mid4 10000
+R2_4 out4 mid4 10000
+Rload4 out4 0 4914.01304862554
+Xinv4 inp4 mid4 vdd vss out4 OPAx189
+Ccl4 out4 0 1e-12
+Vin5 in5 0 DC 1
+Vcm5 inp5 0 DC 0
+R1_5 in5 mid5 10000
+R2_5 out5 mid5 10000
+Rload5 out5 0 4914.01304862554
+Xinv5 inp5 mid5 vdd vss out5 OPAx189
+Ccl5 out5 0 1e-12
+Vin6 in6 0 DC 1
+Vcm6 inp6 0 DC 0
+R1_6 in6 mid6 10000
+R2_6 out6 mid6 10000
+Rload6 out6 0 4914.01304862554
+Xinv6 inp6 mid6 vdd vss out6 OPAx189
+Ccl6 out6 0 1e-12
+Vin7 in7 0 DC 1
+Vcm7 inp7 0 DC 0
+R1_7 in7 mid7 10000
+R2_7 out7 mid7 10000
+Rload7 out7 0 4914.01304862554
+Xinv7 inp7 mid7 vdd vss out7 OPAx189
+Ccl7 out7 0 1e-12
+Vin8 in8 0 DC 1
+Vcm8 inp8 0 DC 0
+R1_8 in8 mid8 10000
+R2_8 out8 mid8 10000
+Rload8 out8 0 4914.01304862554
+Xinv8 inp8 mid8 vdd vss out8 OPAx189
+Ccl8 out8 0 1e-12
+Vin9 in9 0 DC 1
+Vcm9 inp9 0 DC 0
+R1_9 in9 mid9 10000
+R2_9 out9 mid9 10000
+Rload9 out9 0 4914.01304862554
+Xinv9 inp9 mid9 vdd vss out9 OPAx189
+Ccl9 out9 0 1e-12
+Vin10 in10 0 DC 1
+Vcm10 inp10 0 DC 0
+R1_10 in10 mid10 10000
+R2_10 out10 mid10 10000
+Rload10 out10 0 4914.01304862554
+Xinv10 inp10 mid10 vdd vss out10 OPAx189
+Ccl10 out10 0 1e-12
+Vin11 in11 0 DC 1
+Vcm11 inp11 0 DC 0
+R1_11 in11 mid11 10000
+R2_11 out11 mid11 10000
+Rload11 out11 0 4914.01304862554
+Xinv11 inp11 mid11 vdd vss out11 OPAx189
+Ccl11 out11 0 1e-12
+Vin12 in12 0 DC 1
+Vcm12 inp12 0 DC 0
+R1_12 in12 mid12 10000
+R2_12 out12 mid12 10000
+Rload12 out12 0 4914.01304862554
+Xinv12 inp12 mid12 vdd vss out12 OPAx189
+Ccl12 out12 0 1e-12
+Vin13 in13 0 DC 1
+Vcm13 inp13 0 DC 0
+R1_13 in13 mid13 10000
+R2_13 out13 mid13 10000
+Rload13 out13 0 4914.01304862554
+Xinv13 inp13 mid13 vdd vss out13 OPAx189
+Ccl13 out13 0 1e-12
+Vin14 in14 0 DC 1
+Vcm14 inp14 0 DC 0
+R1_14 in14 mid14 10000
+R2_14 out14 mid14 10000
+Rload14 out14 0 4914.01304862554
+Xinv14 inp14 mid14 vdd vss out14 OPAx189
+Ccl14 out14 0 1e-12
+Vin15 in15 0 DC 1
+Vcm15 inp15 0 DC 0
+R1_15 in15 mid15 10000
+R2_15 out15 mid15 10000
+Rload15 out15 0 4914.01304862554
+Xinv15 inp15 mid15 vdd vss out15 OPAx189
+Ccl15 out15 0 1e-12
+Vin16 in16 0 DC 1
+Vcm16 inp16 0 DC 0
+R1_16 in16 mid16 10000
+R2_16 out16 mid16 10000
+Rload16 out16 0 4914.01304862554
+Xinv16 inp16 mid16 vdd vss out16 OPAx189
+Ccl16 out16 0 1e-12
+.control
+set numdgt=15
+op
+print v(out1)
+print v(mid1)
+print v(in1)
+print v(inp1)
+print i(Rload1)
+print v(out2)
+print v(mid2)
+print v(in2)
+print v(inp2)
+print i(Rload2)
+print v(out3)
+print v(mid3)
+print v(in3)
+print v(inp3)
+print i(Rload3)
+print v(out4)
+print v(mid4)
+print v(in4)
+print v(inp4)
+print i(Rload4)
+print v(out5)
+print v(mid5)
+print v(in5)
+print v(inp5)
+print i(Rload5)
+print v(out6)
+print v(mid6)
+print v(in6)
+print v(inp6)
+print i(Rload6)
+print v(out7)
+print v(mid7)
+print v(in7)
+print v(inp7)
+print i(Rload7)
+print v(out8)
+print v(mid8)
+print v(in8)
+print v(inp8)
+print i(Rload8)
+print v(out9)
+print v(mid9)
+print v(in9)
+print v(inp9)
+print i(Rload9)
+print v(out10)
+print v(mid10)
+print v(in10)
+print v(inp10)
+print i(Rload10)
+print v(out11)
+print v(mid11)
+print v(in11)
+print v(inp11)
+print i(Rload11)
+print v(out12)
+print v(mid12)
+print v(in12)
+print v(inp12)
+print i(Rload12)
+print v(out13)
+print v(mid13)
+print v(in13)
+print v(inp13)
+print i(Rload13)
+print v(out14)
+print v(mid14)
+print v(in14)
+print v(inp14)
+print i(Rload14)
+print v(out15)
+print v(mid15)
+print v(in15)
+print v(inp15)
+print i(Rload15)
+print v(out16)
+print v(mid16)
+print v(in16)
+print v(inp16)
+print i(Rload16)
+print i(Vdd)
+.endc
+.end

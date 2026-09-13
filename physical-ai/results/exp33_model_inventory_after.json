@@ -1,0 +1,243 @@
+{
+  "pdk_root": null,
+  "pdk": null,
+  "ihp_installed": false,
+  "sky130_installed": false,
+  "osdi_binary_present": false,
+  "foundry_pdk_invented": false,
+  "environment": [
+    {
+      "name": "PDK_ROOT",
+      "path": null,
+      "status": "not available"
+    },
+    {
+      "name": "PDK",
+      "path": null,
+      "status": "not available"
+    },
+    {
+      "name": "IHP SG13G2 tree",
+      "path": null,
+      "status": "available remotely/documented",
+      "howto": "C:\\ngspice\\examples\\IHPOpenSourcePDK\\IHP-PDK-howto.txt",
+      "note": "Howto + digital/device examples only. Requires github clone, PDK_ROOT, psp103.osdi."
+    },
+    {
+      "name": "SkyWater SKY130 tree",
+      "path": null,
+      "status": "available remotely/documented",
+      "howto": "C:\\ngspice\\examples\\SkywaterOpenSourcePDK\\readme.txt",
+      "note": "Example is a 1.8 V digital CMOS inverter. Cannot meet 2.61 V hidden swing."
+    },
+    {
+      "name": "CMC r2_cmc OSDI binary",
+      "path": "C:\\ngspice\\examples\\osdi\\r2_cmc",
+      "status": "available remotely/documented",
+      "example_present": true,
+      "osdi_binaries": []
+    },
+    {
+      "name": "Berkeley BSIM3v3 teaching cards",
+      "path": "C:\\ngspice\\examples\\xspice\\see\\CMOSOpAmp",
+      "status": "available locally but unused",
+      "note": "Exp 26-32 miller. Drive/swing fail at hidden invert. Do not invent W/L."
+    },
+    {
+      "name": "ngspice optran vendor macros",
+      "path": "C:\\ngspice\\examples\\optran\\models",
+      "status": "already installed",
+      "files": [
+        "Models-for-Debian.txt",
+        "OPA1611.LIB",
+        "TL072-dual.lib",
+        "TL072.301",
+        "TLV6001.LIB",
+        "TLV9002.lib",
+        "opa1612c-dual.lib",
+        "opa1656.lib",
+        "opa1656c-dual.lib"
+      ]
+    },
+    {
+      "name": "ngspice p-to-n vendor macros",
+      "path": "C:\\ngspice\\examples\\p-to-n-examples",
+      "status": "already installed",
+      "files": [
+        ".spiceinit",
+        "555-timer-2.cir",
+        "MCP6041.txt",
+        "MOS1_out.cir",
+        "OPA171.txt",
+        "OP_MCP6041.cir",
+        "Optimos_out.cir",
+        "README",
+        "TLC555.LIB",
+        "ad22057n.lib",
+        "aswitch-pswitch.cir",
+        "logic.cir",
+        "op-test-adi.cir",
+        "op-test.cir",
+        "relax_osc_st.cir",
+        "remcirc-test.cir",
+        "rtest.lib",
+        "switch-invs.lib",
+        "switch-oscillators.cir",
+        "switch-oscillators_inc.cir"
+      ]
+    },
+    {
+      "name": "XSPICE limit primitive",
+      "path": "ngspice built-in",
+      "status": "already installed",
+      "note": "LEVEL 2. Exp 30/32 analog-pass. Not a physical device."
+    },
+    {
+      "name": "chopper / auto-zero / OP07 / OPA189 macromodel",
+      "path": null,
+      "status": "available remotely/documented",
+      "note": "Not installed before Experiment 33. TI PSpice zips documented on ti.com."
+    }
+  ],
+  "installed_precision_macros": [
+    {
+      "part": "OPA1656",
+      "path": "C:\\ngspice\\examples\\optran\\models\\opa1656.lib",
+      "present": true,
+      "doc_vos_V": 8.75e-06
+    },
+    {
+      "part": "OPA1611",
+      "path": "C:\\ngspice\\examples\\optran\\models\\OPA1611.LIB",
+      "present": true,
+      "doc_vos_V": 9.729e-05
+    },
+    {
+      "part": "OPA171",
+      "path": "C:\\ngspice\\examples\\p-to-n-examples\\OPA171.txt",
+      "present": true,
+      "doc_vos_V": 0.000214023
+    },
+    {
+      "part": "MCP6041",
+      "path": "C:\\ngspice\\examples\\p-to-n-examples\\MCP6041.txt",
+      "present": true,
+      "doc_vos_V": null
+    },
+    {
+      "part": "TLV6001",
+      "path": "C:\\ngspice\\examples\\optran\\models\\TLV6001.LIB",
+      "present": true,
+      "doc_vos_V": 0.000595218
+    },
+    {
+      "part": "TLV9002",
+      "path": "C:\\ngspice\\examples\\optran\\models\\TLV9002.lib",
+      "present": true,
+      "doc_vos_V": 0.00039611
+    },
+    {
+      "part": "TL072-dual",
+      "path": "C:\\ngspice\\examples\\optran\\models\\TL072-dual.lib",
+      "present": true,
+      "doc_vos_V": null
+    },
+    {
+      "part": "AD22057N",
+      "path": "C:\\ngspice\\examples\\p-to-n-examples\\ad22057n.lib",
+      "present": true,
+      "doc_vos_V": null,
+      "note": "G=20 CS amp, not a unity invert."
+    }
+  ],
+  "remote_documented_candidates": [
+    {
+      "part": "OPA189",
+      "class": "zero-drift 36 V",
+      "zip_id": "sbomae9",
+      "source": "https://www.ti.com/lit/zip/sbomae9",
+      "product": "https://www.ti.com/product/OPA189",
+      "datasheet_vos_V": 3e-06,
+      "datasheet_vos_typ_V": 4e-07,
+      "vsupply_max": 18.0,
+      "vsupply_min": 2.25,
+      "iout_A": 0.065,
+      "note": "Zero-drift. Datasheet Vos 3 uV max. Do not trust headline.",
+      "status": "available remotely/documented",
+      "local_path": null
+    },
+    {
+      "part": "OPA192",
+      "class": "e-trim precision 36 V",
+      "zip_id": "sbom862",
+      "source": "https://www.ti.com/lit/zip/sbom862",
+      "product": "https://www.ti.com/product/OPA192",
+      "datasheet_vos_V": 2.5e-05,
+      "datasheet_vos_typ_V": 5e-06,
+      "vsupply_max": 18.0,
+      "vsupply_min": 2.25,
+      "iout_A": 0.065,
+      "note": "Precision CMOS e-trim. 36 V. Adequate swing/current on paper.",
+      "status": "available remotely/documented",
+      "local_path": null
+    },
+    {
+      "part": "OPA388",
+      "class": "zero-drift 5.5 V",
+      "zip_id": "sbomab3",
+      "source": "https://www.ti.com/lit/zip/sbomab3",
+      "product": "https://www.ti.com/product/OPA388",
+      "datasheet_vos_V": 5e-06,
+      "datasheet_vos_typ_V": 2.5e-07,
+      "vsupply_max": 2.75,
+      "vsupply_min": 0.9,
+      "iout_A": 0.06,
+      "note": "Zero-drift but 5.5 V total supply. Hidden 2.61 V likely clips.",
+      "status": "available remotely/documented",
+      "local_path": null
+    }
+  ],
+  "acquisition_not_yet_attempted": false,
+  "acquired": [
+    {
+      "part": "OPA189",
+      "lib_path": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\vendor\\ti\\opa189\\OPAx189.LIB",
+      "present": true,
+      "subckt": "OPAx189",
+      "source": "https://www.ti.com/lit/zip/sbomae9",
+      "architecture": "Green-Williams-Lis",
+      "model_vos_dc_V": -1.86843e-06,
+      "unmodified": true,
+      "mechanism": "static macromodel",
+      "mentions_chopper": false,
+      "mentions_auto_zero": false
+    },
+    {
+      "part": "OPA192",
+      "lib_path": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\vendor\\ti\\opa192\\OPAx192.LIB",
+      "present": true,
+      "subckt": "OPAx192",
+      "source": "https://www.ti.com/lit/zip/sbom862",
+      "architecture": "Green-Williams-Lis",
+      "model_vos_dc_V": -2.88e-06,
+      "unmodified": true,
+      "mechanism": "static macromodel",
+      "mentions_chopper": false,
+      "mentions_auto_zero": false
+    },
+    {
+      "part": "OPA388",
+      "lib_path": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\vendor\\ti\\opa388\\OPAx388.LIB",
+      "present": true,
+      "subckt": "OPAx388",
+      "source": "https://www.ti.com/lit/zip/sbomab3",
+      "architecture": "Green-Williams-Lis",
+      "model_vos_dc_V": -3.00202e-07,
+      "unmodified": true,
+      "mechanism": "static macromodel",
+      "mentions_chopper": false,
+      "mentions_auto_zero": false
+    }
+  ],
+  "pdk_installed_this_experiment": false
+}

@@ -1,0 +1,19 @@
+* Experiment 23 smoke: MCP6041 macromodel TIA (negative control)
+* LEVEL 3. 6 V part. Rails +/-2.2 V. Expected swing/BW failure on this fabric.
+
+.include C:\ngspice\examples\p-to-n-examples\MCP6041.txt
+
+Vdd vdd 0 DC 2.2
+Vss vss 0 DC -2.2
+Vin in 0 DC 1
+Rw in sum 10000
+Xtia 0 sum vdd vss lin MCP6041
+Rf lin sum 10000
+
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

@@ -1,0 +1,58 @@
+* Exp 34 isolated N=4 shared=True Vin=2.60818 Rload=4914.01
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vin1 in1 0 DC 2.60817586522917
+Vcm1 inp1 0 DC 0
+R1_1 in1 mid1 10000
+R2_1 out1 mid1 10000
+Rload1 out1 0 4914.01304862554
+Xinv1 inp1 mid1 vdd vss out1 OPAx189
+Ccl1 out1 0 1e-12
+Vin2 in2 0 DC 2.60817586522917
+Vcm2 inp2 0 DC 0
+R1_2 in2 mid2 10000
+R2_2 out2 mid2 10000
+Rload2 out2 0 4914.01304862554
+Xinv2 inp2 mid2 vdd vss out2 OPAx189
+Ccl2 out2 0 1e-12
+Vin3 in3 0 DC 2.60817586522917
+Vcm3 inp3 0 DC 0
+R1_3 in3 mid3 10000
+R2_3 out3 mid3 10000
+Rload3 out3 0 4914.01304862554
+Xinv3 inp3 mid3 vdd vss out3 OPAx189
+Ccl3 out3 0 1e-12
+Vin4 in4 0 DC 2.60817586522917
+Vcm4 inp4 0 DC 0
+R1_4 in4 mid4 10000
+R2_4 out4 mid4 10000
+Rload4 out4 0 4914.01304862554
+Xinv4 inp4 mid4 vdd vss out4 OPAx189
+Ccl4 out4 0 1e-12
+.control
+set numdgt=15
+op
+print v(out1)
+print v(mid1)
+print v(in1)
+print v(inp1)
+print i(Rload1)
+print v(out2)
+print v(mid2)
+print v(in2)
+print v(inp2)
+print i(Rload2)
+print v(out3)
+print v(mid3)
+print v(in3)
+print v(inp3)
+print i(Rload3)
+print v(out4)
+print v(mid4)
+print v(in4)
+print v(inp4)
+print i(Rload4)
+print i(Vdd)
+.endc
+.end

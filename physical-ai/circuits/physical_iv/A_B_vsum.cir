@@ -1,0 +1,120 @@
+* Physical AI - Experiment 17 architecture B: ratiometric TIA (Rf * R2/R1)
+* Inverting TIA then passive invert. Vout = I * Rf * (R2/R1) * closed-loop residuals. Common resistor shift cancels.
+* Frozen Experiment 9 network A. Weights were not edited.
+* Behavioral circuit analysis. Not transistor-level or PCB power.
+* A_tia=100000 A_inv=100000 rail=15 vos=0 rout=0 Ileak=0 clip=False linear=False
+* shape: 2 -> 4 -> 1
+
+Vin1 in1 0 DC 0
+* passive invert in1 -> in1n: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinv1ia in1 inv1m 10000
+Rinv1ib in1n inv1m 10000.200002
+Einv1amp in1n 0 0 inv1m 100000
+Vin2 in2 0 DC 0
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000200002 closed-loop -1 at A=100000
+Rinvrefia vref invrefm 10000
+Rinvrefib vrefn invrefm 10000.200002
+Einvrefamp vrefn 0 0 invrefm 100000
+* load-compensated divider vref->tapref: G_load=0.000833646933955897 Ra=544815.897488381 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefa vref tapref 544815.897488381
+Rdivrefb tapref 0 1000
+* load-compensated divider vrefn->taprefn: G_load=0.00135041774642313 Ra=425030.827613635 Rb=1000 target beta=0.001 (no tap buffer)
+Rdivrefna vrefn taprefn 425030.827613635
+Rdivrefnb taprefn 0 1000
+
+* h1 input 1 w=+0.683760795348816 w+  bank=n alpha=1 R=48749.9920441162 G_phys=2.05128238604645e-05 G_eff=2.05128238604645e-05
+Rh1p1n1 in1 h1p 48749.9920441162
+* h1 input 2 w=+0.309366783045794 w+  bank=n alpha=1 R=107746.969487669 G_phys=9.28100349137382e-06 G_eff=9.28100349137382e-06
+Rh1p2n1 in2 h1p 107746.969487669
+* h1 bias w-  bank=f alpha=0.001 R=1253.18954325804 G_phys=0.000797963887729386 G_eff=7.97963887729385e-07
+Rh1bnf1 taprefn h1p 1253.18954325804
+* feedback TIA h1: Rf=33333.3333333333 A=100000 V(h1raw) = -I(h1p)*Rf*A/(A+1)  (uncompensated)
+Eh1tia h1raw 0 0 h1p 100000
+Rh1f h1raw h1p 33333.3333333333
+* ratiometric sign restore h1raw->h1lin: R2/R1=1.0000200002 at A=100000
+Rh1ra h1raw h1rm 10000
+Rh1rb h1lin h1rm 10000.200002
+Eh1sgn h1lin 0 0 h1rm 100000
+* direct bounded ReLU: y=max(0, min(15, v(h1lin)))
+Bh1relu h1y 0 V = max(0, min(15, v(h1lin)))
+
+* h2 input 1 w=-0.884821731731664 w-  bank=n alpha=1 R=37672.3718890781 G_phys=2.65446519519499e-05 G_eff=2.65446519519499e-05
+Rh2n1n1 in1n h2p 37672.3718890781
+* h2 input 2 w=+0.782653240240456 w+  bank=n alpha=1 R=42590.1684417639 G_phys=2.34795972072137e-05 G_eff=2.34795972072137e-05
+Rh2p2n1 in2 h2p 42590.1684417639
+* h2 bias w+  bank=f alpha=0.001 R=560963.988396833 G_phys=1.78264562553806e-06 G_eff=1.78264562553806e-09
+Rh2bpf1 tapref h2p 560963.988396833
+* feedback TIA h2: Rf=33333.3333333333 A=100000 V(h2raw) = -I(h2p)*Rf*A/(A+1)  (uncompensated)
+Eh2tia h2raw 0 0 h2p 100000
+Rh2f h2raw h2p 33333.3333333333
+* ratiometric sign restore h2raw->h2lin: R2/R1=1.0000200002 at A=100000
+Rh2ra h2raw h2rm 10000
+Rh2rb h2lin h2rm 10000.200002
+Eh2sgn h2lin 0 0 h2rm 100000
+* direct bounded ReLU: y=max(0, min(15, v(h2lin)))
+Bh2relu h2y 0 V = max(0, min(15, v(h2lin)))
+
+* h3 input 1 w=+0.80723931339229 w+  bank=n alpha=1 R=41293.0004526854 G_phys=2.42171794017687e-05 G_eff=2.42171794017687e-05
+Rh3p1n1 in1 h3p 41293.0004526854
+* h3 input 2 w=+1.71882311343666 w+  bank=n alpha=1 R=19393.1144355429 G_phys=5.15646934030999e-05 G_eff=5.15646934030999e-05
+Rh3p2n1 in2 h3p 19393.1144355429
+* h3 bias w+  bank=f alpha=0.001 R=1918.09451080035 G_phys=0.000521350743860236 G_eff=5.21350743860236e-07
+Rh3bpf1 tapref h3p 1918.09451080035
+* feedback TIA h3: Rf=33333.3333333333 A=100000 V(h3raw) = -I(h3p)*Rf*A/(A+1)  (uncompensated)
+Eh3tia h3raw 0 0 h3p 100000
+Rh3f h3raw h3p 33333.3333333333
+* ratiometric sign restore h3raw->h3lin: R2/R1=1.0000200002 at A=100000
+Rh3ra h3raw h3rm 10000
+Rh3rb h3lin h3rm 10000.200002
+Eh3sgn h3lin 0 0 h3rm 100000
+* direct bounded ReLU: y=max(0, min(15, v(h3lin)))
+Bh3relu h3y 0 V = max(0, min(15, v(h3lin)))
+
+* h4 input 1 w=-2.16286246457598 w-  bank=n alpha=1 R=15411.6749813161 G_phys=6.48858739372794e-05 G_eff=6.48858739372794e-05
+Rh4n1n1 in1n h4p 15411.6749813161
+* h4 input 2 w=+0.726967919426763 w+  bank=n alpha=1 R=45852.5506319697 G_phys=2.18090375828029e-05 G_eff=2.18090375828029e-05
+Rh4p2n1 in2 h4p 45852.5506319697
+* h4 bias w-  bank=f alpha=0.001 R=1810.10591973139 G_phys=0.000552453858693748 G_eff=5.52453858693748e-07
+Rh4bnf1 taprefn h4p 1810.10591973139
+* feedback TIA h4: Rf=33333.3333333333 A=100000 V(h4raw) = -I(h4p)*Rf*A/(A+1)  (uncompensated)
+Eh4tia h4raw 0 0 h4p 100000
+Rh4f h4raw h4p 33333.3333333333
+* ratiometric sign restore h4raw->h4lin: R2/R1=1.0000200002 at A=100000
+Rh4ra h4raw h4rm 10000
+Rh4rb h4lin h4rm 10000.200002
+Eh4sgn h4lin 0 0 h4rm 100000
+* direct bounded ReLU: y=max(0, min(15, v(h4lin)))
+Bh4relu h4y 0 V = max(0, min(15, v(h4lin)))
+
+
+* o1 input 1 w=+0.601889648539537 w+  bank=n alpha=1 R=55381.137413171 G_phys=1.80566894561861e-05 G_eff=1.80566894561861e-05
+Ro1p1n1 h1y o1p 55381.137413171
+* o1 input 2 w=+0.347315954504283 w+  bank=n alpha=1 R=95974.0918925228 G_phys=1.04194786351285e-05 G_eff=1.04194786351285e-05
+Ro1p2n1 h2y o1p 95974.0918925228
+* o1 input 3 w=+0.876922607606196 w+  bank=n alpha=1 R=38011.716249768 G_phys=2.63076782281859e-05 G_eff=2.63076782281859e-05
+Ro1p3n1 h3y o1p 38011.716249768
+* o1 input 4 w=+0.929527796434486 w+  bank=n alpha=1 R=35860.5019249499 G_phys=2.78858338930346e-05 G_eff=2.78858338930346e-05
+Ro1p4n1 h4y o1p 35860.5019249499
+* o1 bias w+  bank=f alpha=0.001 R=3220.47143452777 G_phys=0.000310513544470123 G_eff=3.10513544470123e-07
+Ro1bpf1 tapref o1p 3220.47143452777
+* feedback TIA o1: Rf=33333.3333333333 A=100000 V(o1raw) = -I(o1p)*Rf*A/(A+1)  (uncompensated)
+Eo1tia o1raw 0 0 o1p 100000
+Ro1f o1raw o1p 33333.3333333333
+* ratiometric sign restore o1raw->o1lin: R2/R1=1.0000200002 at A=100000
+Ro1ra o1raw o1rm 10000
+Ro1rb o1lin o1rm 10000.200002
+Eo1sgn o1lin 0 0 o1rm 100000
+.control
+set numdgt=15
+alter Vin1 DC 0.494125531810799
+alter Vin2 DC -0.229451673774848
+op
+print v(h1p)
+print v(h2p)
+print v(h3p)
+print v(h4p)
+print v(o1p)
+.endc
+
+.end

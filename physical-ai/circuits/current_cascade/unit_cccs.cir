@@ -1,0 +1,14 @@
+* Experiment 20 CCCS unit Iy=3e-05 w=[0.3,0.5]
+Iy 0 sense DC 3e-05
+Vsense sense 0 DC 0
+F1 0 o1 Vsense 0.3
+F2 0 o2 Vsense 0.5
+V1 o1 0 DC 0
+V2 o2 0 DC 0
+.control
+set numdgt=15
+op
+print i(V1)
+print i(V2)
+.endc
+.end

@@ -1,0 +1,18 @@
+* Experiment 23 smoke: XSPICE OTA as inverting voltage TIA
+* LEVEL 2 structured primitive. A_ol = gm * rout (Thevenin).
+* Not transistor-level. Not a datasheet GBW.
+
+Vin in 0 DC 1
+Rw in sum 10000
+Vvos vos 0 DC 0
+aota vos sum lin otamod
+.model otamod ota (gm=1e5 rout=1 rin=1e12)
+Rf lin sum 10000
+
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

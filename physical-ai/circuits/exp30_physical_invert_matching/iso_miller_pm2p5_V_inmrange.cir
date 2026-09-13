@@ -1,0 +1,86 @@
+* Experiment 30 isolated invert bench mode=miller
+* Vin=1.5 R1=10000 R2=10000 Rload=4914.01 A=100000
+* Frozen-map invert identity: Vout should equal -Vin.
+* Experiment 26 MOS primitive. Models included, not copied.
+.include "C:/ngspice/examples/xspice/see/CMOSOpAmp/modelcard.nmos"
+.include "C:/ngspice/examples/xspice/see/CMOSOpAmp/modelcard.pmos"
+
+.subckt NCH D G S B W=1u L=1.4u m=1
+MN1 D G S B N1 W={W} L={L} M={m} AS={3*L*W} AD={3*L*W} PS={6*L+W} PD={6*L+W}
+.ends NCH
+
+.subckt PCH D G S B W=1u L=1.4u m=1
+MP1 D G S B P1 W={W} L={L} M={m} AS={3*L*W} AD={3*L*W} PS={6*L+W} PD={6*L+W}
+.ends PCH
+
+* Two-stage Miller CMOS OTA. Topology from ngspice CMOS-OP1, dual supply.
+* Bodies to rails. Analog ground is node 0.
+.subckt miller_tia inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ WOP=14.5u WON=17.4u WDI=5.0u
++ MD=2 MT=2 MO=4 CC=2p IBIAS=40u DW=0 L1=1.4u
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WDI} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+* Diode load on IN- drain (CMOS-OP1 polarity). DW unbalances the pair.
+Xdp dplus inp vs vss NCH W={WD*(1+DW)} L={L1} m={MD}
+Xdn dmin inn vs vss NCH W={WD*(1-DW)} L={L1} m={MD}
+Xln dmin dmin vdd vdd PCH W={WL} L={L1} m={MD}
+Xlp dplus dmin vdd vdd PCH W={WL} L={L1} m={MD}
+Xop out dplus vdd vdd PCH W={WOP} L={L} m={MO}
+Xon out vb vss vss NCH W={WON} L={L} m={MO}
+Cc dplus out {CC}
+.ends miller_tia
+
+* Telescopic-cascode first stage + Miller CS. Higher DC gain for o2 load.
+.subckt miller_cascode inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ WOP=14.5u WON=17.4u WDI=5.0u WC=2.8u
++ MD=2 MT=2 MO=4 CC=2p IBIAS=40u DW=0
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WDI} L={L} m={MT}
+Xstack vcn vcn vb vss NCH W={WDI} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+Xdp splus inp vs vss NCH W={WD*(1+DW)} L={L} m={MD}
+Xdn smin inn vs vss NCH W={WD*(1-DW)} L={L} m={MD}
+Xcn dplus vcn splus vss NCH W={WC} L={L} m={MD}
+Xcm dmin vcn smin vss NCH W={WC} L={L} m={MD}
+Xln dmin dmin vdd vdd PCH W={WL} L={L} m={MD}
+Xlp dplus dmin vdd vdd PCH W={WL} L={L} m={MD}
+Xop out dplus vdd vdd PCH W={WOP} L={L} m={MO}
+Xon out vb vss vss NCH W={WON} L={L} m={MO}
+Cc dplus out {CC}
+.ends miller_cascode
+
+* 5-transistor OTA used as a slow integrator (capacitive load).
+.subckt servo_ota inp inn out vdd vss
+.param L=1.4u WD=2.8u WT=5.0u WL=2.8u
++ MD=1 MT=1 IBIAS=2u DW=0
+Ibias vdd vb {IBIAS}
+Xdiode vb vb vss vss NCH W={WT} L={L} m={MT}
+Xtail vs vb vss vss NCH W={WT} L={L} m={MT}
+Xdp dplus inp vs vss NCH W={WD*(1+DW)} L={L} m={MD}
+Xdn dmin inn vs vss NCH W={WD*(1-DW)} L={L} m={MD}
+Xlp dplus dplus vdd vdd PCH W={WL} L={L} m={MD}
+Xln out dplus vdd vdd PCH W={WL} L={L} m={MD}
+.ends servo_ota
+
+Vdd vdd 0 DC 2.5
+Vss vss 0 DC -2.5
+
+Vin in 0 DC 1.5
+Rinvbia in mid 10000
+Rinvbib out mid 10000
+Rload out 0 4914.01304862554
+* teaching-card miller invert invb. ±2.5 V. Not a PDK.
+Xinvbinv 0 mid out vdd vss miller_tia MD=2 MT=2 MO=4 CC=2e-12 IBIAS=4e-05 DW=0.0026 L1=1.4u
+.control
+set numdgt=15
+op
+print v(out)
+print v(mid)
+print v(in)
+print i(Vdd)
+print i(Vss)
+.endc
+.end

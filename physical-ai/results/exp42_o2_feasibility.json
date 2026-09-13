@@ -1,0 +1,232 @@
+{
+  "experiment_id": "exp42",
+  "kind": "feasibility / boundary",
+  "closed_experiments_unmodified": [
+    "exp39",
+    "exp40",
+    "exp41"
+  ],
+  "spice_run": false,
+  "transistor_search": false,
+  "geometry_changed": false,
+  "weights_changed": false,
+  "acceptance_bar_V": 0.001,
+  "matching": "UNRESOLVED",
+  "f40": "NOT TESTED",
+  "temperature": "NOT TESTED",
+  "network_f_2937_hosting": "NOT DEMONSTRATED",
+  "exp40_decision_unchanged": "C",
+  "identity": {
+    "sim_target": "o2 / W2[1]",
+    "tag": "o2",
+    "Rf_G": 140.89398023224967,
+    "z_o2": 2.459489570880132
+  },
+  "established": {
+    "y_exp40": 2.45254388951,
+    "err_exp40_mV": -6.945681370132295,
+    "y_ideal_r": 2.457433737388,
+    "err_ideal_r_mV": -2.0558334921321197,
+    "resistor_w1_mV": -4.889847878000175,
+    "y_w10": 2.458037812913,
+    "err_w10_mV": -1.451757967132039,
+    "resistor_w10_mV": 0.6040755250000807,
+    "y_miller": 1.832237285033,
+    "err_miller_mV": -627.2522858471322
+  },
+  "question_1_A_required": {
+    "A_current": 100000.0,
+    "k_at_A_current": 0.9985830707350086,
+    "predicted_finite_A_error_V": -0.003484922749921134,
+    "predicted_finite_A_error_mV": -3.484922749921134,
+    "A_required": 348844.87057165743,
+    "A_required_formula": "z*(1+RfG)/1e-3 - 1 - RfG",
+    "safety_margin": {
+      "current_A_over_A_required": 0.2866603709440488,
+      "A_required_over_current_A": 3.4884487057165745,
+      "positive_margin_at_current_A": false,
+      "deficit": "current A is below A_required",
+      "conventional_2x_A_required": 697689.7411433149,
+      "analytical_error_at_2x_mV": -0.500101667775821
+    },
+    "physically_achievable": "NOT ASSUMED"
+  },
+  "question_2_ideal_R": {
+    "kind": "analytical first; Exp41-anchored scale is a projection",
+    "demonstrated_circuit": false,
+    "vs_A": {
+      "1e5": {
+        "A": 100000.0,
+        "k": 0.9985830707350086,
+        "err_analytical_V": -0.003484922749921134,
+        "err_analytical_mV": -3.484922749921134,
+        "abs_analytical_mV": 3.484922749921134,
+        "analytical_pass": false,
+        "err_measured_scale_V": -0.0020558334921321197,
+        "err_measured_scale_mV": -2.0558334921321197,
+        "abs_measured_scale_mV": 2.0558334921321197,
+        "measured_scale_pass": false,
+        "label": "analytical and Exp41-anchored projection; not a new SPICE result"
+      },
+      "A_required_analytical": {
+        "A": 348844.87057165743,
+        "k": 0.9995934115713114,
+        "err_analytical_V": -0.0010000000000000785,
+        "err_analytical_mV": -1.0000000000000786,
+        "abs_analytical_mV": 1.0000000000000786,
+        "analytical_pass": true,
+        "err_measured_scale_V": -0.0005899222564341534,
+        "err_measured_scale_mV": -0.5899222564341534,
+        "abs_measured_scale_mV": 0.5899222564341534,
+        "measured_scale_pass": true,
+        "label": "analytical and Exp41-anchored projection; not a new SPICE result"
+      },
+      "A_required_measured_scale": {
+        "A": 205733.16562987314,
+        "k": 0.9993107762518638,
+        "err_analytical_V": -0.0016951386205438512,
+        "err_analytical_mV": -1.6951386205438512,
+        "abs_analytical_mV": 1.6951386205438512,
+        "analytical_pass": false,
+        "err_measured_scale_V": -0.001,
+        "err_measured_scale_mV": -1.0,
+        "abs_measured_scale_mV": 1.0,
+        "measured_scale_pass": true,
+        "label": "analytical and Exp41-anchored projection; not a new SPICE result"
+      },
+      "1e6": {
+        "A": 1000000.0,
+        "k": 0.9998581261508128,
+        "err_analytical_V": -0.00034893725245648894,
+        "err_analytical_mV": -0.34893725245648893,
+        "abs_analytical_mV": 0.34893725245648893,
+        "analytical_pass": true,
+        "err_measured_scale_V": -0.00020584585132294686,
+        "err_measured_scale_mV": -0.20584585132294686,
+        "abs_measured_scale_mV": 0.20584585132294686,
+        "measured_scale_pass": true,
+        "label": "analytical and Exp41-anchored projection; not a new SPICE result"
+      },
+      "1e7": {
+        "A": 10000000.0,
+        "k": 0.9999858108033128,
+        "err_analytical_V": -3.4898181271247616e-05,
+        "err_analytical_mV": -0.034898181271247615,
+        "abs_analytical_mV": 0.034898181271247615,
+        "analytical_pass": true,
+        "err_measured_scale_V": -2.058721384083916e-05,
+        "err_measured_scale_mV": -0.02058721384083916,
+        "abs_measured_scale_mV": 0.02058721384083916,
+        "measured_scale_pass": true,
+        "label": "analytical and Exp41-anchored projection; not a new SPICE result"
+      },
+      "2x_A_required_analytical": {
+        "A": 697689.7411433149,
+        "k": 0.9997966644487145,
+        "err_analytical_V": -0.0005001016677758209,
+        "err_analytical_mV": -0.500101667775821,
+        "abs_analytical_mV": 0.500101667775821,
+        "analytical_pass": true,
+        "err_measured_scale_V": -0.00029502110430069045,
+        "err_measured_scale_mV": -0.29502110430069045,
+        "abs_measured_scale_mV": 0.29502110430069045,
+        "measured_scale_pass": true,
+        "label": "analytical and Exp41-anchored projection; not a new SPICE result"
+      }
+    },
+    "case_B_boundary": "Ideal R + A >= A_required_analytical is analytical PASS (|k\u00b7z\u2212z| <= 1 mV). Ideal R + A=1e5 is FAIL."
+  },
+  "question_3_resistor": {
+    "A_finite_A_amplifier_error_mV": -2.0558334921321197,
+    "B_deterministic_resistor_w1_mV": -4.889847878000175,
+    "B_deterministic_resistor_w10_mV": 0.6040755250000807,
+    "C_interaction_w1_mV": 0.006934364843468354,
+    "C_interaction_w10_mV": -0.0008566483432350447,
+    "relative_eps_R_w1": -0.001989818811227676,
+    "relative_eps_R_w10": 0.00024581559038989634,
+    "required_leftover_once_A_solved_mV": 1.0,
+    "required_leftover_with_0p2mV_amp_margin_mV": 0.8,
+    "required_deterministic_relative": 0.0004065884286885382,
+    "note": "Once |finite-A| is << 1 mV, |y_PDK \u2212 y_idealR| must stay <= 1 mV (tighter if amplifier residual remains). This is deterministic DC accuracy on this vector, not matching."
+  },
+  "question_4_w10": {
+    "existing_err_mV": -1.451757967132039,
+    "margin_above_bar_mV": 0.4517579671320391,
+    "consistent_with": {
+      "residual_finite_A_mV": -2.0558334921321197,
+      "residual_resistor_mV": 0.6040755250000807,
+      "sum_mV": -1.451757967132039,
+      "interaction_mV": -0.0008566483432350447
+    },
+    "A_to_infty_err_mV": 0.6045808809236924,
+    "A_min_additive_pass": 128203.09751266832,
+    "theoretically_capable_if_A_large": true,
+    "declared_pass": false,
+    "reason_not_declared": "No new W=10 + high-A SPICE. Existing W=10 at A=1e5 remains FAIL."
+  },
+  "question_5_geometry": {
+    "optimization_sweep": false,
+    "design_changed": false,
+    "w1_leftover_mV": -4.889847878000175,
+    "w10_leftover_mV": 0.6040755250000807,
+    "w1_infinite_A_pass": false,
+    "w10_infinite_A_pass": true,
+    "direction": "Increase same-family xhigh_po width from the W=1 encode toward the established W=10 encode. Leftover changes sign between those two points; locating a zero is an optimization and is not performed.",
+    "deterministic_error_geometry": {
+      "requirement": "|y_PDK \u2212 y_idealR| <= 1 mV after A is solved",
+      "w1": "does not meet (4.890 mV leftover)",
+      "w10": "meets (0.604 mV leftover) as a feasibility bound only"
+    },
+    "matching_geometry": {
+      "status": "UNRESOLVED",
+      "pelgrom_A": 0.0347,
+      "used_Rf_W1_WL_um2": 15.72,
+      "used_1sigma": 0.008751917274497274,
+      "WL_for_0p075pct_um2": 2140.604444444444,
+      "note": "Pelgrom area for 0.075% leftover matching is a different quantity from deterministic-error geometry. Not conflated."
+    },
+    "match_0p075pct_as_mV_on_z_o2": 1.844617178160099
+  },
+  "question_6_decision_tree": {
+    "A_ideal_R_A1e5": {
+      "result": "FAIL",
+      "analytical_mV": -3.484922749921134,
+      "measured_ideal_R_mV": -2.0558334921321197
+    },
+    "B_ideal_R_high_A": {
+      "analytical_boundary": "PASS for A >= A_required",
+      "A_required": 348844.87057165743,
+      "demonstrated": false
+    },
+    "C_W10_high_A": {
+      "theoretical": "capable of PASS",
+      "A_to_infty_mV": 0.6045808809236924,
+      "A_min_additive": 128203.09751266832,
+      "demonstrated": false
+    },
+    "D_W1_high_A": {
+      "theoretical": "FAIL",
+      "A_to_infty_mV": -4.893938614155571,
+      "A_min_additive": null
+    },
+    "E_miller": {
+      "result": "FAIL",
+      "err_mV": -627.2522858471322,
+      "optimized": false
+    }
+  },
+  "reachable_without_changing_frozen_weights": {
+    "at_A1e5_W1": false,
+    "theoretically_with_higher_A_and_W10_encode": true,
+    "demonstrated": false,
+    "statement": "The 1 mV bar is fundamentally missed at the current A=1e5 / W=1 implementation. It is theoretically reachable on this frozen o2 vector by raising amplifier gain and using a resistor implementation whose deterministic leftover is already at the established W=10 magnitude (0.604 mV). That is a future experiment, not a result of Experiment 42."
+  },
+  "future_experiment_minimum": [
+    "Behavioral TIA at A >= A_required (or 1e6) + existing W=10 encode on frozen o2 \u2014 first demonstration candidate for Case C.",
+    "Behavioral TIA at high A + ideal lumped R \u2014 confirm Case B and the analytical vs measured-scale A_required gap.",
+    "Only after a high-A behavioral pass: a new experiment for a transistor TIA that actually delivers that A at +2.46 V. Do not treat Exp39 Miller resize as that experiment.",
+    "Matching remains a separate campaign. Do not invent a mismatch PDF.",
+    "Network-F 2.937 V hosting remains a separate voltage-range test.",
+    "Do not change frozen weights, the 1 mV bar, or physical parameters unless a new experiment redefines them."
+  ]
+}

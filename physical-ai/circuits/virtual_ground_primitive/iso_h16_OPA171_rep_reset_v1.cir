@@ -1,0 +1,98 @@
+* Experiment 22 isolated TIA neuron n1
+* frozen n=16 L1=4.9158066 b=0.0857431075924666
+* A=100000 vos=0 Ileak=0 Rout=0 fp=0 invertA=1e+07
+* Behavioral TIA. Not transistor-level. Weights were not edited.
+* shape: 16 -> 1 (linear Vlin vs z unless ReLU requested)
+
+* Experiment 23 candidate OPA171
+* TI OPA171 Green-Williams-Lis macromodel
+* source: C:\ngspice\examples\p-to-n-examples\OPA171.txt
+* Not copied into this repo. Included from ngspice examples. 36 V-class; model Vos ~214 uV. Requires ngbehavior=ps. A 1 pF output capacitor is added so the GWL operating-point analysis exists on this loaded TIA; that is not a datasheet CL.
+* Weights were not edited. SPICE is not Python-corrected.
+.include "C:/ngspice/examples/p-to-n-examples/OPA171.txt"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+
+Vin1 in1 0 DC -0.655877690395259
+Vin2 in2 0 DC 0.389979429035535
+Vin3 in3 0 DC 0.865674619744339
+Vin4 in4 0 DC -0.677630960011785
+Vin5 in5 0 DC -0.0503924405794702
+* passive invert in5 -> in5n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv5ia in5 inv5m 10000
+Rinv5ib in5n inv5m 10000.0020000002
+Einv5amp in5n 0 0 inv5m 10000000
+Vin6 in6 0 DC -0.120006739711034
+Vin7 in7 0 DC -0.134557676635459
+Vin8 in8 0 DC -0.0250515121451966
+Vin9 in9 0 DC 0.355622934668435
+* passive invert in9 -> in9n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv9ia in9 inv9m 10000
+Rinv9ib in9n inv9m 10000.0020000002
+Einv9amp in9n 0 0 inv9m 10000000
+Vin10 in10 0 DC 0.367768499333051
+* passive invert in10 -> in10n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinv10ia in10 inv10m 10000
+Rinv10ib in10n inv10m 10000.0020000002
+Einv10amp in10n 0 0 inv10m 10000000
+Vin11 in11 0 DC 0.593279157623712
+Vin12 in12 0 DC -0.246232807186363
+Vin13 in13 0 DC 0.668985676828484
+Vin14 in14 0 DC 0.948662592332796
+Vin15 in15 0 DC -0.211849827616565
+Vin16 in16 0 DC 0.966843119717598
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+Rinvrefia vref invrefm 10000
+Rinvrefib vrefn invrefm 10000.0020000002
+Einvrefamp vrefn 0 0 invrefm 10000000
+
+* n1 input 1 w=-0.211528252190937 w-  bank=n alpha=1 R=157583.362922343 G_phys=6.3458475657281e-06 G_eff=6.3458475657281e-06
+Rn1n1n1 in1 n1p 157583.362922343
+* n1 input 2 w=-0.194947045242045 w-  bank=n alpha=1 R=170986.604551748 G_phys=5.84841135726135e-06 G_eff=5.84841135726135e-06
+Rn1n2n1 in2 n1p 170986.604551748
+* n1 input 3 w=-0.281660896127353 w-  bank=n alpha=1 R=118345.619827403 G_phys=8.44982688382059e-06 G_eff=8.44982688382059e-06
+Rn1n3n1 in3 n1p 118345.619827403
+* n1 input 4 w=-0.246854224570453 w-  bank=n alpha=1 R=135032.460519305 G_phys=7.4056267371136e-06 G_eff=7.4056267371136e-06
+Rn1n4n1 in4 n1p 135032.460519305
+* n1 input 5 w=+0.785179968580328 w+  bank=n alpha=1 R=42453.112238208 G_phys=2.35553990574098e-05 G_eff=2.35553990574098e-05
+Rn1p5n1 in5n n1p 42453.112238208
+* n1 input 6 w=-0.342055263707418 w-  bank=n alpha=1 R=97450.1399921314 G_phys=1.02616579112226e-05 G_eff=1.02616579112226e-05
+Rn1n6n1 in6 n1p 97450.1399921314
+* n1 input 7 w=-0.213390213186068 w-  bank=n alpha=1 R=156208.351056231 G_phys=6.40170639558203e-06 G_eff=6.40170639558203e-06
+Rn1n7n1 in7 n1p 156208.351056231
+* n1 input 8 w=-0.06183287092446 w-  bank=n alpha=1 R=539087.589415927 G_phys=1.8549861277338e-06 G_eff=1.8549861277338e-06
+Rn1n8n1 in8 n1p 539087.589415927
+* n1 input 9 w=+0.114369297885863 w+  bank=n alpha=1 R=291453.510247121 G_phys=3.43107893657588e-06 G_eff=3.43107893657588e-06
+Rn1p9n1 in9n n1p 291453.510247121
+* n1 input 10 w=+0.418702574206734 w+  bank=n alpha=1 R=79611.0064440994 G_phys=1.2561077226202e-05 G_eff=1.2561077226202e-05
+Rn1p10n1 in10n n1p 79611.0064440994
+* n1 input 11 w=-0.38263995973155 w-  bank=n alpha=1 R=87114.0937729534 G_phys=1.14791987919465e-05 G_eff=1.14791987919465e-05
+Rn1n11n1 in11 n1p 87114.0937729534
+* n1 input 12 w=-0.447982918675276 w-  bank=n alpha=1 R=74407.5989144918 G_phys=1.34394875602583e-05 G_eff=1.34394875602583e-05
+Rn1n12n1 in12 n1p 74407.5989144918
+* n1 input 13 w=-0.354860709093241 w-  bank=n alpha=1 R=93933.5702126856 G_phys=1.06458212727972e-05 G_eff=1.06458212727972e-05
+Rn1n13n1 in13 n1p 93933.5702126856
+* n1 input 14 w=-0.245379266072843 w-  bank=n alpha=1 R=135844.131685674 G_phys=7.36137798218528e-06 G_eff=7.36137798218528e-06
+Rn1n14n1 in14 n1p 135844.131685674
+* n1 input 15 w=-0.0999148922371372 w-  bank=n alpha=1 R=333617.267526249 G_phys=2.99744676711412e-06 G_eff=2.99744676711412e-06
+Rn1n15n1 in15 n1p 333617.267526249
+* n1 input 16 w=-0.428765175056332 w-  bank=n alpha=1 R=77742.632267077 G_phys=1.286295525169e-05 G_eff=1.286295525169e-05
+Rn1n16n1 in16 n1p 77742.632267077
+* n1 bias w+  bank=n alpha=1 R=388758.166916054 G_phys=2.572293227774e-06 G_eff=2.572293227774e-06
+Rn1bpn1 vrefn n1p 388758.166916054
+* feedback TIA n1: Rf=33333.3333333333 A=100000 V(n1lin) = -I(n1p)*Rf*A/(A+1)  (uncompensated)
+* Exp 23 OPA171 TIA n1 -> n1lin, vg=n1p
+Vn1os n1osp 0 DC 0
+* 1 pF output C so GWL OP exists; not a datasheet CL guarantee
+Xn1tia n1osp n1p vdd vss n1lin OPA171
+Cn1load n1lin 0 1p
+Rn1f n1lin n1p 33333.3333333333
+.control
+set numdgt=15
+op
+print v(n1lin)
+print v(n1p)
+.endc
+
+.end

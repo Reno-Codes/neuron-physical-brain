@@ -1,0 +1,21 @@
+* Experiment 23 smoke: OPA171 macromodel TIA
+* LEVEL 3 manufacturer model. NOT copied into this repo.
+* Source: ngspice examples p-to-n-examples/OPA171.txt (TI Green-Williams-Lis).
+* Pinout: IN+ IN- VCC VEE OUT. Inherent Vos in the model is ~214 uV.
+
+.include C:\ngspice\examples\p-to-n-examples\OPA171.txt
+
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vin in 0 DC 1
+Rw in sum 10000
+Xtia 0 sum vdd vss lin OPA171
+Rf lin sum 10000
+
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

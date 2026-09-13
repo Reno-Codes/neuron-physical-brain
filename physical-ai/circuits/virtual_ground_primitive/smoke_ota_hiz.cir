@@ -1,0 +1,17 @@
+* Experiment 23 smoke: physical high-Z OTA (gm=1m, rout=1e12)
+* Expected: Rf shunts rout, A_loaded ~ gm*Rf = 10. Should NOT hold VG.
+
+Vin in 0 DC 1
+Rw in sum 10000
+Vvos vos 0 DC 0
+aota vos sum lin otamod
+.model otamod ota (gm=1e-3 rout=1e12 rin=1e12)
+Rf lin sum 10000
+
+.control
+set numdgt=15
+op
+print v(lin)
+print v(sum)
+.endc
+.end

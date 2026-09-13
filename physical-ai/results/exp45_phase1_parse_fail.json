@@ -1,0 +1,123 @@
+{
+  "experiment_id": "exp45",
+  "kind": "Level 1 documented macromodel search",
+  "status": "NUMERICAL ISSUE",
+  "decision": "D",
+  "decision_label": "MACROMODEL DID NOT YIELD A USABLE OP",
+  "physical_tia_validated": false,
+  "silicon": false,
+  "encode": "Exp41 W=10, not fitted",
+  "identity": {
+    "sim_target": "o2 / W2[1]",
+    "z_o2": 2.459489570880132
+  },
+  "rows": [
+    {
+      "name": "opa189_pm5_ps",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa189_pm5_ps.cir",
+      "pspice": true,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax189 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax189 params: g=1\n    in line no. 280 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA189",
+      "vsupply": 5.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    },
+    {
+      "name": "opa189_pm5_hsa",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa189_pm5_hsa.cir",
+      "pspice": false,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax189 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax189 params: g=1\n    in line no. 280 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA189",
+      "vsupply": 5.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    },
+    {
+      "name": "opa189_pm15_ps",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa189_pm15_ps.cir",
+      "pspice": true,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax189 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax189 params: g=1\n    in line no. 280 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA189",
+      "vsupply": 15.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    },
+    {
+      "name": "opa189_pm15_hsa",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa189_pm15_hsa.cir",
+      "pspice": false,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax189 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax189 params: g=1\n    in line no. 280 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA189",
+      "vsupply": 15.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    },
+    {
+      "name": "opa388_pm5_ps",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa388_pm5_ps.cir",
+      "pspice": true,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax388 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax388 params: g=1\n    in line no. 270 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa388/OPAx388.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA388",
+      "vsupply": 5.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    },
+    {
+      "name": "opa388_pm5_hsa",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa388_pm5_hsa.cir",
+      "pspice": false,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax388 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax388 params: g=1\n    in line no. 270 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa388/OPAx388.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA388",
+      "vsupply": 5.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    },
+    {
+      "name": "opa388_pm15_ps",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa388_pm15_ps.cir",
+      "pspice": true,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax388 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax388 params: g=1\n    in line no. 270 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa388/OPAx388.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA388",
+      "vsupply": 15.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    },
+    {
+      "name": "opa388_pm15_hsa",
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\circuits\\exp45_o2\\opa388_pm15_hsa.cir",
+      "pspice": false,
+      "failed": true,
+      "failure_reason": "ngspice exit 1",
+      "z_ref": 2.459489570880132,
+      "python_corrected": false,
+      "log_tail": "odel type mismatch in line\n    s4 vee esdp vee esdp esd_sw\nwarning, model type mismatch in line\n    s1 out vcc out vcc esd_sw\nwarning, model type mismatch in line\n    s2 vee out vee out esd_sw\nwarning, model type mismatch in line\n    s1 cap_l cap_r sw_ol_opax388 mid ol_sw\nError: unknown subckt: xn1tia.x_u10 xn1tia.vcc_clp xn1tia.vee_clp xn1tia.vout_s xn1tia.mid xn1tia.n2991729 xn1tia.n2991763 clamp_amp_lo_opax388 params: g=1\n    in line no. 270 from file C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa388/OPAx388.LIB\n    Simulation interrupted due to error!\n\nError: incomplete or empty netlist\n       or no \".plot\", \".print\", or \".fourier\" lines in batch mode;\nno simulations run!\n",
+      "id": "OPA388",
+      "vsupply": 15.0,
+      "kind": "LEVEL 3 vendor macromodel"
+    }
+  ],
+  "exp40_decision_unchanged": "C",
+  "matching": "UNRESOLVED",
+  "conclusion": "Decision D \u2014 MACROMODEL DID NOT YIELD A USABLE OP. This is a vendor macromodel result, not a PDK transistor TIA and not silicon. PHYSICAL TIA VALIDATED remains no unless a loaded W=10 o2 cell actually passed."
+}

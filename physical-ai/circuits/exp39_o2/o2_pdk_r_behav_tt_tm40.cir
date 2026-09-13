@@ -1,0 +1,235 @@
+* Experiment 39 SKY130 isolated frozen o2 cell
+* PDK sky130A open_pdks 1689ac3f2dc763876eaf967227c7dfe831b031ae
+* Frozen weights were not edited. SPICE is not Python-corrected.
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt
+.temp -40
+
+* Experiment 22 isolated TIA neuron n1
+* frozen n=32 L1=7.8038105 b=0.0635007025703613
+* A=100000 vos=0 Ileak=0 Rout=0 fp=0 invertA=1e+07
+* Behavioral TIA. Not transistor-level. Weights were not edited.
+* shape: 32 -> 1 (linear Vlin vs z unless ReLU requested)
+
+Vin1 in1 0 DC 0.0397664910275333
+Vin2 in2 0 DC 1.11046883984087
+Vin3 in3 0 DC 0.222317615724421
+Vin4 in4 0 DC 0.648731860473914
+Vin5 in5 0 DC 0.835945102835161
+Vin6 in6 0 DC 1.20465570047731
+* passive invert in6 -> in6n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv6ia target=10000 pred=10000
+XRinv6ia in6 inv6m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv6ib target=10000.002 pred=10000.002
+XRinv6ib in6n inv6m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv6amp in6n 0 0 inv6m 10000000
+Vin7 in7 0 DC 0
+Vin8 in8 0 DC 1.32920047158055
+Vin9 in9 0 DC 0.393250114220447
+Vin10 in10 0 DC 0.111571020366471
+Vin11 in11 0 DC 0.671062860275567
+Vin12 in12 0 DC 0.126135042436186
+Vin13 in13 0 DC 0
+Vin14 in14 0 DC 0.00407341606963825
+* passive invert in14 -> in14n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv14ia target=10000 pred=10000
+XRinv14ia in14 inv14m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv14ib target=10000.002 pred=10000.002
+XRinv14ib in14n inv14m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv14amp in14n 0 0 inv14m 10000000
+Vin15 in15 0 DC 0
+* passive invert in15 -> in15n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv15ia target=10000 pred=10000
+XRinv15ia in15 inv15m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv15ib target=10000.002 pred=10000.002
+XRinv15ib in15n inv15m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv15amp in15n 0 0 inv15m 10000000
+Vin16 in16 0 DC 0
+* passive invert in16 -> in16n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv16ia target=10000 pred=10000
+XRinv16ia in16 inv16m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv16ib target=10000.002 pred=10000.002
+XRinv16ib in16n inv16m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv16amp in16n 0 0 inv16m 10000000
+Vin17 in17 0 DC 0
+* passive invert in17 -> in17n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv17ia target=10000 pred=10000
+XRinv17ia in17 inv17m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv17ib target=10000.002 pred=10000.002
+XRinv17ib in17n inv17m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv17amp in17n 0 0 inv17m 10000000
+Vin18 in18 0 DC 0
+* passive invert in18 -> in18n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv18ia target=10000 pred=10000
+XRinv18ia in18 inv18m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv18ib target=10000.002 pred=10000.002
+XRinv18ib in18n inv18m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv18amp in18n 0 0 inv18m 10000000
+Vin19 in19 0 DC 0
+Vin20 in20 0 DC 0
+* passive invert in20 -> in20n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv20ia target=10000 pred=10000
+XRinv20ia in20 inv20m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv20ib target=10000.002 pred=10000.002
+XRinv20ib in20n inv20m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv20amp in20n 0 0 inv20m 10000000
+Vin21 in21 0 DC 0
+Vin22 in22 0 DC 0
+* passive invert in22 -> in22n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv22ia target=10000 pred=10000
+XRinv22ia in22 inv22m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv22ib target=10000.002 pred=10000.002
+XRinv22ib in22n inv22m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv22amp in22n 0 0 inv22m 10000000
+Vin23 in23 0 DC 1.09917540234362
+Vin24 in24 0 DC 0
+* passive invert in24 -> in24n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv24ia target=10000 pred=10000
+XRinv24ia in24 inv24m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv24ib target=10000.002 pred=10000.002
+XRinv24ib in24n inv24m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv24amp in24n 0 0 inv24m 10000000
+Vin25 in25 0 DC 1.08004682837744
+* passive invert in25 -> in25n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv25ia target=10000 pred=10000
+XRinv25ia in25 inv25m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv25ib target=10000.002 pred=10000.002
+XRinv25ib in25n inv25m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv25amp in25n 0 0 inv25m 10000000
+Vin26 in26 0 DC 1.25280060946152
+Vin27 in27 0 DC 1.00451741807578
+* passive invert in27 -> in27n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv27ia target=10000 pred=10000
+XRinv27ia in27 inv27m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv27ib target=10000.002 pred=10000.002
+XRinv27ib in27n inv27m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv27amp in27n 0 0 inv27m 10000000
+Vin28 in28 0 DC 0.392712850807768
+Vin29 in29 0 DC 0
+Vin30 in30 0 DC 2.06868749921465
+Vin31 in31 0 DC 0
+Vin32 in32 0 DC 0
+* passive invert in32 -> in32n: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinv32ia target=10000 pred=10000
+XRinv32ia in32 inv32m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinv32ib target=10000.002 pred=10000.002
+XRinv32ib in32n inv32m 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einv32amp in32n 0 0 inv32m 10000000
+Vref vref 0 DC 1
+* passive invert vref -> vrefn: R2/R1=1.0000002 closed-loop -1 at A=1e+07
+* PDK sky130_fd_pr__res_xhigh_po for Rinvrefia target=10000 pred=10000
+XRinvrefia vref invrefm 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037281
+* PDK sky130_fd_pr__res_xhigh_po for Rinvrefib target=10000.002 pred=10000.002
+XRinvrefib vrefn invrefm 0 sky130_fd_pr__res_xhigh_po w=1 l=4.7037291
+Einvrefamp vrefn 0 0 invrefm 10000000
+
+* n1 input 1 w=-0.100595944434035 w-  bank=n alpha=1 R=331358.620080271 G_phys=3.01787833302104e-06 G_eff=3.01787833302104e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n1n1 target=331358.62 pred=331358.62
+XRn1n1n1 in1 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=156.385
+* n1 input 2 w=-0.265315115107159 w-  bank=n alpha=1 R=125636.767132058 G_phys=7.95945345321476e-06 G_eff=7.95945345321476e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n2n1 target=125636.77 pred=125636.77
+XRn1n2n1 in2 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=59.284282
+* n1 input 3 w=-0.0591677372187977 w-  bank=n alpha=1 R=563370.088162562 G_phys=1.77503211656393e-06 G_eff=1.77503211656393e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n3n1 target=563370.09 pred=563370.09
+XRn1n3n1 in3 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=265.89441
+* n1 input 4 w=-0.0695954531730398 w-  bank=n alpha=1 R=478958.492452868 G_phys=2.08786359519119e-06 G_eff=2.08786359519119e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n4n1 target=478958.49 pred=478958.49
+XRn1n4n1 in4 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=226.05214
+* n1 input 5 w=-0.284313347850547 w-  bank=n alpha=1 R=117241.53503639 G_phys=8.52940043551641e-06 G_eff=8.52940043551641e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n5n1 target=117241.54 pred=117241.54
+XRn1n5n1 in5 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=55.321733
+* n1 input 6 w=+0.314440272159438 w+  bank=n alpha=1 R=106008.473737841 G_phys=9.43320816478313e-06 G_eff=9.43320816478313e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p6n1 target=106008.47 pred=106008.47
+XRn1p6n1 in6n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=50.019728
+* n1 input 7 w=-0.349535009995164 w-  bank=n alpha=1 R=95364.7914519193 G_phys=1.04860502998549e-05 G_eff=1.04860502998549e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n7n1 target=95364.791 pred=95364.791
+XRn1n7n1 in7 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=44.99591
+* n1 input 8 w=-0.295696300813859 w-  bank=n alpha=1 R=112728.273034152 G_phys=8.87088902441576e-06 G_eff=8.87088902441576e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n8n1 target=112728.27 pred=112728.27
+XRn1n8n1 in8 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=53.191473
+* n1 input 9 w=-0.735854867565559 w-  bank=n alpha=1 R=45298.7875769723 G_phys=2.20756460269668e-05 G_eff=2.20756460269668e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n9n1 target=45298.788 pred=45298.788
+XRn1n9n1 in9 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=21.364756
+* n1 input 10 w=-0.0859238760568894 w-  bank=n alpha=1 R=387940.289277262 G_phys=2.57771628170668e-06 G_eff=2.57771628170668e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n10n1 target=387940.29 pred=387940.29
+XRn1n10n1 in10 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=183.09154
+* n1 input 11 w=-0.105996934570411 w-  bank=n alpha=1 R=314474.503139436 G_phys=3.17990803711233e-06 G_eff=3.17990803711233e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n11n1 target=314474.5 pred=314474.5
+XRn1n11n1 in11 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=148.41569
+* n1 input 12 w=-0.193541479603888 w-  bank=n alpha=1 R=172228.36883109 G_phys=5.80624438811663e-06 G_eff=5.80624438811663e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n12n1 target=172228.37 pred=172228.37
+XRn1n12n1 in12 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=81.275518
+* n1 input 13 w=-0.351950930756974 w-  bank=n alpha=1 R=94710.172414206 G_phys=1.05585279227092e-05 G_eff=1.05585279227092e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n13n1 target=94710.172 pred=94710.172
+XRn1n13n1 in13 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=44.68693
+* n1 input 14 w=+0.0402342325324318 w+  bank=n alpha=1 R=828481.898007229 G_phys=1.20702697597296e-06 G_eff=1.20702697597296e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p14n1 target=828481.9 pred=828481.9
+XRn1p14n1 in14n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=391.02718
+* n1 input 15 w=+0.188158881095559 w+  bank=n alpha=1 R=177155.248475381 G_phys=5.64476643286676e-06 G_eff=5.64476643286676e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p15n1 target=177155.25 pred=177155.25
+XRn1p15n1 in15n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=83.601005
+* n1 input 16 w=+0.204693314484602 w+  bank=n alpha=1 R=162845.246886853 G_phys=6.14079943453807e-06 G_eff=6.14079943453807e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p16n1 target=162845.25 pred=162845.25
+XRn1p16n1 in16n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=76.846685
+* n1 input 17 w=+0.153640089266272 w+  bank=n alpha=1 R=216957.263514496 G_phys=4.60920267798816e-06 G_eff=4.60920267798816e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p17n1 target=216957.26 pred=216957.26
+XRn1p17n1 in17n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=102.38756
+* n1 input 18 w=+0.463153650429953 w+  bank=n alpha=1 R=71970.3564948468 G_phys=1.38946095128986e-05 G_eff=1.38946095128986e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p18n1 target=71970.356 pred=71970.356
+XRn1p18n1 in18n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=33.953736
+* n1 input 19 w=-0.0426705918571366 w-  bank=n alpha=1 R=781178.134227318 G_phys=1.2801177557141e-06 G_eff=1.2801177557141e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n19n1 target=781178.13 pred=781178.13
+XRn1n19n1 in19 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=368.69981
+* n1 input 20 w=+0.210331327799834 w+  bank=n alpha=1 R=158480.116500076 G_phys=6.30993983399502e-06 G_eff=6.30993983399502e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p20n1 target=158480.12 pred=158480.12
+XRn1p20n1 in20n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=74.786343
+* n1 input 21 w=-0.0625815721904128 w-  bank=n alpha=1 R=532638.157953466 G_phys=1.87744716571238e-06 G_eff=1.87744716571238e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n21n1 target=532638.16 pred=532638.16
+XRn1n21n1 in21 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=251.38894
+* n1 input 22 w=+0.238697201684848 w+  bank=n alpha=1 R=139646.938037185 G_phys=7.16091605054544e-06 G_eff=7.16091605054544e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p22n1 target=139646.94 pred=139646.94
+XRn1p22n1 in22n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=65.897083
+* n1 input 23 w=-0.0558624260671465 w-  bank=n alpha=1 R=596704.004463873 G_phys=1.67587278201439e-06 G_eff=1.67587278201439e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n23n1 target=596704 pred=596704
+XRn1n23n1 in23 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=281.62802
+* n1 input 24 w=+0.439236044835332 w+  bank=n alpha=1 R=75889.3395140872 G_phys=1.317708134506e-05 G_eff=1.317708134506e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p24n1 target=75889.34 pred=75889.34
+XRn1p24n1 in24n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=35.803496
+* n1 input 25 w=+0.113742741787302 w+  bank=n alpha=1 R=293058.992684265 G_phys=3.41228225361907e-06 G_eff=3.41228225361907e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p25n1 target=293058.99 pred=293058.99
+XRn1p25n1 in25n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=138.30757
+* n1 input 26 w=-0.433617266896606 w-  bank=n alpha=1 R=76872.7075190056 G_phys=1.30085180068982e-05 G_eff=1.30085180068982e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n26n1 target=76872.708 pred=76872.708
+XRn1n26n1 in26 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=36.267646
+* n1 input 27 w=+0.230315174630548 w+  bank=n alpha=1 R=144729.210252012 G_phys=6.90945523891643e-06 G_eff=6.90945523891643e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p27n1 target=144729.21 pred=144729.21
+XRn1p27n1 in27n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=68.295915
+* n1 input 28 w=-0.12398109066818 w-  bank=n alpha=1 R=268858.203728388 G_phys=3.71943272004541e-06 G_eff=3.71943272004541e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n28n1 target=268858.2 pred=268858.2
+XRn1n28n1 in28 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=126.8848
+* n1 input 29 w=-0.26178305647614 w-  bank=n alpha=1 R=127331.897572108 G_phys=7.85349169428421e-06 G_eff=7.85349169428421e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n29n1 target=127331.9 pred=127331.9
+XRn1n29n1 in29 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=60.084384
+* n1 input 30 w=-0.44647126763401 w-  bank=n alpha=1 R=74659.5262668906 G_phys=1.33941380290203e-05 G_eff=1.33941380290203e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n30n1 target=74659.526 pred=74659.526
+XRn1n30n1 in30 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=35.223025
+* n1 input 31 w=-0.53039390006668 w-  bank=n alpha=1 R=62846.3738537392 G_phys=1.59118170020004e-05 G_eff=1.59118170020004e-05
+* PDK sky130_fd_pr__res_xhigh_po for Rn1n31n1 target=62846.374 pred=62846.374
+XRn1n31n1 in31 n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=29.647217
+* n1 input 32 w=+0.288818654520262 w+  bank=n alpha=1 R=115412.674394946 G_phys=8.66455963560785e-06 G_eff=8.66455963560785e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1p32n1 target=115412.67 pred=115412.67
+XRn1p32n1 in32n n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=54.45851
+* n1 bias w+  bank=n alpha=1 R=524928.575339756 G_phys=1.90502107711084e-06 G_eff=1.90502107711084e-06
+* PDK sky130_fd_pr__res_xhigh_po for Rn1bpn1 target=524928.58 pred=524928.58
+XRn1bpn1 vrefn n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=247.75002
+* feedback TIA n1: Rf=33333.3333333333 A=100000 V(n1lin) = -I(n1p)*Rf*A/(A+1)  (uncompensated)
+En1tia n1lin 0 0 n1p 100000
+* PDK sky130_fd_pr__res_xhigh_po for Rn1f target=33333.333 pred=33333.333
+XRn1f n1lin n1p 0 sky130_fd_pr__res_xhigh_po w=1 l=15.717061
+
+.control
+set numdgt=12
+op
+print v(n1lin)
+print v(n1p)
+.endc
+.end
