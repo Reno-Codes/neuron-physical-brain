@@ -1,0 +1,12 @@
+{
+  "frozen_netlist_sha256": "28dccd8121a1032d69a2b08633737db0b2f10c8996f68ed2271520ec58c3b9cb",
+  "physical_resistors_stuffed": 60,
+  "unique_resistor_values": 30,
+  "resistor_spares_suggested": 64,
+  "opa189_stuffed": 17,
+  "opa189_buy": 20,
+  "diodes_stuffed": 8,
+  "diodes_buy": 16,
+  "max_resistor_error_pct": 0.0673408,
+  "all_resistors_within_0p1pct": true
+}

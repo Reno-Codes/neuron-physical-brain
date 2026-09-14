@@ -1,0 +1,17 @@
+ref,C_F,role
+Cinv1,1e-12,node
+Cinv2,1e-12,node
+Cinvref,1e-12,node
+Ch1tia,1e-12,node
+Ch1rl,1e-12,node
+Ch1inv,1e-12,node
+Ch2tia,1e-12,node
+Ch2rl,1e-12,node
+Ch2inv,1e-12,node
+Ch3tia,1e-12,node
+Ch3rl,1e-12,node
+Ch3inv,1e-12,node
+Ch4tia,1e-12,node
+Ch4rl,1e-12,node
+Ch4inv,1e-12,node
+Co1tia,1e-12,node

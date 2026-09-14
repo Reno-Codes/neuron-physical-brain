@@ -1,0 +1,47 @@
+{
+  "kind": "MIXED-LEVEL PCB analog MLP",
+  "silicon": false,
+  "physical_tia_validated": false,
+  "model": {
+    "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\xor_model.npz",
+    "shape": [
+      2,
+      4,
+      1
+    ],
+    "hidden_activation": "relu",
+    "output_activation": "linear",
+    "class_threshold": 0.5,
+    "weights_frozen": true
+  },
+  "g_scale": 0.0001,
+  "rf_ohm": 10000.0,
+  "vsupply": 15.0,
+  "primitives": [
+    "SignedDense_A",
+    "TIA_OPA189",
+    "Inverter_OPA189",
+    "ReLU_OPA189_1N4148",
+    "Bias_Vref"
+  ],
+  "range_analysis": {
+    "n_vectors": 4,
+    "z1_min": -3.639081228239245,
+    "z1_max": 0.9348381659953187,
+    "h_min": 0.0,
+    "h_max": 0.9348381659953187,
+    "y_min": 0.0016503406125618503,
+    "y_max": 1.018019446537822,
+    "abs_signal_max": 3.639081228239245
+  },
+  "mapping_notes": [],
+  "opa189_count": 16,
+  "diode_count": 8,
+  "resistor_count": 48,
+  "validation_analysis": {
+    "type": "tran_uic",
+    "tstep_s": 5e-06,
+    "tstop_s": 0.002,
+    "note": "OP of the full OPA189+diode netlist is stiff. UIC TRAN is the power-on settle."
+  }
+}

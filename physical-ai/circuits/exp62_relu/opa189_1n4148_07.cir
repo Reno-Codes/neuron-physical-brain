@@ -1,0 +1,21 @@
+* Experiment 62 OPA189 superdiode ReLU diode=1n4148
+* Level-1 documented macromodel. Not silicon. Not MOS.
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+Vin in 0 DC -1.14631308974675
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Xamp in out vdd vss amp OPAx189
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/1n4148/1N4148.LIB"
+* TI 1N4148 from ngspice-tree TLC555.LIB; parameters not invented.
+Xd amp out 1N4148
+Rload out 0 10000
+Cload out 0 1p
+
+.control
+set numdgt=15
+op
+print v(in) v(out) v(amp)
+print i(Vin) i(Vdd) i(Vss)
+.endc
+
+.end

@@ -1,0 +1,537 @@
+{
+  "revision": "MVP-H1",
+  "frozen_netlist": "physical_design/xor_2_4_1/netlist.cir",
+  "note": "Hardware nets use the same names as SPICE nodes. Neural topology is unchanged.",
+  "blocks": [
+    {
+      "id": "PWR",
+      "title": "Power and references",
+      "spice": [
+        "vdd",
+        "vss",
+        "0",
+        "vref"
+      ],
+      "hardware_additions": [
+        "C_VDD_BULK 10uF",
+        "C_VSS_BULK 10uF",
+        "C_Uxx_decouple 100nF each OPA189 V+/V- to GND",
+        "VREF source+buffer (ideal Vref in SPICE)"
+      ]
+    },
+    {
+      "id": "IN",
+      "title": "Input interface + signed generation",
+      "instances": [
+        "Vin1/Vin2 or switches to IN1/IN2",
+        "Xinv1, Xinv2, Xinvref unity inverters"
+      ]
+    },
+    {
+      "id": "H1",
+      "title": "Hidden neuron h1",
+      "tia": "Xh1tia",
+      "relu": "Xh1relu + Xh1d1 + Xh1d2",
+      "invert": "Xh1inv"
+    },
+    {
+      "id": "H2",
+      "title": "Hidden neuron h2"
+    },
+    {
+      "id": "H3",
+      "title": "Hidden neuron h3"
+    },
+    {
+      "id": "H4",
+      "title": "Hidden neuron h4"
+    },
+    {
+      "id": "OUT",
+      "title": "Output neuron o1 linear TIA Xo1tia"
+    }
+  ],
+  "resistors": {
+    "Rinv1in": {
+      "ref": "Rinv1in",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rinv1f": {
+      "ref": "Rinv1f",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rinv2in": {
+      "ref": "Rinv2in",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rinv2f": {
+      "ref": "Rinv2f",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rinvrefin": {
+      "ref": "Rinvrefin",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rinvreff": {
+      "ref": "Rinvreff",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh1w1": {
+      "ref": "Rh1w1",
+      "R_exact_ohm": "8346.15342020291",
+      "R_e96_ohm": "8250",
+      "weight": "1.1981567431762925",
+      "role": "weight",
+      "layer": "1",
+      "from": "in1",
+      "to": "h1sum"
+    },
+    "Rh1w2": {
+      "ref": "Rh1w2",
+      "R_exact_ohm": "6653.68052854338",
+      "R_e96_ohm": "6650",
+      "weight": "-1.5029275837788365",
+      "role": "weight",
+      "layer": "1",
+      "from": "in2n",
+      "to": "h1sum"
+    },
+    "Rh1b": {
+      "ref": "Rh1b",
+      "R_exact_ohm": "37976.8116137404",
+      "R_e96_ohm": "38300",
+      "weight": "-0.26331857718097385",
+      "role": "bias",
+      "layer": "1",
+      "from": "vrefn",
+      "to": "h1sum"
+    },
+    "Rh1f": {
+      "ref": "Rh1f",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "tia_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh1r1": {
+      "ref": "Rh1r1",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_r1",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh1rf": {
+      "ref": "Rh1rf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh1rl": {
+      "ref": "Rh1rl",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_load",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh1invin": {
+      "ref": "Rh1invin",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh1invf": {
+      "ref": "Rh1invf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh2w1": {
+      "ref": "Rh2w1",
+      "R_exact_ohm": "7539.64567142449",
+      "R_e96_ohm": "7500",
+      "weight": "-1.326322275050715",
+      "role": "weight",
+      "layer": "1",
+      "from": "in1n",
+      "to": "h2sum"
+    },
+    "Rh2w2": {
+      "ref": "Rh2w2",
+      "R_exact_ohm": "9292.75696435857",
+      "R_e96_ohm": "9310",
+      "weight": "1.076106911905045",
+      "role": "weight",
+      "layer": "1",
+      "from": "in2",
+      "to": "h2sum"
+    },
+    "Rh2b": {
+      "ref": "Rh2b",
+      "R_exact_ohm": "66315.5606469353",
+      "R_e96_ohm": "66500",
+      "weight": "-0.15079417111830054",
+      "role": "bias",
+      "layer": "1",
+      "from": "vrefn",
+      "to": "h2sum"
+    },
+    "Rh2f": {
+      "ref": "Rh2f",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "tia_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh2r1": {
+      "ref": "Rh2r1",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_r1",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh2rf": {
+      "ref": "Rh2rf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh2rl": {
+      "ref": "Rh2rl",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_load",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh2invin": {
+      "ref": "Rh2invin",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh2invf": {
+      "ref": "Rh2invf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh3w1": {
+      "ref": "Rh3w1",
+      "R_exact_ohm": "5125.48418304015",
+      "R_e96_ohm": "5110",
+      "weight": "-1.9510351886538364",
+      "role": "weight",
+      "layer": "1",
+      "from": "in1n",
+      "to": "h3sum"
+    },
+    "Rh3w2": {
+      "ref": "Rh3w2",
+      "R_exact_ohm": "7679.43278733945",
+      "R_e96_ohm": "7680",
+      "weight": "-1.302179506862318",
+      "role": "weight",
+      "layer": "1",
+      "from": "in2n",
+      "to": "h3sum"
+    },
+    "Rh3b": {
+      "ref": "Rh3b",
+      "R_exact_ohm": "25915.6966255384",
+      "R_e96_ohm": "26100",
+      "weight": "-0.3858665327230903",
+      "role": "bias",
+      "layer": "1",
+      "from": "vrefn",
+      "to": "h3sum"
+    },
+    "Rh3f": {
+      "ref": "Rh3f",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "tia_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh3r1": {
+      "ref": "Rh3r1",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_r1",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh3rf": {
+      "ref": "Rh3rf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh3rl": {
+      "ref": "Rh3rl",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_load",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh3invin": {
+      "ref": "Rh3invin",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh3invf": {
+      "ref": "Rh3invf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh4w1": {
+      "ref": "Rh4w1",
+      "R_exact_ohm": "25650.2210777918",
+      "R_e96_ohm": "25500",
+      "weight": "-0.38986018754661267",
+      "role": "weight",
+      "layer": "1",
+      "from": "in1n",
+      "to": "h4sum"
+    },
+    "Rh4w2": {
+      "ref": "Rh4w2",
+      "R_exact_ohm": "31621.2940385193",
+      "R_e96_ohm": "31600",
+      "weight": "-0.3162425923435822",
+      "role": "weight",
+      "layer": "1",
+      "from": "in2n",
+      "to": "h4sum"
+    },
+    "Rh4b": {
+      "ref": "Rh4b",
+      "R_exact_ohm": "22716.4148046838",
+      "R_e96_ohm": "22600",
+      "weight": "-0.4402103098565589",
+      "role": "bias",
+      "layer": "1",
+      "from": "vrefn",
+      "to": "h4sum"
+    },
+    "Rh4f": {
+      "ref": "Rh4f",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "tia_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh4r1": {
+      "ref": "Rh4r1",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_r1",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh4rf": {
+      "ref": "Rh4rf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_rf",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh4rl": {
+      "ref": "Rh4rl",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "relu_load",
+      "layer": "1",
+      "from": "",
+      "to": ""
+    },
+    "Rh4invin": {
+      "ref": "Rh4invin",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Rh4invf": {
+      "ref": "Rh4invf",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "invert",
+      "layer": "",
+      "from": "",
+      "to": ""
+    },
+    "Ro1w1": {
+      "ref": "Ro1w1",
+      "R_exact_ohm": "9197.82154480464",
+      "R_e96_ohm": "9090",
+      "weight": "1.0872139616199086",
+      "role": "weight",
+      "layer": "2",
+      "from": "h1yn",
+      "to": "o1sum"
+    },
+    "Ro1w2": {
+      "ref": "Ro1w2",
+      "R_exact_ohm": "9245.04749840197",
+      "R_e96_ohm": "9310",
+      "weight": "1.0816602079901185",
+      "role": "weight",
+      "layer": "2",
+      "from": "h2yn",
+      "to": "o1sum"
+    },
+    "Ro1w3": {
+      "ref": "Ro1w3",
+      "R_exact_ohm": "55155.9696790035",
+      "R_e96_ohm": "54900",
+      "weight": "-0.18130403759009164",
+      "role": "weight",
+      "layer": "2",
+      "from": "h3y",
+      "to": "o1sum"
+    },
+    "Ro1w4": {
+      "ref": "Ro1w4",
+      "R_exact_ohm": "51512.4284437413",
+      "R_e96_ohm": "51100",
+      "weight": "-0.19412790858659246",
+      "role": "weight",
+      "layer": "2",
+      "from": "h4y",
+      "to": "o1sum"
+    },
+    "Ro1b": {
+      "ref": "Ro1b",
+      "R_exact_ohm": "6059355.21666454",
+      "R_e96_ohm": "6040000",
+      "weight": "0.0016503406125618503",
+      "role": "bias",
+      "layer": "2",
+      "from": "vrefn",
+      "to": "o1sum"
+    },
+    "Ro1f": {
+      "ref": "Ro1f",
+      "R_exact_ohm": "10000",
+      "R_e96_ohm": "10000",
+      "weight": "",
+      "role": "tia_rf",
+      "layer": "2",
+      "from": "",
+      "to": ""
+    }
+  },
+  "do_not_place_1pF_spice_caps": true
+}

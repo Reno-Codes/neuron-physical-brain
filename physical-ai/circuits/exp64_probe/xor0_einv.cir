@@ -1,0 +1,126 @@
+* Physical AI compiler MVP: frozen XOR 2-4-1 (inverting rectifier ReLU)
+* Frozen model: C:\dev\neuron-physical-brain\physical-ai\models\xor_model.npz
+* Weights are compiled, not edited.
+* G_SCALE=0.0001 Rf=10000
+* Architecture A signed routing + OPA189 TIA + OPA189/1N4148 ReLU.
+* MIXED-LEVEL: vendor macromodel TIA/ReLU + discrete R. Not silicon.
+
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/1n4148/1N4148.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vref vref 0 DC 1
+
+Vin1 in1 0 DC 0
+Vin2 in2 0 DC 0
+
+* Inverter_OPA189 inv1: in1n = -in1  (E-source probe)
+Einv1 in1n 0 in1 0 -1
+* Inverter_OPA189 inv2: in2n = -in2  (E-source probe)
+Einv2 in2n 0 in2 0 -1
+* Inverter_OPA189 invref: vrefn = -vref  (E-source probe)
+Einvref vrefn 0 vref 0 -1
+
+* Hidden neuron h1
+Rh1w1 in1 h1sum 8346.15342020291
+Rh1w2 in2n h1sum 6653.68052854338
+Rh1b vrefn h1sum 37976.8116137404
+* TIA_OPA189 h1: h1lin = -Rf * I(h1sum)
+Rh1f h1lin h1sum 10000
+Xh1tia 0 h1sum vdd vss h1lin OPAx189
+Ch1tia h1lin 0 1e-12
+* ReLU_OPA189_1N4148 h1: h1y ~= max(-h1lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh1r1 h1lin h1rinn 10000
+Xh1relu 0 h1rinn vdd vss h1amp OPAx189
+Xh1d1 h1rinn h1amp 1N4148
+Xh1d2 h1amp h1y 1N4148
+Rh1rf h1y h1rinn 10000
+Rh1rl h1y 0 10000
+Ch1rl h1y 0 1e-12
+* Inverter_OPA189 h1inv: h1yn = -h1y  (E-source probe)
+Eh1inv h1yn 0 h1y 0 -1
+
+* Hidden neuron h2
+Rh2w1 in1n h2sum 7539.64567142449
+Rh2w2 in2 h2sum 9292.75696435857
+Rh2b vrefn h2sum 66315.5606469353
+* TIA_OPA189 h2: h2lin = -Rf * I(h2sum)
+Rh2f h2lin h2sum 10000
+Xh2tia 0 h2sum vdd vss h2lin OPAx189
+Ch2tia h2lin 0 1e-12
+* ReLU_OPA189_1N4148 h2: h2y ~= max(-h2lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh2r1 h2lin h2rinn 10000
+Xh2relu 0 h2rinn vdd vss h2amp OPAx189
+Xh2d1 h2rinn h2amp 1N4148
+Xh2d2 h2amp h2y 1N4148
+Rh2rf h2y h2rinn 10000
+Rh2rl h2y 0 10000
+Ch2rl h2y 0 1e-12
+* Inverter_OPA189 h2inv: h2yn = -h2y  (E-source probe)
+Eh2inv h2yn 0 h2y 0 -1
+
+* Hidden neuron h3
+Rh3w1 in1n h3sum 5125.48418304015
+Rh3w2 in2n h3sum 7679.43278733945
+Rh3b vrefn h3sum 25915.6966255384
+* TIA_OPA189 h3: h3lin = -Rf * I(h3sum)
+Rh3f h3lin h3sum 10000
+Xh3tia 0 h3sum vdd vss h3lin OPAx189
+Ch3tia h3lin 0 1e-12
+* ReLU_OPA189_1N4148 h3: h3y ~= max(-h3lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh3r1 h3lin h3rinn 10000
+Xh3relu 0 h3rinn vdd vss h3amp OPAx189
+Xh3d1 h3rinn h3amp 1N4148
+Xh3d2 h3amp h3y 1N4148
+Rh3rf h3y h3rinn 10000
+Rh3rl h3y 0 10000
+Ch3rl h3y 0 1e-12
+* Inverter_OPA189 h3inv: h3yn = -h3y  (E-source probe)
+Eh3inv h3yn 0 h3y 0 -1
+
+* Hidden neuron h4
+Rh4w1 in1n h4sum 25650.2210777918
+Rh4w2 in2n h4sum 31621.2940385193
+Rh4b vrefn h4sum 22716.4148046838
+* TIA_OPA189 h4: h4lin = -Rf * I(h4sum)
+Rh4f h4lin h4sum 10000
+Xh4tia 0 h4sum vdd vss h4lin OPAx189
+Ch4tia h4lin 0 1e-12
+* ReLU_OPA189_1N4148 h4: h4y ~= max(-h4lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh4r1 h4lin h4rinn 10000
+Xh4relu 0 h4rinn vdd vss h4amp OPAx189
+Xh4d1 h4rinn h4amp 1N4148
+Xh4d2 h4amp h4y 1N4148
+Rh4rf h4y h4rinn 10000
+Rh4rl h4y 0 10000
+Ch4rl h4y 0 1e-12
+* Inverter_OPA189 h4inv: h4yn = -h4y  (E-source probe)
+Eh4inv h4yn 0 h4y 0 -1
+
+* Output neuron o1 (linear)
+Ro1w1 h1yn o1sum 9197.82154480464
+Ro1w2 h2yn o1sum 9245.04749840197
+Ro1w3 h3y o1sum 55155.9696790035
+Ro1w4 h4y o1sum 51512.4284437413
+Ro1b vrefn o1sum 6059355.21666454
+* TIA_OPA189 o1: o1lin = -Rf * I(o1sum)
+Ro1f o1lin o1sum 10000
+Xo1tia 0 o1sum vdd vss o1lin OPAx189
+Co1tia o1lin 0 1e-12
+
+.control
+set numdgt=15
+op
+print v(o1lin)
+print v(h1lin) v(h1y)
+print v(h2lin) v(h2y)
+print v(h3lin) v(h3y)
+print v(h4lin) v(h4y)
+print i(Vdd) i(Vss)
+.endc
+
+.end

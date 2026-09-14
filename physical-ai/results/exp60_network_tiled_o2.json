@@ -1,0 +1,53 @@
+{
+  "experiment_id": "exp60",
+  "kind": "Network F insertion of OPA189 + W=10 8s8p Ro2 row",
+  "status": "DEMONSTRATED",
+  "decision": "A",
+  "decision_label": "OPA189 + TILED o2 ROW HOLDS NETWORK F ANALOG MAE",
+  "yield_claim": false,
+  "silicon": false,
+  "physical_tia_validated": false,
+  "n_o2_resistors": 34,
+  "n_tiled_instances": 2176,
+  "f12_control": {
+    "failed": false,
+    "failure_reason": null,
+    "mae": 0.000595993397691753,
+    "max_abs_error": 0.0023735698772737734,
+    "accuracy": 1.0,
+    "analog_pass": true,
+    "n_vectors": null,
+    "spice_s": 0.08985779999056831,
+    "o2_mae": null,
+    "o2_max_abs": null,
+    "o2_analog_pass": null
+  },
+  "f12": {
+    "failed": false,
+    "failure_reason": null,
+    "mae": 0.0005741171089846,
+    "max_abs_error": 0.002280422053672737,
+    "accuracy": 1.0,
+    "analog_pass": true,
+    "n_vectors": null,
+    "spice_s": 8.7933452000143,
+    "o2_mae": null,
+    "o2_max_abs": null,
+    "o2_analog_pass": null
+  },
+  "f40": {
+    "failed": false,
+    "failure_reason": null,
+    "mae": 0.00047041615836497015,
+    "max_abs_error": 0.0020041476953127635,
+    "accuracy": 1.0,
+    "analog_pass": true,
+    "n_vectors": null,
+    "spice_s": 28.390883700019913,
+    "o2_mae": null,
+    "o2_max_abs": null,
+    "o2_analog_pass": null
+  },
+  "next_experiment": "Experiment 61: temperature or extra mm draws on this mixed Network F, or leave matching as leftover-limited. Not silicon.",
+  "conclusion": "Decision A \u2014 OPA189 + TILED o2 ROW HOLDS NETWORK F ANALOG MAE. Mixed-level: tiled PDK o2 row + one OPA189 TIA in otherwise behavioral Network F. Not silicon. Miller family closed."
+}

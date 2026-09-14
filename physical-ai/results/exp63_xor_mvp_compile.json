@@ -1,0 +1,16 @@
+{
+  "experiment_id": "exp63",
+  "kind": "compiler-generated XOR 2-4-1 physical compile + SPICE",
+  "status": "TECHNOLOGY BOUNDARY",
+  "decision": "C",
+  "decision_label": "SIMPLE SUPERDIODE OP ABORTS IN THE 4-ReLU NETLIST",
+  "yield_claim": false,
+  "silicon": false,
+  "failure_mechanism": "doAnalyses: OP: Timestep too small; trouble with xh1d:d_1n4148_1-instance d.xh1d.d1. UIC TRAN of the same netlist also failed to find an initial point. i(Vdd) during failed OP ~77 A (rail fight).",
+  "refuse_unknown_activation": {
+    "refused": true,
+    "reason": "UNSUPPORTED ACTIVATION: hidden='tanh' (supported ['relu'])"
+  },
+  "next_experiment": "Experiment 64: documented two-diode inverting precision rectifier, then recompile XOR.",
+  "conclusion": "Isolated Experiment 62 single-diode ReLU stands. Network-scale simple superdiode is closed."
+}

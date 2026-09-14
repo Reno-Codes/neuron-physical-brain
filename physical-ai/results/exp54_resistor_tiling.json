@@ -1,0 +1,980 @@
+{
+  "experiment_id": "exp54",
+  "kind": "SKY130 documented resistor area / unit tiling under tt_mm",
+  "status": "PARTIALLY VALIDATED",
+  "decision": "B",
+  "decision_label": "4s4p MEAN |err| IN 1 mV BAR BUT SAMPLE NOT ALL-PASS (NOT YIELD)",
+  "yield_claim": false,
+  "silicon": false,
+  "realism_level": 4,
+  "realism_note": "Official PDK resistor compact model + behavioral TIA. Not silicon.",
+  "A": 1000000.0,
+  "N_MC": 16,
+  "official_body_pelgrom": 0.0347,
+  "official_rend_mm_A": 0.0472,
+  "baseline": {
+    "exp53_nominal_y": 2.459890565832,
+    "exp53_file_y": 2.459890565832,
+    "delta_y_vs_exp53": 0.0,
+    "new_w10_nominal_y": 2.459890565832
+  },
+  "inventory": {
+    "w10": {
+      "n": 80,
+      "w_um_unique": [
+        10.0
+      ],
+      "l_min_um": 4.8663717,
+      "l_max_um": 3922.5044,
+      "wl_min_um2": 48.663717000000005,
+      "wl_max_um2": 39225.043999999994,
+      "wl_sum_um2": 519515.00132499984,
+      "wl_median_um2": 496.14382,
+      "body_sigma_median": 0.001557850154588099,
+      "head_sigma_w": 0.014925950555994749
+    },
+    "w20": {
+      "n": 80,
+      "w_um_unique": [
+        20.0
+      ],
+      "l_min_um": 9.8554268,
+      "l_max_um": 7867.1938,
+      "wl_min_um2": 197.10853600000002,
+      "wl_max_um2": 157343.876,
+      "wl_sum_um2": 2084063.776536,
+      "wl_median_um2": 1992.06894,
+      "body_sigma_median": 0.0007774586372386963,
+      "head_sigma_w": 0.010554240853799007
+    },
+    "w10_2s2p": {
+      "n": 320,
+      "w_um_unique": [
+        10.0
+      ],
+      "l_min_um": 4.8663717,
+      "l_max_um": 3922.5044,
+      "wl_min_um2": 48.663717000000005,
+      "wl_max_um2": 39225.043999999994,
+      "wl_sum_um2": 2078060.0053000022,
+      "wl_median_um2": 496.14382,
+      "body_sigma_median": 0.001557850154588099,
+      "head_sigma_w": 0.014925950555994749
+    },
+    "w10_4s4p": {
+      "n": 1280,
+      "w_um_unique": [
+        10.0
+      ],
+      "l_min_um": 4.8663717,
+      "l_max_um": 3922.5044,
+      "wl_min_um2": 48.663717000000005,
+      "wl_max_um2": 39225.043999999994,
+      "wl_sum_um2": 8312240.021199967,
+      "wl_median_um2": 496.14382,
+      "body_sigma_median": 0.001557850154588099,
+      "head_sigma_w": 0.014925950555994749
+    },
+    "w10_s4": {
+      "n": 320,
+      "w_um_unique": [
+        10.0
+      ],
+      "l_min_um": 1.1373717,
+      "l_max_um": 980.54688,
+      "wl_min_um2": 11.373717000000001,
+      "wl_max_um2": 9805.4688,
+      "wl_sum_um2": 519261.49084400036,
+      "wl_median_um2": 123.24374,
+      "body_sigma_median": 0.0031256981826241013,
+      "head_sigma_w": 0.014925950555994749
+    }
+  },
+  "nominal": {
+    "w10": {
+      "y": 2.459890565832,
+      "abs_err": 0.0004009949518679612,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 80,
+        "w_um_unique": [
+          10.0
+        ],
+        "l_min_um": 4.8663717,
+        "l_max_um": 3922.5044,
+        "wl_min_um2": 48.663717000000005,
+        "wl_max_um2": 39225.043999999994,
+        "wl_sum_um2": 519515.00132499984,
+        "wl_median_um2": 496.14382,
+        "body_sigma_median": 0.001557850154588099,
+        "head_sigma_w": 0.014925950555994749
+      }
+    },
+    "w20": {
+      "y": 2.459950421434,
+      "abs_err": 0.0004608505538676866,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 80,
+        "w_um_unique": [
+          20.0
+        ],
+        "l_min_um": 9.8554268,
+        "l_max_um": 7867.1938,
+        "wl_min_um2": 197.10853600000002,
+        "wl_max_um2": 157343.876,
+        "wl_sum_um2": 2084063.776536,
+        "wl_median_um2": 1992.06894,
+        "body_sigma_median": 0.0007774586372386963,
+        "head_sigma_w": 0.010554240853799007
+      }
+    },
+    "w10_2s2p": {
+      "y": 2.459950214853,
+      "abs_err": 0.00046064397286782466,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 320,
+        "w_um_unique": [
+          10.0
+        ],
+        "l_min_um": 4.8663717,
+        "l_max_um": 3922.5044,
+        "wl_min_um2": 48.663717000000005,
+        "wl_max_um2": 39225.043999999994,
+        "wl_sum_um2": 2078060.0053000022,
+        "wl_median_um2": 496.14382,
+        "body_sigma_median": 0.001557850154588099,
+        "head_sigma_w": 0.014925950555994749
+      }
+    },
+    "w10_4s4p": {
+      "y": 2.459965130621,
+      "abs_err": 0.0004755597408681034,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 1280,
+        "w_um_unique": [
+          10.0
+        ],
+        "l_min_um": 4.8663717,
+        "l_max_um": 3922.5044,
+        "wl_min_um2": 48.663717000000005,
+        "wl_max_um2": 39225.043999999994,
+        "wl_sum_um2": 8312240.021199967,
+        "wl_median_um2": 496.14382,
+        "body_sigma_median": 0.001557850154588099,
+        "head_sigma_w": 0.014925950555994749
+      }
+    },
+    "w10_s4": {
+      "y": 2.459915689635,
+      "abs_err": 0.00042611875486775475,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 320,
+        "w_um_unique": [
+          10.0
+        ],
+        "l_min_um": 1.1373717,
+        "l_max_um": 980.54688,
+        "wl_min_um2": 11.373717000000001,
+        "wl_max_um2": 9805.4688,
+        "wl_sum_um2": 519261.49084400036,
+        "wl_median_um2": 123.24374,
+        "body_sigma_median": 0.0031256981826241013,
+        "head_sigma_w": 0.014925950555994749
+      }
+    }
+  },
+  "stats": {
+    "w10": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 5,
+      "mean": 0.002810039065887976,
+      "median": 0.0018126137763680994,
+      "max": 0.008931721540867965,
+      "std": 0.0026818255501864516,
+      "pass_rate": 0.3125
+    },
+    "w20": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 7,
+      "mean": 0.0013912330061214562,
+      "median": 0.0013102530235000742,
+      "max": 0.00419001079186776,
+      "std": 0.001280917204733624,
+      "pass_rate": 0.4375
+    },
+    "w10_2s2p": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 9,
+      "mean": 0.0013210603922499953,
+      "median": 0.0009162961611322018,
+      "max": 0.0035515236111320903,
+      "std": 0.0010982625057864084,
+      "pass_rate": 0.5625
+    },
+    "w10_4s4p": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 11,
+      "mean": 0.000815089075920955,
+      "median": 0.0006804605419998833,
+      "max": 0.0019200413328679389,
+      "std": 0.0005484249553269088,
+      "pass_rate": 0.6875
+    },
+    "w10_s4": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 0,
+      "mean": 0.003343576454766517,
+      "median": 0.003115728215500102,
+      "max": 0.006865862986132232,
+      "std": 0.001970299621864024,
+      "pass_rate": 0.0
+    }
+  },
+  "draws": {
+    "w10": [
+      {
+        "draw": 0,
+        "y": 2.454762083504,
+        "abs_err": 0.004727487376132267,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54000
+      },
+      {
+        "draw": 1,
+        "y": 2.458978238226,
+        "abs_err": 0.0005113326541321683,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54001
+      },
+      {
+        "draw": 2,
+        "y": 2.461615665979,
+        "abs_err": 0.002126095098867964,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54002
+      },
+      {
+        "draw": 3,
+        "y": 2.459270989668,
+        "abs_err": 0.00021858121213202963,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54003
+      },
+      {
+        "draw": 4,
+        "y": 2.461450326836,
+        "abs_err": 0.0019607559558680876,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54004
+      },
+      {
+        "draw": 5,
+        "y": 2.466576929658,
+        "abs_err": 0.007087358777867703,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54005
+      },
+      {
+        "draw": 6,
+        "y": 2.460603076524,
+        "abs_err": 0.001113505643867807,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54006
+      },
+      {
+        "draw": 7,
+        "y": 2.458307383246,
+        "abs_err": 0.001182187634132248,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54007
+      },
+      {
+        "draw": 8,
+        "y": 2.464614415673,
+        "abs_err": 0.005124844792868011,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54008
+      },
+      {
+        "draw": 9,
+        "y": 2.459703441105,
+        "abs_err": 0.00021387022486774043,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54009
+      },
+      {
+        "draw": 10,
+        "y": 2.46016708604,
+        "abs_err": 0.0006775151598676921,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54010
+      },
+      {
+        "draw": 11,
+        "y": 2.459984104069,
+        "abs_err": 0.0004945331888679405,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54011
+      },
+      {
+        "draw": 12,
+        "y": 2.464635809132,
+        "abs_err": 0.005146238251867885,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54012
+      },
+      {
+        "draw": 13,
+        "y": 2.461154042477,
+        "abs_err": 0.0016644715968681112,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54013
+      },
+      {
+        "draw": 14,
+        "y": 2.455709444935,
+        "abs_err": 0.0037801259451319957,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54014
+      },
+      {
+        "draw": 15,
+        "y": 2.468421292421,
+        "abs_err": 0.008931721540867965,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54015
+      }
+    ],
+    "w20": [
+      {
+        "draw": 0,
+        "y": 2.461743400912,
+        "abs_err": 0.002253830031867743,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54000
+      },
+      {
+        "draw": 1,
+        "y": 2.461380905254,
+        "abs_err": 0.0018913343738677924,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54001
+      },
+      {
+        "draw": 2,
+        "y": 2.458371680303,
+        "abs_err": 0.0011178905771322967,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54002
+      },
+      {
+        "draw": 3,
+        "y": 2.462964663075,
+        "abs_err": 0.003475092194868079,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54003
+      },
+      {
+        "draw": 4,
+        "y": 2.46099218635,
+        "abs_err": 0.0015026154698678518,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54004
+      },
+      {
+        "draw": 5,
+        "y": 2.459731326548,
+        "abs_err": 0.00024175566786777125,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54005
+      },
+      {
+        "draw": 6,
+        "y": 2.460145096928,
+        "abs_err": 0.0006555260478680047,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54006
+      },
+      {
+        "draw": 7,
+        "y": 2.45991070141,
+        "abs_err": 0.0004211305298680301,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54007
+      },
+      {
+        "draw": 8,
+        "y": 2.459677520281,
+        "abs_err": 0.00018794940086808154,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54008
+      },
+      {
+        "draw": 9,
+        "y": 2.459469093874,
+        "abs_err": 2.047700613205805e-05,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54009
+      },
+      {
+        "draw": 10,
+        "y": 2.461350366233,
+        "abs_err": 0.0018607953528677612,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54010
+      },
+      {
+        "draw": 11,
+        "y": 2.459445942128,
+        "abs_err": 4.362875213193007e-05,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54011
+      },
+      {
+        "draw": 12,
+        "y": 2.457615706471,
+        "abs_err": 0.0018738644091320644,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54012
+      },
+      {
+        "draw": 13,
+        "y": 2.461959971024,
+        "abs_err": 0.0024704001438680123,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54013
+      },
+      {
+        "draw": 14,
+        "y": 2.459542998228,
+        "abs_err": 5.342734786806247e-05,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54014
+      },
+      {
+        "draw": 15,
+        "y": 2.463679581672,
+        "abs_err": 0.00419001079186776,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54015
+      }
+    ],
+    "w10_2s2p": [
+      {
+        "draw": 0,
+        "y": 2.462622848074,
+        "abs_err": 0.0031332771938679116,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54000
+      },
+      {
+        "draw": 1,
+        "y": 2.459800988843,
+        "abs_err": 0.00031141796286782153,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54001
+      },
+      {
+        "draw": 2,
+        "y": 2.459066586045,
+        "abs_err": 0.0004229848351320342,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54002
+      },
+      {
+        "draw": 3,
+        "y": 2.45965710721,
+        "abs_err": 0.00016753632986787892,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54003
+      },
+      {
+        "draw": 4,
+        "y": 2.460254897807,
+        "abs_err": 0.0007653269268677043,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54004
+      },
+      {
+        "draw": 5,
+        "y": 2.458999571802,
+        "abs_err": 0.0004899990781321861,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54005
+      },
+      {
+        "draw": 6,
+        "y": 2.458169092681,
+        "abs_err": 0.001320478199132058,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54006
+      },
+      {
+        "draw": 7,
+        "y": 2.458558120886,
+        "abs_err": 0.0009314499941321941,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54007
+      },
+      {
+        "draw": 8,
+        "y": 2.45936288332,
+        "abs_err": 0.0001266875601322326,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54008
+      },
+      {
+        "draw": 9,
+        "y": 2.456664487068,
+        "abs_err": 0.002825083812131979,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54009
+      },
+      {
+        "draw": 10,
+        "y": 2.461631623779,
+        "abs_err": 0.002142052898868041,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54010
+      },
+      {
+        "draw": 11,
+        "y": 2.461594037678,
+        "abs_err": 0.002104466797868021,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54011
+      },
+      {
+        "draw": 12,
+        "y": 2.460715378397,
+        "abs_err": 0.0012258075168678495,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54012
+      },
+      {
+        "draw": 13,
+        "y": 2.458588428552,
+        "abs_err": 0.0009011423281322095,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54013
+      },
+      {
+        "draw": 14,
+        "y": 2.455938047269,
+        "abs_err": 0.0035515236111320903,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54014
+      },
+      {
+        "draw": 15,
+        "y": 2.460207302111,
+        "abs_err": 0.0007177312308677131,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54015
+      }
+    ],
+    "w10_4s4p": [
+      {
+        "draw": 0,
+        "y": 2.458718237598,
+        "abs_err": 0.0007713332821319696,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54000
+      },
+      {
+        "draw": 1,
+        "y": 2.459023455335,
+        "abs_err": 0.0004661155451319843,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54001
+      },
+      {
+        "draw": 2,
+        "y": 2.460259250748,
+        "abs_err": 0.0007696798678678007,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54002
+      },
+      {
+        "draw": 3,
+        "y": 2.457846436231,
+        "abs_err": 0.0016431346491319054,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54003
+      },
+      {
+        "draw": 4,
+        "y": 2.459569131376,
+        "abs_err": 7.956049586788083e-05,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54004
+      },
+      {
+        "draw": 5,
+        "y": 2.4590655284,
+        "abs_err": 0.0004240424801320586,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54005
+      },
+      {
+        "draw": 6,
+        "y": 2.460932985929,
+        "abs_err": 0.0014434150488678021,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54006
+      },
+      {
+        "draw": 7,
+        "y": 2.459968411274,
+        "abs_err": 0.0004788403938680297,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54007
+      },
+      {
+        "draw": 8,
+        "y": 2.4585487039,
+        "abs_err": 0.0009408669801320713,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54008
+      },
+      {
+        "draw": 9,
+        "y": 2.461409612213,
+        "abs_err": 0.0019200413328679389,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54009
+      },
+      {
+        "draw": 10,
+        "y": 2.460047123309,
+        "abs_err": 0.0005575524288681244,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54010
+      },
+      {
+        "draw": 11,
+        "y": 2.459822967338,
+        "abs_err": 0.00033339645786778505,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54011
+      },
+      {
+        "draw": 12,
+        "y": 2.460860665262,
+        "abs_err": 0.0013710943818678878,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54012
+      },
+      {
+        "draw": 13,
+        "y": 2.459379847722,
+        "abs_err": 0.00010972315813218003,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54013
+      },
+      {
+        "draw": 14,
+        "y": 2.458898329664,
+        "abs_err": 0.0005912412161319658,
+        "analog_pass": true,
+        "failed": false,
+        "seed": 54014
+      },
+      {
+        "draw": 15,
+        "y": 2.460630958376,
+        "abs_err": 0.001141387495867896,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54015
+      }
+    ],
+    "w10_s4": [
+      {
+        "draw": 0,
+        "y": 2.458232905966,
+        "abs_err": 0.0012566649141318997,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54000
+      },
+      {
+        "draw": 1,
+        "y": 2.457897123432,
+        "abs_err": 0.0015924474481319173,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54001
+      },
+      {
+        "draw": 2,
+        "y": 2.454769286429,
+        "abs_err": 0.004720284451132262,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54002
+      },
+      {
+        "draw": 3,
+        "y": 2.465890422267,
+        "abs_err": 0.006400851386867856,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54003
+      },
+      {
+        "draw": 4,
+        "y": 2.455412727781,
+        "abs_err": 0.004076843099132255,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54004
+      },
+      {
+        "draw": 5,
+        "y": 2.463962934164,
+        "abs_err": 0.004473363283867826,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54005
+      },
+      {
+        "draw": 6,
+        "y": 2.456545082664,
+        "abs_err": 0.002944488216132246,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54006
+      },
+      {
+        "draw": 7,
+        "y": 2.455617303151,
+        "abs_err": 0.003872267729132073,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54007
+      },
+      {
+        "draw": 8,
+        "y": 2.457997990736,
+        "abs_err": 0.0014915801441319765,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54008
+      },
+      {
+        "draw": 9,
+        "y": 2.465718586319,
+        "abs_err": 0.00622901543886778,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54009
+      },
+      {
+        "draw": 10,
+        "y": 2.457907473274,
+        "abs_err": 0.001582097606132038,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54010
+      },
+      {
+        "draw": 11,
+        "y": 2.462776539095,
+        "abs_err": 0.003286968214867958,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54011
+      },
+      {
+        "draw": 12,
+        "y": 2.461626981774,
+        "abs_err": 0.002137410893868097,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54012
+      },
+      {
+        "draw": 13,
+        "y": 2.460545175338,
+        "abs_err": 0.001055604457867787,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54013
+      },
+      {
+        "draw": 14,
+        "y": 2.452623707894,
+        "abs_err": 0.006865862986132232,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54014
+      },
+      {
+        "draw": 15,
+        "y": 2.461001043886,
+        "abs_err": 0.0015114730058680692,
+        "analog_pass": false,
+        "failed": false,
+        "seed": 54015
+      }
+    ]
+  },
+  "ratio_stats": {
+    "w10": {
+      "config": "w10",
+      "corner": "tt_mm",
+      "n": 24,
+      "mean": 0.0011739157547946818,
+      "max": 0.00402760218670672,
+      "std": 0.0010479236742049368
+    },
+    "w20": {
+      "config": "w20",
+      "corner": "tt_mm",
+      "n": 24,
+      "mean": 0.0007220417525190178,
+      "max": 0.0019787503847779903,
+      "std": 0.000617714235463224
+    },
+    "w10_2s2p": {
+      "config": "w10_2s2p",
+      "corner": "tt_mm",
+      "n": 24,
+      "mean": 0.0010029512533632076,
+      "max": 0.0028047443521044724,
+      "std": 0.0007180045149963645
+    },
+    "w10_4s4p": {
+      "config": "w10_4s4p",
+      "corner": "tt_mm",
+      "n": 24,
+      "mean": 0.00037394861874163673,
+      "max": 0.00121897555044346,
+      "std": 0.00029963290173042143
+    }
+  },
+  "ratio_nominal": [
+    {
+      "config": "w10",
+      "draw": 0,
+      "corner": "tt",
+      "failed": false,
+      "R1": 10002.034781271252,
+      "R2": 10002.034781271252,
+      "rel": 0.0,
+      "abs_rel": 0.0
+    },
+    {
+      "config": "w20",
+      "draw": 0,
+      "corner": "tt",
+      "failed": false,
+      "R1": 10002.45978821001,
+      "R2": 10002.45978821001,
+      "rel": 0.0,
+      "abs_rel": 0.0
+    },
+    {
+      "config": "w10_2s2p",
+      "draw": 0,
+      "corner": "tt",
+      "failed": false,
+      "R1": 10002.442517488485,
+      "R2": 10002.442517488485,
+      "rel": 0.0,
+      "abs_rel": 0.0
+    },
+    {
+      "config": "w10_4s4p",
+      "draw": 0,
+      "corner": "tt",
+      "failed": false,
+      "R1": 10002.544473010594,
+      "R2": 10002.544473010594,
+      "rel": 0.0,
+      "abs_rel": 0.0
+    }
+  ],
+  "matching": "IMPROVED_IN_SAMPLE",
+  "physical_tia_validated": false,
+  "miller_family": "CLOSED",
+  "next_experiment": "Experiment 55: more 4s4p draws and/or 8s8p if pass rate is still mixed.",
+  "conclusion": "Decision B \u2014 4s4p MEAN |err| IN 1 mV BAR BUT SAMPLE NOT ALL-PASS (NOT YIELD). tt_mm is official model AGAUSS, not a foundry lot. OPA189 remains the Level-1 TIA host. Miller family remains closed."
+}

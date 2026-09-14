@@ -1,0 +1,55 @@
+{
+  "experiment_id": "exp59",
+  "kind": "OPA189 + W=10 8s8p frozen F40 vectors",
+  "status": "DEMONSTRATED",
+  "decision": "A",
+  "decision_label": "OPA189 + 8s8p PASSES THE FROZEN F40 VECTOR SET (ISOLATED)",
+  "yield_claim": false,
+  "silicon": false,
+  "physical_tia_validated": false,
+  "repeat": {
+    "y": 2.460173765013,
+    "delta_vs_exp58": 0.0,
+    "abs_err": 0.0006841941328676882
+  },
+  "vectors": [
+    {
+      "vector": 19,
+      "role": "max_|z|_established_o2",
+      "z": 2.459489570880132,
+      "y": 2.460173765013,
+      "abs_err": 0.0006841941328676882,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "vector": 20,
+      "role": "most_negative_z",
+      "z": -0.9189118796786009,
+      "y": -0.918483853253,
+      "abs_err": 0.00042802642560091364,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "vector": 38,
+      "role": "mid_|z|",
+      "z": 0.980936703627777,
+      "y": 0.9809178746347,
+      "abs_err": 1.882899307692476e-05,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "vector": 6,
+      "role": "lower_|z|",
+      "z": 0.13371324763011014,
+      "y": 0.133752572663,
+      "abs_err": 3.932503288986422e-05,
+      "analog_pass": true,
+      "failed": false
+    }
+  ],
+  "next_experiment": "Experiment 60: insert tiled o2 (or OPA189 o2) into Network F. Mixed-level. Not W=10 fabric on every neuron. Not silicon.",
+  "conclusion": "Decision A \u2014 OPA189 + 8s8p PASSES THE FROZEN F40 VECTOR SET (ISOLATED). Level-1 TIA + Level-4 tiled R. Not silicon. Miller family closed."
+}

@@ -1,0 +1,39 @@
+cart,qty_buy,item,mpn_or_spec,shop,product_url,unit_price_seen,currency,price_date,stock_note,line_est,do_not_buy
+A,20,OPA189 SOIC-8,OPA189IDR (preferred) or OPA189ID,Mouser.de,https://www.mouser.de/ProductDetail/Texas-Instruments/OPA189IDR,2.23,USD qty10+,2026-09-14,Mouser 1408 then; TME SOIC-8 was 0 stock,~45 USD,OPA189IDBVR SOT-23
+A,37,resistor 10k 0.1% thin film 0805,any in-stock TNPW/RT/ERA 10k 0.1%,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=10+kOhms&tolerance=0.1+%25&case+code+-+in=0805+(2012+Metric),check cart,EUR,2026-09-14,cut-tape,,1% thick film
+A,3,resistor 203R 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=203+Ohms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 750R 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=750+Ohms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 976R 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=976+Ohms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 6.65k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=6.65+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 6.73k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=6.73+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 7.68k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=7.68+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 8.35k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=8.35+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,not 8.25k E96
+A,3,resistor 9.09k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=9.09+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 9.2k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=9.2+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 9.53k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=9.53+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 11.8k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=11.8+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 21.5k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=21.5+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 24.9k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=24.9+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 31.6k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=31.6+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 34k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=34+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 36.1k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=36.1+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 37k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=37+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 41.7k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=41.7+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 42.7k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=42.7+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 49.9k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=49.9+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 54.9k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=54.9+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 57.6k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=57.6+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 105k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=105+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 109k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=109+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 160k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=160+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 180k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=180+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,,,
+A,3,resistor 835k 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=835+kOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,try 1206 if 0805 empty,
+A,3,resistor 1.3M 0.1%,any in-stock 0.1% thin film,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=1.3+MOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,try 1206,
+A,3,resistor 5.9M 0.1%,any in-stock 0.1% thin film 1206/2010/2512,Mouser.de,https://www.mouser.de/c/passive-components/resistors/chip-resistors-smd/?resistance=5.9+MOhms&tolerance=0.1+%25,check cart,EUR,2026-09-14,HARDEST LINE,1% CRCW 5.9M or 6.04M E96
+B,16,1N4148 DO-35,Diotec 1N4148 / 1N 4148 DIO,Reichelt.de,https://www.reichelt.de/de/de/shop/produkt/schalt-diode_100_v_150_ma_do-35-219454,0.02,EUR incl 19% VAT,2026-09-14,in stock 1-2 days,0.32,
+B,40,100nF 50V X7R 0805,Walsin 0805B104K500CT,Reichelt.de,https://www.reichelt.de/de/de/shop/produkt/smd-kerko_0805_100_nf_50v_10_x7r_mlcc-346808,0.03,EUR incl 19% VAT,2026-09-14,in stock 1-2 days,1.20,
+B,4,10uF >=35V electrolytic,any in-stock 10uF 50V radial,Reichelt.de,https://www.reichelt.de/de/de/search.html?query=10uF+50V+Elko,check cart,EUR,2026-09-14,Panasonic EEUFR1H100 was backordered,~0.80,
+B,2,3-pole PCB terminal,WAGO 250-503,Reichelt.de,https://www.reichelt.de/de/de/shop/produkt/klemmleiste_mit_betaetigungsdrueckern_rm_5_0_mm_17_5a_3-pol-100846,1.15,EUR incl 19% VAT,2026-09-14,in stock,2.30,
+B,2,SPDT ON-ON,Marquardt 01803.2102-00,Reichelt.de,https://www.reichelt.de/de/de/shop/produkt/wippschalter_umschalter_spdt_-_ein_-_ein-334358,1.99,EUR incl 19% VAT,2026-09-14,in stock,3.98,
+C,1,dual +/-15 V PSU,two isolated >=15V >=100mA channels,Amazon.de,https://www.amazon.de/s?k=Labornetzteil+2x+30V,80-250,EUR,2026-09-14,skip if you already have one,,single-channel only PSU
+C,0,1pF neural,DNP,—,—,—,EUR,2026-09-14,DO NOT BUY,0,any 1pF as neural cap

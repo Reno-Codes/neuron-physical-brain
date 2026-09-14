@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="950" height="380" viewBox="0 0 950 380">
+  <rect width="100%" height="100%" fill="#fbfbf8"/>
+  <text x="24" y="28" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#1a1a1a">POWER, REFERENCE, SIGNED INPUTS</text>
+  <text x="24" y="46" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#555">Physical AI MVP v1 · frozen xor_2_4_1 · mixed-level · not silicon</text>
+  
+  <rect x="24" y="70" width="430" height="280" fill="#fff" stroke="#222"/>
+  <text x="40" y="96" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Power</text>
+  <text x="40" y="120" font-family="Consolas, Menlo, monospace" font-size="11">J_PWR: +15 V, GND, -15 V</text>
+  <text x="40" y="136" font-family="Consolas, Menlo, monospace" font-size="11">C_VDD_BULK 10uF &gt;=35 V +15 to GND</text>
+  <text x="40" y="152" font-family="Consolas, Menlo, monospace" font-size="11">C_VSS_BULK 10uF &gt;=35 V -15 to GND</text>
+  <text x="40" y="168" font-family="Consolas, Menlo, monospace" font-size="11">Each OPA189: 100 nF X7R 50 V on V+ and V- to GND</text>
+  <text x="40" y="184" font-family="Consolas, Menlo, monospace" font-size="11">Star/return GND under analog section</text>
+  <text x="40" y="216" font-family="Consolas, Menlo, monospace" font-size="11">SPICE |i(Vdd)| ~ 21-22 mA at 27 C</text>
+  <text x="40" y="232" font-family="Consolas, Menlo, monospace" font-size="11">Hardware budget: &gt;= 100 mA/rail dual supply</text>
+  <text x="40" y="248" font-family="Consolas, Menlo, monospace" font-size="11">TI OPA189 Iq typ 1.7 mA (SBOS830) x16 ~ 27 mA</text>
+  <rect x="470" y="70" width="450" height="280" fill="#fff" stroke="#222"/>
+  <text x="486" y="96" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">VREF 1.000 V</text>
+  <text x="486" y="120" font-family="Consolas, Menlo, monospace" font-size="11">SPICE used ideal Vref. HARDWARE VALIDATION REQUIRED.</text>
+  <text x="486" y="144" font-family="Consolas, Menlo, monospace" font-size="11">Target: 1.000 V +/- 0.05%, buffered</text>
+  <text x="486" y="160" font-family="Consolas, Menlo, monospace" font-size="11">Load: ~100 uA into Rinvrefin</text>
+  <text x="486" y="176" font-family="Consolas, Menlo, monospace" font-size="11">Do not feed an unbuffered divider into VREFN invert.</text>
+  <text x="486" y="208" font-family="Consolas, Menlo, monospace" font-size="11">Unity inverters:</text>
+  <text x="486" y="224" font-family="Consolas, Menlo, monospace" font-size="11">Rin = Rf = 10k 0.1% matched</text>
+  <text x="486" y="240" font-family="Consolas, Menlo, monospace" font-size="11">IN+ = GND, output = -input</text>
+
+</svg>

@@ -1,0 +1,31 @@
+{
+  "amplifier": {
+    "part": "OPA189 or OPA4189 (quad)",
+    "model": "TI OPAx189 Green-Williams-Lis macromodel",
+    "supplies_V": [
+      -15.0,
+      15.0
+    ],
+    "count_single": 16,
+    "physical_tia_validated": false,
+    "note": "Level-1 macromodel host. Not custom MOS. Not silicon."
+  },
+  "diode": {
+    "part": "1N4148",
+    "count": 8,
+    "spice": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\vendor\\ti\\1n4148\\1N4148.LIB",
+    "note": "Extracted unmodified from TI TLC555.LIB in the ngspice tree."
+  },
+  "reference": {
+    "vref_V": 1.0,
+    "note": "precision 1 V for bias conductances"
+  },
+  "resistor_policy": {
+    "spice": "exact compiled R = 1/(G_SCALE*|w|); weights not snapped",
+    "bom": "nearest E96 listed for procurement only",
+    "r_limits_ohm": [
+      100.0,
+      20000000.0
+    ]
+  }
+}

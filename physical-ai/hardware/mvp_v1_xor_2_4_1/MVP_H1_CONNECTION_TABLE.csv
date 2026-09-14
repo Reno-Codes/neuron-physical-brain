@@ -1,0 +1,313 @@
+connection_id,source_component,source_pin,destination_component,destination_pin,net_name,component_value,subsystem,purpose,test_point
+C0001,J_PWR,+15,TP_P15,1,vdd,connector,PWR,positive analog rail,TP_P15
+C0002,J_PWR,GND,TP_GND,1,0,connector,PWR,analog ground,TP_GND
+C0003,J_PWR,-15,TP_M15,1,vss,connector,PWR,negative analog rail,TP_M15
+C0004,C_VDD_BULK,1,J_PWR,+15,vdd,10uF >=35V,PWR,bulk decouple +15,TP_P15
+C0005,C_VDD_BULK,2,J_PWR,GND,0,10uF >=35V,PWR,bulk decouple +15 return,TP_GND
+C0006,C_VSS_BULK,1,J_PWR,-15,vss,10uF >=35V,PWR,bulk decouple -15,TP_M15
+C0007,C_VSS_BULK,2,J_PWR,GND,0,10uF >=35V,PWR,bulk decouple -15 return,TP_GND
+C0008,VREF_SRC,OUT,U_VREFBUF,3,vref_raw,1.000 V source,VREF,unbuffered 1 V into buffer +IN,
+C0009,VREF_SRC,GND,J_PWR,GND,0,1.000 V source return,VREF,VREF source shares analog GND,TP_GND
+C0010,U_VREFBUF,2,U_VREFBUF,6,vref,OPA189 unity follower,VREF,buffer feedback,TP_VREF
+C0011,U_VREFBUF,6,TP_VREF,1,vref,OPA189,VREF,buffered VREF = 1.000 V,TP_VREF
+C0012,U_VREFBUF,7,J_PWR,+15,vdd,OPA189,VREF,buffer V+,TP_P15
+C0013,U_VREFBUF,4,J_PWR,-15,vss,OPA189,VREF,buffer V-,TP_M15
+C0014,C_U_VREFBUF_VP,1,U_VREFBUF,7,vdd,100nF X7R,PWR,local V+ decouple,TP_P15
+C0015,C_U_VREFBUF_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ decouple return,TP_GND
+C0016,C_U_VREFBUF_VN,1,U_VREFBUF,4,vss,100nF X7R,PWR,local V- decouple,TP_M15
+C0017,C_U_VREFBUF_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- decouple return,TP_GND
+C0018,SW_IN1,0V,J_PWR,GND,0,SPDT,INPUT,IN1 = 0 V position,TP_GND
+C0019,SW_IN1,1V,U_VREFBUF,6,vref,SPDT,INPUT,IN1 = 1.000 V position,TP_VREF
+C0020,SW_IN1,COM,TP_IN1,1,in1,SPDT,INPUT,IN1 common,TP_IN1
+C0021,SW_IN2,0V,J_PWR,GND,0,SPDT,INPUT,IN2 = 0 V position,TP_GND
+C0022,SW_IN2,1V,U_VREFBUF,6,vref,SPDT,INPUT,IN2 = 1.000 V position,TP_VREF
+C0023,SW_IN2,COM,TP_IN2,1,in2,SPDT,INPUT,IN2 common,TP_IN2
+C0024,Xinv1,3,J_PWR,GND,0,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN1 -> IN1N; +IN,TP_GND
+C0025,Xinv1,2,Rinv1in,2,inv1inn,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN1 -> IN1N; -IN,
+C0026,Xinv1,6,TP_IN1N,1,in1n,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN1 -> IN1N; OUT,TP_IN1N
+C0027,Xinv1,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN1 -> IN1N; V+,TP_P15
+C0028,Xinv1,4,J_PWR,-15,vss,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN1 -> IN1N; V-,TP_M15
+C0029,C_Xinv1_VP,1,Xinv1,7,vdd,100nF X7R,PWR,local V+ decouple Xinv1,TP_P15
+C0030,C_Xinv1_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xinv1,TP_GND
+C0031,C_Xinv1_VN,1,Xinv1,4,vss,100nF X7R,PWR,local V- decouple Xinv1,TP_M15
+C0032,C_Xinv1_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xinv1,TP_GND
+C0033,Xinv2,3,J_PWR,GND,0,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN2 -> IN2N; +IN,TP_GND
+C0034,Xinv2,2,Rinv2in,2,inv2inn,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN2 -> IN2N; -IN,
+C0035,Xinv2,6,TP_IN2N,1,in2n,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN2 -> IN2N; OUT,TP_IN2N
+C0036,Xinv2,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN2 -> IN2N; V+,TP_P15
+C0037,Xinv2,4,J_PWR,-15,vss,OPA189 SOIC-8 D,SIGNED_INV,unity invert IN2 -> IN2N; V-,TP_M15
+C0038,C_Xinv2_VP,1,Xinv2,7,vdd,100nF X7R,PWR,local V+ decouple Xinv2,TP_P15
+C0039,C_Xinv2_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xinv2,TP_GND
+C0040,C_Xinv2_VN,1,Xinv2,4,vss,100nF X7R,PWR,local V- decouple Xinv2,TP_M15
+C0041,C_Xinv2_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xinv2,TP_GND
+C0042,Xinvref,3,J_PWR,GND,0,OPA189 SOIC-8 D,SIGNED_INV,unity invert VREF -> VREFN; +IN,TP_GND
+C0043,Xinvref,2,Rinvrefin,2,invrefinn,OPA189 SOIC-8 D,SIGNED_INV,unity invert VREF -> VREFN; -IN,
+C0044,Xinvref,6,TP_VREFN,1,vrefn,OPA189 SOIC-8 D,SIGNED_INV,unity invert VREF -> VREFN; OUT,TP_VREFN
+C0045,Xinvref,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,SIGNED_INV,unity invert VREF -> VREFN; V+,TP_P15
+C0046,Xinvref,4,J_PWR,-15,vss,OPA189 SOIC-8 D,SIGNED_INV,unity invert VREF -> VREFN; V-,TP_M15
+C0047,C_Xinvref_VP,1,Xinvref,7,vdd,100nF X7R,PWR,local V+ decouple Xinvref,TP_P15
+C0048,C_Xinvref_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xinvref,TP_GND
+C0049,C_Xinvref_VN,1,Xinvref,4,vss,100nF X7R,PWR,local V- decouple Xinvref,TP_M15
+C0050,C_Xinvref_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xinvref,TP_GND
+C0051,Xh1tia,3,J_PWR,GND,0,OPA189 SOIC-8 D,H1,hidden h1 TIA; H1_LIN = -z1; +IN,TP_GND
+C0052,Xh1tia,2,TP_H1_SUM,1,h1sum,OPA189 SOIC-8 D,H1,hidden h1 TIA; H1_LIN = -z1; -IN,TP_H1_SUM
+C0053,Xh1tia,6,TP_H1_LIN,1,h1lin,OPA189 SOIC-8 D,H1,hidden h1 TIA; H1_LIN = -z1; OUT,TP_H1_LIN
+C0054,Xh1tia,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H1,hidden h1 TIA; H1_LIN = -z1; V+,TP_P15
+C0055,Xh1tia,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H1,hidden h1 TIA; H1_LIN = -z1; V-,TP_M15
+C0056,C_Xh1tia_VP,1,Xh1tia,7,vdd,100nF X7R,PWR,local V+ decouple Xh1tia,TP_P15
+C0057,C_Xh1tia_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh1tia,TP_GND
+C0058,C_Xh1tia_VN,1,Xh1tia,4,vss,100nF X7R,PWR,local V- decouple Xh1tia,TP_M15
+C0059,C_Xh1tia_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh1tia,TP_GND
+C0060,Xh1relu,3,J_PWR,GND,0,OPA189 SOIC-8 D,H1,hidden h1 rectifier op-amp; +IN,TP_GND
+C0061,Xh1relu,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H1,hidden h1 rectifier op-amp; V+,TP_P15
+C0062,Xh1relu,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H1,hidden h1 rectifier op-amp; V-,TP_M15
+C0063,C_Xh1relu_VP,1,Xh1relu,7,vdd,100nF X7R,PWR,local V+ decouple Xh1relu,TP_P15
+C0064,C_Xh1relu_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh1relu,TP_GND
+C0065,C_Xh1relu_VN,1,Xh1relu,4,vss,100nF X7R,PWR,local V- decouple Xh1relu,TP_M15
+C0066,C_Xh1relu_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh1relu,TP_GND
+C0067,Xh1inv,3,J_PWR,GND,0,OPA189 SOIC-8 D,H1,unity invert H1_OUT -> H1_YN; +IN,TP_GND
+C0068,Xh1inv,6,TP_H1_YN,1,h1yn,OPA189 SOIC-8 D,H1,unity invert H1_OUT -> H1_YN; OUT,TP_H1_YN
+C0069,Xh1inv,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H1,unity invert H1_OUT -> H1_YN; V+,TP_P15
+C0070,Xh1inv,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H1,unity invert H1_OUT -> H1_YN; V-,TP_M15
+C0071,C_Xh1inv_VP,1,Xh1inv,7,vdd,100nF X7R,PWR,local V+ decouple Xh1inv,TP_P15
+C0072,C_Xh1inv_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh1inv,TP_GND
+C0073,C_Xh1inv_VN,1,Xh1inv,4,vss,100nF X7R,PWR,local V- decouple Xh1inv,TP_M15
+C0074,C_Xh1inv_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh1inv,TP_GND
+C0075,Xh2tia,3,J_PWR,GND,0,OPA189 SOIC-8 D,H2,hidden h2 TIA; +IN,TP_GND
+C0076,Xh2tia,2,TP_H2_SUM,1,h2sum,OPA189 SOIC-8 D,H2,hidden h2 TIA; -IN,TP_H2_SUM
+C0077,Xh2tia,6,TP_H2_LIN,1,h2lin,OPA189 SOIC-8 D,H2,hidden h2 TIA; OUT,TP_H2_LIN
+C0078,Xh2tia,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H2,hidden h2 TIA; V+,TP_P15
+C0079,Xh2tia,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H2,hidden h2 TIA; V-,TP_M15
+C0080,C_Xh2tia_VP,1,Xh2tia,7,vdd,100nF X7R,PWR,local V+ decouple Xh2tia,TP_P15
+C0081,C_Xh2tia_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh2tia,TP_GND
+C0082,C_Xh2tia_VN,1,Xh2tia,4,vss,100nF X7R,PWR,local V- decouple Xh2tia,TP_M15
+C0083,C_Xh2tia_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh2tia,TP_GND
+C0084,Xh2relu,3,J_PWR,GND,0,OPA189 SOIC-8 D,H2,hidden h2 rectifier op-amp; +IN,TP_GND
+C0085,Xh2relu,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H2,hidden h2 rectifier op-amp; V+,TP_P15
+C0086,Xh2relu,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H2,hidden h2 rectifier op-amp; V-,TP_M15
+C0087,C_Xh2relu_VP,1,Xh2relu,7,vdd,100nF X7R,PWR,local V+ decouple Xh2relu,TP_P15
+C0088,C_Xh2relu_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh2relu,TP_GND
+C0089,C_Xh2relu_VN,1,Xh2relu,4,vss,100nF X7R,PWR,local V- decouple Xh2relu,TP_M15
+C0090,C_Xh2relu_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh2relu,TP_GND
+C0091,Xh2inv,3,J_PWR,GND,0,OPA189 SOIC-8 D,H2,unity invert H2_OUT -> H2_YN; +IN,TP_GND
+C0092,Xh2inv,6,TP_H2_YN,1,h2yn,OPA189 SOIC-8 D,H2,unity invert H2_OUT -> H2_YN; OUT,TP_H2_YN
+C0093,Xh2inv,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H2,unity invert H2_OUT -> H2_YN; V+,TP_P15
+C0094,Xh2inv,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H2,unity invert H2_OUT -> H2_YN; V-,TP_M15
+C0095,C_Xh2inv_VP,1,Xh2inv,7,vdd,100nF X7R,PWR,local V+ decouple Xh2inv,TP_P15
+C0096,C_Xh2inv_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh2inv,TP_GND
+C0097,C_Xh2inv_VN,1,Xh2inv,4,vss,100nF X7R,PWR,local V- decouple Xh2inv,TP_M15
+C0098,C_Xh2inv_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh2inv,TP_GND
+C0099,Xh3tia,3,J_PWR,GND,0,OPA189 SOIC-8 D,H3,hidden h3 TIA; +IN,TP_GND
+C0100,Xh3tia,2,TP_H3_SUM,1,h3sum,OPA189 SOIC-8 D,H3,hidden h3 TIA; -IN,TP_H3_SUM
+C0101,Xh3tia,6,TP_H3_LIN,1,h3lin,OPA189 SOIC-8 D,H3,hidden h3 TIA; OUT,TP_H3_LIN
+C0102,Xh3tia,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H3,hidden h3 TIA; V+,TP_P15
+C0103,Xh3tia,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H3,hidden h3 TIA; V-,TP_M15
+C0104,C_Xh3tia_VP,1,Xh3tia,7,vdd,100nF X7R,PWR,local V+ decouple Xh3tia,TP_P15
+C0105,C_Xh3tia_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh3tia,TP_GND
+C0106,C_Xh3tia_VN,1,Xh3tia,4,vss,100nF X7R,PWR,local V- decouple Xh3tia,TP_M15
+C0107,C_Xh3tia_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh3tia,TP_GND
+C0108,Xh3relu,3,J_PWR,GND,0,OPA189 SOIC-8 D,H3,hidden h3 rectifier op-amp; +IN,TP_GND
+C0109,Xh3relu,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H3,hidden h3 rectifier op-amp; V+,TP_P15
+C0110,Xh3relu,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H3,hidden h3 rectifier op-amp; V-,TP_M15
+C0111,C_Xh3relu_VP,1,Xh3relu,7,vdd,100nF X7R,PWR,local V+ decouple Xh3relu,TP_P15
+C0112,C_Xh3relu_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh3relu,TP_GND
+C0113,C_Xh3relu_VN,1,Xh3relu,4,vss,100nF X7R,PWR,local V- decouple Xh3relu,TP_M15
+C0114,C_Xh3relu_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh3relu,TP_GND
+C0115,Xh3inv,3,J_PWR,GND,0,OPA189 SOIC-8 D,H3,unity invert H3_OUT -> H3_YN; +IN,TP_GND
+C0116,Xh3inv,6,TP_H3_YN,1,h3yn,OPA189 SOIC-8 D,H3,unity invert H3_OUT -> H3_YN; OUT,TP_H3_YN
+C0117,Xh3inv,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H3,unity invert H3_OUT -> H3_YN; V+,TP_P15
+C0118,Xh3inv,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H3,unity invert H3_OUT -> H3_YN; V-,TP_M15
+C0119,C_Xh3inv_VP,1,Xh3inv,7,vdd,100nF X7R,PWR,local V+ decouple Xh3inv,TP_P15
+C0120,C_Xh3inv_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh3inv,TP_GND
+C0121,C_Xh3inv_VN,1,Xh3inv,4,vss,100nF X7R,PWR,local V- decouple Xh3inv,TP_M15
+C0122,C_Xh3inv_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh3inv,TP_GND
+C0123,Xh4tia,3,J_PWR,GND,0,OPA189 SOIC-8 D,H4,hidden h4 TIA; +IN,TP_GND
+C0124,Xh4tia,2,TP_H4_SUM,1,h4sum,OPA189 SOIC-8 D,H4,hidden h4 TIA; -IN,TP_H4_SUM
+C0125,Xh4tia,6,TP_H4_LIN,1,h4lin,OPA189 SOIC-8 D,H4,hidden h4 TIA; OUT,TP_H4_LIN
+C0126,Xh4tia,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H4,hidden h4 TIA; V+,TP_P15
+C0127,Xh4tia,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H4,hidden h4 TIA; V-,TP_M15
+C0128,C_Xh4tia_VP,1,Xh4tia,7,vdd,100nF X7R,PWR,local V+ decouple Xh4tia,TP_P15
+C0129,C_Xh4tia_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh4tia,TP_GND
+C0130,C_Xh4tia_VN,1,Xh4tia,4,vss,100nF X7R,PWR,local V- decouple Xh4tia,TP_M15
+C0131,C_Xh4tia_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh4tia,TP_GND
+C0132,Xh4relu,3,J_PWR,GND,0,OPA189 SOIC-8 D,H4,hidden h4 rectifier op-amp; +IN,TP_GND
+C0133,Xh4relu,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H4,hidden h4 rectifier op-amp; V+,TP_P15
+C0134,Xh4relu,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H4,hidden h4 rectifier op-amp; V-,TP_M15
+C0135,C_Xh4relu_VP,1,Xh4relu,7,vdd,100nF X7R,PWR,local V+ decouple Xh4relu,TP_P15
+C0136,C_Xh4relu_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh4relu,TP_GND
+C0137,C_Xh4relu_VN,1,Xh4relu,4,vss,100nF X7R,PWR,local V- decouple Xh4relu,TP_M15
+C0138,C_Xh4relu_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh4relu,TP_GND
+C0139,Xh4inv,3,J_PWR,GND,0,OPA189 SOIC-8 D,H4,unity invert H4_OUT -> H4_YN; +IN,TP_GND
+C0140,Xh4inv,6,TP_H4_YN,1,h4yn,OPA189 SOIC-8 D,H4,unity invert H4_OUT -> H4_YN; OUT,TP_H4_YN
+C0141,Xh4inv,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,H4,unity invert H4_OUT -> H4_YN; V+,TP_P15
+C0142,Xh4inv,4,J_PWR,-15,vss,OPA189 SOIC-8 D,H4,unity invert H4_OUT -> H4_YN; V-,TP_M15
+C0143,C_Xh4inv_VP,1,Xh4inv,7,vdd,100nF X7R,PWR,local V+ decouple Xh4inv,TP_P15
+C0144,C_Xh4inv_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xh4inv,TP_GND
+C0145,C_Xh4inv_VN,1,Xh4inv,4,vss,100nF X7R,PWR,local V- decouple Xh4inv,TP_M15
+C0146,C_Xh4inv_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xh4inv,TP_GND
+C0147,Xo1tia,3,J_PWR,GND,0,OPA189 SOIC-8 D,OUT,output TIA; O1_LIN = +y; +IN,TP_GND
+C0148,Xo1tia,2,TP_O1_SUM,1,o1sum,OPA189 SOIC-8 D,OUT,output TIA; O1_LIN = +y; -IN,TP_O1_SUM
+C0149,Xo1tia,6,TP_O1LIN,1,o1lin,OPA189 SOIC-8 D,OUT,output TIA; O1_LIN = +y; OUT,TP_O1LIN
+C0150,Xo1tia,7,J_PWR,+15,vdd,OPA189 SOIC-8 D,OUT,output TIA; O1_LIN = +y; V+,TP_P15
+C0151,Xo1tia,4,J_PWR,-15,vss,OPA189 SOIC-8 D,OUT,output TIA; O1_LIN = +y; V-,TP_M15
+C0152,C_Xo1tia_VP,1,Xo1tia,7,vdd,100nF X7R,PWR,local V+ decouple Xo1tia,TP_P15
+C0153,C_Xo1tia_VP,2,J_PWR,GND,0,100nF X7R,PWR,local V+ return Xo1tia,TP_GND
+C0154,C_Xo1tia_VN,1,Xo1tia,4,vss,100nF X7R,PWR,local V- decouple Xo1tia,TP_M15
+C0155,C_Xo1tia_VN,2,J_PWR,GND,0,100nF X7R,PWR,local V- return Xo1tia,TP_GND
+C0156,Rinv1in,1,SW_IN1,COM,in1,10k,SIGNED_INV,compiled Rinv1in single target 10000 ohm,TP_IN1
+C0157,Rinv1in,2,Rinv1in,2,inv1inn,10k,SIGNED_INV,compiled Rinv1in single target 10000 ohm,
+C0158,Rinv1f,1,Xinv1,6,in1n,10k,SIGNED_INV,compiled Rinv1f single target 10000 ohm,TP_IN1N
+C0159,Rinv1f,2,Rinv1in,2,inv1inn,10k,SIGNED_INV,compiled Rinv1f single target 10000 ohm,
+C0160,Rinv2in,1,SW_IN2,COM,in2,10k,SIGNED_INV,compiled Rinv2in single target 10000 ohm,TP_IN2
+C0161,Rinv2in,2,Rinv2in,2,inv2inn,10k,SIGNED_INV,compiled Rinv2in single target 10000 ohm,
+C0162,Rinv2f,1,Xinv2,6,in2n,10k,SIGNED_INV,compiled Rinv2f single target 10000 ohm,TP_IN2N
+C0163,Rinv2f,2,Rinv2in,2,inv2inn,10k,SIGNED_INV,compiled Rinv2f single target 10000 ohm,
+C0164,Rinvrefin,1,U_VREFBUF,6,vref,10k,SIGNED_INV,compiled Rinvrefin single target 10000 ohm,TP_VREF
+C0165,Rinvrefin,2,Rinvrefin,2,invrefinn,10k,SIGNED_INV,compiled Rinvrefin single target 10000 ohm,
+C0166,Rinvreff,1,Xinvref,6,vrefn,10k,SIGNED_INV,compiled Rinvreff single target 10000 ohm,TP_VREFN
+C0167,Rinvreff,2,Rinvrefin,2,invrefinn,10k,SIGNED_INV,compiled Rinvreff single target 10000 ohm,
+C0168,Rh1w1,1,SW_IN1,COM,in1,8.35k,H1,compiled Rh1w1 single target 8346.15342 ohm,TP_IN1
+C0169,Rh1w1,2,Xh1tia,2,h1sum,8.35k,H1,compiled Rh1w1 single target 8346.15342 ohm,TP_H1_SUM
+C0170,Rh1w2,1,Xinv2,6,in2n,6.65k,H1,compiled Rh1w2 single target 6653.68053 ohm,TP_IN2N
+C0171,Rh1w2,2,Xh1tia,2,h1sum,6.65k,H1,compiled Rh1w2 single target 6653.68053 ohm,TP_H1_SUM
+C0172,Rh1b_A,1,Xinvref,6,vrefn,976,H1,compiled Rh1b series target 37976.8116 ohm,TP_VREFN
+C0173,Rh1b_A,2,Rh1b_B,1,Rh1b_MID,976,H1,compiled Rh1b series target 37976.8116 ohm,
+C0174,Rh1b_B,1,Rh1b_A,2,Rh1b_MID,37k,H1,compiled Rh1b series target 37976.8116 ohm,
+C0175,Rh1b_B,2,Xh1tia,2,h1sum,37k,H1,compiled Rh1b series target 37976.8116 ohm,TP_H1_SUM
+C0176,Rh1f,1,Xh1tia,6,h1lin,10k,H1,compiled Rh1f single target 10000 ohm,TP_H1_LIN
+C0177,Rh1f,2,Xh1tia,2,h1sum,10k,H1,compiled Rh1f single target 10000 ohm,TP_H1_SUM
+C0178,Rh1r1,1,Xh1tia,6,h1lin,10k,H1,compiled Rh1r1 single target 10000 ohm,TP_H1_LIN
+C0179,Rh1r1,2,Xh1relu,2,h1rinn,10k,H1,compiled Rh1r1 single target 10000 ohm,
+C0180,Rh1rf,1,TP_H1_OUT,1,h1y,10k,H1,compiled Rh1rf single target 10000 ohm,TP_H1_OUT
+C0181,Rh1rf,2,Xh1relu,2,h1rinn,10k,H1,compiled Rh1rf single target 10000 ohm,
+C0182,Rh1rl,1,TP_H1_OUT,1,h1y,10k,H1,compiled Rh1rl single target 10000 ohm,TP_H1_OUT
+C0183,Rh1rl,2,J_PWR,GND,0,10k,H1,compiled Rh1rl single target 10000 ohm,TP_GND
+C0184,Rh1invin,1,TP_H1_OUT,1,h1y,10k,H1,compiled Rh1invin single target 10000 ohm,TP_H1_OUT
+C0185,Rh1invin,2,Xh1inv,2,h1invinn,10k,H1,compiled Rh1invin single target 10000 ohm,
+C0186,Rh1invf,1,Xh1inv,6,h1yn,10k,H1,compiled Rh1invf single target 10000 ohm,TP_H1_YN
+C0187,Rh1invf,2,Xh1inv,2,h1invinn,10k,H1,compiled Rh1invf single target 10000 ohm,
+C0188,Rh2w1_A,1,Xinv1,6,in1n,9.53k,H2,compiled Rh2w1 parallel target 7539.64567 ohm,TP_IN1N
+C0189,Rh2w1_A,2,Xh2tia,2,h2sum,9.53k,H2,compiled Rh2w1 parallel target 7539.64567 ohm,TP_H2_SUM
+C0190,Rh2w1_B,1,Xinv1,6,in1n,36.1k,H2,compiled Rh2w1 parallel target 7539.64567 ohm,TP_IN1N
+C0191,Rh2w1_B,2,Xh2tia,2,h2sum,36.1k,H2,compiled Rh2w1 parallel target 7539.64567 ohm,TP_H2_SUM
+C0192,Rh2w2_A,1,SW_IN2,COM,in2,203,H2,compiled Rh2w2 series target 9292.75696 ohm,TP_IN2
+C0193,Rh2w2_A,2,Rh2w2_B,1,Rh2w2_MID,203,H2,compiled Rh2w2 series target 9292.75696 ohm,
+C0194,Rh2w2_B,1,Rh2w2_A,2,Rh2w2_MID,9.09k,H2,compiled Rh2w2 series target 9292.75696 ohm,
+C0195,Rh2w2_B,2,Xh2tia,2,h2sum,9.09k,H2,compiled Rh2w2 series target 9292.75696 ohm,TP_H2_SUM
+C0196,Rh2b_A,1,Xinvref,6,vrefn,105k,H2,compiled Rh2b parallel target 66315.5606 ohm,TP_VREFN
+C0197,Rh2b_A,2,Xh2tia,2,h2sum,105k,H2,compiled Rh2b parallel target 66315.5606 ohm,TP_H2_SUM
+C0198,Rh2b_B,1,Xinvref,6,vrefn,180k,H2,compiled Rh2b parallel target 66315.5606 ohm,TP_VREFN
+C0199,Rh2b_B,2,Xh2tia,2,h2sum,180k,H2,compiled Rh2b parallel target 66315.5606 ohm,TP_H2_SUM
+C0200,Rh2f,1,Xh2tia,6,h2lin,10k,H2,compiled Rh2f single target 10000 ohm,TP_H2_LIN
+C0201,Rh2f,2,Xh2tia,2,h2sum,10k,H2,compiled Rh2f single target 10000 ohm,TP_H2_SUM
+C0202,Rh2r1,1,Xh2tia,6,h2lin,10k,H2,compiled Rh2r1 single target 10000 ohm,TP_H2_LIN
+C0203,Rh2r1,2,Xh2relu,2,h2rinn,10k,H2,compiled Rh2r1 single target 10000 ohm,
+C0204,Rh2rf,1,TP_H2_OUT,1,h2y,10k,H2,compiled Rh2rf single target 10000 ohm,TP_H2_OUT
+C0205,Rh2rf,2,Xh2relu,2,h2rinn,10k,H2,compiled Rh2rf single target 10000 ohm,
+C0206,Rh2rl,1,TP_H2_OUT,1,h2y,10k,H2,compiled Rh2rl single target 10000 ohm,TP_H2_OUT
+C0207,Rh2rl,2,J_PWR,GND,0,10k,H2,compiled Rh2rl single target 10000 ohm,TP_GND
+C0208,Rh2invin,1,TP_H2_OUT,1,h2y,10k,H2,compiled Rh2invin single target 10000 ohm,TP_H2_OUT
+C0209,Rh2invin,2,Xh2inv,2,h2invinn,10k,H2,compiled Rh2invin single target 10000 ohm,
+C0210,Rh2invf,1,Xh2inv,6,h2yn,10k,H2,compiled Rh2invf single target 10000 ohm,TP_H2_YN
+C0211,Rh2invf,2,Xh2inv,2,h2invinn,10k,H2,compiled Rh2invf single target 10000 ohm,
+C0212,Rh3w1_A,1,Xinv1,6,in1n,6.73k,H3,compiled Rh3w1 parallel target 5125.48418 ohm,TP_IN1N
+C0213,Rh3w1_A,2,Xh3tia,2,h3sum,6.73k,H3,compiled Rh3w1 parallel target 5125.48418 ohm,TP_H3_SUM
+C0214,Rh3w1_B,1,Xinv1,6,in1n,21.5k,H3,compiled Rh3w1 parallel target 5125.48418 ohm,TP_IN1N
+C0215,Rh3w1_B,2,Xh3tia,2,h3sum,21.5k,H3,compiled Rh3w1 parallel target 5125.48418 ohm,TP_H3_SUM
+C0216,Rh3w2,1,Xinv2,6,in2n,7.68k,H3,compiled Rh3w2 single target 7679.43279 ohm,TP_IN2N
+C0217,Rh3w2,2,Xh3tia,2,h3sum,7.68k,H3,compiled Rh3w2 single target 7679.43279 ohm,TP_H3_SUM
+C0218,Rh3b_A,1,Xinvref,6,vrefn,34k,H3,compiled Rh3b parallel target 25915.6966 ohm,TP_VREFN
+C0219,Rh3b_A,2,Xh3tia,2,h3sum,34k,H3,compiled Rh3b parallel target 25915.6966 ohm,TP_H3_SUM
+C0220,Rh3b_B,1,Xinvref,6,vrefn,109k,H3,compiled Rh3b parallel target 25915.6966 ohm,TP_VREFN
+C0221,Rh3b_B,2,Xh3tia,2,h3sum,109k,H3,compiled Rh3b parallel target 25915.6966 ohm,TP_H3_SUM
+C0222,Rh3f,1,Xh3tia,6,h3lin,10k,H3,compiled Rh3f single target 10000 ohm,TP_H3_LIN
+C0223,Rh3f,2,Xh3tia,2,h3sum,10k,H3,compiled Rh3f single target 10000 ohm,TP_H3_SUM
+C0224,Rh3r1,1,Xh3tia,6,h3lin,10k,H3,compiled Rh3r1 single target 10000 ohm,TP_H3_LIN
+C0225,Rh3r1,2,Xh3relu,2,h3rinn,10k,H3,compiled Rh3r1 single target 10000 ohm,
+C0226,Rh3rf,1,TP_H3_OUT,1,h3y,10k,H3,compiled Rh3rf single target 10000 ohm,TP_H3_OUT
+C0227,Rh3rf,2,Xh3relu,2,h3rinn,10k,H3,compiled Rh3rf single target 10000 ohm,
+C0228,Rh3rl,1,TP_H3_OUT,1,h3y,10k,H3,compiled Rh3rl single target 10000 ohm,TP_H3_OUT
+C0229,Rh3rl,2,J_PWR,GND,0,10k,H3,compiled Rh3rl single target 10000 ohm,TP_GND
+C0230,Rh3invin,1,TP_H3_OUT,1,h3y,10k,H3,compiled Rh3invin single target 10000 ohm,TP_H3_OUT
+C0231,Rh3invin,2,Xh3inv,2,h3invinn,10k,H3,compiled Rh3invin single target 10000 ohm,
+C0232,Rh3invf,1,Xh3inv,6,h3yn,10k,H3,compiled Rh3invf single target 10000 ohm,TP_H3_YN
+C0233,Rh3invf,2,Xh3inv,2,h3invinn,10k,H3,compiled Rh3invf single target 10000 ohm,
+C0234,Rh4w1_A,1,Xinv1,6,in1n,750,H4,compiled Rh4w1 series target 25650.2211 ohm,TP_IN1N
+C0235,Rh4w1_A,2,Rh4w1_B,1,Rh4w1_MID,750,H4,compiled Rh4w1 series target 25650.2211 ohm,
+C0236,Rh4w1_B,1,Rh4w1_A,2,Rh4w1_MID,24.9k,H4,compiled Rh4w1 series target 25650.2211 ohm,
+C0237,Rh4w1_B,2,Xh4tia,2,h4sum,24.9k,H4,compiled Rh4w1 series target 25650.2211 ohm,TP_H4_SUM
+C0238,Rh4w2,1,Xinv2,6,in2n,31.6k,H4,compiled Rh4w2 single target 31621.294 ohm,TP_IN2N
+C0239,Rh4w2,2,Xh4tia,2,h4sum,31.6k,H4,compiled Rh4w2 single target 31621.294 ohm,TP_H4_SUM
+C0240,Rh4b_A,1,Xinvref,6,vrefn,41.7k,H4,compiled Rh4b parallel target 22716.4148 ohm,TP_VREFN
+C0241,Rh4b_A,2,Xh4tia,2,h4sum,41.7k,H4,compiled Rh4b parallel target 22716.4148 ohm,TP_H4_SUM
+C0242,Rh4b_B,1,Xinvref,6,vrefn,49.9k,H4,compiled Rh4b parallel target 22716.4148 ohm,TP_VREFN
+C0243,Rh4b_B,2,Xh4tia,2,h4sum,49.9k,H4,compiled Rh4b parallel target 22716.4148 ohm,TP_H4_SUM
+C0244,Rh4f,1,Xh4tia,6,h4lin,10k,H4,compiled Rh4f single target 10000 ohm,TP_H4_LIN
+C0245,Rh4f,2,Xh4tia,2,h4sum,10k,H4,compiled Rh4f single target 10000 ohm,TP_H4_SUM
+C0246,Rh4r1,1,Xh4tia,6,h4lin,10k,H4,compiled Rh4r1 single target 10000 ohm,TP_H4_LIN
+C0247,Rh4r1,2,Xh4relu,2,h4rinn,10k,H4,compiled Rh4r1 single target 10000 ohm,
+C0248,Rh4rf,1,TP_H4_OUT,1,h4y,10k,H4,compiled Rh4rf single target 10000 ohm,TP_H4_OUT
+C0249,Rh4rf,2,Xh4relu,2,h4rinn,10k,H4,compiled Rh4rf single target 10000 ohm,
+C0250,Rh4rl,1,TP_H4_OUT,1,h4y,10k,H4,compiled Rh4rl single target 10000 ohm,TP_H4_OUT
+C0251,Rh4rl,2,J_PWR,GND,0,10k,H4,compiled Rh4rl single target 10000 ohm,TP_GND
+C0252,Rh4invin,1,TP_H4_OUT,1,h4y,10k,H4,compiled Rh4invin single target 10000 ohm,TP_H4_OUT
+C0253,Rh4invin,2,Xh4inv,2,h4invinn,10k,H4,compiled Rh4invin single target 10000 ohm,
+C0254,Rh4invf,1,Xh4inv,6,h4yn,10k,H4,compiled Rh4invf single target 10000 ohm,TP_H4_YN
+C0255,Rh4invf,2,Xh4inv,2,h4invinn,10k,H4,compiled Rh4invf single target 10000 ohm,
+C0256,Ro1w1,1,Xh1inv,6,h1yn,9.2k,OUT,compiled Ro1w1 single target 9197.82154 ohm,TP_H1_YN
+C0257,Ro1w1,2,Xo1tia,2,o1sum,9.2k,OUT,compiled Ro1w1 single target 9197.82154 ohm,TP_O1_SUM
+C0258,Ro1w2_A,1,Xh2inv,6,h2yn,11.8k,OUT,compiled Ro1w2 parallel target 9245.0475 ohm,TP_H2_YN
+C0259,Ro1w2_A,2,Xo1tia,2,o1sum,11.8k,OUT,compiled Ro1w2 parallel target 9245.0475 ohm,TP_O1_SUM
+C0260,Ro1w2_B,1,Xh2inv,6,h2yn,42.7k,OUT,compiled Ro1w2 parallel target 9245.0475 ohm,TP_H2_YN
+C0261,Ro1w2_B,2,Xo1tia,2,o1sum,42.7k,OUT,compiled Ro1w2 parallel target 9245.0475 ohm,TP_O1_SUM
+C0262,Ro1w3_A,1,TP_H3_OUT,1,h3y,57.6k,OUT,compiled Ro1w3 parallel target 55155.9697 ohm,TP_H3_OUT
+C0263,Ro1w3_A,2,Xo1tia,2,o1sum,57.6k,OUT,compiled Ro1w3 parallel target 55155.9697 ohm,TP_O1_SUM
+C0264,Ro1w3_B,1,TP_H3_OUT,1,h3y,1.3M,OUT,compiled Ro1w3 parallel target 55155.9697 ohm,TP_H3_OUT
+C0265,Ro1w3_B,2,Xo1tia,2,o1sum,1.3M,OUT,compiled Ro1w3 parallel target 55155.9697 ohm,TP_O1_SUM
+C0266,Ro1w4_A,1,TP_H4_OUT,1,h4y,54.9k,OUT,compiled Ro1w4 parallel target 51512.4284 ohm,TP_H4_OUT
+C0267,Ro1w4_A,2,Xo1tia,2,o1sum,54.9k,OUT,compiled Ro1w4 parallel target 51512.4284 ohm,TP_O1_SUM
+C0268,Ro1w4_B,1,TP_H4_OUT,1,h4y,835k,OUT,compiled Ro1w4 parallel target 51512.4284 ohm,TP_H4_OUT
+C0269,Ro1w4_B,2,Xo1tia,2,o1sum,835k,OUT,compiled Ro1w4 parallel target 51512.4284 ohm,TP_O1_SUM
+C0270,Ro1b_A,1,Xinvref,6,vrefn,160k,OUT,compiled Ro1b series target 6059355.22 ohm,TP_VREFN
+C0271,Ro1b_A,2,Ro1b_B,1,Ro1b_MID,160k,OUT,compiled Ro1b series target 6059355.22 ohm,
+C0272,Ro1b_B,1,Ro1b_A,2,Ro1b_MID,5.9M,OUT,compiled Ro1b series target 6059355.22 ohm,
+C0273,Ro1b_B,2,Xo1tia,2,o1sum,5.9M,OUT,compiled Ro1b series target 6059355.22 ohm,TP_O1_SUM
+C0274,Ro1f,1,Xo1tia,6,o1lin,10k,OUT,compiled Ro1f single target 10000 ohm,TP_O1LIN
+C0275,Ro1f,2,Xo1tia,2,o1sum,10k,OUT,compiled Ro1f single target 10000 ohm,TP_O1_SUM
+C0276,Xh1d1,1,Xh1relu,2,h1rinn,1N4148 anode,H1,rectifier anode,
+C0277,Xh1d1,2,Xh1relu,6,h1amp,1N4148 cathode,H1,rectifier cathode,
+C0278,Xh1d2,1,Xh1relu,6,h1amp,1N4148 anode,H1,rectifier anode,
+C0279,Xh1d2,2,TP_H1_OUT,1,h1y,1N4148 cathode,H1,rectifier cathode,TP_H1_OUT
+C0280,Xh2d1,1,Xh2relu,2,h2rinn,1N4148 anode,H2,rectifier anode,
+C0281,Xh2d1,2,Xh2relu,6,h2amp,1N4148 cathode,H2,rectifier cathode,
+C0282,Xh2d2,1,Xh2relu,6,h2amp,1N4148 anode,H2,rectifier anode,
+C0283,Xh2d2,2,TP_H2_OUT,1,h2y,1N4148 cathode,H2,rectifier cathode,TP_H2_OUT
+C0284,Xh3d1,1,Xh3relu,2,h3rinn,1N4148 anode,H3,rectifier anode,
+C0285,Xh3d1,2,Xh3relu,6,h3amp,1N4148 cathode,H3,rectifier cathode,
+C0286,Xh3d2,1,Xh3relu,6,h3amp,1N4148 anode,H3,rectifier anode,
+C0287,Xh3d2,2,TP_H3_OUT,1,h3y,1N4148 cathode,H3,rectifier cathode,TP_H3_OUT
+C0288,Xh4d1,1,Xh4relu,2,h4rinn,1N4148 anode,H4,rectifier anode,
+C0289,Xh4d1,2,Xh4relu,6,h4amp,1N4148 cathode,H4,rectifier cathode,
+C0290,Xh4d2,1,Xh4relu,6,h4amp,1N4148 anode,H4,rectifier anode,
+C0291,Xh4d2,2,TP_H4_OUT,1,h4y,1N4148 cathode,H4,rectifier cathode,TP_H4_OUT
+C0292,TP_VREFN,1,Xinvref,6,vrefn,test point,TEST,probe vrefn,TP_VREFN
+C0293,TP_IN1N,1,Xinv1,6,in1n,test point,TEST,probe in1n,TP_IN1N
+C0294,TP_IN2N,1,Xinv2,6,in2n,test point,TEST,probe in2n,TP_IN2N
+C0295,TP_H1_SUM,1,Xh1tia,2,h1sum,test point,TEST,probe h1sum,TP_H1_SUM
+C0296,TP_H1_LIN,1,Xh1tia,6,h1lin,test point,TEST,probe h1lin,TP_H1_LIN
+C0297,TP_H1_OUT,1,TP_H1_OUT,1,h1y,test point,TEST,probe h1y,TP_H1_OUT
+C0298,TP_H1_YN,1,Xh1inv,6,h1yn,test point,TEST,probe h1yn,TP_H1_YN
+C0299,TP_H2_SUM,1,Xh2tia,2,h2sum,test point,TEST,probe h2sum,TP_H2_SUM
+C0300,TP_H2_LIN,1,Xh2tia,6,h2lin,test point,TEST,probe h2lin,TP_H2_LIN
+C0301,TP_H2_OUT,1,TP_H2_OUT,1,h2y,test point,TEST,probe h2y,TP_H2_OUT
+C0302,TP_H2_YN,1,Xh2inv,6,h2yn,test point,TEST,probe h2yn,TP_H2_YN
+C0303,TP_H3_SUM,1,Xh3tia,2,h3sum,test point,TEST,probe h3sum,TP_H3_SUM
+C0304,TP_H3_LIN,1,Xh3tia,6,h3lin,test point,TEST,probe h3lin,TP_H3_LIN
+C0305,TP_H3_OUT,1,TP_H3_OUT,1,h3y,test point,TEST,probe h3y,TP_H3_OUT
+C0306,TP_H3_YN,1,Xh3inv,6,h3yn,test point,TEST,probe h3yn,TP_H3_YN
+C0307,TP_H4_SUM,1,Xh4tia,2,h4sum,test point,TEST,probe h4sum,TP_H4_SUM
+C0308,TP_H4_LIN,1,Xh4tia,6,h4lin,test point,TEST,probe h4lin,TP_H4_LIN
+C0309,TP_H4_OUT,1,TP_H4_OUT,1,h4y,test point,TEST,probe h4y,TP_H4_OUT
+C0310,TP_H4_YN,1,Xh4inv,6,h4yn,test point,TEST,probe h4yn,TP_H4_YN
+C0311,TP_O1_SUM,1,Xo1tia,2,o1sum,test point,TEST,probe o1sum,TP_O1_SUM
+C0312,TP_O1LIN,1,Xo1tia,6,o1lin,test point,TEST,probe o1lin,TP_O1LIN

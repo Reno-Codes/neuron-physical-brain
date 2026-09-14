@@ -1,0 +1,227 @@
+{
+  "experiment_id": "exp64",
+  "kind": "inverting precision rectifier ReLU + compiler XOR",
+  "status": "DEMONSTRATED",
+  "decision": "A",
+  "decision_label": "COMPILER-GENERATED XOR CIRCUIT MATCHES FROZEN SOFTWARE",
+  "yield_claim": false,
+  "silicon": false,
+  "physical_tia_validated": false,
+  "closed_paths": [
+    "Exp63 single-diode superdiode OP/TRAN abort on xh1d",
+    "Exp64 clamp follower passed negatives (rejected)"
+  ],
+  "isolated": {
+    "n": 28,
+    "n_ok": 28,
+    "n_fail": 0,
+    "n_pass": 28,
+    "all_pass": true,
+    "mae_V": 8.882826657177971e-06,
+    "max_abs_err_V": 1.072841570115557e-05,
+    "worst_vin": -3.7
+  },
+  "mae_V": 9.299007701129007e-06,
+  "max_abs_err_V": 1.3446537822092708e-05,
+  "n_analog_pass": 4,
+  "n_class_pass": 4,
+  "rows": [
+    {
+      "vector": 0,
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001645123,
+      "analysis": "tran_2ms_uic",
+      "h_ref": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "h": [
+        -3.317805e-06,
+        -3.316831e-06,
+        -3.125244e-06,
+        -3.115493e-06
+      ],
+      "z": [
+        0.2633191,
+        0.1507945,
+        0.3858683000000001,
+        0.4402104
+      ],
+      "class_ref": 0,
+      "failed": false,
+      "failure_reason": null,
+      "i_dd": null,
+      "python_corrected": false,
+      "abs_err": 5.217612561850271e-06,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "vector": 1,
+      "x": [
+        0.0,
+        1.0
+      ],
+      "y_ref": 1.0025243122678587,
+      "y": 1.002511,
+      "analysis": "tran_2ms_uic",
+      "h_ref": [
+        0.0,
+        0.9253127407867445,
+        0.0,
+        0.0
+      ],
+      "h": [
+        -3.318886e-06,
+        0.9253017,
+        -3.123508e-06,
+        -3.117495e-06
+      ],
+      "z": [
+        1.766247,
+        -0.9253124,
+        1.688048,
+        0.756453
+      ],
+      "class_ref": 1,
+      "failed": false,
+      "failure_reason": null,
+      "i_dd": null,
+      "python_corrected": false,
+      "abs_err": 1.3312267858722748e-05,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "vector": 2,
+      "x": [
+        1.0,
+        0.0
+      ],
+      "y_ref": 1.018019446537822,
+      "y": 1.018006,
+      "analysis": "tran_2ms_uic",
+      "h_ref": [
+        0.9348381659953187,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "h": [
+        0.9348269,
+        -3.318868e-06,
+        -3.129787e-06,
+        -3.117038e-06
+      ],
+      "z": [
+        -0.9348376,
+        1.477117,
+        2.336903,
+        0.8300706
+      ],
+      "class_ref": 1,
+      "failed": false,
+      "failure_reason": null,
+      "i_dd": null,
+      "python_corrected": false,
+      "abs_err": 1.3446537822092708e-05,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "vector": 3,
+      "x": [
+        1.0,
+        1.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001645121,
+      "analysis": "tran_2ms_uic",
+      "h_ref": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "h": [
+        -3.318107e-06,
+        -3.317744e-06,
+        -3.128145e-06,
+        -3.115588e-06
+      ],
+      "z": [
+        0.5680899,
+        0.4010098,
+        3.639083,
+        1.146313
+      ],
+      "class_ref": 0,
+      "failed": false,
+      "failure_reason": null,
+      "i_dd": null,
+      "python_corrected": false,
+      "abs_err": 5.219612561850303e-06,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    }
+  ],
+  "architecture": {
+    "kind": "MIXED-LEVEL PCB analog MLP",
+    "silicon": false,
+    "physical_tia_validated": false,
+    "model": {
+      "path": "C:\\dev\\neuron-physical-brain\\physical-ai\\models\\xor_model.npz",
+      "shape": [
+        2,
+        4,
+        1
+      ],
+      "hidden_activation": "relu",
+      "output_activation": "linear",
+      "class_threshold": 0.5,
+      "weights_frozen": true
+    },
+    "g_scale": 0.0001,
+    "rf_ohm": 10000.0,
+    "vsupply": 15.0,
+    "primitives": [
+      "SignedDense_A",
+      "TIA_OPA189",
+      "Inverter_OPA189",
+      "ReLU_OPA189_1N4148",
+      "Bias_Vref"
+    ],
+    "range_analysis": {
+      "n_vectors": 4,
+      "z1_min": -3.639081228239245,
+      "z1_max": 0.9348381659953187,
+      "h_min": 0.0,
+      "h_max": 0.9348381659953187,
+      "y_min": 0.0016503406125618503,
+      "y_max": 1.018019446537822,
+      "abs_signal_max": 3.639081228239245
+    },
+    "mapping_notes": [],
+    "opa189_count": 16,
+    "diode_count": 8,
+    "resistor_count": 48,
+    "validation_analysis": {
+      "type": "tran_uic",
+      "tstep_s": 5e-06,
+      "tstop_s": 0.002,
+      "note": "OP of the full OPA189+diode netlist is stiff. UIC TRAN is the power-on settle."
+    }
+  },
+  "next_experiment": "First compiler-generated mixed-level XOR circuit is a PCB MVP candidate. Next: temperature on this netlist, then a real input interface. Do not reopen miller.",
+  "conclusion": "Decision A \u2014 COMPILER-GENERATED XOR CIRCUIT MATCHES FROZEN SOFTWARE. MIXED-LEVEL. Not silicon."
+}

@@ -1,0 +1,130 @@
+* Physical AI compiler MVP: frozen XOR 2-4-1
+* Frozen model: C:\dev\neuron-physical-brain\physical-ai\models\xor_model.npz
+* Weights are compiled, not edited.
+* G_SCALE=0.0001 Rf=10000
+* Architecture A signed routing + OPA189 TIA + OPA189/1N4148 ReLU.
+* MIXED-LEVEL: vendor macromodel TIA/ReLU + discrete R. Not silicon.
+
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/1n4148/1N4148.LIB"
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vref vref 0 DC 1
+
+Vin1 in1 0 DC 0
+Vin2 in2 0 DC 0
+
+* Inverter_OPA189 inv1: in1n = -in1
+Rinv1in in1 inv1inn 10000
+Rinv1f in1n inv1inn 10000
+Xinv1 0 inv1inn vdd vss in1n OPAx189
+Cinv1 in1n 0 1e-12
+* Inverter_OPA189 inv2: in2n = -in2
+Rinv2in in2 inv2inn 10000
+Rinv2f in2n inv2inn 10000
+Xinv2 0 inv2inn vdd vss in2n OPAx189
+Cinv2 in2n 0 1e-12
+* Inverter_OPA189 invref: vrefn = -vref
+Rinvrefin vref invrefinn 10000
+Rinvreff vrefn invrefinn 10000
+Xinvref 0 invrefinn vdd vss vrefn OPAx189
+Cinvref vrefn 0 1e-12
+
+* Hidden neuron h1
+Rh1w1 in1n h1sum 8346.15342020291
+Rh1w2 in2 h1sum 6653.68052854338
+Rh1b vref h1sum 37976.8116137404
+* TIA_OPA189 h1: h1lin = -Rf * I(h1sum)
+Rh1f h1lin h1sum 10000
+Xh1tia 0 h1sum vdd vss h1lin OPAx189
+Ch1tia h1lin 0 1e-12
+* ReLU_OPA189_1N4148 h1: h1y ~= max(0, h1lin)
+Xh1relu h1lin h1y vdd vss h1amp OPAx189
+Xh1d h1amp h1y 1N4148
+Rh1rl h1y 0 10000
+Ch1rl h1y 0 1e-12
+* Inverter_OPA189 h1inv: h1yn = -h1y
+Rh1invin h1y h1invinn 10000
+Rh1invf h1yn h1invinn 10000
+Xh1inv 0 h1invinn vdd vss h1yn OPAx189
+Ch1inv h1yn 0 1e-12
+
+* Hidden neuron h2
+Rh2w1 in1 h2sum 7539.64567142449
+Rh2w2 in2n h2sum 9292.75696435857
+Rh2b vref h2sum 66315.5606469353
+* TIA_OPA189 h2: h2lin = -Rf * I(h2sum)
+Rh2f h2lin h2sum 10000
+Xh2tia 0 h2sum vdd vss h2lin OPAx189
+Ch2tia h2lin 0 1e-12
+* ReLU_OPA189_1N4148 h2: h2y ~= max(0, h2lin)
+Xh2relu h2lin h2y vdd vss h2amp OPAx189
+Xh2d h2amp h2y 1N4148
+Rh2rl h2y 0 10000
+Ch2rl h2y 0 1e-12
+* Inverter_OPA189 h2inv: h2yn = -h2y
+Rh2invin h2y h2invinn 10000
+Rh2invf h2yn h2invinn 10000
+Xh2inv 0 h2invinn vdd vss h2yn OPAx189
+Ch2inv h2yn 0 1e-12
+
+* Hidden neuron h3
+Rh3w1 in1 h3sum 5125.48418304015
+Rh3w2 in2 h3sum 7679.43278733945
+Rh3b vref h3sum 25915.6966255384
+* TIA_OPA189 h3: h3lin = -Rf * I(h3sum)
+Rh3f h3lin h3sum 10000
+Xh3tia 0 h3sum vdd vss h3lin OPAx189
+Ch3tia h3lin 0 1e-12
+* ReLU_OPA189_1N4148 h3: h3y ~= max(0, h3lin)
+Xh3relu h3lin h3y vdd vss h3amp OPAx189
+Xh3d h3amp h3y 1N4148
+Rh3rl h3y 0 10000
+Ch3rl h3y 0 1e-12
+* Inverter_OPA189 h3inv: h3yn = -h3y
+Rh3invin h3y h3invinn 10000
+Rh3invf h3yn h3invinn 10000
+Xh3inv 0 h3invinn vdd vss h3yn OPAx189
+Ch3inv h3yn 0 1e-12
+
+* Hidden neuron h4
+Rh4w1 in1 h4sum 25650.2210777918
+Rh4w2 in2 h4sum 31621.2940385193
+Rh4b vref h4sum 22716.4148046838
+* TIA_OPA189 h4: h4lin = -Rf * I(h4sum)
+Rh4f h4lin h4sum 10000
+Xh4tia 0 h4sum vdd vss h4lin OPAx189
+Ch4tia h4lin 0 1e-12
+* ReLU_OPA189_1N4148 h4: h4y ~= max(0, h4lin)
+Xh4relu h4lin h4y vdd vss h4amp OPAx189
+Xh4d h4amp h4y 1N4148
+Rh4rl h4y 0 10000
+Ch4rl h4y 0 1e-12
+* Inverter_OPA189 h4inv: h4yn = -h4y
+Rh4invin h4y h4invinn 10000
+Rh4invf h4yn h4invinn 10000
+Xh4inv 0 h4invinn vdd vss h4yn OPAx189
+Ch4inv h4yn 0 1e-12
+
+* Output neuron o1 (linear)
+Ro1w1 h1yn o1sum 9197.82154480464
+Ro1w2 h2yn o1sum 9245.04749840197
+Ro1w3 h3y o1sum 55155.9696790035
+Ro1w4 h4y o1sum 51512.4284437413
+Ro1b vrefn o1sum 6059355.21666454
+* TIA_OPA189 o1: o1lin = -Rf * I(o1sum)
+Ro1f o1lin o1sum 10000
+Xo1tia 0 o1sum vdd vss o1lin OPAx189
+Co1tia o1lin 0 1e-12
+
+.control
+set numdgt=15
+op
+print v(o1lin)
+print v(h1lin) v(h1y)
+print v(h2lin) v(h2y)
+print v(h3lin) v(h3y)
+print v(h4lin) v(h4y)
+.endc
+
+.end

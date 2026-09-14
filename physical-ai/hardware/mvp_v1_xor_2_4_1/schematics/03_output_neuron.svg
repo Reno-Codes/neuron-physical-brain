@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="950" height="460" viewBox="0 0 950 460">
+  <rect width="100%" height="100%" fill="#fbfbf8"/>
+  <text x="24" y="28" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#1a1a1a">OUTPUT NEURON — linear TIA</text>
+  <text x="24" y="46" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#555">Physical AI MVP v1 · frozen xor_2_4_1 · mixed-level · not silicon</text>
+  
+  <rect x="24" y="70" width="900" height="360" fill="#fff" stroke="#222"/>
+  <text x="40" y="96" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Linear output TIA (no ReLU)</text>
+  <text x="40" y="120" font-family="Consolas, Menlo, monospace" font-size="11">Ro1w1 H1_YN -&gt; O1_SUM   (W2[0]&gt;0 uses inverted hidden)</text>
+  <text x="40" y="136" font-family="Consolas, Menlo, monospace" font-size="11">Ro1w2 H2_YN -&gt; O1_SUM</text>
+  <text x="40" y="152" font-family="Consolas, Menlo, monospace" font-size="11">Ro1w3 H3_Y  -&gt; O1_SUM   (W2[2]&lt;0 uses original hidden)</text>
+  <text x="40" y="168" font-family="Consolas, Menlo, monospace" font-size="11">Ro1w4 H4_Y  -&gt; O1_SUM</text>
+  <text x="40" y="184" font-family="Consolas, Menlo, monospace" font-size="11">Ro1b  VREFN -&gt; O1_SUM   (b2&gt;0, output TIA does not invert the math)</text>
+  <polygon points="420,230 500,260 420,290" fill="#f7f7f7" stroke="#111"/>
+  <text x="428" y="266" font-family="Consolas, Menlo, monospace" font-size="10">Xo1tia</text>
+  <text x="508" y="266" font-family="Consolas, Menlo, monospace" font-size="12">O1_LIN  = TP_O1LIN</text>
+  <text x="508" y="284" font-family="Consolas, Menlo, monospace" font-size="11">Ro1f = 10k  (Rf)</text>
+  <text x="40" y="330" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="600">Classification (optional, must not replace analog)</text>
+  <text x="40" y="350" font-family="Consolas, Menlo, monospace" font-size="11">class = 1 if V(O1_LIN) &gt;= 0.5 V else 0</text>
+  <text x="40" y="366" font-family="Consolas, Menlo, monospace" font-size="11">Comparator vs 0.5 V is allowed only in parallel with TP_O1LIN.</text>
+  <text x="40" y="400" font-family="Consolas, Menlo, monospace" font-size="11">SPICE 27 C UIC TRAN 2 ms:  00 -&gt; 1.645 mV    01 -&gt; 1.002511 V    10 -&gt; 1.018006 V    11 -&gt; 1.645 mV</text>
+
+</svg>

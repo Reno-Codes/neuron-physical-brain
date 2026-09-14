@@ -1,0 +1,246 @@
+{
+  "experiment_id": "exp56",
+  "kind": "W=20 8s8p 256x documented area under tt_mm",
+  "status": "PARTIALLY VALIDATED",
+  "decision": "B",
+  "decision_label": "W=20 8s8p 15/16; LEFTOVER FLOOR LIKELY DOMINATES (NOT YIELD)",
+  "yield_claim": false,
+  "silicon": false,
+  "realism_level": 4,
+  "A": 1000000.0,
+  "N_MC": 16,
+  "baseline": {
+    "exp55_8s8p_y": 2.459968859764,
+    "this_8s8p_y": 2.459968859764,
+    "exp54_4s4p_y": 2.459965130621
+  },
+  "inventory": {
+    "w10_8s8p": {
+      "n": 5120,
+      "w_um_unique": [
+        10.0
+      ],
+      "l_min_um": 4.8663717,
+      "l_max_um": 3922.5044,
+      "wl_min_um2": 48.663717000000005,
+      "wl_max_um2": 39225.043999999994,
+      "wl_sum_um2": 33248960.08480063,
+      "wl_median_um2": 496.14382,
+      "body_sigma_median": 0.001557850154588099,
+      "head_sigma_w": 0.014925950555994749
+    },
+    "w20_8s8p": {
+      "n": 5120,
+      "w_um_unique": [
+        20.0
+      ],
+      "l_min_um": 9.8554268,
+      "l_max_um": 7867.1938,
+      "wl_min_um2": 197.10853600000002,
+      "wl_max_um2": 157343.876,
+      "wl_sum_um2": 133380081.6983028,
+      "wl_median_um2": 1992.06894,
+      "body_sigma_median": 0.0007774586372386963,
+      "head_sigma_w": 0.010554240853799007
+    }
+  },
+  "nominal": {
+    "w10_8s8p": {
+      "y": 2.459968859764,
+      "abs_err": 0.0004792888838678344,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 5120,
+        "w_um_unique": [
+          10.0
+        ],
+        "l_min_um": 4.8663717,
+        "l_max_um": 3922.5044,
+        "wl_min_um2": 48.663717000000005,
+        "wl_max_um2": 39225.043999999994,
+        "wl_sum_um2": 33248960.08480063,
+        "wl_median_um2": 496.14382,
+        "body_sigma_median": 0.001557850154588099,
+        "head_sigma_w": 0.014925950555994749
+      }
+    },
+    "w20_8s8p": {
+      "y": 2.459968223476,
+      "abs_err": 0.00047865259586776787,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 5120,
+        "w_um_unique": [
+          20.0
+        ],
+        "l_min_um": 9.8554268,
+        "l_max_um": 7867.1938,
+        "wl_min_um2": 197.10853600000002,
+        "wl_max_um2": 157343.876,
+        "wl_sum_um2": 133380081.6983028,
+        "wl_median_um2": 1992.06894,
+        "body_sigma_median": 0.0007774586372386963,
+        "head_sigma_w": 0.010554240853799007
+      }
+    }
+  },
+  "stats": {
+    "w20_8s8p": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 15,
+      "mean": 0.00046993052043042827,
+      "median": 0.00040117134436790103,
+      "max": 0.001015484570868086,
+      "std": 0.0002283640917893344,
+      "pass_rate": 0.9375
+    }
+  },
+  "signed": {
+    "w20_8s8p": {
+      "n_pos": 16,
+      "n_neg": 0,
+      "mean_signed_mV": 0.46993052043042827,
+      "max_pos_mV": 1.015484570868086,
+      "min_neg_mV": 0.15496866286790478
+    }
+  },
+  "draws": {
+    "w20_8s8p": [
+      {
+        "draw": 0,
+        "y": 2.459884649939,
+        "err": 0.00039507905886804195,
+        "abs_err": 0.00039507905886804195,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 1,
+        "y": 2.4597843407,
+        "err": 0.00029476981986809037,
+        "abs_err": 0.00029476981986809037,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 2,
+        "y": 2.459682503242,
+        "err": 0.00019293236186790352,
+        "abs_err": 0.00019293236186790352,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 3,
+        "y": 2.459805626714,
+        "err": 0.00031605583386795644,
+        "abs_err": 0.00031605583386795644,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 4,
+        "y": 2.460209718427,
+        "err": 0.0007201475468678886,
+        "abs_err": 0.0007201475468678886,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 5,
+        "y": 2.459644539543,
+        "err": 0.00015496866286790478,
+        "abs_err": 0.00015496866286790478,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 6,
+        "y": 2.459886307213,
+        "err": 0.00039673633286785304,
+        "abs_err": 0.00039673633286785304,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 7,
+        "y": 2.460060145242,
+        "err": 0.0005705743618680259,
+        "abs_err": 0.0005705743618680259,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 8,
+        "y": 2.459757960615,
+        "err": 0.0002683897348680908,
+        "abs_err": 0.0002683897348680908,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 9,
+        "y": 2.459932606425,
+        "err": 0.00044303554486768704,
+        "abs_err": 0.00044303554486768704,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 10,
+        "y": 2.459874791391,
+        "err": 0.00038522051086786746,
+        "abs_err": 0.00038522051086786746,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 11,
+        "y": 2.460053235787,
+        "err": 0.0005636649068678778,
+        "abs_err": 0.0005636649068678778,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 12,
+        "y": 2.459895177236,
+        "err": 0.000405606355867949,
+        "abs_err": 0.000405606355867949,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 13,
+        "y": 2.460237996749,
+        "err": 0.0007484258688679191,
+        "abs_err": 0.0007484258688679191,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 14,
+        "y": 2.460137367735,
+        "err": 0.0006477968548677104,
+        "abs_err": 0.0006477968548677104,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 15,
+        "y": 2.460505055451,
+        "err": 0.001015484570868086,
+        "abs_err": 0.001015484570868086,
+        "analog_pass": false,
+        "failed": false
+      }
+    ]
+  },
+  "physical_tia_validated": false,
+  "miller_family": "CLOSED",
+  "next_experiment": "Experiment 57: leftover diagnosis (ideal R vs xhigh_po at A=1e6) and/or documented resistor-family alternative. Do not invent W/L.",
+  "conclusion": "Decision B \u2014 W=20 8s8p 15/16; LEFTOVER FLOOR LIKELY DOMINATES (NOT YIELD). tt_mm is official model AGAUSS, not a foundry lot. OPA189 remains the Level-1 TIA host. Miller family remains closed."
+}

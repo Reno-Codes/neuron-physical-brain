@@ -817,7 +817,204 @@ Reports: `results/exp53_w10_ttmm.md`, `results/exp53_w10_ttmm.json`.
 
 Nominal tt |err| = **0.401 mV** (matches Exp43). Eight `tt_mm` draws: **1/8 PASS**. Mean |err| = **3.23 mV**, max = **8.51 mV**. **Decision C — MATCHING UNRESOLVED AT THIS AREA.** Deterministic W=10 success is not a Pelgrom pass.
 
-## Research direction
+## Experiment 54 — documented resistor area / unit tiling under tt_mm (CLOSED)
+
+Purpose: test whether official SKY130 width scaling or same-W series-parallel arrays reduce `tt_mm` cell error without inventing Pelgrom constants or declaring yield.
+
+```text
+python scripts\exp54_resistor_tiling.py
+```
+
+Reports: `results/exp54_resistor_tiling.md`, `results/exp54_resistor_tiling.json`.
+
+Exp53 nominal repeat Δy = 0. Independent W=10 n=16: **5/16**, mean **2.81 mV**. W=20: 7/16, mean 1.39 mV. W=10 2s×2p: 9/16, mean 1.32 mV. W=10 4s×4p: **11/16**, mean **0.815 mV**, max 1.92 mV. Same-area 4-series of R/4: **0/16**, mean 3.34 mV. Leftover stays 0.40–0.48 mV. **Decision B — 4s4p MEAN INSIDE 1 mV; SAMPLE NOT ALL-PASS (NOT YIELD).** Physical TIA **NOT** validated. Miller family remains closed.
+
+## Experiment 55 — 64× documented resistor area under tt_mm (CLOSED)
+
+Purpose: test W=10 8s×8p and W=20 4s×4p (both ~64× Experiment 53 area) under official `tt_mm`.
+
+```text
+python scripts\exp55_large_array.py
+```
+
+Reports: `results/exp55_large_array.md`, `results/exp55_large_array.json`.
+
+4s4p nominal Δy = 0 vs Exp54. Independent 4s4p: 10/16, mean 0.806 mV. W=20 2s2p: 12/16. W=20 4s4p: 14/16, mean 0.638 mV. W=10 8s8p: **15/16**, mean **0.530 mV**, max 1.360 mV. Large-array leftover pinned at **+0.48 mV**. **Decision B — 15/16 AT 64× (NOT YIELD).** Physical TIA **NOT** validated.
+
+## Experiment 56 — W=20 8s×8p under tt_mm (CLOSED)
+
+Purpose: test whether documented W=20 plus 8s×8p (256× Experiment 53 area) clears the last `tt_mm` tail, or leftover dominates.
+
+```text
+python scripts\exp56_w20_8s8p.py
+```
+
+Reports: `results/exp56_w20_8s8p.md`, `results/exp56_w20_8s8p.json`.
+
+W=10 8s8p nominal Δy = 0 vs Exp55. W=20 8s8p leftover **+0.479 mV**. `tt_mm` n=16: **15/16**, mean **0.470 mV** (equals leftover), max **1.015 mV**, all signed errors positive. **Decision B — LEFTOVER FLOOR DOMINATES; STOP ENLARGING ARRAYS.** Physical TIA **NOT** validated.
+
+## Experiment 57 — xhigh_po leftover diagnosis (CLOSED)
+
+Purpose: decide whether the +0.48 mV floor is mismatch, offset, linear ratio, or voltage-dependent encode.
+
+```text
+python scripts\exp57_leftover_diag.py
+```
+
+Reports: `results/exp57_leftover_diag.md`, `results/exp57_leftover_diag.json`.
+
+W=10 − ideal R = **+0.607 mV** (Exp43 leftover repeat). W=20 8s8p − ideal = +0.684 mV. Residual vs ideal is superlinear in |z| (0.002 / 0.042 / 0.166 / 0.607 mV at scale 0.1–1.0). Small-signal |err| is tens of µV. **Decision A — LEFTOVER IS VOLTCO + ENCODE, NOT tt_mm.** Stop enlarging arrays. Physical TIA **NOT** validated.
+
+## Experiment 58 — OPA189 TIA on W=10 8s×8p (CLOSED)
+
+Purpose: host the leftover-limited 8s×8p fabric on the Experiment 45/46 OPA189 macromodel.
+
+```text
+python scripts\exp58_opa189_tiled.py
+```
+
+Reports: `results/exp58_opa189_tiled.md`, `results/exp58_opa189_tiled.json`.
+
+OPA189 W=10 repeat Δy vs Exp45 = **0**. OPA189 + 8s8p nominal |err| = **0.684 mV PASS**. Official-include `mc_mm` n=8: **5/8 PASS** (max 1.500 mV). **Decision B — NOMINAL PASS; mm MIXED (NOT YIELD).** Physical TIA **NOT** validated (macromodel). Miller family remains closed.
+
+## Experiment 59 — OPA189 + 8s×8p frozen F40 vectors (CLOSED)
+
+Purpose: test the Experiment 58 fabric on frozen F40 vectors 19 / 20 / 38 / 6.
+
+```text
+python scripts\exp59_opa189_f40.py
+```
+
+Reports: `results/exp59_opa189_f40.md`, `results/exp59_opa189_f40.json`.
+
+Vec 19 repeat Δy = 0. All four vectors **PASS** (0.684 / 0.428 / 0.019 / 0.039 mV). **Decision A — ISOLATED F40 VECTOR SET PASSES.** Mixed-level (Level-1 TIA + Level-4 tiled R). Not Network F. Not silicon.
+
+## Experiment 60 — OPA189 + tiled o2 row in Network F (CLOSED)
+
+Purpose: insert W=10 8s×8p `Ro2*` plus OPA189 `Eo2tia` into frozen Network F. Other neurons stay ideal-R / behavioral.
+
+```text
+python scripts\exp60_network_tiled_o2.py
+```
+
+Reports: `results/exp60_network_tiled_o2.md`, `results/exp60_network_tiled_o2.json`.
+
+F12 behavioral MAE matches Experiment 47 exactly (0.596 mV). F12 / F40 mixed MAE = **0.574 / 0.470 mV**, acc = 1.0, analog MAE **PASS**. **Decision A — MIXED-LEVEL NETWORK INSERTION HOLDS ANALOG MAE.** Not full-network PDK fabric. Not silicon.
+
+## Experiment 61 — OPA189 + 8s×8p temperature (CLOSED)
+
+Purpose: temperature-gate the Experiment 58 isolated fabric (OPA189 Level-1 TIA + W=10 8s×8p official `xhigh_po`) at the campaign targets −40 / 27 / 85 °C.
+
+```text
+python scripts\exp61_opa189_8s8p_temp.py
+```
+
+Reports: `results/exp61_opa189_8s8p_temp.md`, `results/exp61_opa189_8s8p_temp.json`.
+
+27 °C y repeats Experiment 58 exactly (Δy = 0). All three temperatures **PASS** the 1 mV analog bar (0.488 / 0.684 / 0.715 mV). **Decision A — OPA189 + 8s8p PASSES −40/27/85 °C ON ISOLATED o2.** Mixed-level. Not silicon. Miller family remains closed.
+
+## Experiment 62 — documented precision-rectifier ReLU (CLOSED)
+
+Purpose: replace the Experiment 4 B-source ReLU with a compiler primitive whose rectifier is a documented diode, not an invented `D(Is=1e-14)` card.
+
+```text
+python scripts\exp62_physical_relu.py
+```
+
+Reports: `results/exp62_physical_relu.md`, `results/exp62_physical_relu.json`.
+
+The 1N4148 subcircuit is extracted unmodified from the TI TLC555 PSpice library shipped with ngspice. Isolated sweep (28 voltages, including all frozen XOR hidden pre-activations):
+
+| Fabric | pass | MAE (mV) | max \|err\| (mV) |
+| --- | ---: | ---: | ---: |
+| Exp4 B-source + teaching Dsi | 28/28 | 0.0035 | 0.026 |
+| OPA189 + teaching Dsi | 28/28 | 0.082 | 0.369 |
+| OPA189 + documented 1N4148 | 28/28 | 0.090 | 0.379 |
+
+**Decision A — OPA189 + DOCUMENTED 1N4148 SUPERDIODE PASSES ISOLATED ReLU.** Mixed-level. Not silicon. Worst residual is reverse leakage at Vin = −3.7 V, still inside 1 mV.
+
+## Experiment 63 — first XOR compile, single-diode network OP (CLOSED)
+
+Purpose: compile frozen XOR `2→4→1` into `physical_design/xor_2_4_1/` using Architecture A + OPA189 TIA + the Experiment 62 superdiode.
+
+```text
+python scripts\exp63_xor_mvp_compile.py
+```
+
+The compiler refused an unsupported `tanh` hidden activation. SPICE OP then aborted on every XOR vector:
+
+```text
+timestep too small; trouble with xh1d:d_1n4148_1
+```
+
+`i(Vdd)` during the failed OP was ~77 A (rail fight). Isolated Experiment 62 still stands. **Decision C — SIMPLE SUPERDIODE OP ABORTS IN THE 4-ReLU NETLIST.** UIC TRAN of that same superdiode netlist also failed to find an initial point.
+
+## Experiment 64 — inverting rectifier + compiler XOR (CLOSED)
+
+Purpose: replace the network ReLU with the textbook two-diode inverting precision rectifier (same documented 1N4148). Hidden TIA emits `−z` so `max(−vin, 0)` recovers ReLU.
+
+```text
+python scripts\exp64_twodiode_xor.py
+```
+
+Reports: `results/exp64_twodiode_xor.md`, `results/exp64_twodiode_xor.json`. Artifacts: `physical_design/xor_2_4_1/`.
+
+A bidirectional clamp follower was tried first and **rejected** (it passed negatives). Isolated inverting rectifier: **28/28 PASS**, MAE **0.0089 mV**. Full-netlist OP remains stiff; validation is **UIC TRAN 2 ms** (power-on settle), not a Python correction.
+
+XOR vs frozen software:
+
+| vec | x | \|err\| (mV) | class |
+| ---: | --- | ---: | ---: |
+| 0 | [0,0] | 0.0052 | 0 |
+| 1 | [0,1] | 0.0133 | 1 |
+| 2 | [1,0] | 0.0134 | 1 |
+| 3 | [1,1] | 0.0052 | 0 |
+
+MAE **0.0093 mV**, analog **4/4**, class **4/4**. **Decision A — COMPILER-GENERATED XOR CIRCUIT MATCHES FROZEN SOFTWARE.** MIXED-LEVEL (OPA189 macromodel + documented 1N4148 + exact discrete R). Not silicon. Not firmware XOR.
+
+## Experiment 65 — compiler XOR temperature (CLOSED)
+
+Purpose: temperature-gate the Experiment 64 netlist at −40 / 27 / 85 °C. Discrete R have no TCR card (not invented).
+
+```text
+python scripts\exp65_xor_temp.py
+```
+
+Reports: `results/exp65_xor_temp.md`, `results/exp65_xor_temp.json`.
+
+27 °C repeats Experiment 64 exactly. −40 °C analog **4/4**. 85 °C classification **4/4** but analog misses on the two high outputs (~1.08 mV). **Decision B — CLASS HOLDS AT ALL TEMPS; ANALOG 1 mV MISSED AT 85 °C.**
+
+## Experiment 66 — XOR analog temperature bound (CLOSED)
+
+Purpose: find whether the 85 °C analog miss starts at 55 °C or 70 °C.
+
+```text
+python scripts\exp66_xor_temp_bound.py
+```
+
+Reports: `results/exp66_xor_temp_bound.md`, `results/exp66_xor_temp_bound.json`.
+
+55 °C max |err| **0.134 mV**. 70 °C max |err| **0.398 mV**. Both **4/4 analog**. **Decision A — ANALOG 1 mV HOLDS AT 55 °C AND 70 °C; 85 °C REMAINS THE BOUNDARY.** Discrete R still have no TCR. Do not add more temperature points before the I/O interface.
+
+## Experiment 67 — E96 XOR resistor snap (CLOSED)
+
+Purpose: ask whether catalog E96 parts can replace exact compiled weight/bias resistors on the XOR board.
+
+```text
+python scripts\exp67_xor_e96.py
+```
+
+Reports: `results/exp67_xor_e96.md`, `results/exp67_xor_e96.json`.
+
+17 weight/bias resistors snapped. Classification **4/4**. Analog **2/4**; worst |err| **29.9 mV** on `[1,0]`. **Decision B — E96 KEEPS CLASS; ANALOG 1 mV MISSED.** The first analog-accurate board must use exact or 0.1%-class resistors, not coarse E96.
+
+## Hardware MVP v1 — XOR build package
+
+Frozen `physical_design/xor_2_4_1/` is unchanged. The human-buildable package is:
+
+`physical-ai/hardware/mvp_v1_xor_2_4_1/` — start at `README_BUILD_THIS.md`.
+
+Mixed-level discrete analog (OPA189 + 1N4148 + 0.1% resistors). Not silicon. Neural topology is the validated compiler netlist.
 
 ## Research direction
 
@@ -876,6 +1073,21 @@ Later experiments can grow this into:
 51. Offset-nulled miller incremental A_ol *(Experiment 51)*
 52. Two-copy miller composite TIA *(Experiment 52)*
 53. W=10 tt_mm mismatch at A=1e6 *(Experiment 53)*
+54. Documented resistor area / unit tiling under tt_mm *(Experiment 54)*
+55. 64× documented resistor area under tt_mm *(Experiment 55)*
+56. W=20 8s×8p leftover floor under tt_mm *(Experiment 56)*
+57. xhigh_po leftover / voltco diagnosis *(Experiment 57)*
+58. OPA189 TIA on W=10 8s×8p tiled fabric *(Experiment 58)*
+59. OPA189 + 8s×8p frozen F40 vectors *(Experiment 59)*
+60. OPA189 + tiled o2 row in Network F *(Experiment 60)*
+61. OPA189 + 8s×8p isolated temperature *(Experiment 61)*
+62. Documented OPA189 + 1N4148 precision-rectifier ReLU *(Experiment 62)*
+63. First XOR compile; single-diode network OP abort *(Experiment 63)*
+64. Inverting rectifier + compiler-generated XOR *(Experiment 64)*
+65. Compiler XOR temperature *(Experiment 65)*
+66. Compiler XOR analog temperature bound *(Experiment 66)*
+67. E96 XOR weight/bias snap *(Experiment 67)*
+68. Hardware MVP v1 build package *(not a SPICE experiment; `hardware/mvp_v1_xor_2_4_1/`)*
 
 Longer-term:
 

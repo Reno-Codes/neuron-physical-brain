@@ -1,0 +1,574 @@
+{
+  "devices": [
+    {
+      "ref": "Xinv1",
+      "part": "OPA189",
+      "role": "input_invert",
+      "node": "in1n"
+    },
+    {
+      "ref": "Xinv2",
+      "part": "OPA189",
+      "role": "input_invert",
+      "node": "in2n"
+    },
+    {
+      "ref": "Xinvref",
+      "part": "OPA189",
+      "role": "vref_invert",
+      "node": "vrefn"
+    },
+    {
+      "ref": "Xh1tia",
+      "part": "OPA189",
+      "role": "hidden_tia",
+      "node": "h1lin"
+    },
+    {
+      "ref": "Xh1relu",
+      "part": "OPA189",
+      "role": "hidden_relu",
+      "node": "h1y"
+    },
+    {
+      "ref": "Xh1d1",
+      "part": "1N4148",
+      "role": "hidden_relu_dclamp",
+      "node": "h1y"
+    },
+    {
+      "ref": "Xh1d2",
+      "part": "1N4148",
+      "role": "hidden_relu_dfwd",
+      "node": "h1y"
+    },
+    {
+      "ref": "Xh1inv",
+      "part": "OPA189",
+      "role": "hidden_invert",
+      "node": "h1yn"
+    },
+    {
+      "ref": "Xh2tia",
+      "part": "OPA189",
+      "role": "hidden_tia",
+      "node": "h2lin"
+    },
+    {
+      "ref": "Xh2relu",
+      "part": "OPA189",
+      "role": "hidden_relu",
+      "node": "h2y"
+    },
+    {
+      "ref": "Xh2d1",
+      "part": "1N4148",
+      "role": "hidden_relu_dclamp",
+      "node": "h2y"
+    },
+    {
+      "ref": "Xh2d2",
+      "part": "1N4148",
+      "role": "hidden_relu_dfwd",
+      "node": "h2y"
+    },
+    {
+      "ref": "Xh2inv",
+      "part": "OPA189",
+      "role": "hidden_invert",
+      "node": "h2yn"
+    },
+    {
+      "ref": "Xh3tia",
+      "part": "OPA189",
+      "role": "hidden_tia",
+      "node": "h3lin"
+    },
+    {
+      "ref": "Xh3relu",
+      "part": "OPA189",
+      "role": "hidden_relu",
+      "node": "h3y"
+    },
+    {
+      "ref": "Xh3d1",
+      "part": "1N4148",
+      "role": "hidden_relu_dclamp",
+      "node": "h3y"
+    },
+    {
+      "ref": "Xh3d2",
+      "part": "1N4148",
+      "role": "hidden_relu_dfwd",
+      "node": "h3y"
+    },
+    {
+      "ref": "Xh3inv",
+      "part": "OPA189",
+      "role": "hidden_invert",
+      "node": "h3yn"
+    },
+    {
+      "ref": "Xh4tia",
+      "part": "OPA189",
+      "role": "hidden_tia",
+      "node": "h4lin"
+    },
+    {
+      "ref": "Xh4relu",
+      "part": "OPA189",
+      "role": "hidden_relu",
+      "node": "h4y"
+    },
+    {
+      "ref": "Xh4d1",
+      "part": "1N4148",
+      "role": "hidden_relu_dclamp",
+      "node": "h4y"
+    },
+    {
+      "ref": "Xh4d2",
+      "part": "1N4148",
+      "role": "hidden_relu_dfwd",
+      "node": "h4y"
+    },
+    {
+      "ref": "Xh4inv",
+      "part": "OPA189",
+      "role": "hidden_invert",
+      "node": "h4yn"
+    },
+    {
+      "ref": "Xo1tia",
+      "part": "OPA189",
+      "role": "output_tia",
+      "node": "o1lin"
+    }
+  ],
+  "resistors": [
+    {
+      "ref": "Rinv1in",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rinv1f",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rinv2in",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rinv2f",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rinvrefin",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rinvreff",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh1w1",
+      "ohm": 8346.153420202914,
+      "e96": 8250.0,
+      "weight": 1.1981567431762925,
+      "role": "weight",
+      "layer": 1,
+      "from": "in1",
+      "to": "h1sum"
+    },
+    {
+      "ref": "Rh1w2",
+      "ohm": 6653.680528543384,
+      "e96": 6650.0,
+      "weight": -1.5029275837788365,
+      "role": "weight",
+      "layer": 1,
+      "from": "in2n",
+      "to": "h1sum"
+    },
+    {
+      "ref": "Rh1b",
+      "ohm": 37976.81161374038,
+      "e96": 38300.0,
+      "weight": -0.26331857718097385,
+      "role": "bias",
+      "layer": 1,
+      "from": "vrefn",
+      "to": "h1sum"
+    },
+    {
+      "ref": "Rh1f",
+      "ohm": 10000.0,
+      "role": "tia_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh1r1",
+      "ohm": 10000.0,
+      "role": "relu_r1",
+      "layer": 1
+    },
+    {
+      "ref": "Rh1rf",
+      "ohm": 10000.0,
+      "role": "relu_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh1rl",
+      "ohm": 10000.0,
+      "role": "relu_load",
+      "layer": 1
+    },
+    {
+      "ref": "Rh1invin",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh1invf",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh2w1",
+      "ohm": 7539.645671424485,
+      "e96": 7500.0,
+      "weight": -1.326322275050715,
+      "role": "weight",
+      "layer": 1,
+      "from": "in1n",
+      "to": "h2sum"
+    },
+    {
+      "ref": "Rh2w2",
+      "ohm": 9292.756964358568,
+      "e96": 9310.0,
+      "weight": 1.076106911905045,
+      "role": "weight",
+      "layer": 1,
+      "from": "in2",
+      "to": "h2sum"
+    },
+    {
+      "ref": "Rh2b",
+      "ohm": 66315.56064693531,
+      "e96": 66500.0,
+      "weight": -0.15079417111830054,
+      "role": "bias",
+      "layer": 1,
+      "from": "vrefn",
+      "to": "h2sum"
+    },
+    {
+      "ref": "Rh2f",
+      "ohm": 10000.0,
+      "role": "tia_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh2r1",
+      "ohm": 10000.0,
+      "role": "relu_r1",
+      "layer": 1
+    },
+    {
+      "ref": "Rh2rf",
+      "ohm": 10000.0,
+      "role": "relu_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh2rl",
+      "ohm": 10000.0,
+      "role": "relu_load",
+      "layer": 1
+    },
+    {
+      "ref": "Rh2invin",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh2invf",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh3w1",
+      "ohm": 5125.484183040153,
+      "e96": 5110.0,
+      "weight": -1.9510351886538364,
+      "role": "weight",
+      "layer": 1,
+      "from": "in1n",
+      "to": "h3sum"
+    },
+    {
+      "ref": "Rh3w2",
+      "ohm": 7679.432787339448,
+      "e96": 7680.0,
+      "weight": -1.302179506862318,
+      "role": "weight",
+      "layer": 1,
+      "from": "in2n",
+      "to": "h3sum"
+    },
+    {
+      "ref": "Rh3b",
+      "ohm": 25915.696625538414,
+      "e96": 26100.0,
+      "weight": -0.3858665327230903,
+      "role": "bias",
+      "layer": 1,
+      "from": "vrefn",
+      "to": "h3sum"
+    },
+    {
+      "ref": "Rh3f",
+      "ohm": 10000.0,
+      "role": "tia_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh3r1",
+      "ohm": 10000.0,
+      "role": "relu_r1",
+      "layer": 1
+    },
+    {
+      "ref": "Rh3rf",
+      "ohm": 10000.0,
+      "role": "relu_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh3rl",
+      "ohm": 10000.0,
+      "role": "relu_load",
+      "layer": 1
+    },
+    {
+      "ref": "Rh3invin",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh3invf",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh4w1",
+      "ohm": 25650.221077791826,
+      "e96": 25500.0,
+      "weight": -0.38986018754661267,
+      "role": "weight",
+      "layer": 1,
+      "from": "in1n",
+      "to": "h4sum"
+    },
+    {
+      "ref": "Rh4w2",
+      "ohm": 31621.29403851928,
+      "e96": 31600.0,
+      "weight": -0.3162425923435822,
+      "role": "weight",
+      "layer": 1,
+      "from": "in2n",
+      "to": "h4sum"
+    },
+    {
+      "ref": "Rh4b",
+      "ohm": 22716.41480468385,
+      "e96": 22599.999999999996,
+      "weight": -0.4402103098565589,
+      "role": "bias",
+      "layer": 1,
+      "from": "vrefn",
+      "to": "h4sum"
+    },
+    {
+      "ref": "Rh4f",
+      "ohm": 10000.0,
+      "role": "tia_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh4r1",
+      "ohm": 10000.0,
+      "role": "relu_r1",
+      "layer": 1
+    },
+    {
+      "ref": "Rh4rf",
+      "ohm": 10000.0,
+      "role": "relu_rf",
+      "layer": 1
+    },
+    {
+      "ref": "Rh4rl",
+      "ohm": 10000.0,
+      "role": "relu_load",
+      "layer": 1
+    },
+    {
+      "ref": "Rh4invin",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Rh4invf",
+      "ohm": 10000.0,
+      "role": "invert"
+    },
+    {
+      "ref": "Ro1w1",
+      "ohm": 9197.82154480464,
+      "e96": 9090.0,
+      "weight": 1.0872139616199086,
+      "role": "weight",
+      "layer": 2,
+      "from": "h1yn",
+      "to": "o1sum"
+    },
+    {
+      "ref": "Ro1w2",
+      "ohm": 9245.04749840197,
+      "e96": 9310.0,
+      "weight": 1.0816602079901185,
+      "role": "weight",
+      "layer": 2,
+      "from": "h2yn",
+      "to": "o1sum"
+    },
+    {
+      "ref": "Ro1w3",
+      "ohm": 55155.969679003465,
+      "e96": 54900.0,
+      "weight": -0.18130403759009164,
+      "role": "weight",
+      "layer": 2,
+      "from": "h3y",
+      "to": "o1sum"
+    },
+    {
+      "ref": "Ro1w4",
+      "ohm": 51512.428443741315,
+      "e96": 51100.0,
+      "weight": -0.19412790858659246,
+      "role": "weight",
+      "layer": 2,
+      "from": "h4y",
+      "to": "o1sum"
+    },
+    {
+      "ref": "Ro1b",
+      "ohm": 6059355.21666454,
+      "e96": 6040000.0,
+      "weight": 0.0016503406125618503,
+      "role": "bias",
+      "layer": 2,
+      "from": "vrefn",
+      "to": "o1sum"
+    },
+    {
+      "ref": "Ro1f",
+      "ohm": 10000.0,
+      "role": "tia_rf",
+      "layer": 2
+    }
+  ],
+  "capacitors": [
+    {
+      "ref": "Cinv1",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Cinv2",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Cinvref",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch1tia",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch1rl",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch1inv",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch2tia",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch2rl",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch2inv",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch3tia",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch3rl",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch3inv",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch4tia",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch4rl",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Ch4inv",
+      "farad": 1e-12,
+      "role": "node"
+    },
+    {
+      "ref": "Co1tia",
+      "farad": 1e-12,
+      "role": "node"
+    }
+  ]
+}

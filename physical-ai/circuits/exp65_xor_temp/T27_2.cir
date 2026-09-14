@@ -1,0 +1,159 @@
+* Physical AI compiler MVP: frozen XOR 2-4-1 (inverting rectifier ReLU)
+* Frozen model: C:\dev\neuron-physical-brain\physical-ai\models\xor_model.npz
+* Weights are compiled, not edited.
+* G_SCALE=0.0001 Rf=10000
+* Architecture A signed routing + OPA189 TIA + OPA189/1N4148 ReLU.
+* MIXED-LEVEL: vendor macromodel TIA/ReLU + discrete R. Not silicon.
+
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/1n4148/1N4148.LIB"
+.temp 27
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+Vref vref 0 DC 1
+
+Vin1 in1 0 DC 1
+Vin2 in2 0 DC 0
+
+* Inverter_OPA189 inv1: in1n = -in1
+Rinv1in in1 inv1inn 10000
+Rinv1f in1n inv1inn 10000
+Xinv1 0 inv1inn vdd vss in1n OPAx189
+Cinv1 in1n 0 1e-12
+* Inverter_OPA189 inv2: in2n = -in2
+Rinv2in in2 inv2inn 10000
+Rinv2f in2n inv2inn 10000
+Xinv2 0 inv2inn vdd vss in2n OPAx189
+Cinv2 in2n 0 1e-12
+* Inverter_OPA189 invref: vrefn = -vref
+Rinvrefin vref invrefinn 10000
+Rinvreff vrefn invrefinn 10000
+Xinvref 0 invrefinn vdd vss vrefn OPAx189
+Cinvref vrefn 0 1e-12
+
+* Hidden neuron h1
+Rh1w1 in1 h1sum 8346.15342020291
+Rh1w2 in2n h1sum 6653.68052854338
+Rh1b vrefn h1sum 37976.8116137404
+* TIA_OPA189 h1: h1lin = -Rf * I(h1sum)
+Rh1f h1lin h1sum 10000
+Xh1tia 0 h1sum vdd vss h1lin OPAx189
+Ch1tia h1lin 0 1e-12
+* ReLU_OPA189_1N4148 h1: h1y ~= max(-h1lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh1r1 h1lin h1rinn 10000
+Xh1relu 0 h1rinn vdd vss h1amp OPAx189
+Xh1d1 h1rinn h1amp 1N4148
+Xh1d2 h1amp h1y 1N4148
+Rh1rf h1y h1rinn 10000
+Rh1rl h1y 0 10000
+Ch1rl h1y 0 1e-12
+* Inverter_OPA189 h1inv: h1yn = -h1y
+Rh1invin h1y h1invinn 10000
+Rh1invf h1yn h1invinn 10000
+Xh1inv 0 h1invinn vdd vss h1yn OPAx189
+Ch1inv h1yn 0 1e-12
+
+* Hidden neuron h2
+Rh2w1 in1n h2sum 7539.64567142449
+Rh2w2 in2 h2sum 9292.75696435857
+Rh2b vrefn h2sum 66315.5606469353
+* TIA_OPA189 h2: h2lin = -Rf * I(h2sum)
+Rh2f h2lin h2sum 10000
+Xh2tia 0 h2sum vdd vss h2lin OPAx189
+Ch2tia h2lin 0 1e-12
+* ReLU_OPA189_1N4148 h2: h2y ~= max(-h2lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh2r1 h2lin h2rinn 10000
+Xh2relu 0 h2rinn vdd vss h2amp OPAx189
+Xh2d1 h2rinn h2amp 1N4148
+Xh2d2 h2amp h2y 1N4148
+Rh2rf h2y h2rinn 10000
+Rh2rl h2y 0 10000
+Ch2rl h2y 0 1e-12
+* Inverter_OPA189 h2inv: h2yn = -h2y
+Rh2invin h2y h2invinn 10000
+Rh2invf h2yn h2invinn 10000
+Xh2inv 0 h2invinn vdd vss h2yn OPAx189
+Ch2inv h2yn 0 1e-12
+
+* Hidden neuron h3
+Rh3w1 in1n h3sum 5125.48418304015
+Rh3w2 in2n h3sum 7679.43278733945
+Rh3b vrefn h3sum 25915.6966255384
+* TIA_OPA189 h3: h3lin = -Rf * I(h3sum)
+Rh3f h3lin h3sum 10000
+Xh3tia 0 h3sum vdd vss h3lin OPAx189
+Ch3tia h3lin 0 1e-12
+* ReLU_OPA189_1N4148 h3: h3y ~= max(-h3lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh3r1 h3lin h3rinn 10000
+Xh3relu 0 h3rinn vdd vss h3amp OPAx189
+Xh3d1 h3rinn h3amp 1N4148
+Xh3d2 h3amp h3y 1N4148
+Rh3rf h3y h3rinn 10000
+Rh3rl h3y 0 10000
+Ch3rl h3y 0 1e-12
+* Inverter_OPA189 h3inv: h3yn = -h3y
+Rh3invin h3y h3invinn 10000
+Rh3invf h3yn h3invinn 10000
+Xh3inv 0 h3invinn vdd vss h3yn OPAx189
+Ch3inv h3yn 0 1e-12
+
+* Hidden neuron h4
+Rh4w1 in1n h4sum 25650.2210777918
+Rh4w2 in2n h4sum 31621.2940385193
+Rh4b vrefn h4sum 22716.4148046838
+* TIA_OPA189 h4: h4lin = -Rf * I(h4sum)
+Rh4f h4lin h4sum 10000
+Xh4tia 0 h4sum vdd vss h4lin OPAx189
+Ch4tia h4lin 0 1e-12
+* ReLU_OPA189_1N4148 h4: h4y ~= max(-h4lin, 0)
+* Inverting precision rectifier (Exp64). Same 1N4148 card.
+Rh4r1 h4lin h4rinn 10000
+Xh4relu 0 h4rinn vdd vss h4amp OPAx189
+Xh4d1 h4rinn h4amp 1N4148
+Xh4d2 h4amp h4y 1N4148
+Rh4rf h4y h4rinn 10000
+Rh4rl h4y 0 10000
+Ch4rl h4y 0 1e-12
+* Inverter_OPA189 h4inv: h4yn = -h4y
+Rh4invin h4y h4invinn 10000
+Rh4invf h4yn h4invinn 10000
+Xh4inv 0 h4invinn vdd vss h4yn OPAx189
+Ch4inv h4yn 0 1e-12
+
+* Output neuron o1 (linear)
+Ro1w1 h1yn o1sum 9197.82154480464
+Ro1w2 h2yn o1sum 9245.04749840197
+Ro1w3 h3y o1sum 55155.9696790035
+Ro1w4 h4y o1sum 51512.4284437413
+Ro1b vrefn o1sum 6059355.21666454
+* TIA_OPA189 o1: o1lin = -Rf * I(o1sum)
+Ro1f o1lin o1sum 10000
+Xo1tia 0 o1sum vdd vss o1lin OPAx189
+Co1tia o1lin 0 1e-12
+
+* Validation analysis is UIC TRAN. OP of this 16x OPA189 + diode
+* netlist is stiff (Exp63/64 timestep too small on the ReLU diode).
+* UIC TRAN is the power-on settle, not a Python correction.
+.control
+set numdgt=15
+tran 5e-06 0.002 uic
+meas tran yo1 FIND v(o1lin) AT=0.002
+meas tran yh1 FIND v(h1y) AT=0.002
+meas tran yh2 FIND v(h2y) AT=0.002
+meas tran yh3 FIND v(h3y) AT=0.002
+meas tran yh4 FIND v(h4y) AT=0.002
+meas tran zh1 FIND v(h1lin) AT=0.002
+meas tran zh2 FIND v(h2lin) AT=0.002
+meas tran zh3 FIND v(h3lin) AT=0.002
+meas tran zh4 FIND v(h4lin) AT=0.002
+print yo1
+print yh1 zh1
+print yh2 zh2
+print yh3 zh3
+print yh4 zh4
+.endc
+
+.end

@@ -1,0 +1,23 @@
+* Experiment 64 isolated inverting precision rectifier
+* dest = max(-vin, 0). Same 1N4148 card as Experiment 62.
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/opa189/OPAx189.LIB"
+.include "C:/dev/neuron-physical-brain/physical-ai/models/vendor/ti/1n4148/1N4148.LIB"
+Vin in 0 DC -0.1
+Vdd vdd 0 DC 15
+Vss vss 0 DC -15
+R1 in inn 10000
+Xamp 0 inn vdd vss amp OPAx189
+Xd1 inn amp 1N4148
+Xd2 amp out 1N4148
+Rf out inn 10000
+Rload out 0 10000
+Cload out 0 1p
+
+.control
+set numdgt=15
+op
+print v(in) v(out) v(amp)
+print i(Vdd)
+.endc
+
+.end

@@ -1,0 +1,15 @@
+* Experiment 62 control: Exp4 B-source + teaching Dsi
+* Teaching diode. Not a vendor model.
+Vin in 0 DC 0.1
+Bop amp 0 V = max(-15, min(15, 1e5 * v(in, out)))
+D1 amp out Dsi
+Rload out 0 10000
+.model Dsi D(Is=1e-14 N=1 Rs=1)
+
+.control
+set numdgt=15
+op
+print v(in) v(out) v(amp)
+.endc
+
+.end

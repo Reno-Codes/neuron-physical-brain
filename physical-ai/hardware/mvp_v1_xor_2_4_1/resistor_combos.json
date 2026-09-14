@@ -1,0 +1,974 @@
+[
+  {
+    "ref": "Rinv1in",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rinv1f",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rinv2in",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rinv2f",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rinvrefin",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rinvreff",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh1w1",
+    "role": "weight",
+    "layer": "1",
+    "from": "in1",
+    "to": "h1sum",
+    "weight": "1.1981567431762925",
+    "exact_ohm": 8346.15342020291,
+    "e96_ohm": 8250.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        8350.0
+      ],
+      "realized": 8350.0,
+      "rel_error": 0.00046088055220483166,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "8.35k"
+  },
+  {
+    "ref": "Rh1w2",
+    "role": "weight",
+    "layer": "1",
+    "from": "in2n",
+    "to": "h1sum",
+    "weight": "-1.5029275837788365",
+    "exact_ohm": 6653.68052854338,
+    "e96_ohm": 6650.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        6650.0
+      ],
+      "realized": 6650.0,
+      "rel_error": 0.0005531567870731457,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "6.65k"
+  },
+  {
+    "ref": "Rh1b",
+    "role": "bias",
+    "layer": "1",
+    "from": "vrefn",
+    "to": "h1sum",
+    "weight": "-0.26331857718097385",
+    "exact_ohm": 37976.8116137404,
+    "e96_ohm": 38300.0,
+    "preferred": {
+      "kind": "series",
+      "parts": [
+        976.0,
+        37000.0
+      ],
+      "realized": 37976.0,
+      "rel_error": 2.1371297534251918e-05,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "976+37k"
+  },
+  {
+    "ref": "Rh1f",
+    "role": "tia_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh1r1",
+    "role": "relu_r1",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh1rf",
+    "role": "relu_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh1rl",
+    "role": "relu_load",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh1invin",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh1invf",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh2w1",
+    "role": "weight",
+    "layer": "1",
+    "from": "in1n",
+    "to": "h2sum",
+    "weight": "-1.326322275050715",
+    "exact_ohm": 7539.64567142449,
+    "e96_ohm": 7500.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        9530.0,
+        36100.0
+      ],
+      "realized": 7539.623055007672,
+      "rel_error": 2.9996657407521255e-06,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "9.53k||36.1k"
+  },
+  {
+    "ref": "Rh2w2",
+    "role": "weight",
+    "layer": "1",
+    "from": "in2",
+    "to": "h2sum",
+    "weight": "1.076106911905045",
+    "exact_ohm": 9292.75696435857,
+    "e96_ohm": 9310.0,
+    "preferred": {
+      "kind": "series",
+      "parts": [
+        203.0,
+        9090.0
+      ],
+      "realized": 9293.0,
+      "rel_error": 2.6153233358182155e-05,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "203+9.09k"
+  },
+  {
+    "ref": "Rh2b",
+    "role": "bias",
+    "layer": "1",
+    "from": "vrefn",
+    "to": "h2sum",
+    "weight": "-0.15079417111830054",
+    "exact_ohm": 66315.5606469353,
+    "e96_ohm": 66500.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        105000.0,
+        180000.0
+      ],
+      "realized": 66315.78947368421,
+      "rel_error": 3.4505739933125383e-06,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "105k||180k"
+  },
+  {
+    "ref": "Rh2f",
+    "role": "tia_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh2r1",
+    "role": "relu_r1",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh2rf",
+    "role": "relu_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh2rl",
+    "role": "relu_load",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh2invin",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh2invf",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh3w1",
+    "role": "weight",
+    "layer": "1",
+    "from": "in1n",
+    "to": "h3sum",
+    "weight": "-1.9510351886538364",
+    "exact_ohm": 5125.48418304015,
+    "e96_ohm": 5110.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        6730.0,
+        21500.0
+      ],
+      "realized": 5125.575628763727,
+      "rel_error": 1.7841382455010404e-05,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "6.73k||21.5k"
+  },
+  {
+    "ref": "Rh3w2",
+    "role": "weight",
+    "layer": "1",
+    "from": "in2n",
+    "to": "h3sum",
+    "weight": "-1.302179506862318",
+    "exact_ohm": 7679.43278733945,
+    "e96_ohm": 7680.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        7680.0
+      ],
+      "realized": 7680.0,
+      "rel_error": 7.386127026004864e-05,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "7.68k"
+  },
+  {
+    "ref": "Rh3b",
+    "role": "bias",
+    "layer": "1",
+    "from": "vrefn",
+    "to": "h3sum",
+    "weight": "-0.3858665327230903",
+    "exact_ohm": 25915.6966255384,
+    "e96_ohm": 26100.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        34000.0,
+        109000.0
+      ],
+      "realized": 25916.083916083917,
+      "rel_error": 1.494424599552013e-05,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "34k||109k"
+  },
+  {
+    "ref": "Rh3f",
+    "role": "tia_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh3r1",
+    "role": "relu_r1",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh3rf",
+    "role": "relu_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh3rl",
+    "role": "relu_load",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh3invin",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh3invf",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh4w1",
+    "role": "weight",
+    "layer": "1",
+    "from": "in1n",
+    "to": "h4sum",
+    "weight": "-0.38986018754661267",
+    "exact_ohm": 25650.2210777918,
+    "e96_ohm": 25500.0,
+    "preferred": {
+      "kind": "series",
+      "parts": [
+        750.0,
+        24900.0
+      ],
+      "realized": 25650.0,
+      "rel_error": 8.618942937384344e-06,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "750+24.9k"
+  },
+  {
+    "ref": "Rh4w2",
+    "role": "weight",
+    "layer": "1",
+    "from": "in2n",
+    "to": "h4sum",
+    "weight": "-0.3162425923435822",
+    "exact_ohm": 31621.2940385193,
+    "e96_ohm": 31600.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        31600.0
+      ],
+      "realized": 31600.0,
+      "rel_error": 0.0006734081942807411,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "31.6k"
+  },
+  {
+    "ref": "Rh4b",
+    "role": "bias",
+    "layer": "1",
+    "from": "vrefn",
+    "to": "h4sum",
+    "weight": "-0.4402103098565589",
+    "exact_ohm": 22716.4148046838,
+    "e96_ohm": 22600.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        41700.0,
+        49900.0
+      ],
+      "realized": 22716.484716157203,
+      "rel_error": 3.0775751368642277e-06,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "41.7k||49.9k"
+  },
+  {
+    "ref": "Rh4f",
+    "role": "tia_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh4r1",
+    "role": "relu_r1",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh4rf",
+    "role": "relu_rf",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh4rl",
+    "role": "relu_load",
+    "layer": "1",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh4invin",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Rh4invf",
+    "role": "invert",
+    "layer": "",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  },
+  {
+    "ref": "Ro1w1",
+    "role": "weight",
+    "layer": "2",
+    "from": "h1yn",
+    "to": "o1sum",
+    "weight": "1.0872139616199086",
+    "exact_ohm": 9197.82154480464,
+    "e96_ohm": 9090.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        9200.0
+      ],
+      "realized": 9200.0,
+      "rel_error": 0.00023684469031594527,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "9.2k"
+  },
+  {
+    "ref": "Ro1w2",
+    "role": "weight",
+    "layer": "2",
+    "from": "h2yn",
+    "to": "o1sum",
+    "weight": "1.0816602079901185",
+    "exact_ohm": 9245.04749840197,
+    "e96_ohm": 9310.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        11800.0,
+        42700.0
+      ],
+      "realized": 9245.137614678899,
+      "rel_error": 9.747519084698861e-06,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "11.8k||42.7k"
+  },
+  {
+    "ref": "Ro1w3",
+    "role": "weight",
+    "layer": "2",
+    "from": "h3y",
+    "to": "o1sum",
+    "weight": "-0.18130403759009164",
+    "exact_ohm": 55155.9696790035,
+    "e96_ohm": 54900.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        57600.0,
+        1300000.0
+      ],
+      "realized": 55156.15792575132,
+      "rel_error": 3.4129895443117115e-06,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "57.6k||1.3M"
+  },
+  {
+    "ref": "Ro1w4",
+    "role": "weight",
+    "layer": "2",
+    "from": "h4y",
+    "to": "o1sum",
+    "weight": "-0.19412790858659246",
+    "exact_ohm": 51512.4284437413,
+    "e96_ohm": 51100.0,
+    "preferred": {
+      "kind": "parallel",
+      "parts": [
+        54900.0,
+        835000.0
+      ],
+      "realized": 51513.09135857962,
+      "rel_error": 1.2869027113441847e-05,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "54.9k||835k"
+  },
+  {
+    "ref": "Ro1b",
+    "role": "bias",
+    "layer": "2",
+    "from": "vrefn",
+    "to": "o1sum",
+    "weight": "0.0016503406125618503",
+    "exact_ohm": 6059355.21666454,
+    "e96_ohm": 6040000.0,
+    "preferred": {
+      "kind": "series",
+      "parts": [
+        160000.0,
+        5900000.0
+      ],
+      "realized": 6060000.0,
+      "rel_error": 0.00010641121248133069,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "160k+5.9M"
+  },
+  {
+    "ref": "Ro1f",
+    "role": "tia_rf",
+    "layer": "2",
+    "from": "",
+    "to": "",
+    "weight": "",
+    "exact_ohm": 10000.0,
+    "e96_ohm": 10000.0,
+    "preferred": {
+      "kind": "single",
+      "parts": [
+        10000.0
+      ],
+      "realized": 10000.0,
+      "rel_error": 0.0,
+      "within_0p1pct": true
+    },
+    "parts_fmt": "10k"
+  }
+]

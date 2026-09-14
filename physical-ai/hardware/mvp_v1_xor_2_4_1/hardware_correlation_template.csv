@@ -1,0 +1,61 @@
+Test_ID,Input_state,IN1_V,IN2_V,Node,SPICE_expected_V,Measured_V,Absolute_error_V,Relative_error,Pass_fail,Notes
+XOR_00,00,0.0,0.0,VREF,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,VREFN,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,IN1,0,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,IN2,0,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,IN1N,-6.639134e-07,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,IN2N,-6.639135e-07,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H1_LIN,0.2633191,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H1_OUT,-3.317805e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H2_LIN,0.1507945,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H2_OUT,-3.316831e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H3_LIN,0.3858683,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H3_OUT,-3.125244e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H4_LIN,0.4402104,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,H4_OUT,-3.115493e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_00,00,0.0,0.0,O1_LIN,0.001645123,,,,,primary analog neural output; analog bar 1 mV vs this SPICE column
+XOR_01,01,0.0,1.0,VREF,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,VREFN,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,IN1,0,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,IN2,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,IN1N,-6.63913e-07,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,IN2N,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H1_LIN,1.766247,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H1_OUT,-3.318886e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H2_LIN,-0.9253124,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H2_OUT,0.9253017,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H3_LIN,1.688048,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H3_OUT,-3.123508e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H4_LIN,0.756453,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,H4_OUT,-3.117495e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_01,01,0.0,1.0,O1_LIN,1.002511,,,,,primary analog neural output; analog bar 1 mV vs this SPICE column
+XOR_10,10,1.0,0.0,VREF,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,VREFN,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,IN1,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,IN2,0,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,IN1N,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,IN2N,-6.639137e-07,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H1_LIN,-0.9348376,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H1_OUT,0.9348269,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H2_LIN,1.477117,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H2_OUT,-3.318868e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H3_LIN,2.336903,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H3_OUT,-3.129787e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H4_LIN,0.8300706,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,H4_OUT,-3.117038e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_10,10,1.0,0.0,O1_LIN,1.018006,,,,,primary analog neural output; analog bar 1 mV vs this SPICE column
+XOR_11,11,1.0,1.0,VREF,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,VREFN,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,IN1,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,IN2,1,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,IN1N,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,IN2N,-1.000001,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H1_LIN,0.5680899,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H1_OUT,-3.318107e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H2_LIN,0.4010098,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H2_OUT,-3.317744e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H3_LIN,3.639083,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H3_OUT,-3.128145e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H4_LIN,1.146313,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,H4_OUT,-3.115588e-06,,,,,class uses O1_LIN >= 0.5 V
+XOR_11,11,1.0,1.0,O1_LIN,0.001645121,,,,,primary analog neural output; analog bar 1 mV vs this SPICE column

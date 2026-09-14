@@ -1,0 +1,227 @@
+{
+  "experiment_id": "exp65",
+  "kind": "compiler XOR temperature",
+  "status": "PARTIALLY VALIDATED",
+  "decision": "B",
+  "decision_label": "CLASS HOLDS AT ALL TEMPS; ANALOG 1 mV MISSED",
+  "yield_claim": false,
+  "silicon": false,
+  "resistor_tcr_invented": false,
+  "repeat_27C_delta": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "n_analog_pass": 10,
+  "n_class_pass": 12,
+  "mae_V": 0.00026490822018049846,
+  "rows": [
+    {
+      "temp_C": -40.0,
+      "vector": 0,
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001651031,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 6.903874381497272e-07,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": -40.0,
+      "vector": 1,
+      "x": [
+        0.0,
+        1.0
+      ],
+      "y_ref": 1.0025243122678587,
+      "y": 1.002524,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 3.122678586819916e-07,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": -40.0,
+      "vector": 2,
+      "x": [
+        1.0,
+        0.0
+      ],
+      "y_ref": 1.018019446537822,
+      "y": 1.018018,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 1.4465378219696845e-06,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": -40.0,
+      "vector": 3,
+      "x": [
+        1.0,
+        1.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001651031,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 6.903874381497272e-07,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": 27.0,
+      "vector": 0,
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001645123,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 5.217612561850271e-06,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": 27.0,
+      "vector": 1,
+      "x": [
+        0.0,
+        1.0
+      ],
+      "y_ref": 1.0025243122678587,
+      "y": 1.002511,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 1.3312267858722748e-05,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 27.0,
+      "vector": 2,
+      "x": [
+        1.0,
+        0.0
+      ],
+      "y_ref": 1.018019446537822,
+      "y": 1.018006,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 1.3446537822092708e-05,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 27.0,
+      "vector": 3,
+      "x": [
+        1.0,
+        1.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001645121,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 5.219612561850303e-06,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": 85.0,
+      "vector": 0,
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001162691,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 0.00048764961256185036,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": 85.0,
+      "vector": 1,
+      "x": [
+        0.0,
+        1.0
+      ],
+      "y_ref": 1.0025243122678587,
+      "y": 1.001445,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 0.0010793122678587341,
+      "analog_pass": false,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 85.0,
+      "vector": 2,
+      "x": [
+        1.0,
+        0.0
+      ],
+      "y_ref": 1.018019446537822,
+      "y": 1.016937,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 0.0010824465378220793,
+      "analog_pass": false,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 85.0,
+      "vector": 3,
+      "x": [
+        1.0,
+        1.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001161186,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 0.0004891546125618503,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    }
+  ],
+  "next_experiment": "Bound the failing temperature. Discrete R still have no TCR card.",
+  "conclusion": "Decision B \u2014 CLASS HOLDS AT ALL TEMPS; ANALOG 1 mV MISSED. MIXED-LEVEL. Ideal discrete R. Not silicon."
+}

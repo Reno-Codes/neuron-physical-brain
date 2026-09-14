@@ -1,0 +1,186 @@
+{
+  "experiment_id": "exp67",
+  "status": "PARTIALLY VALIDATED",
+  "decision": "B",
+  "decision_label": "E96 KEEPS CLASS; ANALOG 1 mV MISSED",
+  "n_snaps": 17,
+  "max_rel_snap": 0.01172250888750305,
+  "changes": [
+    {
+      "ref": "Rh1w1",
+      "exact": 8346.15342020291,
+      "e96": 8250.0,
+      "rel": -0.0115206868795581
+    },
+    {
+      "ref": "Rh1w2",
+      "exact": 6653.68052854338,
+      "e96": 6650.0,
+      "rel": -0.0005531567870731457
+    },
+    {
+      "ref": "Rh1b",
+      "exact": 37976.8116137404,
+      "e96": 38300.0,
+      "rel": 0.008510150603129296
+    },
+    {
+      "ref": "Rh2w1",
+      "exact": 7539.64567142449,
+      "e96": 7500.0,
+      "rel": -0.005258293711964213
+    },
+    {
+      "ref": "Rh2w2",
+      "exact": 9292.75696435857,
+      "e96": 9310.0,
+      "rel": 0.0018555349835967583
+    },
+    {
+      "ref": "Rh2b",
+      "exact": 66315.5606469353,
+      "e96": 66500.0,
+      "rel": 0.0027812379366988034
+    },
+    {
+      "ref": "Rh3w1",
+      "exact": 5125.48418304015,
+      "e96": 5110.0,
+      "rel": -0.003021018597888986
+    },
+    {
+      "ref": "Rh3w2",
+      "exact": 7679.43278733945,
+      "e96": 7680.0,
+      "rel": 7.386127026004864e-05
+    },
+    {
+      "ref": "Rh3b",
+      "exact": 25915.6966255384,
+      "e96": 26100.0,
+      "rel": 0.007111650407266317
+    },
+    {
+      "ref": "Rh4w1",
+      "exact": 25650.2210777918,
+      "e96": 25500.0,
+      "rel": -0.005856521756136581
+    },
+    {
+      "ref": "Rh4w2",
+      "exact": 31621.2940385193,
+      "e96": 31600.0,
+      "rel": -0.0006734081942807411
+    },
+    {
+      "ref": "Rh4b",
+      "exact": 22716.4148046838,
+      "e96": 22600.0,
+      "rel": -0.005124699724174728
+    },
+    {
+      "ref": "Ro1w1",
+      "exact": 9197.82154480464,
+      "e96": 9090.0,
+      "rel": -0.01172250888750305
+    },
+    {
+      "ref": "Ro1w2",
+      "exact": 9245.04749840197,
+      "e96": 9310.0,
+      "rel": 0.007025653638800442
+    },
+    {
+      "ref": "Ro1w3",
+      "exact": 55155.9696790035,
+      "e96": 54900.0,
+      "rel": -0.004640833630397447
+    },
+    {
+      "ref": "Ro1w4",
+      "exact": 51512.4284437413,
+      "e96": 51100.0,
+      "rel": -0.008006387122512185
+    },
+    {
+      "ref": "Ro1b",
+      "exact": 6059355.21666454,
+      "e96": 6040000.0,
+      "rel": -0.00319427001264237
+    }
+  ],
+  "mae_V": 0.00963407262622825,
+  "max_abs_err_V": 0.029853553462177995,
+  "n_analog_pass": 2,
+  "n_class_pass": 4,
+  "rows": [
+    {
+      "vector": 0,
+      "x": [
+        0.0,
+        0.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001650404,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 6.338743814972118e-08,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "vector": 1,
+      "x": [
+        0.0,
+        1.0
+      ],
+      "y_ref": 1.0025243122678587,
+      "y": 0.9938416999999999,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 0.008682612267858714,
+      "analog_pass": false,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "vector": 2,
+      "x": [
+        1.0,
+        0.0
+      ],
+      "y_ref": 1.018019446537822,
+      "y": 1.047873,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 0.029853553462177995,
+      "analog_pass": false,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "vector": 3,
+      "x": [
+        1.0,
+        1.0
+      ],
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001650402,
+      "failed": false,
+      "failure_reason": null,
+      "python_corrected": false,
+      "abs_err": 6.13874381496897e-08,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    }
+  ],
+  "silicon": false,
+  "weights_edited": false,
+  "next_experiment": "Use 0.1% / exact R for analog, or accept class-only E96. I/O interface is still the MVP blocker.",
+  "conclusion": "Decision B \u2014 E96 KEEPS CLASS; ANALOG 1 mV MISSED. MIXED-LEVEL. Not silicon."
+}

@@ -1,0 +1,13 @@
+{
+  "part": "1N4148",
+  "kind": "switching diode compact model",
+  "manufacturer_of_parent_library": "Texas Instruments",
+  "parent_library": "TLC555.LIB",
+  "parent_source_on_this_machine": "C:/ngspice/examples/probe/TLC555.LIB",
+  "parent_lines": "381-386",
+  "date_in_parent": "13JUN2011",
+  "extracted": true,
+  "parameters_modified": false,
+  "note": "Extracted so the compiler can include a documented 1N4148 without pulling the TLC555 timer macromodel. Not a SKY130 PDK diode. Not silicon measurement.",
+  "license": "TI macromodel as-is license in the parent TLC555.LIB header"
+}

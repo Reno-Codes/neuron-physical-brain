@@ -1,0 +1,25 @@
+* Experiment 54 1:1 invert-unit ratio w10_2s2p tt_mm 4
+.lib "C:/dev/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice" tt_mm
+.temp 27
+V1 a 0 DC 1
+Vm1 b 0 DC 0
+V2 c 0 DC 1
+Vm2 d 0 DC 0
+* tile r1 2s x 2p same W=10 L=49.614372
+Xr1p0s0 a r1t0s0 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+Xr1p0s1 r1t0s0 b 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+Xr1p1s0 a r1t1s0 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+Xr1p1s1 r1t1s0 b 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+* tile r2 2s x 2p same W=10 L=49.614372
+Xr2p0s0 c r2t0s0 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+Xr2p0s1 r2t0s0 d 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+Xr2p1s0 c r2t1s0 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+Xr2p1s1 r2t1s0 d 0 sky130_fd_pr__res_xhigh_po w=10 l=49.614372
+.control
+set numdgt=12
+set seed=54104
+op
+print i(Vm1)
+print i(Vm2)
+.endc
+.end

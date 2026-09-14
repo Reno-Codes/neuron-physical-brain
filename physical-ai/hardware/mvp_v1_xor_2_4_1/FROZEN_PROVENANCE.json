@@ -1,0 +1,31 @@
+{
+  "note": "SHA-256 of the validated compiler package. Hardware docs must not edit these files.",
+  "xor_model.npz": "b7448b17347bbf64cce6a72e10ebfb623255a6278917d4349e54e02cc216bb6b",
+  "files": {
+    "architecture.json": "d32d75a2a77466ce6f4f3398819b2949c2c806c7961be6340226d451956cbb4a",
+    "BOM.csv": "ce3227e83dd3ad51e09897bc35f0d41a2d7a1fe10a3c1ec544ce380fcec0c344",
+    "build_notes.md": "451fd88ada0ca4962b81cc7ee7188acbace4935cb49845a03a075e166f5e6be8",
+    "capacitor_values.csv": "a648a902842c12c1ed5546c41a01587447527a35369486e4a62d3c42894ae7df",
+    "component_map.json": "9071fde1119cef77acaeecfa9e1ff8ae9b9c6a7b0f5d5d4f0b290fd32db2e756",
+    "device_requirements.json": "d8b3c299176a9c5c35d8e3572a0c4a56bfc1945c6e895cddba44046e623f5470",
+    "input_interface.md": "fdb07438044319d5492d3dd67d53c14c825ebd9fb3e702c1024447fac4acf753",
+    "netlist.cir": "28dccd8121a1032d69a2b08633737db0b2f10c8996f68ed2271520ec58c3b9cb",
+    "output_interface.md": "cd72b46d14eab2846fed322a514a0b556013b5d636bfd24c9a1362f68cf86211",
+    "primitives_used.json": "843ad0f74da535fe920fc108913f28ace76cb0eee5e36b84442c932695ad966f",
+    "resistor_values.csv": "a5dc386b73e3e386de939dd675909df9cc124e60b7e32d0853aa0d14480b901e",
+    "schematic.md": "3a7e53e37e9cdb85e1602fc991d8f3a72d5e568212a4c54a79e2e428285cd8a3",
+    "software_reference.json": "c2a66d5e45543ebec29440c8a4d40695d68155ef625ee1ef9b587df2c14cf4c6",
+    "validation_report.md": "83b77a8c88d01e345fec30a56280682c92b33fef93fe012b7aa05e7afd8b037e"
+  },
+  "netlist_header": [
+    "* Physical AI compiler MVP: frozen XOR 2-4-1 (inverting rectifier ReLU)",
+    "* Frozen model: C:\\dev\\neuron-physical-brain\\physical-ai\\models\\xor_model.npz",
+    "* Weights are compiled, not edited.",
+    "* G_SCALE=0.0001 Rf=10000",
+    "* Architecture A signed routing + OPA189 TIA + OPA189/1N4148 ReLU.",
+    "* MIXED-LEVEL: vendor macromodel TIA/ReLU + discrete R. Not silicon."
+  ],
+  "analysis": "tran 5e-06 0.002 uic, ngbehavior=ps, 27 C implied",
+  "weights_frozen": true,
+  "experiments_1_to_67_unmodified": true
+}

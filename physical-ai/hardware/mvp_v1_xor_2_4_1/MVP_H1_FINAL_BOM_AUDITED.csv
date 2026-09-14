@@ -1,0 +1,157 @@
+reference_designator,value,tolerance,voltage_rating,power_rating,package_footprint,required_quantity,recommended_quantity_with_spares,verified_manufacturer_part_number,procurement_status,notes
+Xinv1,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,unity invert IN1 -> IN1N. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xinv2,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,unity invert IN2 -> IN2N. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xinvref,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,unity invert VREF -> VREFN. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh1tia,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h1 TIA; H1_LIN = -z1. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh1relu,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h1 rectifier op-amp. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh1inv,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,unity invert H1_OUT -> H1_YN. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh2tia,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h2 TIA. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh2relu,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h2 rectifier op-amp. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh2inv,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,unity invert H2_OUT -> H2_YN. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh3tia,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h3 TIA. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh3relu,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h3 rectifier op-amp. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh3inv,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,unity invert H3_OUT -> H3_YN. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh4tia,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h4 TIA. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh4relu,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,hidden h4 rectifier op-amp. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xh4inv,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,unity invert H4_OUT -> H4_YN. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+Xo1tia,OPA189,,"+/-15 V (abs max follow SBOS830, do not exceed +/-18 V)",,SOIC-8 D (default first build),1,1,,PROCUREMENT VERIFICATION REQUIRED,output TIA; O1_LIN = +y. Family OPA189. Alt 4x OPA4189 covering same 16 channels. Pinout opa189_pinout.md / SBOS830. Not 741.
+U_VREFBUF,OPA189,,+/-15 V,,SOIC-8 D,1,2,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only VREF buffer. Not a neural MAC stage. Buy +1 spare amp.
+VREF_SRC / U_VREF,1.000 V,0.05% analog goal; class-only may be looser,,,lab calibrator OR 0.05% 2.5 V ref + 15k/10k 0.05% + buffer,1,1,,PROCUREMENT VERIFICATION REQUIRED,SPICE Vref was ideal. First demo may use a calibrated lab 1.000 V into U_VREFBUF pin 3. Do not invent an IC SKU.
+Xh1d1,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+Xh1d2,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+Xh2d1,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+Xh2d2,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+Xh3d1,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+Xh3d2,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+Xh4d1,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+Xh4d2,1N4148,,75 V class (SPICE BV=75),,SOD-123 or DO-35; band/bar = cathode,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Anode pin 1, cathode pin 2. Buy extras: see kit row DIODE_SPARE."
+DIODE_SPARE,1N4148,,75 V class,,same as stuffed diodes,0,8,,PROCUREMENT VERIFICATION REQUIRED,Spares only.
+Rinv1in,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rinv1in single; exact target 10000 ohm; in1 -> inv1inn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rinv1f,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rinv1f single; exact target 10000 ohm; in1n -> inv1inn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rinv2in,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rinv2in single; exact target 10000 ohm; in2 -> inv2inn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rinv2f,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rinv2f single; exact target 10000 ohm; in2n -> inv2inn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rinvrefin,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rinvrefin single; exact target 10000 ohm; vref -> invrefinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rinvreff,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rinvreff single; exact target 10000 ohm; vrefn -> invrefinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1w1,8.35k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1w1 single; exact target 8346.15342020291 ohm; in1 -> h1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1w2,6.65k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1w2 single; exact target 6653.68052854338 ohm; in2n -> h1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1b_A,976,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1b series; exact target 37976.8116137404 ohm; vrefn -> Rh1b_MID; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1b_B,37k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1b series; exact target 37976.8116137404 ohm; Rh1b_MID -> h1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1f,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1f single; exact target 10000 ohm; h1lin -> h1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1r1,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1r1 single; exact target 10000 ohm; h1lin -> h1rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1rf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1rf single; exact target 10000 ohm; h1y -> h1rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1rl,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1rl single; exact target 10000 ohm; h1y -> 0; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1invin,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1invin single; exact target 10000 ohm; h1y -> h1invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh1invf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh1invf single; exact target 10000 ohm; h1yn -> h1invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2w1_A,9.53k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2w1 parallel; exact target 7539.64567142449 ohm; in1n -> h2sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2w1_B,36.1k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2w1 parallel; exact target 7539.64567142449 ohm; in1n -> h2sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2w2_A,203,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2w2 series; exact target 9292.75696435857 ohm; in2 -> Rh2w2_MID; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2w2_B,9.09k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2w2 series; exact target 9292.75696435857 ohm; Rh2w2_MID -> h2sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2b_A,105k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2b parallel; exact target 66315.5606469353 ohm; vrefn -> h2sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2b_B,180k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2b parallel; exact target 66315.5606469353 ohm; vrefn -> h2sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2f,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2f single; exact target 10000 ohm; h2lin -> h2sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2r1,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2r1 single; exact target 10000 ohm; h2lin -> h2rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2rf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2rf single; exact target 10000 ohm; h2y -> h2rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2rl,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2rl single; exact target 10000 ohm; h2y -> 0; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2invin,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2invin single; exact target 10000 ohm; h2y -> h2invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh2invf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh2invf single; exact target 10000 ohm; h2yn -> h2invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3w1_A,6.73k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3w1 parallel; exact target 5125.48418304015 ohm; in1n -> h3sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3w1_B,21.5k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3w1 parallel; exact target 5125.48418304015 ohm; in1n -> h3sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3w2,7.68k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3w2 single; exact target 7679.43278733945 ohm; in2n -> h3sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3b_A,34k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3b parallel; exact target 25915.6966255384 ohm; vrefn -> h3sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3b_B,109k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3b parallel; exact target 25915.6966255384 ohm; vrefn -> h3sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3f,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3f single; exact target 10000 ohm; h3lin -> h3sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3r1,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3r1 single; exact target 10000 ohm; h3lin -> h3rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3rf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3rf single; exact target 10000 ohm; h3y -> h3rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3rl,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3rl single; exact target 10000 ohm; h3y -> 0; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3invin,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3invin single; exact target 10000 ohm; h3y -> h3invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh3invf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh3invf single; exact target 10000 ohm; h3yn -> h3invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4w1_A,750,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4w1 series; exact target 25650.2210777918 ohm; in1n -> Rh4w1_MID; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4w1_B,24.9k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4w1 series; exact target 25650.2210777918 ohm; Rh4w1_MID -> h4sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4w2,31.6k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4w2 single; exact target 31621.2940385193 ohm; in2n -> h4sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4b_A,41.7k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4b parallel; exact target 22716.4148046838 ohm; vrefn -> h4sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4b_B,49.9k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4b parallel; exact target 22716.4148046838 ohm; vrefn -> h4sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4f,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4f single; exact target 10000 ohm; h4lin -> h4sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4r1,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4r1 single; exact target 10000 ohm; h4lin -> h4rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4rf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4rf single; exact target 10000 ohm; h4y -> h4rinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4rl,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4rl single; exact target 10000 ohm; h4y -> 0; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4invin,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4invin single; exact target 10000 ohm; h4y -> h4invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Rh4invf,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Rh4invf single; exact target 10000 ohm; h4yn -> h4invinn; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1w1,9.2k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1w1 single; exact target 9197.82154480464 ohm; h1yn -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1w2_A,11.8k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1w2 parallel; exact target 9245.04749840197 ohm; h2yn -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1w2_B,42.7k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1w2 parallel; exact target 9245.04749840197 ohm; h2yn -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1w3_A,57.6k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1w3 parallel; exact target 55155.9696790035 ohm; h3y -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1w3_B,1.3M,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1w3 parallel; exact target 55155.9696790035 ohm; h3y -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1w4_A,54.9k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1w4 parallel; exact target 51512.4284437413 ohm; h4y -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1w4_B,835k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1w4 parallel; exact target 51512.4284437413 ohm; h4y -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1b_A,160k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1b series; exact target 6059355.21666454 ohm; vrefn -> Ro1b_MID; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1b_B,5.9M,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1b series; exact target 6059355.21666454 ohm; Ro1b_MID -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+Ro1f,10k,0.1%,50 V,0.1 W min,0805 or 1206 thin film,1,1,,PROCUREMENT VERIFICATION REQUIRED,compiled Ro1f single; exact target 10000 ohm; o1lin -> o1sum; TCR <=25 ppm/C preferred; do not coarse-E96 snap
+R_KIT_SPARES,see resistor_shopping.csv qty_buy_suggested,0.1%,50 V,0.1 W min,0805 or 1206 thin film,0,64,,PROCUREMENT VERIFICATION REQUIRED,Extra 0.1% E192 of each unique value. 10k especially (31 stuffed).
+C_VDD_BULK,10uF,20%,>=35 V,,electrolytic or 1210 ceramic,1,2,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. +15 to GND.
+C_VSS_BULK,10uF,20%,>=35 V,,electrolytic or 1210 ceramic,1,2,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. -15 to GND.
+C_Xinv1_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xinv1_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xinv2_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xinv2_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xinvref_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xinvref_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh1tia_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh1tia_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh1relu_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh1relu_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh1inv_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh1inv_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh2tia_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh2tia_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh2relu_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh2relu_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh2inv_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh2inv_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh3tia_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh3tia_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh3relu_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh3relu_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh3inv_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh3inv_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh4tia_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh4tia_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh4relu_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh4relu_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xh4inv_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xh4inv_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_Xo1tia_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_Xo1tia_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_U_VREFBUF_VP,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,"Hardware-only. Package V+ to GND <5 mm. If using OPA4189 quads, one pair per IC package."
+C_U_VREFBUF_VN,100nF X7R,10%,>=50 V,,0805,1,1,,PROCUREMENT VERIFICATION REQUIRED,Hardware-only. Package V- to GND <5 mm.
+C_1PF_SPICE_DNP,1pF,,,,DNP,0,0,DNP,DO NOT BUY / DO NOT PLACE,Frozen Cinv1..Co1tia class C. capacitor_audit.md: yo1 unchanged with all 16 removed.
+SW_IN1,,,>=15 V where applicable,,,1,1,,PROCUREMENT VERIFICATION REQUIRED,SPDT IN1 to GND or VREF. Omit if DAC drives IN1.
+SW_IN2,,,>=15 V where applicable,,,1,1,,PROCUREMENT VERIFICATION REQUIRED,SPDT IN2 to GND or VREF. Omit if DAC drives IN2.
+J_PWR,,,>=15 V where applicable,,,1,1,,PROCUREMENT VERIFICATION REQUIRED,3-pin +15 / GND / -15. Banana or terminal block.
+J_IN,,,>=15 V where applicable,,,1,1,,PROCUREMENT VERIFICATION REQUIRED,Optional IN1 IN2 GND.
+TP_GND,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H1_LIN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H1_OUT,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H1_SUM,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H1_YN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H2_LIN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H2_OUT,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H2_SUM,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H2_YN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H3_LIN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H3_OUT,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H3_SUM,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H3_YN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H4_LIN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H4_OUT,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H4_SUM,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_H4_YN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_IN1,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_IN1N,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_IN2,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_IN2N,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_M15,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_O1LIN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_O1_SUM,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_P15,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_VREF,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.
+TP_VREFN,test point,,,,1.0 mm loop or 1.27 mm header,1,1,,PROCUREMENT VERIFICATION REQUIRED,Primary analog neural output is TP_O1LIN.

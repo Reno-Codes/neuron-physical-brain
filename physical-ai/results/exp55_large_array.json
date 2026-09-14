@@ -1,0 +1,662 @@
+{
+  "experiment_id": "exp55",
+  "kind": "64x documented SKY130 resistor area under tt_mm",
+  "status": "PARTIALLY VALIDATED",
+  "decision": "B",
+  "decision_label": "w10_8s8p MEAN IN BAR, PASS 15/16 (NOT YIELD)",
+  "yield_claim": false,
+  "silicon": false,
+  "realism_level": 4,
+  "A": 1000000.0,
+  "N_MC": 16,
+  "skipped": [],
+  "baseline": {
+    "exp54_4s4p_y": 2.459965130621,
+    "exp53_w10_y": 2.459890565832,
+    "this_4s4p_y": 2.459965130621
+  },
+  "inventory": {
+    "w10_4s4p": {
+      "n": 1280,
+      "w_um_unique": [
+        10.0
+      ],
+      "l_min_um": 4.8663717,
+      "l_max_um": 3922.5044,
+      "wl_min_um2": 48.663717000000005,
+      "wl_max_um2": 39225.043999999994,
+      "wl_sum_um2": 8312240.021199967,
+      "wl_median_um2": 496.14382,
+      "body_sigma_median": 0.001557850154588099,
+      "head_sigma_w": 0.014925950555994749
+    },
+    "w20_2s2p": {
+      "n": 320,
+      "w_um_unique": [
+        20.0
+      ],
+      "l_min_um": 9.8554268,
+      "l_max_um": 7867.1938,
+      "wl_min_um2": 197.10853600000002,
+      "wl_max_um2": 157343.876,
+      "wl_sum_um2": 8336255.106143989,
+      "wl_median_um2": 1992.06894,
+      "body_sigma_median": 0.0007774586372386963,
+      "head_sigma_w": 0.010554240853799007
+    },
+    "w20_4s4p": {
+      "n": 1280,
+      "w_um_unique": [
+        20.0
+      ],
+      "l_min_um": 9.8554268,
+      "l_max_um": 7867.1938,
+      "wl_min_um2": 197.10853600000002,
+      "wl_max_um2": 157343.876,
+      "wl_sum_um2": 33345020.42457589,
+      "wl_median_um2": 1992.06894,
+      "body_sigma_median": 0.0007774586372386963,
+      "head_sigma_w": 0.010554240853799007
+    },
+    "w10_8s8p": {
+      "n": 5120,
+      "w_um_unique": [
+        10.0
+      ],
+      "l_min_um": 4.8663717,
+      "l_max_um": 3922.5044,
+      "wl_min_um2": 48.663717000000005,
+      "wl_max_um2": 39225.043999999994,
+      "wl_sum_um2": 33248960.08480063,
+      "wl_median_um2": 496.14382,
+      "body_sigma_median": 0.001557850154588099,
+      "head_sigma_w": 0.014925950555994749
+    }
+  },
+  "nominal": {
+    "w10_4s4p": {
+      "y": 2.459965130621,
+      "abs_err": 0.0004755597408681034,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 1280,
+        "w_um_unique": [
+          10.0
+        ],
+        "l_min_um": 4.8663717,
+        "l_max_um": 3922.5044,
+        "wl_min_um2": 48.663717000000005,
+        "wl_max_um2": 39225.043999999994,
+        "wl_sum_um2": 8312240.021199967,
+        "wl_median_um2": 496.14382,
+        "body_sigma_median": 0.001557850154588099,
+        "head_sigma_w": 0.014925950555994749
+      }
+    },
+    "w20_2s2p": {
+      "y": 2.459963984492,
+      "abs_err": 0.00047441361186795206,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 320,
+        "w_um_unique": [
+          20.0
+        ],
+        "l_min_um": 9.8554268,
+        "l_max_um": 7867.1938,
+        "wl_min_um2": 197.10853600000002,
+        "wl_max_um2": 157343.876,
+        "wl_sum_um2": 8336255.106143989,
+        "wl_median_um2": 1992.06894,
+        "body_sigma_median": 0.0007774586372386963,
+        "head_sigma_w": 0.010554240853799007
+      }
+    },
+    "w20_4s4p": {
+      "y": 2.459967375665,
+      "abs_err": 0.00047780478486769695,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 1280,
+        "w_um_unique": [
+          20.0
+        ],
+        "l_min_um": 9.8554268,
+        "l_max_um": 7867.1938,
+        "wl_min_um2": 197.10853600000002,
+        "wl_max_um2": 157343.876,
+        "wl_sum_um2": 33345020.42457589,
+        "wl_median_um2": 1992.06894,
+        "body_sigma_median": 0.0007774586372386963,
+        "head_sigma_w": 0.010554240853799007
+      }
+    },
+    "w10_8s8p": {
+      "y": 2.459968859764,
+      "abs_err": 0.0004792888838678344,
+      "analog_pass": true,
+      "failed": false,
+      "inventory": {
+        "n": 5120,
+        "w_um_unique": [
+          10.0
+        ],
+        "l_min_um": 4.8663717,
+        "l_max_um": 3922.5044,
+        "wl_min_um2": 48.663717000000005,
+        "wl_max_um2": 39225.043999999994,
+        "wl_sum_um2": 33248960.08480063,
+        "wl_median_um2": 496.14382,
+        "body_sigma_median": 0.001557850154588099,
+        "head_sigma_w": 0.014925950555994749
+      }
+    }
+  },
+  "stats": {
+    "w10_4s4p": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 10,
+      "mean": 0.0008059691314209749,
+      "median": 0.0005525895615001719,
+      "max": 0.0022480256438677237,
+      "std": 0.0007001348061556866,
+      "pass_rate": 0.625
+    },
+    "w20_2s2p": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 12,
+      "mean": 0.0007640921756049135,
+      "median": 0.000683980371000148,
+      "max": 0.0022001999768677116,
+      "std": 0.0006851047144234073,
+      "pass_rate": 0.75
+    },
+    "w20_4s4p": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 14,
+      "mean": 0.0006383982405094024,
+      "median": 0.0007574423938678798,
+      "max": 0.0014318072928678482,
+      "std": 0.0004025411123099715,
+      "pass_rate": 0.875
+    },
+    "w10_8s8p": {
+      "n_ok": 16,
+      "n_fail_conv": 0,
+      "n_pass": 15,
+      "mean": 0.0005298201555259674,
+      "median": 0.0005442940263677976,
+      "max": 0.0013598064698681078,
+      "std": 0.00035465692059364685,
+      "pass_rate": 0.9375
+    }
+  },
+  "draws": {
+    "w10_4s4p": [
+      {
+        "draw": 0,
+        "y": 2.459708987469,
+        "abs_err": 0.00021941658886781568,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 1,
+        "y": 2.460008863211,
+        "abs_err": 0.0005192923308681152,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 2,
+        "y": 2.461737596524,
+        "abs_err": 0.0022480256438677237,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 3,
+        "y": 2.459816210475,
+        "abs_err": 0.00032663959486800564,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 4,
+        "y": 2.460522646315,
+        "abs_err": 0.0010330754348677473,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 5,
+        "y": 2.458903684088,
+        "abs_err": 0.0005858867921322286,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 6,
+        "y": 2.459223732003,
+        "abs_err": 0.0002658388771319409,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 7,
+        "y": 2.45934905558,
+        "abs_err": 0.00014051530013192703,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 8,
+        "y": 2.459359846607,
+        "abs_err": 0.00012972427313195922,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 9,
+        "y": 2.461550394495,
+        "abs_err": 0.0020608236148680348,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 10,
+        "y": 2.459251575015,
+        "abs_err": 0.00023799586513195692,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 11,
+        "y": 2.459243847792,
+        "abs_err": 0.0002457230881320882,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 12,
+        "y": 2.458691493554,
+        "abs_err": 0.0007980773261322405,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 13,
+        "y": 2.46049727062,
+        "abs_err": 0.0010076997398678067,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 14,
+        "y": 2.461046326151,
+        "abs_err": 0.00155675527086796,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 15,
+        "y": 2.461009587242,
+        "abs_err": 0.0015200163618680484,
+        "analog_pass": false,
+        "failed": false
+      }
+    ],
+    "w20_2s2p": [
+      {
+        "draw": 0,
+        "y": 2.461571546656,
+        "abs_err": 0.0020819757758681057,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 1,
+        "y": 2.459362195808,
+        "abs_err": 0.00012737507213200772,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 2,
+        "y": 2.461689770857,
+        "abs_err": 0.0022001999768677116,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 3,
+        "y": 2.460030330546,
+        "abs_err": 0.0005407596658679736,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 4,
+        "y": 2.460631892631,
+        "abs_err": 0.001142321750867925,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 5,
+        "y": 2.45953773257,
+        "abs_err": 4.8161689867765034e-05,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 6,
+        "y": 2.459737920944,
+        "abs_err": 0.0002483500638676972,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 7,
+        "y": 2.458853474687,
+        "abs_err": 0.0006360961931322073,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 8,
+        "y": 2.459595135273,
+        "abs_err": 0.00010556439286801833,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 9,
+        "y": 2.459526002396,
+        "abs_err": 3.6431515868073916e-05,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 10,
+        "y": 2.460398542982,
+        "abs_err": 0.0009089721018677999,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 11,
+        "y": 2.460221435429,
+        "abs_err": 0.0007318645488680886,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 12,
+        "y": 2.4596276936,
+        "abs_err": 0.00013812271986779479,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 13,
+        "y": 2.458515644984,
+        "abs_err": 0.0009739258961318775,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 14,
+        "y": 2.460892237259,
+        "abs_err": 0.0014026663788677673,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 15,
+        "y": 2.460392257947,
+        "abs_err": 0.0009026870668678022,
+        "analog_pass": true,
+        "failed": false
+      }
+    ],
+    "w20_4s4p": [
+      {
+        "draw": 0,
+        "y": 2.460364339367,
+        "abs_err": 0.0008747684868679606,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 1,
+        "y": 2.460253546478,
+        "abs_err": 0.0007639755978678942,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 2,
+        "y": 2.459207678038,
+        "abs_err": 0.00028189284213198107,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 3,
+        "y": 2.459649509584,
+        "abs_err": 0.00015993870386799003,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 4,
+        "y": 2.460043346839,
+        "abs_err": 0.0005537759588678526,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 5,
+        "y": 2.46024048007,
+        "abs_err": 0.0007509091898678655,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 6,
+        "y": 2.460292949558,
+        "abs_err": 0.0008033786778680607,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 7,
+        "y": 2.460258835559,
+        "abs_err": 0.0007692646788677315,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 8,
+        "y": 2.460468109786,
+        "abs_err": 0.000978538905867854,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 9,
+        "y": 2.460921378173,
+        "abs_err": 0.0014318072928678482,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 10,
+        "y": 2.459636219183,
+        "abs_err": 0.00014664830286781338,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 11,
+        "y": 2.459544256683,
+        "abs_err": 5.468580286782654e-05,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 12,
+        "y": 2.46053291574,
+        "abs_err": 0.0010433448598679007,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 13,
+        "y": 2.460467968348,
+        "abs_err": 0.0009783974678678753,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 14,
+        "y": 2.460043742658,
+        "abs_err": 0.0005541717778680955,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 15,
+        "y": 2.459558444182,
+        "abs_err": 6.887330186788887e-05,
+        "analog_pass": true,
+        "failed": false
+      }
+    ],
+    "w10_8s8p": [
+      {
+        "draw": 0,
+        "y": 2.460129607429,
+        "abs_err": 0.0006400365488681281,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 1,
+        "y": 2.459749216368,
+        "abs_err": 0.00025964548786783226,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 2,
+        "y": 2.460384653883,
+        "abs_err": 0.0008950830028680024,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 3,
+        "y": 2.460293441355,
+        "abs_err": 0.0008038704748680736,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 4,
+        "y": 2.459996155187,
+        "abs_err": 0.0005065843068678966,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 5,
+        "y": 2.459913631074,
+        "abs_err": 0.0004240601938678701,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 6,
+        "y": 2.459949799535,
+        "abs_err": 0.0004602286548678336,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 7,
+        "y": 2.459581475612,
+        "abs_err": 9.190473186793113e-05,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 8,
+        "y": 2.459575101315,
+        "abs_err": 8.553043486791978e-05,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 9,
+        "y": 2.459322848515,
+        "abs_err": 0.0001667223651322658,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 10,
+        "y": 2.459419123679,
+        "abs_err": 7.044720113213998e-05,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 11,
+        "y": 2.46084937735,
+        "abs_err": 0.0013598064698681078,
+        "analog_pass": false,
+        "failed": false
+      },
+      {
+        "draw": 12,
+        "y": 2.460071574626,
+        "abs_err": 0.0005820037458676985,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 13,
+        "y": 2.46010049737,
+        "abs_err": 0.0006109264898679356,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 14,
+        "y": 2.460107939654,
+        "abs_err": 0.0006183687738681165,
+        "analog_pass": true,
+        "failed": false
+      },
+      {
+        "draw": 15,
+        "y": 2.460391474486,
+        "abs_err": 0.0009019036058677266,
+        "analog_pass": true,
+        "failed": false
+      }
+    ]
+  },
+  "physical_tia_validated": false,
+  "miller_family": "CLOSED",
+  "next_experiment": "Experiment 56: more draws on the best 64x array; leftover floor may now dominate tails.",
+  "conclusion": "Decision B \u2014 w10_8s8p MEAN IN BAR, PASS 15/16 (NOT YIELD). tt_mm is official model AGAUSS, not a foundry lot. OPA189 remains the Level-1 TIA host. Miller family remains closed."
+}

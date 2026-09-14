@@ -1,0 +1,70 @@
+ref,part,value,role
+U_amp,OPA189,x16,TIA/invert/ReLU
+D_relu,1N4148,x8,ReLU inverting rectifier
+Vref,precision reference,1 V,bias
+Vdd,supply,+15.0 V,rails
+Vss,supply,-15.0 V,rails
+Rinv1in,resistor,10000 ohm (E96 10000),invert
+Rinv1f,resistor,10000 ohm (E96 10000),invert
+Rinv2in,resistor,10000 ohm (E96 10000),invert
+Rinv2f,resistor,10000 ohm (E96 10000),invert
+Rinvrefin,resistor,10000 ohm (E96 10000),invert
+Rinvreff,resistor,10000 ohm (E96 10000),invert
+Rh1w1,resistor,8346.15342 ohm (E96 8250),weight
+Rh1w2,resistor,6653.68053 ohm (E96 6650),weight
+Rh1b,resistor,37976.8116 ohm (E96 38300),bias
+Rh1f,resistor,10000 ohm (E96 10000),tia_rf
+Rh1r1,resistor,10000 ohm (E96 10000),relu_r1
+Rh1rf,resistor,10000 ohm (E96 10000),relu_rf
+Rh1rl,resistor,10000 ohm (E96 10000),relu_load
+Rh1invin,resistor,10000 ohm (E96 10000),invert
+Rh1invf,resistor,10000 ohm (E96 10000),invert
+Rh2w1,resistor,7539.64567 ohm (E96 7500),weight
+Rh2w2,resistor,9292.75696 ohm (E96 9310),weight
+Rh2b,resistor,66315.5606 ohm (E96 66500),bias
+Rh2f,resistor,10000 ohm (E96 10000),tia_rf
+Rh2r1,resistor,10000 ohm (E96 10000),relu_r1
+Rh2rf,resistor,10000 ohm (E96 10000),relu_rf
+Rh2rl,resistor,10000 ohm (E96 10000),relu_load
+Rh2invin,resistor,10000 ohm (E96 10000),invert
+Rh2invf,resistor,10000 ohm (E96 10000),invert
+Rh3w1,resistor,5125.48418 ohm (E96 5110),weight
+Rh3w2,resistor,7679.43279 ohm (E96 7680),weight
+Rh3b,resistor,25915.6966 ohm (E96 26100),bias
+Rh3f,resistor,10000 ohm (E96 10000),tia_rf
+Rh3r1,resistor,10000 ohm (E96 10000),relu_r1
+Rh3rf,resistor,10000 ohm (E96 10000),relu_rf
+Rh3rl,resistor,10000 ohm (E96 10000),relu_load
+Rh3invin,resistor,10000 ohm (E96 10000),invert
+Rh3invf,resistor,10000 ohm (E96 10000),invert
+Rh4w1,resistor,25650.2211 ohm (E96 25500),weight
+Rh4w2,resistor,31621.294 ohm (E96 31600),weight
+Rh4b,resistor,22716.4148 ohm (E96 22600),bias
+Rh4f,resistor,10000 ohm (E96 10000),tia_rf
+Rh4r1,resistor,10000 ohm (E96 10000),relu_r1
+Rh4rf,resistor,10000 ohm (E96 10000),relu_rf
+Rh4rl,resistor,10000 ohm (E96 10000),relu_load
+Rh4invin,resistor,10000 ohm (E96 10000),invert
+Rh4invf,resistor,10000 ohm (E96 10000),invert
+Ro1w1,resistor,9197.82154 ohm (E96 9090),weight
+Ro1w2,resistor,9245.0475 ohm (E96 9310),weight
+Ro1w3,resistor,55155.9697 ohm (E96 54900),weight
+Ro1w4,resistor,51512.4284 ohm (E96 51100),weight
+Ro1b,resistor,6059355.22 ohm (E96 6.04e+06),bias
+Ro1f,resistor,10000 ohm (E96 10000),tia_rf
+Cinv1,capacitor,1e-12 F,node
+Cinv2,capacitor,1e-12 F,node
+Cinvref,capacitor,1e-12 F,node
+Ch1tia,capacitor,1e-12 F,node
+Ch1rl,capacitor,1e-12 F,node
+Ch1inv,capacitor,1e-12 F,node
+Ch2tia,capacitor,1e-12 F,node
+Ch2rl,capacitor,1e-12 F,node
+Ch2inv,capacitor,1e-12 F,node
+Ch3tia,capacitor,1e-12 F,node
+Ch3rl,capacitor,1e-12 F,node
+Ch3inv,capacitor,1e-12 F,node
+Ch4tia,capacitor,1e-12 F,node
+Ch4rl,capacitor,1e-12 F,node
+Ch4inv,capacitor,1e-12 F,node
+Co1tia,capacitor,1e-12 F,node

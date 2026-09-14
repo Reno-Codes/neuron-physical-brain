@@ -1,0 +1,101 @@
+{
+  "experiment_id": "exp66",
+  "status": "DEMONSTRATED",
+  "decision": "A",
+  "decision_label": "ANALOG 1 mV HOLDS AT 55 C AND 70 C; 85 C REMAINS THE BOUNDARY",
+  "n_analog_pass": 8,
+  "n_class_pass": 8,
+  "rows": [
+    {
+      "temp_C": 55.0,
+      "vector": 0,
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001590364,
+      "failed": false,
+      "abs_err": 5.9976612561850415e-05,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": 55.0,
+      "vector": 1,
+      "y_ref": 1.0025243122678587,
+      "y": 1.00239,
+      "failed": false,
+      "abs_err": 0.0001343122678587605,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 55.0,
+      "vector": 2,
+      "y_ref": 1.018019446537822,
+      "y": 1.017885,
+      "failed": false,
+      "abs_err": 0.00013444653782213045,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 55.0,
+      "vector": 3,
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001590311,
+      "failed": false,
+      "abs_err": 6.0029612561850274e-05,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": 70.0,
+      "vector": 0,
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001470926,
+      "failed": false,
+      "abs_err": 0.00017941461256185034,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    },
+    {
+      "temp_C": 70.0,
+      "vector": 1,
+      "y_ref": 1.0025243122678587,
+      "y": 1.002127,
+      "failed": false,
+      "abs_err": 0.0003973122678586627,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 70.0,
+      "vector": 2,
+      "y_ref": 1.018019446537822,
+      "y": 1.017621,
+      "failed": false,
+      "abs_err": 0.0003984465378219504,
+      "analog_pass": true,
+      "class": 1,
+      "class_ok": true
+    },
+    {
+      "temp_C": 70.0,
+      "vector": 3,
+      "y_ref": 0.0016503406125618503,
+      "y": 0.001470637,
+      "failed": false,
+      "abs_err": 0.00017970361256185044,
+      "analog_pass": true,
+      "class": 0,
+      "class_ok": true
+    }
+  ],
+  "next_experiment": "Promote XOR compile analog range as -40 to 70 C (ideal discrete R). 85 C is class-only. Next MVP step is the DAC/ADC interface, not more temp points.",
+  "silicon": false,
+  "conclusion": "Decision A \u2014 ANALOG 1 mV HOLDS AT 55 C AND 70 C; 85 C REMAINS THE BOUNDARY. MIXED-LEVEL. Not silicon."
+}

@@ -1,0 +1,28 @@
+* 1N4148 switching diode
+*****************************************************************************
+* Parameters are copied UNMODIFIED from the 1N4148 subcircuit that ships
+* inside the Texas Instruments TLC555 PSpice library in the ngspice tree:
+*
+*   C:\ngspice\examples\probe\TLC555.LIB
+*   lines 381-386 (ngspice 47)
+*
+* (C) Copyright 2011 Texas Instruments Incorporated. All rights reserved.
+* The parent TLC555 library is provided by TI on an "as is" basis.
+*
+* This file contains ONLY the 1N4148 subcircuit from that library.
+* No diode parameters were invented or fitted for Physical AI.
+*****************************************************************************
+*
+* Source part: TLC555 all-in-one PSpice model
+* Released by: Analog eLab Design Center, Texas Instruments Inc.
+* Date in parent file: 13JUN2011
+* Simulator: PSPICE
+*
+*****************************************************************************
+
+.SUBCKT 1N4148 1 2
+D1          1 2  D_1N4148_1
+.MODEL D_1N4148_1 D( IS=1N N=1.7 BV=75 IBV=5U RS=2M
++      CJO=4P VJ=750M M=330M FC=500M TT=25.9N
++      EG=1.11 XTI=3 KF=0 AF=1 )
+.ENDS

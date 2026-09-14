@@ -1,0 +1,6 @@
+set ngbehavior=ps
+set skywaterpdk
+set ng_nomodcheck
+set num_threads=4
+option klu
+unset interactive

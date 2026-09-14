@@ -1,0 +1,36 @@
+{
+  "experiment_id": "exp61",
+  "kind": "OPA189 + W=10 8s8p isolated temperature",
+  "status": "DEMONSTRATED",
+  "decision": "A",
+  "decision_label": "OPA189 + 8s8p PASSES -40/27/85 C ON ISOLATED o2",
+  "yield_claim": false,
+  "silicon": false,
+  "physical_tia_validated": false,
+  "repeat_27C_delta": 0.0,
+  "rows": [
+    {
+      "temp_C": -40.0,
+      "y": 2.459977848308,
+      "abs_err": 0.0004882774278680557,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "temp_C": 27.0,
+      "y": 2.460173765013,
+      "abs_err": 0.0006841941328676882,
+      "analog_pass": true,
+      "failed": false
+    },
+    {
+      "temp_C": 85.0,
+      "y": 2.460204748037,
+      "abs_err": 0.0007151771568678633,
+      "analog_pass": true,
+      "failed": false
+    }
+  ],
+  "next_experiment": "Experiment 62: documented precision-rectifier ReLU (OPA189 + diode) as a compiler primitive. Do not reopen miller.",
+  "conclusion": "Decision A \u2014 OPA189 + 8s8p PASSES -40/27/85 C ON ISOLATED o2. Level-1 TIA + Level-4 tiled R. Not silicon. Miller family closed."
+}

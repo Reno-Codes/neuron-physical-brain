@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "claim_language": {
+    "BEHAVIORAL": "Circuit equations are physically meaningful but critical blocks are abstracted.",
+    "MIXED-LEVEL": "Some real/device-level physical components are integrated with behavioral blocks.",
+    "PDK-LEVEL": "Critical components use a real documented PDK.",
+    "TRANSISTOR-LEVEL": "Critical active circuitry is represented by transistor devices.",
+    "HARDWARE": "Physical fabricated/electronic hardware was actually measured."
+  },
+  "primitives": [
+    {
+      "id": "SignedDense_A",
+      "mathematical_function": "z = Wx + b",
+      "circuit_topology": "Architecture A: signed routing via unity inverters into one inverting TIA summing node per neuron. G = G_SCALE*|w|, Rf = 1/G_SCALE. Positive w uses inverted source; negative w uses the original source so V_tia = z.",
+      "component_mapping": "one discrete resistor per nonzero weight/bias; shared input/reference inverters; one TIA per neuron",
+      "supported_range": {
+        "abs_z_V": 12.0,
+        "R_ohm": [
+          100.0,
+          20000000.0
+        ]
+      },
+      "accuracy_limits": "Isolated OPA189 o2 leftover ~0.7 mV at |z|~2.46 V; XOR |z|<1 V is the first compiler target.",
+      "current_limits": "I ~ G_SCALE * |x| * |w| per path",
+      "voltage_limits": {
+        "supply_V": 15.0,
+        "signal_V": 12.0
+      },
+      "temperature_limits_C": [
+        -40,
+        85
+      ],
+      "technology_requirements": "discrete resistors + documented precision op-amp TIA",
+      "spice_implementation": "compiler.primitives.emit_signed_dense_a",
+      "validation_status": "MIXED-LEVEL for OPA189 TIA host (Exp45-47, 58-61). Discrete-R XOR compile is Experiment 63."
+    },
+    {
+      "id": "TIA_OPA189",
+      "mathematical_function": "v = -Rf * I_sum",
+      "circuit_topology": "OPA189 IN+=0, IN-=sum, Rf from OUT to IN-",
+      "component_mapping": "1x OPA189, 1x Rf",
+      "supported_range": {
+        "Rf_ohm": [
+          1000.0,
+          200000.0
+        ]
+      },
+      "accuracy_limits": "Level-1 macromodel. Isolated o2 W=10 8s8p |err|<=0.72 mV at -40/27/85 C.",
+      "current_limits": "datasheet OPA189",
+      "voltage_limits": {
+        "supply_V": 15.0
+      },
+      "temperature_limits_C": [
+        -40,
+        85
+      ],
+      "technology_requirements": "TI OPAx189.LIB unmodified",
+      "spice_implementation": "compiler.primitives.emit_tia_opa189",
+      "validation_status": "MIXED-LEVEL macromodel host. PHYSICAL TIA VALIDATED = NO (not MOS, not silicon). Unre-sized SKY130 Miller family CLOSED."
+    },
+    {
+      "id": "Inverter_OPA189",
+      "mathematical_function": "v_out = -v_in",
+      "circuit_topology": "unity invert, Rin=Rf=10k, IN+=0",
+      "component_mapping": "1x OPA189, 2x 10k",
+      "supported_range": {
+        "abs_vin_V": 12.0
+      },
+      "accuracy_limits": "Level-1 macromodel invert used for sign routing",
+      "current_limits": "datasheet OPA189",
+      "voltage_limits": {
+        "supply_V": 15.0
+      },
+      "temperature_limits_C": [
+        -40,
+        85
+      ],
+      "technology_requirements": "TI OPAx189.LIB unmodified",
+      "spice_implementation": "compiler.primitives.emit_inverter_opa189",
+      "validation_status": "MIXED-LEVEL. Experiment 33 documented invert family; used here as a sign primitive."
+    },
+    {
+      "id": "ReLU_OPA189_1N4148",
+      "mathematical_function": "y = max(-vin, 0); hidden TIA supplies vin=-z so y=max(z,0)",
+      "circuit_topology": "textbook two-diode inverting precision rectifier: R1 from vin to IN-; Dclamp IN-->amp; Dfwd amp->y; Rf y to IN-; IN+=0",
+      "component_mapping": "1x OPA189, 2x 1N4148, 1x 10k",
+      "supported_range": {
+        "z_V": [
+          -3.7,
+          2.0
+        ]
+      },
+      "accuracy_limits": "Experiment 62 gate: |y-max(0,z)| <= 1 mV on isolated sweep including frozen XOR hidden pre-activations",
+      "current_limits": "Rload 10k",
+      "voltage_limits": {
+        "supply_V": 15.0
+      },
+      "temperature_limits_C": [
+        27
+      ],
+      "technology_requirements": "TI OPAx189.LIB + 1N4148 extracted from TI TLC555.LIB",
+      "spice_implementation": "compiler.primitives.emit_relu_opa189_1n4148",
+      "validation_status": "DEMONSTRATED isolated (Experiment 62). MIXED-LEVEL. Not silicon. XOR-network insertion is Experiment 63."
+    },
+    {
+      "id": "Bias_Vref",
+      "mathematical_function": "add constant b via 1 V reference conductance",
+      "circuit_topology": "Vref=1 V; sign via vref or inverted vref per SignedDense_A",
+      "component_mapping": "1x 1 V reference, 1x resistor per bias, shared invert",
+      "supported_range": {
+        "abs_b": 12.0
+      },
+      "accuracy_limits": "set by resistor and TIA",
+      "current_limits": "I_b = G_SCALE * |b|",
+      "voltage_limits": {
+        "vref_V": 1.0
+      },
+      "temperature_limits_C": [
+        -40,
+        85
+      ],
+      "technology_requirements": "precision 1 V reference on the PCB",
+      "spice_implementation": "compiler.primitives.emit_bias_ref",
+      "validation_status": "used in Experiment 6 and Architecture A"
+    }
+  ]
+}
